@@ -1,0 +1,41 @@
+.input{
+    padding: 2vw 5vw;
+    background-color: #1466c3b0;
+    position: absolute;
+    top: 8vw;
+    bottom: 0;
+    width: 100%;
+    overflow-y: scroll;
+}
+
+.col{
+    margin: 0.5vw ;
+}
+
+.inputDiv{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    height: 2vw;
+}
+
+.formControl{
+    max-width: 10vw;
+}
+.controlLabel{
+    font-size: 1vw;
+    margin: 0px 1vw;
+    height: 2vw;
+    line-height: 2vw;
+}
+.controlInvalid{
+    background-color: rgba(255, 0, 0, 0.442);
+}
+.controlValid{
+    background-color: #779dd557;
+}
+
+.nameInput{
+    max-width: 20vw;
+}

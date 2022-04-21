@@ -1,0 +1,19 @@
+.calculateCol{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.calculateBtn{
+    padding: 1vw 2vw;
+    margin: 0 auto;
+}
+
+.formIconDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.formIcon{
+    margin: 0 auto;
+}

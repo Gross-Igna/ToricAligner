@@ -1,0 +1,27 @@
+.barHeader{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    height: 8vw !important;
+
+    background-color: #1466c3;
+    box-shadow: 60px -800px #000000 !important;
+}
+
+.barContainer{
+    color: white;
+    width: 100vw !important;
+    font-size: 1vw;
+    padding: 1vw 5vw;
+}
+
+.barRow{
+    width: 100%;
+}
+
+.brand{
+    float: left;
+}
+.history{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
