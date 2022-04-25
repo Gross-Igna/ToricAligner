@@ -5,11 +5,19 @@
     top: 8vw;
     bottom: 0;
     width: 100%;
-    overflow-y: scroll;
+
+    font-size: 1vw;
 }
 
 .col{
-    margin: 0.5vw ;
+    margin: 0.5vw 0vw;
+}
+.centeredRow{
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .inputDiv{
@@ -18,24 +26,33 @@
     justify-content: center;
 
     height: 2vw;
+
+    white-space: nowrap;
 }
 
 .formControl{
+    min-width: 3vw;
     max-width: 10vw;
+    font-size: 0.7vw;
 }
 .controlLabel{
-    font-size: 1vw;
-    margin: 0px 1vw;
+    font-size: 0.8vw;
+    margin: 0px 0.5vw;
     height: 2vw;
     line-height: 2vw;
+
+    display: inline-block;
 }
 .controlInvalid{
-    background-color: rgba(255, 0, 0, 0.442);
+    background-color: rgba(255, 0, 0, 0.442) !important;
 }
 .controlValid{
-    background-color: #779dd557;
+    background-color: #779dd557 !important;
 }
 
 .nameInput{
     max-width: 20vw;
+}
+.colorgrey{
+    color: grey !important;
 }

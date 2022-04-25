@@ -1,23 +1,29 @@
 import React, {useState, useEffect} from 'react';
 import {Form} from 'react-bootstrap';
 
-export default function NumInput({label, placeholder, min, max, step, VS, setVS}) {
+export default function NumInput({label, placeholder, min, max, step, readonly, VS, setVS}) {
 
     const [changed, setChanged] = useState(false);
-    const [Class, setClass] = useState('formControl');
+    const [Class, setClass] = useState('');
 
     useEffect(() => {
         //Check validity and set class.
-        if(changed){
-            if(VS[0].length < 4){
-                setVS=[VS[0],0];
-                setClass('formControl controlInvalid');
+        if(readonly){
+                setClass('formControl controlValid')
             }else{
-                setVS=[VS[0],1];
-                setClass('formControl controlValid');
+                if(changed){
+                    if(VS[0] < min || VS[0] > max){
+                        setVS([VS[0],0]);
+                        setClass('formControl controlInvalid');
+                    }else{
+                        setVS([VS[0],1]);
+                        setClass('formControl controlValid');
+                    }
+                }else{
+                    setClass('formControl')
+                }
             }
-        }
-    });
+    }, [VS[0]]);
 
     return (
         <Form>
@@ -25,8 +31,8 @@ export default function NumInput({label, placeholder, min, max, step, VS, setVS}
                 <div className='inputDiv'>
                     <span className='controlLabel'>{label}</span>
                     <Form.Control type="number" placeholder={placeholder}
-                    min={min} max={max} step={step}
-                    className={Class} value={VS}
+                    min={min} max={max} step={step} readOnly={readonly? true : false}
+                    className={Class} value={VS[0]}
                     onChange={(e) => 
                         {      
                             setChanged(true);

@@ -1,21 +1,16 @@
 import React, {useState, useEffect} from 'react'
 import {Form} from 'react-bootstrap';
 
-export default function PatientName({Val, setVal, setSt}) {
+export default function Date({Val, setVal, setSt}) {
 
     const [changed, setChanged] = useState(false);
-    const [Class, setClass] = useState('formControl nameInput')
+    const [Class, setClass] = useState('formControl colorgrey')
 
     useEffect(() => {
         //Check validity and set class.
         if(changed){
-            if(Val.length < 4){
-                setSt(0);
-                setClass('formControl controlInvalid nameInput');
-            }else{
-                setSt(1);
-                setClass('formControl controlValid nameInput');
-            }
+            setSt(1);
+            setClass('formControl controlValid');
         }
     });
 
@@ -23,9 +18,9 @@ export default function PatientName({Val, setVal, setSt}) {
         <Form>
             <Form.Group>
                 <div className='inputDiv'>
-                    <span className='controlLabel'>Patient Name:</span>
+                    <span className='controlLabel'>Date of surgery:</span>
                     <Form.Control 
-                        type="text" placeholder='Enter name'
+                        type="date" placeholder='Enter date'
                         className={Class} value={Val}
                         onChange={
                             (e) => 
