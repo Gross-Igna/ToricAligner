@@ -1,183 +1,98 @@
 import React from 'react'
 import './postopdata.css'
-import patienticon from '../img/patient.png';
-import {BsFillCalculatorFill} from 'react-icons/bs'
+import PostopDataA from './forms/PostopDataA';
 import Form2 from './forms/Form2'
 import octicon from '../img/oct.png'
 import {Container, Row, Col} from 'react-bootstrap';
+import CalculateBtn from './forms/ContinueBtn';
+import PostopDataB from './forms/PostopDataB';
 
-export default function PostopData() {
+export default function PostopData({
+    F51VS, setF51VS,
+    F52VS, setF52VS,
+    F53VS, setF53VS,
+
+    F61VS, setF61VS,
+    F62VS, setF62VS,
+    F63VS, setF63VS,
+
+    F71VS, setF71VS,
+    F72VS, setF72VS,
+    F73VS, setF73VS,
+    F74VS, setF74VS,
+    F75VS, setF75VS,
+    F76VS, setF76VS,
+
+    F81VS, setF81VS,
+    F82VS, setF82VS,
+    F83VS, setF83VS,
+    F84VS, setF84VS,
+    F85VS, setF85VS,
+    F86VS, setF86VS,
+    F87Val, setF87Val,
+    F88Val,setF88Val,
+
+    F91VS, setF91VS,
+    F92VS, setF92VS,
+    F93VS, setF93VS,
+    F94VS, setF94VS,
+    F95VS, setF95VS,
+    F96VS, setF96VS,
+    F97Val, setF97Val,
+    F98Val, setF98Val
+}) {
   return (
     <Container>
 
-        <Row>Postoperative data</Row>
-
         <Row>
-            <Col>
-                <Col xs={1} className='formIconDiv'>
-                    <img src={patienticon} width='150vw' className='formIcon'/>
+            <Row>
+                Postoperative data
+            </Row>
+            <Row>
+                <Col  xs={8}>
+                    <PostopDataA
+                        F51VS={F51VS} setF51VS={setF51VS}
+                        F52VS={F52VS} setF52VS={setF52VS}
+                        F53VS={F53VS} setF53VS={setF53VS}
+            
+                        F61VS={F61VS} setF61VS={setF61VS}
+                        F62VS={F62VS} setF62VS={setF62VS}
+                        F63VS={F63VS} setF63VS={setF63VS}
+            
+                        F71VS={F71VS} setF71VS={setF71VS}
+                        F72VS={F72VS} setF72VS={setF72VS}
+                        F73VS={F73VS} setF73VS={setF73VS}
+                        F74VS={F74VS} setF74VS={setF74VS}
+                        F75VS={F75VS} setF75VS={setF75VS}
+                        F76VS={F76VS} setF76VS={setF76VS}
+                    />      
                 </Col>
-            </Col>
-            <Col xs={6}>
-                <Row>
-                    <Col>
-                        Implanted IOL cilinder:
-                    </Col>
-                    <Col>
-                        <Form2/>
-                    </Col>
-                    <Col>
-                        <Form2/>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col>
-                        Postoperative refraction:
-                    </Col>
-                    <Col>
-                        <Form2/>
-                    </Col>
-                    <Col>
-                        <Form2/>
-                    </Col>
-                </Row>
-                
-                <Row>
-                    Induced corneal astigmatism
-                </Row>
-                <Row>
-                    <Col>
-                        Scheimpflug / OCT1: 
-                    </Col>
-                    <Col>
-                        <Form2/>
-                    </Col>
-                    <Col>
-                        <Form2/>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col>
-                        Scheimpflug / OCT2: 
-                    </Col>
-                    <Col>
-                        <Form2/>
-                    </Col>
-                    <Col>
-                        <Form2/>
-                    </Col>
-                </Row>
-            </Col>
-            <Col xs={4} className='calculateCol'>
-                <button className='calculateBtn' type="button">
-                    Calculate<br></br><BsFillCalculatorFill/>
-                </button>
-            </Col>
+                <Col xs={4} className='centeredCol'>
+                    <CalculateBtn />
+                </Col>
+            </Row>
         </Row>
 
         <Row>
-            <Row>Postop Measures</Row>
-            <Col xs={2} className='formIconDiv'>
-                <img src={octicon} width='150vw' className='formIcon'/>
-            </Col>
-                
-            <Col>
-                <Row>
-                    Scheimpflug / OCT1
-                </Row>
-                <Row>
-                    <Col>
-                        Measure 1:
-                    </Col>
-                    <Col>
-                        <Form2/>
-                    </Col>
-                    <Col>
-                        <Form2/>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col>
-                        Measure 2:
-                    </Col>
-                    <Col>
-                        <Form2/>
-                    </Col>
-                    <Col>
-                        <Form2/>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col>
-                        Measure 3:
-                    </Col>
-                    <Col>
-                        <Form2/>
-                    </Col>
-                    <Col>
-                        <Form2/>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col>
-                        Average Magnitude: 25,2
-                    </Col>
-                </Row>
-                <Row>
-                    <Col>
-                        Average Axis: 23,2                    
-                    </Col>
-                </Row>
-            </Col>
-
-            <Col>
-                <Row>
-                Scheimpflug / OCT2
-                </Row>
-                <Row>
-                    <Col>
-                        Measure 1:
-                    </Col>
-                    <Col>
-                        <Form2/>
-                    </Col>
-                    <Col>
-                        <Form2/>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col>
-                        Measure 2:
-                    </Col>
-                    <Col>
-                        <Form2/>
-                    </Col>
-                    <Col>
-                        <Form2/>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col>
-                        Measure 3:
-                    </Col>
-                    <Col>
-                        <Form2/>
-                    </Col>
-                    <Col>
-                        <Form2/>
-                    </Col>
-                    <Row>
-                        <Col>
-                            Average Magnitude: 25,2
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col>
-                            Average Axis: 23,2                    
-                        </Col>
-                    </Row>
-                </Row>
-            </Col>
+            <PostopDataB
+                F81VS={F81VS} setF81VS={setF81VS}
+                F82VS={F82VS} setF82VS={setF82VS}
+                F83VS={F83VS} setF83VS={setF83VS}
+                F84VS={F84VS} setF84VS={setF84VS}
+                F85VS={F85VS} setF85VS={setF85VS}
+                F86VS={F86VS} setF86VS={setF86VS}
+                F87Val={F87Val} setF87Val={setF87Val}
+                F88Val={F88Val} setF88Val={setF88Val}
+    
+                F91VS={F91VS} setF91VS={setF91VS}
+                F92VS={F92VS} setF92VS={setF92VS}
+                F93VS={F93VS} setF93VS={setF93VS}
+                F94VS={F94VS} setF94VS={setF94VS}
+                F95VS={F95VS} setF95VS={setF95VS}
+                F96VS={F96VS} setF96VS={setF96VS}
+                F97Val={F97Val} setF97Val={setF97Val}
+                F98Val={F98Val} setF98Val={setF98Val}
+            />
         </Row>
     </Container>
   )

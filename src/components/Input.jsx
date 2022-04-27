@@ -10,9 +10,9 @@ export default function Input() {
     const [stage, setStage] = useState(1);
 
     //Reference for knowing if form is valid
-    const [validPreop, setValidPreop] = useState(false);
+    const [validPreop, setValidPreop] = useState(true);
     //UseEffect to check if form is valid after any change
-    useEffect(() => {
+    /*useEffect(() => {
       if(
         F11St == 1 && 
         F12St == 1 &&
@@ -42,7 +42,7 @@ export default function Input() {
       }else{
         setValidPreop(false);
       }
-    })
+    })*/
 
     //Code for states for every input: 
     //
@@ -130,6 +130,81 @@ export default function Input() {
             //Axis
             const[F48Val, setF48Val] = useState("0")
 
+    // // // Postoperative Data // // //
+      //Implanted IOL Cilinder
+        //IOL Plane
+        const [F51VS, setF51VS] = useState("", -1)
+        //Corneal plane
+        const [F52VS, setF52VS] = useState("...", -1)
+        //Orientation
+        const [F53VS, setF53VS] = useState("...", -1)
+      //Postoperative refraction
+        //Sphere
+        const [F61VS, setF61VS] = useState("", -1)
+        //Cylinder
+        const [F62VS, setF62VS] = useState("", -1)
+        //Axis
+        const [F63VS, setF63VS] = useState("", -1)
+      //Induced corneal astigmatism
+        //Scheimpflug / OCT1
+          //Sphere
+          const [F75VS, setF75VS] = useState("", -1)
+          //Cylinder
+          const [F71VS, setF71VS] = useState("", -1)
+          //Axis
+          const [F72VS, setF72VS] = useState("", -1)
+        //Scheimpflug / OCT2
+          //Sphere
+          const [F76VS, setF76VS] = useState("", -1)
+          //Cylinder
+          const [F73VS, setF73VS] = useState("", -1)
+          //Axis
+          const [F74VS, setF74VS] = useState("", -1)
+      //Postop Measures
+      //Scheimpflug / OCT1
+        //Measure 1
+          //Magnitude
+          const [F81VS, setF81VS] = useState("", -1)
+          //Axis
+          const [F82VS, setF82VS] = useState("", -1)
+        //Measure 2
+          //Magnitude
+          const [F83VS, setF83VS] = useState("", -1)
+          //Axis
+          const [F84VS, setF84VS] = useState("", -1)
+        //Measure 3
+          //Magnitude
+          const [F85VS, setF85VS] = useState("", -1)
+          //Axis
+          const [F86VS, setF86VS] = useState("", -1)
+        //Averages
+          //Magnitude
+          const [F87Val, setF87Val] = useState("0")
+          //Axis
+          const [F88Val, setF88Val] = useState("0")
+
+      //Scheimpflug / OCT2
+        //Measure 1
+          //Magnitude
+          const [F91VS, setF91VS] = useState("", -1)
+          //Axis
+          const [F92VS, setF92VS] = useState("", -1)
+        //Measure 2
+          //Magnitude
+          const [F93VS, setF93VS] = useState("", -1)
+          //Axis
+          const [F94VS, setF94VS] = useState("", -1)
+        //Measure 3
+          //Magnitude
+          const [F95VS, setF95VS] = useState("", -1)
+          //Axis
+          const [F96VS, setF96VS] = useState("", -1)
+        //Averages
+          //Magnitude
+          const [F97Val, setF97Val] = useState("0")
+          //Axis
+          const [F98Val, setF98Val] = useState("0")
+
     return (
       <div className='input'>
 
@@ -172,7 +247,40 @@ export default function Input() {
             F48Val={F48Val} setF48Val={setF48Val}
           />)
           :
-          <PostopData/>
+          <PostopData
+            F51VS={F51VS} setF51VS={setF51VS}
+            F52VS={F52VS} setF52VS={setF52VS}
+            F53VS={F53VS} setF53VS={setF53VS}
+
+            F61VS={F61VS} setF61VS={setF61VS}
+            F62VS={F62VS} setF62VS={setF62VS}
+            F63VS={F63VS} setF63VS={setF63VS}
+
+            F71VS={F71VS} setF71VS={setF71VS}
+            F72VS={F72VS} setF72VS={setF72VS}
+            F73VS={F73VS} setF73VS={setF73VS}
+            F74VS={F74VS} setF74VS={setF74VS}
+            F75VS={F75VS} setF75VS={setF75VS}
+            F76VS={F76VS} setF76VS={setF76VS}
+
+            F81VS={F81VS} setF81VS={setF81VS}
+            F82VS={F82VS} setF82VS={setF82VS}
+            F83VS={F83VS} setF83VS={setF83VS}
+            F84VS={F84VS} setF84VS={setF84VS}
+            F85VS={F85VS} setF85VS={setF85VS}
+            F86VS={F86VS} setF86VS={setF86VS}
+            F87Val={F87Val} setF87Val={setF87Val}
+            F88Val={F88Val} setF88Val={setF88Val}
+
+            F91VS={F91VS} setF91VS={setF91VS}
+            F92VS={F92VS} setF92VS={setF92VS}
+            F93VS={F93VS} setF93VS={setF93VS}
+            F94VS={F94VS} setF94VS={setF94VS}
+            F95VS={F95VS} setF95VS={setF95VS}
+            F96VS={F96VS} setF96VS={setF96VS}
+            F97Val={F97Val} setF97Val={setF97Val}
+            F98Val={F98Val} setF98Val={setF98Val}
+          />
         }
       </div>
     )

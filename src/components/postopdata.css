@@ -2,3 +2,9 @@
     width: 100% !important;
     text-align: center;
 }
+
+.centeredCol{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
