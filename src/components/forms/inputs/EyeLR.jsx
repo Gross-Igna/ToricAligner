@@ -4,17 +4,17 @@ import {Form} from 'react-bootstrap';
 export default function EyeLR({Val, setVal, setSt}) {
 
     const [changed, setChanged] = useState(false);
-    const [Class, setClass] = useState('formControl colorgrey')
+    const [Class, setClass] = useState('formControl colorgrey eyeInput')
 
     useEffect(() => {
         //Check validity and set class.
         if(changed){
             if(Val === "Select Eye"){
                 setSt(0);
-                setClass('formControl controlInvalid');
+                setClass('formControl controlInvalid eyeInput');
             }else{
                 setSt(1);
-                setClass('formControl controlValid');
+                setClass('formControl controlValid eyeInput');
             }
         }
     });
@@ -22,8 +22,8 @@ export default function EyeLR({Val, setVal, setSt}) {
     return (
         <Form>
             <Form.Group>
-                <div className='inputDiv'>
-                    <span className='controlLabel'>Eye:</span>
+                <div className='inputDiv eyeDiv'>
+                    {/*<span className='controlLabel'></span>*/}
                     <Form.Select 
                         className={Class} value={Val}
                         onChange={
@@ -34,8 +34,8 @@ export default function EyeLR({Val, setVal, setSt}) {
                             }
                         }>
                         <option value="Select Eye">Select Eye</option>
-                        <option value="Left eye">Left eye</option>
-                        <option value="Right eye">Right eye</option>
+                        <option value="Left">Left Eye</option>
+                        <option value="Right">Right Eye</option>
                     </Form.Select>
                 </div>  
             </Form.Group>

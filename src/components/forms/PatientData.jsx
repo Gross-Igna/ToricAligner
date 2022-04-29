@@ -1,6 +1,5 @@
 import React from 'react'
 import {Container, Row, Col} from 'react-bootstrap';
-import patienticon from '../../img/patient.png';
 import PatientName from './inputs/PatientName';
 import SurgeonName from './inputs/SurgeonName';
 import EyeLR from './inputs/EyeLR';
@@ -21,62 +20,56 @@ export default function patientData({
     return (
     <Container>
             <Row>
-                <Row>
-                    Patient data
+                <Row className='hCenter patientDataForm'>
+                    <Row>
+                        <Col xs={5} style={{paddingRight: 0}}>
+                            <PatientName Val={F11Val} setVal={setF11Val} setSt={setF11St}/>
+                        </Col>
+                        <Col xs={2} className='eyeCol'>
+                            <EyeLR Val={F13Val} setVal={setF13Val} setSt={setF13St}/>
+                        </Col>
+                        <Col xs={5}>
+                            <SurgeonName Val={F12Val} setVal={setF12Val} setSt={setF12St}/>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col xs={7} className='alignLeft'>
+                            <Date Val={F14Val} setVal={setF14Val} setSt={setF14St}/>
+                        </Col>
+                        <Col xs={5}>
+                            <NumInput VS={F15VS} setVS={setF15VS}
+                            label="Axial Length:"
+                            placeholder="20~30"
+                            min={20}
+                            max={30}
+                            step={0.1}
+                            readonly={false}
+                            />
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col xs={6}>
+                            <NumInput VS={F16VS} setVS={setF16VS}
+                            label="IOL/Cornea cylinder ratio:"
+                            placeholder="20~30"
+                            min={20}
+                            max={30}
+                            step={0.1}
+                            readonly={true}
+                            />
+                        </Col>
+                        <Col xs={6}>
+                            <NumInput VS={F17VS} setVS={setF17VS}
+                            label="Required cylinder at IOL plane:"
+                            placeholder="20~30"
+                            min={20}
+                            max={30}
+                            step={0.1}
+                            readonly={true}
+                            />
+                        </Col>
+                    </Row>
                 </Row>
-                <Col xs={2} className='formIconDiv'>
-                    <img src={patienticon} width='150vw' className='formIcon'/>
-                </Col>
-                <Col xs={10}>
-                <Row>
-                    <PatientName Val={F11Val} setVal={setF11Val} setSt={setF11St}/>
-                </Row>
-                <Row>
-                    <Col>
-                        <SurgeonName Val={F12Val} setVal={setF12Val} setSt={setF12St}/>
-                    </Col>
-                    <Col>
-                        <EyeLR Val={F13Val} setVal={setF13Val} setSt={setF13St}/>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col>
-                        <Date Val={F14Val} setVal={setF14Val} setSt={setF14St}/>
-                    </Col>
-                    <Col>
-                        <NumInput VS={F15VS} setVS={setF15VS}
-                        label="Axial Length"
-                        placeholder="20~30"
-                        min={20}
-                        max={30}
-                        step={0.1}
-                        readonly={false}
-                        />
-                    </Col>
-                </Row>
-                <Row>
-                    <Col>
-                        <NumInput VS={F16VS} setVS={setF16VS}
-                        label="IOL/Cornea cylinder ratio:"
-                        placeholder="20~30"
-                        min={20}
-                        max={30}
-                        step={0.1}
-                        readonly={true}
-                        />
-                    </Col>
-                    <Col>
-                        <NumInput VS={F17VS} setVS={setF17VS}
-                        label="Required cylinder at IOL plane:"
-                        placeholder="20~30"
-                        min={20}
-                        max={30}
-                        step={0.1}
-                        readonly={true}
-                        />
-                    </Col>
-                </Row>
-                </Col>
             </Row>
     </Container>
     )

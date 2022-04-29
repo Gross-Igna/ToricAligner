@@ -4,7 +4,7 @@ import {Form} from 'react-bootstrap';
 export default function Date({Val, setVal, setSt}) {
 
     const [changed, setChanged] = useState(false);
-    const [Class, setClass] = useState('formControl colorgrey')
+    const [Class, setClass] = useState('formControl colorgrey controlNeutral')
 
     useEffect(() => {
         //Check validity and set class.

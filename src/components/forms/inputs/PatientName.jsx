@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from 'react'
-import {Form} from 'react-bootstrap';
+import {Form, Row, Col} from 'react-bootstrap';
 
 export default function PatientName({Val, setVal, setSt}) {
 
     const [changed, setChanged] = useState(false);
-    const [Class, setClass] = useState('formControl nameInput')
+    const [Class, setClass] = useState('formControl nameInput controlNeutral')
 
     useEffect(() => {
         //Check validity and set class.
@@ -21,11 +21,10 @@ export default function PatientName({Val, setVal, setSt}) {
 
     return (
         <Form>
-            <Form.Group>
-                <div className='inputDiv'>
-                    <span className='controlLabel'>Patient Name:</span>
+            <Form.Group className='inputDiv patientNameDiv'>
+                    <span className='controlLabel'>Patient:</span>
                     <Form.Control 
-                        type="text" placeholder='Enter name'
+                        type="text" placeholder='Enter patient name'
                         className={Class} value={Val}
                         onChange={
                             (e) => 
@@ -36,7 +35,6 @@ export default function PatientName({Val, setVal, setSt}) {
                             }
                         }
                     />
-                </div>  
             </Form.Group>
         </Form>
     )

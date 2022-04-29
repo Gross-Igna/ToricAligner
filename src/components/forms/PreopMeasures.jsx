@@ -54,7 +54,6 @@ export default function PreopMeasures({
             setF25VS([optimizedAstigmatism.toString().substring(0,5) , F25VS[1]])    
         }catch(error){}
         
-
     }, [ F21VS[0], F22VS[0], F23VS[0], F24VS[0] ])
 
 
@@ -119,13 +118,17 @@ export default function PreopMeasures({
 
     return (
     <Row>
-        <Row>Preoperative Measures</Row>
         
-        <Col xs={2} className='formIconDiv'>
-            <img src={octicon} width='150vw' className='formIcon'/>
+        <Col xs={2} className='formIconDiv block1'>
+            <Row>
+                Measures
+            </Row>
+            <Row>
+                <img src={octicon} className='formIcon'/>
+            </Row>
         </Col>
 
-        <Col>
+        <Col xs={4} className='vCenter'>
             <Row>
                 Keratometric Astigmatism
             </Row>
@@ -200,7 +203,7 @@ export default function PreopMeasures({
             </Row>
         </Col>
 
-        <Col>
+        <Col xs={3} className='vCenter'>
             <Row>
                 Scheimpflug / OCT1
             </Row>
@@ -281,13 +284,11 @@ export default function PreopMeasures({
             </Row>
             <Row className='centeredRow'>
                 Average Magnitude: {F37Val}
-            </Row>
-            <Row className='centeredRow'>
                 Average Axis: {F38Val}
             </Row>
         </Col>
 
-        <Col>
+        <Col xs={3} className='vCenter'>
             <Row>
             Scheimpflug / OCT2
             </Row>
@@ -368,8 +369,6 @@ export default function PreopMeasures({
             </Row>
             <Row className='centeredRow'>
                 Average Magnitude: {F47Val}
-            </Row>
-            <Row className='centeredRow'>
                 Average Axis: {F48Val}
             </Row>    
         </Col>

@@ -1,9 +1,9 @@
 .barHeader{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    height: 8vw !important;
+    height: 6vw !important;
 
-    background-color: #1466c3;
-    box-shadow: 60px -800px #000000 !important;
+    background-color: #094fa0aa;
+    filter: drop-shadow(-4px 6px 15px #000);
 }
 
 .barContainer{

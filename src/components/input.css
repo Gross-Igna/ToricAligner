@@ -1,16 +1,20 @@
 .input{
-    padding: 2vw 5vw;
-    background-color: #1466c3b0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
     position: absolute;
-    top: 8vw;
+    top: 6vw;
     bottom: 0;
     width: 100%;
 
-    font-size: 1vw;
-}
+    padding: 3vw 4vw;
 
-.col{
-    margin: 0.5vw 0vw;
+    font-size: 1vw;
+    color: black;
+}
+.hCenter{
+    margin: 0 auto;
 }
 .centeredRow{
     width: 100%;
@@ -19,40 +23,83 @@
     flex-direction: column;
     justify-content: center;
 }
+.vCenter{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+h1{
+    text-align: center;
+    font-size: 300%;
+    font-family: 'Titillium Web', sans-serif;
+    font-weight: 600;
+
+    margin: 0vw 0vw !important;
+
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.title{
+    position: relative;
+    height: 10%;
+}
+
+.formRow{
+    height: 45%;
+}
+.formIcon{
+    margin: 0 auto;
+    width: 12vw;
+}
+.formIconDiv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+    font-family: 'Titillium Web', sans-serif;
+    font-weight: 600;
+}
 
 .inputDiv{
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: left;
 
-    height: 2vw;
+    width: 100%;
+    height: 2.5vw;
 
     white-space: nowrap;
 }
 
 .formControl{
-    min-width: 3vw;
-    max-width: 10vw;
-    font-size: 0.7vw;
+    min-width: 3vw;  
+    border-radius: 15px;  
 }
 .controlLabel{
-    font-size: 0.8vw;
+    font-size: 1vw;
     margin: 0px 0.5vw;
-    height: 2vw;
-    line-height: 2vw;
+    height: 2.5vw;
+    line-height: 2.5vw;
 
     display: inline-block;
 }
+
+.controlNeutral{
+    font-size: 0.7vw;
+}
 .controlInvalid{
+    font-size: 0.9vw;
     background-color: rgba(255, 0, 0, 0.442) !important;
 }
 .controlValid{
+    font-size: 0.9vw;
     background-color: #779dd557 !important;
 }
 
-.nameInput{
-    max-width: 20vw;
-}
 .colorgrey{
     color: grey !important;
 }

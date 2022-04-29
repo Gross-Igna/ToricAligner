@@ -180,8 +180,6 @@ export default function PostopDataB({
                     <Col>
                         Average Magnitude: {F87Val}
                     </Col>
-                </Row>
-                <Row>
                     <Col>
                         Average Axis: {F88Val}                   
                     </Col>
@@ -274,8 +272,6 @@ export default function PostopDataB({
                     <Col className='centeredRow'>
                         Average Magnitude: {F97Val}
                     </Col>
-                </Row>
-                <Row>
                     <Col className='centeredRow'>
                         Average Axis: {F98Val}                   
                     </Col>

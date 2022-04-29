@@ -4,7 +4,7 @@ import {Form} from 'react-bootstrap';
 export default function SurgeonName({Val, setVal, setSt}) {
 
     const [changed, setChanged] = useState(false);
-    const [Class, setClass] = useState('formControl');
+    const [Class, setClass] = useState('formControl surgeonNameInput controlNeutral');
 
 
     useEffect(() => {
@@ -12,10 +12,10 @@ export default function SurgeonName({Val, setVal, setSt}) {
         if(changed){
             if(Val.length < 4){
                 setSt(0);
-                setClass('formControl controlInvalid');
+                setClass('formControl controlInvalid surgeonNameInput');
             }else{
                 setSt(1);
-                setClass('formControl controlValid');
+                setClass('formControl controlValid surgeonNameInput');
             }
         }
     });
@@ -24,8 +24,8 @@ export default function SurgeonName({Val, setVal, setSt}) {
         <Form>
             <Form.Group>
                 <div className='inputDiv'>
-                    <span className='controlLabel'>Surgeon Name:</span>
-                    <Form.Control type="text" placeholder='Enter name' 
+                    <span className='controlLabel'>Surgeon:</span>
+                    <Form.Control type="text" placeholder='Enter surgeon name' 
                     className={Class} value={Val}
                     onChange={(e) => 
                         {      

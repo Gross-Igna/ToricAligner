@@ -1,19 +1,112 @@
+.preopData{
+    height: 100%;
+    font-family: 'Titillium Web', sans-serif;
+}
 .calculateCol{
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
-
+    
 .calculateBtn{
     padding: 1vw 2vw;
     margin: 0 auto;
 }
 
-.formIconDiv{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+
+/*Old borders and shadows method: 2 separated divs for patient data and its icon to prevent 
+using complex bootstrap in preopdata.jsx
+.border1{
+    z-index: 5;
+
+    margin: 0.8vw 0vw;
+
+    border-style: solid;
+    border-color: white;
+    border-width: 1.5px;
+    border-right: 0px;
+
+    border-radius: 20px;
+    border-top-right-radius: 0%;
+    border-bottom-right-radius: 0%;
+    
+    background-color: #094fa0aa;
+    filter: drop-shadow(-6px 9px 10px #000);
+    box-shadow: inset 100% -5px 20px #4d555f;
+    background: linear-gradient(to right, #094fa0aa, rgb(17, 43, 71));
 }
-.formIcon{
-    margin: 0 auto;
+
+.border2{
+    z-index: 4;
+
+    margin: 0.8vw 0vw;
+
+    border-style: solid;
+    border-color: white;
+    border-width: 1.5px;
+    border-left: 0px;
+
+    border-radius: 20px;
+    border-top-left-radius: 0%;
+    border-bottom-left-radius: 0%;
+
+    background-color: #094fa0aa;
+    filter: drop-shadow(-6px 9px 10px #000);
+    box-shadow: inset 30px -5px 20px #0d4a8f;
+    background: linear-gradient(to right, rgb(45, 93, 148), rgb(45, 93, 148));;
+}
+.borderUnion{
+    position: absolute;
+    top: 0;
+    right: 100%;
+    height: 100%;
+    width: 5%;
+    background-color: white;
+}
+*/
+
+.block1{
+    max-width: 13.2vw !important;
+}
+.block2{
+    min-width: 50vw !important;
+}
+.border1{
+    padding: 1vw 0vw;
+
+    border-style: solid;
+    border-color: white;
+    border-width: 1.5px;
+    border-radius: 20px;
+
+    background-color: #094fa0aa;
+    filter: drop-shadow(9px 16px 16px #000);
+}
+
+
+.patientDataForm > .row{
+    margin: 0.4vw 0;
+}
+.nameInput{
+    max-width: 30vw !important;
+}
+.patientNameDiv{
+    margin-left: auto;
+    margin-right: 0;
+    
+    white-space: nowrap;
+    
+    max-width: 20vw;
+}
+.eyeCol{
+    padding-left: 0 !important;
+}
+.eyeInput{
+    margin-left: 0.4vw;
+    width: 100% !important;
+
+    font-size: 0.7vw !important;
+}
+.surgeonNameInput{
+    max-width: 21vw !important;
 }
