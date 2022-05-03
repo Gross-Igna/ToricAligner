@@ -3,7 +3,7 @@ import NumInput from './inputs/NumInput';
 import Form1 from './Form1';
 import Form2 from './Form2';
 import {Row, Col} from 'react-bootstrap';
-import octicon from '../../img/oct.png'
+import octicon from '../../img/oct-border4.png'
 
 export default function PreopMeasures({
     F21VS, setF21VS,
@@ -117,9 +117,10 @@ export default function PreopMeasures({
 
 
     return (
-    <Row>
         
-        <Col xs={2} className='formIconDiv block1'>
+    <Row className='bigBlock2 styledBox'>
+        
+        <Col className='formIconDiv block4'>
             <Row>
                 Measures
             </Row>
@@ -128,12 +129,12 @@ export default function PreopMeasures({
             </Row>
         </Col>
 
-        <Col xs={4} className='vCenter'>
-            <Row>
+        <Col xs={4} className='vCenter formCol'>
+            <Row xs={12} className='title2'>
                 Keratometric Astigmatism
             </Row>
             <Row>
-                <Col>
+                <Col xs={6}>
                     <NumInput VS={F21VS} setVS={setF21VS}
                     label="K2 (flat):"
                     placeholder="20~30"
@@ -143,8 +144,8 @@ export default function PreopMeasures({
                     readonly={false}
                     />
                 </Col>
-                <Col>
-                <NumInput VS={F22VS} setVS={setF22VS}
+                <Col xs={6}>
+                    <NumInput VS={F22VS} setVS={setF22VS}
                     label="K1 (steep):"
                     placeholder="20~30"
                     min={0}
@@ -155,7 +156,7 @@ export default function PreopMeasures({
                 </Col>
             </Row>
             <Row>
-                <Col>
+                <Col xs={6}>
                     <NumInput VS={F23VS} setVS={setF23VS}
                     label="Magnitude:"
                     placeholder="..."
@@ -165,7 +166,7 @@ export default function PreopMeasures({
                     readonly={true}
                     />
                 </Col>
-                <Col>
+                <Col xs={6}>
                 <NumInput VS={F24VS} setVS={setF24VS}
                     label="Steep Meridian:"
                     placeholder="..."
@@ -176,11 +177,11 @@ export default function PreopMeasures({
                     />
                 </Col>
             </Row>
-            <Row>
+            <Row className='title2'>
                 Optimized Astigmatism
             </Row>
             <Row>
-                <Col>
+                <Col xs={6}>
                     <NumInput VS={F25VS} setVS={setF25VS}
                     label="Magnitude:"
                     placeholder="..."
@@ -190,7 +191,7 @@ export default function PreopMeasures({
                     readonly={true}
                     />   
                 </Col>
-                <Col>
+                <Col xs={6}>
                     <NumInput VS={F24VS} setVS={setF24VS}
                     label="Steep Meridian:"
                     placeholder="..."
@@ -203,15 +204,15 @@ export default function PreopMeasures({
             </Row>
         </Col>
 
-        <Col xs={3} className='vCenter'>
-            <Row>
+        <Col xs={3} className='vCenter formCol'>
+            <Row className='title2'>
                 Scheimpflug / OCT1
             </Row>
             <Row>
-                <Col>
+                <Col xs={4} className='vCenter textAlignRight'>
                     Measure 1:
                 </Col>
-                <Col>
+                <Col xs={4} className='noPadding'>
                     <NumInput VS={F31VS} setVS={setF31VS}
                     label=""
                     placeholder="Magnitude"
@@ -221,7 +222,7 @@ export default function PreopMeasures({
                     readonly={false}
                     />
                 </Col>
-                <Col>
+                <Col xs={4} className='noPadding'>
                     <NumInput VS={F32VS} setVS={setF32VS}
                     label=""
                     placeholder="Axis"
@@ -233,10 +234,10 @@ export default function PreopMeasures({
                 </Col>
             </Row>
             <Row>
-                <Col>
+                <Col xs={4} className='vCenter textAlignRight'>
                     Measure 2:
                 </Col>
-                <Col>
+                <Col xs={4} className='noPadding'>
                     <NumInput VS={F33VS} setVS={setF33VS}
                     label=""
                     placeholder="Magnitude"
@@ -246,7 +247,7 @@ export default function PreopMeasures({
                     readonly={false}
                     />
                 </Col>
-                <Col>
+                <Col xs={4} className='noPadding'>
                     <NumInput VS={F34VS} setVS={setF34VS}
                     label=""
                     placeholder="Axis"
@@ -258,10 +259,10 @@ export default function PreopMeasures({
                 </Col>
             </Row>
             <Row>
-                <Col>
+                <Col xs={4} className='vCenter textAlignRight'>
                     Measure 3:
                 </Col>
-                <Col>
+                <Col xs={4} className='noPadding'>
                     <NumInput VS={F35VS} setVS={setF35VS}
                     label=""
                     placeholder="Magnitude"
@@ -271,7 +272,7 @@ export default function PreopMeasures({
                     readonly={false}
                     />
                 </Col>
-                <Col>
+                <Col xs={4} className='noPadding'>
                     <NumInput VS={F36VS} setVS={setF36VS}
                     label=""
                     placeholder="Axis"
@@ -282,21 +283,26 @@ export default function PreopMeasures({
                     />
                 </Col>
             </Row>
-            <Row className='centeredRow'>
-                Average Magnitude: {F37Val}
-                Average Axis: {F38Val}
+            <Row>
+                <Col xs={12} className='averagesCol'>
+                    <span>
+                        Average Magnitude: {F37Val}
+                        &nbsp;&nbsp;
+                        Average Axis: {F38Val}
+                    </span>
+                </Col>
             </Row>
         </Col>
 
-        <Col xs={3} className='vCenter'>
-            <Row>
+        <Col xs={3} className='vCenter formCol'>
+            <Row className='title2'>
             Scheimpflug / OCT2
             </Row>
             <Row>
-                <Col>
+                <Col xs={4} className='vCenter textAlignRight'>
                     Measure 1:
                 </Col>
-                <Col>
+                <Col xs={4} className='noPadding'>
                     <NumInput VS={F41VS} setVS={setF41VS}
                     label=""
                     placeholder="Magnitude"
@@ -304,9 +310,10 @@ export default function PreopMeasures({
                     max={30}
                     step={0.1}
                     readonly={false}
+                    className='octInput '
                     />
                 </Col>
-                <Col>
+                <Col xs={4} className='noPadding'>
                     <NumInput VS={F42VS} setVS={setF42VS}
                     label=""
                     placeholder="Axis"
@@ -318,10 +325,10 @@ export default function PreopMeasures({
                 </Col>
             </Row>
             <Row>
-                <Col>
+                <Col xs={4} className='vCenter textAlignRight'>
                     Measure 2:
                 </Col>
-                <Col>
+                <Col xs={4} className='noPadding'>
                     <NumInput VS={F43VS} setVS={setF43VS}
                     label=""
                     placeholder="Magnitude"
@@ -331,7 +338,7 @@ export default function PreopMeasures({
                     readonly={false}
                     />
                 </Col>
-                <Col>
+                <Col xs={4} className='noPadding'>
                     <NumInput VS={F44VS} setVS={setF44VS}
                     label=""
                     placeholder="Axis"
@@ -343,10 +350,10 @@ export default function PreopMeasures({
                 </Col>
             </Row>
             <Row>
-                <Col>
+                <Col xs={4} className='vCenter textAlignRight'>
                     Measure 3:
                 </Col>
-                <Col>
+                <Col xs={4} className='noPadding'>
                     <NumInput VS={F45VS} setVS={setF45VS}
                     label=""
                     placeholder="Magnitude"
@@ -356,7 +363,7 @@ export default function PreopMeasures({
                     readonly={false}
                     />
                 </Col>
-                <Col>
+                <Col xs={4} className='noPadding'>
                     <NumInput VS={F46VS} setVS={setF46VS}
                     label=""
                     placeholder="Axis"
@@ -367,9 +374,14 @@ export default function PreopMeasures({
                     />
                 </Col>
             </Row>
-            <Row className='centeredRow'>
-                Average Magnitude: {F47Val}
-                Average Axis: {F48Val}
+            <Row>
+                <Col xs={12} className='averagesCol'>
+                    <span>
+                        Average Magnitude: {F47Val}
+                        &nbsp;&nbsp;
+                        Average Axis: {F48Val}
+                    </span>
+                </Col>
             </Row>    
         </Col>
 

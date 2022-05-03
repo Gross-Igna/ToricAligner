@@ -29,7 +29,10 @@ export default function NumInput({label, placeholder, min, max, step, readonly, 
         <Form>
             <Form.Group>
                 <div className='inputDiv'>
-                    <span className='controlLabel'>{label}</span>
+                    <span className='controlLabel' 
+                    style={{display: (label==='')?'none': null}}>
+                        {label}
+                    </span>
                     <Form.Control type="number" placeholder={placeholder}
                     min={min} max={max} step={step} readOnly={readonly? true : false}
                     className={Class} style={{width: size}}

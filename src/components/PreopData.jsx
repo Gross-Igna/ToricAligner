@@ -1,6 +1,6 @@
 import React, { useState, Fragment } from 'react'
 import './preopdata.css'
-import patienticon from '../img/patient.png';
+import patienticon from '../img/patient-border.png';
 import PatientData from './forms/PatientData'
 import PreopMeasures from './forms/PreopMeasures'
 import ContinueBtn from './forms/ContinueBtn'
@@ -44,7 +44,7 @@ export default function PreopData({
   }) {
   
   return (
-    <Container fluid className='preopData'>
+    <Container className='preopData'>
 
           <Row className='title'>
             <h1>Preoperative Data</h1>
@@ -53,13 +53,15 @@ export default function PreopData({
           <Row className='formRow'>
 
               <Col className='vCenter'>
-                <Row className='border1'>
+
+                <Row className='styledBox bigBlock'>
+
                   <Col className='formIconDiv block1'>
                     <Row>
                       Patient Data
                     </Row>
                     <Row>
-                      <img src={patienticon} className='formIcon'/>
+                      <img src={patienticon} className='formIcon patient'/>
                     </Row>
                   </Col>
 
@@ -74,10 +76,12 @@ export default function PreopData({
                       F17VS={F17VS} setF17VS={setF17VS}
                     />
                   </Col>
+
                 </Row>
+
               </Col>
 
-              <Col xs={3} className='calculateCol block'>
+              <Col className='calculateCol block3'>
                 <ContinueBtn setStage={setStage}
                 validPreop={validPreop}
                 />

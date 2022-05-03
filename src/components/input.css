@@ -8,10 +8,10 @@
     bottom: 0;
     width: 100%;
 
-    padding: 3vw 4vw;
+    padding: 3vh 4vw;
 
     font-size: 1vw;
-    color: black;
+    color: rgb(240, 243, 248);
 }
 .hCenter{
     margin: 0 auto;
@@ -27,6 +27,18 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+.textAlignRight{
+    text-align: right;
+}
+.averagesCol{
+    padding: 0 auto;
+    text-align: center;
+
+    font-size: 0.9vw;
+}
+.noPadding{
+    padding: 0px 3px;
 }
 
 h1{
@@ -44,14 +56,62 @@ h1{
 .title{
     position: relative;
     height: 10%;
+
+    color: #094fa0ea;
+    text-shadow: 2px 2px 4px #484168;
+
+    /*TEXT SHADOW PRESET*/
+    text-shadow: 
+        -1px -1px 0px white,
+         0px -1px 0px white,
+         1px -1px 0px white,
+        -1px  0px 0px white,
+         1px  0px 0px white,
+        -1px  1px 0px white,
+         0px  1px 0px white,
+         1px  1px 0px white;
+}
+.title2{
+    font-family: 'Titillium Web', sans-serif;
+    font-weight: 600;
+}
+
+.styledBox{
+    padding: 1vw 0vw;
+
+    border-style: solid;
+    border-color: rgb(240, 243, 248);
+    border-width: 1px 1px 2px 2px;
+    border-radius: 20px;
+
+    background-color: #094fa0aa;
+    filter: drop-shadow(-9px 16px 16px #000);
+}
+
+.calculateCol{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.calculateBtn{
+    padding: 1vw 2vw;
+    margin: 0 auto;
+
+    background-color: #094fa0aa;
+    color: rgb(240, 243, 248);
+}
+.calculateBtn:hover{
+    background-color: #094fa0cb;
+    filter: drop-shadow(9px 20px 20px #000);
 }
 
 .formRow{
     height: 45%;
+    padding: 0%;
 }
 .formIcon{
     margin: 0 auto;
-    width: 12vw;
+    width: 10vw;
 }
 .formIconDiv{
     display: flex;
@@ -62,6 +122,7 @@ h1{
     text-align: center;
     font-family: 'Titillium Web', sans-serif;
     font-weight: 600;
+    font-size: 1.15vw;
 }
 
 .inputDiv{
@@ -69,14 +130,15 @@ h1{
     flex-direction: row;
     justify-content: left;
 
-    width: 100%;
+    width: 100% !important;
     height: 2.5vw;
 
     white-space: nowrap;
 }
 
 .formControl{
-    min-width: 3vw;  
+    max-width: 100% !important;
+    width: 100% !important;
     border-radius: 15px;  
 }
 .controlLabel{
@@ -98,6 +160,8 @@ h1{
 .controlValid{
     font-size: 0.9vw;
     background-color: #779dd557 !important;
+
+    color: rgb(206, 211, 215);
 }
 
 .colorgrey{

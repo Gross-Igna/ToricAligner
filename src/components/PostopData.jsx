@@ -2,7 +2,7 @@ import React from 'react'
 import './postopdata.css'
 import PostopDataA from './forms/PostopDataA';
 import Form2 from './forms/Form2'
-import octicon from '../img/oct.png'
+import octicon from '../img/oct-border4.png'
 import {Container, Row, Col} from 'react-bootstrap';
 import CalculateBtn from './forms/ContinueBtn';
 import PostopDataB from './forms/PostopDataB';
@@ -42,38 +42,37 @@ export default function PostopData({
     F98Val, setF98Val
 }) {
   return (
-    <Container>
+    <Container className='postopData'>
 
-        <Row>
-            <Row>
-                Postoperative data
-            </Row>
-            <Row>
-                <Col  xs={8}>
-                    <PostopDataA
-                        F51VS={F51VS} setF51VS={setF51VS}
-                        F52VS={F52VS} setF52VS={setF52VS}
-                        F53VS={F53VS} setF53VS={setF53VS}
-            
-                        F61VS={F61VS} setF61VS={setF61VS}
-                        F62VS={F62VS} setF62VS={setF62VS}
-                        F63VS={F63VS} setF63VS={setF63VS}
-            
-                        F71VS={F71VS} setF71VS={setF71VS}
-                        F72VS={F72VS} setF72VS={setF72VS}
-                        F73VS={F73VS} setF73VS={setF73VS}
-                        F74VS={F74VS} setF74VS={setF74VS}
-                        F75VS={F75VS} setF75VS={setF75VS}
-                        F76VS={F76VS} setF76VS={setF76VS}
-                    />      
-                </Col>
-                <Col xs={4} className='centeredCol'>
-                    <CalculateBtn />
-                </Col>
-            </Row>
+        <Row className='title'>
+            <h1>Postoperative Data</h1>
         </Row>
 
-        <Row>
+        <Row className='formRow'>  
+            <Col xs={9} className='vCenter'>
+                <PostopDataA
+                    F51VS={F51VS} setF51VS={setF51VS}
+                    F52VS={F52VS} setF52VS={setF52VS}
+                    F53VS={F53VS} setF53VS={setF53VS}
+        
+                    F61VS={F61VS} setF61VS={setF61VS}
+                    F62VS={F62VS} setF62VS={setF62VS}
+                    F63VS={F63VS} setF63VS={setF63VS}
+        
+                    F71VS={F71VS} setF71VS={setF71VS}
+                    F72VS={F72VS} setF72VS={setF72VS}
+                    F73VS={F73VS} setF73VS={setF73VS}
+                    F74VS={F74VS} setF74VS={setF74VS}
+                    F75VS={F75VS} setF75VS={setF75VS}
+                    F76VS={F76VS} setF76VS={setF76VS}
+                />      
+            </Col>
+            <Col xs={3} className='centeredCol'>
+                <CalculateBtn />
+            </Col>
+        </Row>
+
+        <Row className='formRow'>
             <PostopDataB
                 F81VS={F81VS} setF81VS={setF81VS}
                 F82VS={F82VS} setF82VS={setF82VS}

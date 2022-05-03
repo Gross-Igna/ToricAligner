@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react'
-import patienticon from '../../img/patient.png';
+import patienticon from '../../img/patient-border.png';
 import NumInput from './inputs/NumInput';
 import {Container, Row, Col} from 'react-bootstrap';
 
@@ -30,26 +30,32 @@ export default function PostopDataA({
         }catch(error){}
 
         if(F52VS[0] != "."){
-            console.log("STATE:", F52VS[0])
             setF53VS( [ 90 , F53VS[1] ] );
         }
 
     }, [F51VS[0]]);
 
     return (
-            <Row>
+            <Row className='styledBox' style={{paddingRight: '2vw'}}>
+
                 <Col className='formIconDiv' xs={3}>
-                    <img src={patienticon} width='150vw' className='formIcon'/>
-                </Col>
-                <Col xs={9}>
                     <Row>
+                      (Title 3)
+                    </Row>
+                    <Row>
+                      <img src={patienticon} className='formIcon patient'/>
+                    </Row>
+                </Col>
+
+                <Col xs={9} className='formCol'>
+                    <Row className='title2'>
                         Implanted IOL cilinder
                     </Row>
                     <Row>
-                        <Col>
+                        <Col className='textAlignRight vCenter'>
                             Implanted IOL cilinder:
                         </Col>
-                        <Col>
+                        <Col className='noPadding'>
                             <NumInput VS={F51VS} setVS={setF51VS}
                                 label=""
                                 placeholder="IOL Plane"
@@ -59,7 +65,7 @@ export default function PostopDataA({
                                 readonly={false}
                             />
                         </Col>
-                        <Col>
+                        <Col className='noPadding'>
                             <NumInput VS={F52VS} setVS={setF52VS}
                                 label=""
                                 placeholder="Corneal plane"
@@ -69,7 +75,7 @@ export default function PostopDataA({
                                 readonly={true}
                             />
                         </Col>
-                        <Col>
+                        <Col className='noPadding'>
                         <NumInput VS={F53VS} setVS={setF53VS}
                                 label=""
                                 placeholder="Orientation"
@@ -81,10 +87,10 @@ export default function PostopDataA({
                         </Col>
                     </Row>
                     <Row>
-                        <Col>
+                        <Col className='vCenter textCol'>
                             Postoperative Refraction:
                         </Col>
-                        <Col>
+                        <Col className='noPadding'>
                             <NumInput VS={F61VS} setVS={setF61VS}
                                 label=""
                                 placeholder="Sphere"
@@ -94,7 +100,7 @@ export default function PostopDataA({
                                 readonly={false}
                             />
                         </Col>
-                        <Col>
+                        <Col className='noPadding'>
                             <NumInput VS={F62VS} setVS={setF62VS}
                                 label=""
                                 placeholder="Cylinder"
@@ -104,8 +110,8 @@ export default function PostopDataA({
                                 readonly={false}
                             />
                         </Col>
-                        <Col>
-                        <NumInput VS={F63VS} setVS={setF63VS}
+                        <Col className='noPadding'>
+                            <NumInput VS={F63VS} setVS={setF63VS}
                                 label=""
                                 placeholder="Axis"
                                 min={20}
@@ -116,14 +122,14 @@ export default function PostopDataA({
                         </Col>
                     </Row>
                     
-                    <Row>
+                    <Row className='title2'>
                         Induced corneal astigmatism
                     </Row>
                     <Row>
-                        <Col>
+                        <Col className='textAlignRight vCenter'>
                             Scheimpflug / OCT1: 
                         </Col>
-                        <Col>
+                        <Col className='noPadding'>
                             <NumInput VS={F75VS} setVS={setF75VS}
                                 label=""
                                 placeholder="Sphere"
@@ -133,7 +139,7 @@ export default function PostopDataA({
                                 readonly={false}
                             />
                         </Col>
-                        <Col>
+                        <Col className='noPadding'>
                             <NumInput VS={F71VS} setVS={setF71VS}
                                 label=""
                                 placeholder="Cylinder"
@@ -143,7 +149,7 @@ export default function PostopDataA({
                                 readonly={false}
                             />
                         </Col>
-                        <Col>
+                        <Col className='noPadding'>
                             <NumInput VS={F72VS} setVS={setF72VS}
                                 label=""
                                 placeholder="Axis"
@@ -155,10 +161,10 @@ export default function PostopDataA({
                         </Col>
                     </Row>
                     <Row>
-                        <Col>
+                        <Col className='textAlignRight vCenter'>
                             Scheimpflug / OCT2: 
                         </Col>
-                        <Col>
+                        <Col className='noPadding'>
                             <NumInput VS={F76VS} setVS={setF76VS}
                                 label=""
                                 placeholder="Sphere"
@@ -168,7 +174,7 @@ export default function PostopDataA({
                                 readonly={false}
                             />
                         </Col>
-                        <Col>
+                        <Col className='noPadding'>
                             <NumInput VS={F73VS} setVS={setF73VS}
                                 label=""
                                 placeholder="Cylinder"
@@ -178,7 +184,7 @@ export default function PostopDataA({
                                 readonly={false}
                             />
                         </Col>
-                        <Col>
+                        <Col className='noPadding'>
                             <NumInput VS={F74VS} setVS={setF74VS}
                                 label=""
                                 placeholder="Axis"

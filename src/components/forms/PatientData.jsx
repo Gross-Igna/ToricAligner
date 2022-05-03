@@ -18,59 +18,57 @@ export default function patientData({
     }) {
 
     return (
-    <Container>
-            <Row>
-                <Row className='hCenter patientDataForm'>
-                    <Row>
-                        <Col xs={5} style={{paddingRight: 0}}>
-                            <PatientName Val={F11Val} setVal={setF11Val} setSt={setF11St}/>
-                        </Col>
-                        <Col xs={2} className='eyeCol'>
-                            <EyeLR Val={F13Val} setVal={setF13Val} setSt={setF13St}/>
-                        </Col>
-                        <Col xs={5}>
-                            <SurgeonName Val={F12Val} setVal={setF12Val} setSt={setF12St}/>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col xs={7} className='alignLeft'>
-                            <Date Val={F14Val} setVal={setF14Val} setSt={setF14St}/>
-                        </Col>
-                        <Col xs={5}>
-                            <NumInput VS={F15VS} setVS={setF15VS}
-                            label="Axial Length:"
-                            placeholder="20~30"
-                            min={20}
-                            max={30}
-                            step={0.1}
-                            readonly={false}
-                            />
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col xs={6}>
-                            <NumInput VS={F16VS} setVS={setF16VS}
-                            label="IOL/Cornea cylinder ratio:"
-                            placeholder="20~30"
-                            min={20}
-                            max={30}
-                            step={0.1}
-                            readonly={true}
-                            />
-                        </Col>
-                        <Col xs={6}>
-                            <NumInput VS={F17VS} setVS={setF17VS}
-                            label="Required cylinder at IOL plane:"
-                            placeholder="20~30"
-                            min={20}
-                            max={30}
-                            step={0.1}
-                            readonly={true}
-                            />
-                        </Col>
-                    </Row>
+        <Row>
+            <Row className='hCenter patientDataForm'>
+                <Row>
+                    <Col xs={5} style={{paddingRight: 0}}>
+                        <PatientName Val={F11Val} setVal={setF11Val} setSt={setF11St}/>
+                    </Col>
+                    <Col xs={2} className='eyeCol'>
+                        <EyeLR Val={F13Val} setVal={setF13Val} setSt={setF13St}/>
+                    </Col>
+                    <Col xs={5}>
+                        <SurgeonName Val={F12Val} setVal={setF12Val} setSt={setF12St}/>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col xs={7} className='alignLeft'>
+                        <Date Val={F14Val} setVal={setF14Val} setSt={setF14St}/>
+                    </Col>
+                    <Col xs={5}>
+                        <NumInput VS={F15VS} setVS={setF15VS}
+                        label="Axial Length:"
+                        placeholder="20~30"
+                        min={20}
+                        max={30}
+                        step={0.1}
+                        readonly={false}
+                        />
+                    </Col>
+                </Row>
+                <Row>
+                    <Col xs={6}>
+                        <NumInput VS={F16VS} setVS={setF16VS}
+                        label="IOL/Cornea cylinder ratio:"
+                        placeholder="20~30"
+                        min={20}
+                        max={30}
+                        step={0.1}
+                        readonly={true}
+                        />
+                    </Col>
+                    <Col xs={6}>
+                        <NumInput VS={F17VS} setVS={setF17VS}
+                        label="Required cylinder at IOL plane:"
+                        placeholder="20~30"
+                        min={20}
+                        max={30}
+                        step={0.1}
+                        readonly={true}
+                        />
+                    </Col>
                 </Row>
             </Row>
-    </Container>
+        </Row>
     )
 }

@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react'
 import NumInput from './inputs/NumInput';
 import {Container, Row, Col} from 'react-bootstrap';
-import octicon from '../../img/oct.png'
+import octicon from '../../img/oct-border4.png'
 import Form2 from './Form2';
 
 export default function PostopDataB({
@@ -89,16 +89,20 @@ export default function PostopDataB({
     }, [F91VS[0], F92VS[0], F93VS[0], F94VS[0], F95VS[0], F96VS[0]])
 
     return (
-        <Row>
-            <Row>Postop Measures</Row>
+        <Row className='styledBox bigBlock3'>
 
-            <Col xs={2} className='formIconDiv'>
-                <img src={octicon} width='150vw' className='formIcon'/>
+            <Col xs={4} className='formIconDiv block1'>
+                <Row>
+                    (Title 4)
+                </Row>
+                <Row>
+                    <img src={octicon} className='formIcon patient'/>
+                </Row>
             </Col>
                 
-            <Col xs={5}>
+            <Col xs={4} className='vCenter formCol octPadding'>
 
-                <Row>
+                <Row className='title2'>
                     Scheimpflug / OCT1
                 </Row>
                 <Row>
@@ -186,9 +190,9 @@ export default function PostopDataB({
                 </Row>
             </Col>
 
-            <Col xs={5}>
+            <Col xs={4} className='vCenter formCol octPadding'>
 
-                <Row>
+                <Row className='title2'>
                 Scheimpflug / OCT2
                 </Row>
                 
