@@ -1,24 +1,24 @@
 import React, {useEffect} from 'react'
 import {BsFillArrowRightCircleFill} from 'react-icons/bs'
 
-export default function CalculateBtn({setStage, validPreop}) {
+export default function ContinueBtn({setStage, validPreop}) {
   
   useEffect( () => {
 
-    let calculateBtn = document.getElementById("calculateBtn")
+    let continueBtn = document.getElementById("continueBtn")
 
       if(validPreop){
-        calculateBtn.disabled = false;
+        continueBtn.disabled = false;
       }else{
-        calculateBtn.disabled = true;
+        continueBtn.disabled = true;
       }
 
   }, [validPreop])
 
   return (
-    <button className='calculateBtn styledBox' type="button" onClick={() => setStage(2)} id="calculateBtn">
-        Continue To <br></br>Postoperative Data<br></br>
-        <BsFillArrowRightCircleFill/>
+    <button className={validPreop? 'continueBtn styledBox' : 'continueBtnDisabled styledBox'} type="button" onClick={() => setStage(2)} id="continueBtn">
+        Postoperative Data<br></br>
+        <BsFillArrowRightCircleFill className='arrowIcon'/>
     </button>
   )
 }

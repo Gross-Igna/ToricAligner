@@ -24,6 +24,7 @@
 
 .brand{
     float: left;
+    text-align: justify;
 }
 .history{
     position: absolute;

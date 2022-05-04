@@ -10,7 +10,7 @@ export default function BarHeader() {
             <Row className='barRow'>
                 <Col sm={11}>
                     <div className='brand'>
-                        <b>Toric <br></br> Aligner</b>
+                        <b>Toric <br></br>Aligner  Logo</b>
                     </div>
                 </Col>
                 <Col sm={1}>

@@ -52,7 +52,7 @@ export default function PostopDataA({
                         Implanted IOL cilinder
                     </Row>
                     <Row>
-                        <Col className='textAlignRight vCenter'>
+                        <Col className='measureCol vCenter'>
                             Implanted IOL cilinder:
                         </Col>
                         <Col className='noPadding'>
@@ -126,7 +126,7 @@ export default function PostopDataA({
                         Induced corneal astigmatism
                     </Row>
                     <Row>
-                        <Col className='textAlignRight vCenter'>
+                        <Col className='measureCol vCenter'>
                             Scheimpflug / OCT1: 
                         </Col>
                         <Col className='noPadding'>
@@ -161,7 +161,7 @@ export default function PostopDataA({
                         </Col>
                     </Row>
                     <Row>
-                        <Col className='textAlignRight vCenter'>
+                        <Col className='measureCol vCenter'>
                             Scheimpflug / OCT2: 
                         </Col>
                         <Col className='noPadding'>

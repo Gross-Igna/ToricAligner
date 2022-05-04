@@ -1,7 +1,5 @@
 import React, {useEffect} from 'react'
 import NumInput from './inputs/NumInput';
-import Form1 from './Form1';
-import Form2 from './Form2';
 import {Row, Col} from 'react-bootstrap';
 import octicon from '../../img/oct-border4.png'
 
@@ -130,20 +128,10 @@ export default function PreopMeasures({
         </Col>
 
         <Col xs={4} className='vCenter formCol'>
-            <Row xs={12} className='title2'>
+            <Row className='title2'>
                 Keratometric Astigmatism
             </Row>
             <Row>
-                <Col xs={6}>
-                    <NumInput VS={F21VS} setVS={setF21VS}
-                    label="K2 (flat):"
-                    placeholder="20~30"
-                    min={0}
-                    max={100}
-                    step={1}
-                    readonly={false}
-                    />
-                </Col>
                 <Col xs={6}>
                     <NumInput VS={F22VS} setVS={setF22VS}
                     label="K1 (steep):"
@@ -154,18 +142,18 @@ export default function PreopMeasures({
                     readonly={false}
                     />
                 </Col>
-            </Row>
-            <Row>
                 <Col xs={6}>
-                    <NumInput VS={F23VS} setVS={setF23VS}
-                    label="Magnitude:"
-                    placeholder="..."
-                    min={20}
-                    max={30}
-                    step={0.1}
-                    readonly={true}
+                    <NumInput VS={F21VS} setVS={setF21VS}
+                    label="K2 (flat):"
+                    placeholder="20~30"
+                    min={0}
+                    max={100}
+                    step={1}
+                    readonly={false}
                     />
                 </Col>
+            </Row>
+            <Row>
                 <Col xs={6}>
                 <NumInput VS={F24VS} setVS={setF24VS}
                     label="Steep Meridian:"
@@ -176,7 +164,18 @@ export default function PreopMeasures({
                     readonly={false}
                     />
                 </Col>
+                <Col xs={6}>
+                    <NumInput VS={F23VS} setVS={setF23VS}
+                    label="Magnitude:"
+                    placeholder="..."
+                    min={20}
+                    max={30}
+                    step={0.1}
+                    readonly={true}
+                    />
+                </Col>
             </Row>
+            {/*
             <Row className='title2'>
                 Optimized Astigmatism
             </Row>
@@ -201,7 +200,7 @@ export default function PreopMeasures({
                     readonly={true}
                     />
                 </Col>
-            </Row>
+        </Row>*/}
         </Col>
 
         <Col xs={3} className='vCenter formCol'>
@@ -209,7 +208,7 @@ export default function PreopMeasures({
                 Scheimpflug / OCT1
             </Row>
             <Row>
-                <Col xs={4} className='vCenter textAlignRight'>
+                <Col xs={4} className='vCenter noPadding measureCol1'>
                     Measure 1:
                 </Col>
                 <Col xs={4} className='noPadding'>
@@ -234,7 +233,7 @@ export default function PreopMeasures({
                 </Col>
             </Row>
             <Row>
-                <Col xs={4} className='vCenter textAlignRight'>
+                <Col xs={4} className='vCenter noPadding measureCol1'>
                     Measure 2:
                 </Col>
                 <Col xs={4} className='noPadding'>
@@ -259,7 +258,7 @@ export default function PreopMeasures({
                 </Col>
             </Row>
             <Row>
-                <Col xs={4} className='vCenter textAlignRight'>
+                <Col xs={4} className='vCenter noPadding measureCol1'>
                     Measure 3:
                 </Col>
                 <Col xs={4} className='noPadding'>
@@ -299,7 +298,7 @@ export default function PreopMeasures({
             Scheimpflug / OCT2
             </Row>
             <Row>
-                <Col xs={4} className='vCenter textAlignRight'>
+                <Col xs={4} className='vCenter noPadding measureCol1'>
                     Measure 1:
                 </Col>
                 <Col xs={4} className='noPadding'>
@@ -325,7 +324,7 @@ export default function PreopMeasures({
                 </Col>
             </Row>
             <Row>
-                <Col xs={4} className='vCenter textAlignRight'>
+                <Col xs={4} className='vCenter noPadding measureCol1'>
                     Measure 2:
                 </Col>
                 <Col xs={4} className='noPadding'>
@@ -350,7 +349,7 @@ export default function PreopMeasures({
                 </Col>
             </Row>
             <Row>
-                <Col xs={4} className='vCenter textAlignRight'>
+                <Col xs={4} className='vCenter noPadding measureCol1'>
                     Measure 3:
                 </Col>
                 <Col xs={4} className='noPadding'>

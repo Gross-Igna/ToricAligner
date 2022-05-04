@@ -1,8 +1,7 @@
 import React, {useEffect} from 'react'
 import NumInput from './inputs/NumInput';
 import {Container, Row, Col} from 'react-bootstrap';
-import octicon from '../../img/oct-border4.png'
-import Form2 from './Form2';
+import octicon from '../../img/oct-border4.png';
 
 export default function PostopDataB({
     F81VS, setF81VS,
@@ -89,9 +88,9 @@ export default function PostopDataB({
     }, [F91VS[0], F92VS[0], F93VS[0], F94VS[0], F95VS[0], F96VS[0]])
 
     return (
-        <Row className='styledBox bigBlock3'>
+        <Row className='styledBox bigBlock3 hCenterRow'>
 
-            <Col xs={4} className='formIconDiv block1'>
+            <Col xs={3} className='formIconDiv block1'>
                 <Row>
                     (Title 4)
                 </Row>
@@ -100,16 +99,17 @@ export default function PostopDataB({
                 </Row>
             </Col>
                 
-            <Col xs={4} className='vCenter formCol octPadding'>
+            <Col xs={4} className='vCenter formCol octForm'>
 
                 <Row className='title2'>
                     Scheimpflug / OCT1
                 </Row>
-                <Row>
-                    <Col>
+
+                <Row className='hCenterRow'>
+                    <Col xs={3} className='vCenter measureCol noPadding'>
                         Measure 1:
                     </Col>
-                    <Col>
+                    <Col xs={4} className='noPadding'>
                         <NumInput VS={F81VS} setVS={setF81VS}
                             label=""
                             placeholder="Magnitude"
@@ -119,7 +119,7 @@ export default function PostopDataB({
                             readonly={false}
                         />
                     </Col>
-                    <Col>
+                    <Col xs={4} className='noPadding'>
                         <NumInput VS={F82VS} setVS={setF82VS}
                             label=""
                             placeholder="Axis"
@@ -130,11 +130,12 @@ export default function PostopDataB({
                         />
                     </Col>
                 </Row>
-                <Row>
-                    <Col>
+
+                <Row className='hCenterRow'>
+                    <Col xs={3} className='vCenter measureCol noPadding'>
                         Measure 2:
                     </Col>
-                    <Col>
+                    <Col xs={4} className='noPadding'>
                         <NumInput VS={F83VS} setVS={setF83VS}
                             label=""
                             placeholder="Magnitude"
@@ -144,7 +145,7 @@ export default function PostopDataB({
                             readonly={false}
                         />
                     </Col>
-                    <Col>
+                    <Col xs={4} className='noPadding'>
                         <NumInput VS={F84VS} setVS={setF84VS}
                             label=""
                             placeholder="Axis"
@@ -155,11 +156,12 @@ export default function PostopDataB({
                         />
                     </Col>
                 </Row>
-                <Row>
-                    <Col>
+
+                <Row className='hCenterRow'>
+                    <Col xs={3} className='vCenter measureCol noPadding'>
                         Measure 3:
                     </Col>
-                    <Col>
+                    <Col xs={4} className='noPadding'>
                         <NumInput VS={F85VS} setVS={setF85VS}
                             label=""
                             placeholder="Magnitude"
@@ -169,7 +171,7 @@ export default function PostopDataB({
                             readonly={false}
                         />
                     </Col>
-                    <Col>
+                    <Col xs={4} className='noPadding'>
                         <NumInput VS={F86VS} setVS={setF86VS}
                             label=""
                             placeholder="Axis"
@@ -180,27 +182,26 @@ export default function PostopDataB({
                         />
                     </Col>
                 </Row>
-                <Row>
-                    <Col>
+                <Row xs={12} className='averagesCol'>
+                    <span className='averagesCol'>
                         Average Magnitude: {F87Val}
-                    </Col>
-                    <Col>
-                        Average Axis: {F88Val}                   
-                    </Col>
+                        &nbsp;&nbsp;
+                        Average Axis: {F88Val}        
+                    </span>           
                 </Row>
             </Col>
 
-            <Col xs={4} className='vCenter formCol octPadding'>
+            <Col xs={4} className='vCenter formCol octForm'>
 
                 <Row className='title2'>
-                Scheimpflug / OCT2
+                    Scheimpflug / OCT2
                 </Row>
                 
-                <Row>
-                    <Col>
+                <Row className='hCenterRow'>
+                    <Col xs={3} className='vCenter measureCol noPadding'>
                         Measure 1:
                     </Col>
-                    <Col>
+                    <Col xs={4} className='noPadding'>
                         <NumInput VS={F91VS} setVS={setF91VS}
                             label=""
                             placeholder="Magnitude"
@@ -210,7 +211,7 @@ export default function PostopDataB({
                             readonly={false}
                         />
                     </Col>
-                    <Col>
+                    <Col xs={4} className='noPadding'>
                         <NumInput VS={F92VS} setVS={setF92VS}
                             label=""
                             placeholder="Axis"
@@ -222,11 +223,11 @@ export default function PostopDataB({
                     </Col>
                 </Row>
 
-                <Row>
-                    <Col>
+                <Row className='hCenterRow'>
+                    <Col xs={3} className='vCenter measureCol noPadding'>
                         Measure 2:
                     </Col>
-                    <Col>
+                    <Col xs={4} className='noPadding'>
                         <NumInput VS={F93VS} setVS={setF93VS}
                             label=""
                             placeholder="Magnitude"
@@ -236,7 +237,7 @@ export default function PostopDataB({
                             readonly={false}
                         />
                     </Col>
-                    <Col>
+                    <Col xs={4} className='noPadding'>
                         <NumInput VS={F94VS} setVS={setF94VS}
                             label=""
                             placeholder="Axis"
@@ -247,11 +248,11 @@ export default function PostopDataB({
                         />
                     </Col>
                 </Row>
-                <Row>
-                    <Col>
+                <Row className='hCenterRow'>
+                    <Col xs={3} className='vCenter measureCol noPadding'>
                         Measure 3:
                     </Col>
-                    <Col>
+                    <Col xs={4} className='noPadding'>
                         <NumInput VS={F95VS} setVS={setF95VS}
                             label=""
                             placeholder="Magnitude"
@@ -261,7 +262,7 @@ export default function PostopDataB({
                             readonly={false}
                         />
                     </Col>
-                    <Col>
+                    <Col xs={4} className='noPadding'>
                         <NumInput VS={F96VS} setVS={setF96VS}
                             label=""
                             placeholder="Axis"
@@ -272,13 +273,12 @@ export default function PostopDataB({
                         />
                     </Col>
                 </Row>
-                <Row>
-                    <Col className='centeredRow'>
+                <Row xs={12} className='averagesCol'>
+                    <span className='averagesCol'>
                         Average Magnitude: {F97Val}
-                    </Col>
-                    <Col className='centeredRow'>
-                        Average Axis: {F98Val}                   
-                    </Col>
+                        &nbsp;&nbsp;
+                        Average Axis: {F98Val}        
+                    </span>           
                 </Row>
 
             </Col>

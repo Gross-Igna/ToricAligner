@@ -57,31 +57,64 @@
 .otcInput{
     width: 15vw !important;
 }
+@media (min-width: 620px) {
+.measureCol1{
+    text-align: right;
+}
+}
+
+.continueBtn{
+    padding: 1.2vw 2.4vw !important;
+    margin: 0 auto;
+
+    background-color: #094fa0aa;
+    
+    color: rgb(240, 243, 248);
+    font-weight: 600;
+}
+.continueBtn:hover{
+    background-color: #094fa0cb;
+    filter: drop-shadow(-9px 20px 20px #000);
+}
+.continueBtnDisabled{
+    background-color: #5178a5cb !important;
+    color: rgb(164, 175, 196);
+
+    padding: 1.2vw 2.4vw !important;
+    margin: 0 auto;
+}
+.arrowIcon{
+    align-self: center;   
+    margin: 0.5vw 0.5vw;
+    font-size: 1.8vw;
+}
 
 .bigBlock{
-    min-width: 67vw;
+    min-width: 60vw;
     max-height: 14.5vw !important;
 
     padding: 1.5vw 0vw !important;
+    margin: 0vw 0vw;
 }
 .bigBlock2{
-    max-width: 100%;
+    max-width: 98%;
     height: 14.5vw !important;
 
-    margin-left: 0.3vw;
-    padding-right: 2vw !important;
+    margin-left: 0.7vw;
 }
 .bigBlock2 > .formCol{
     padding: 0px 24px;
 }
 .block1{
-    max-width: 24.999999999999%;
+    max-width: 16.666666666667%;
+    margin: 0vw 1vw;
 }
 .block2{
     padding-left: 0vw;
 }
 .block4{
-    padding-right: -5vw !important;
+    max-width: 12.3333333333334%;
+    margin: 0vw 1vw;
 }
 
 

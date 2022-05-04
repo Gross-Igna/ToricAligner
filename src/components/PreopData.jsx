@@ -47,7 +47,7 @@ export default function PreopData({
     <Container className='preopData'>
 
           <Row className='title'>
-            <h1>Preoperative Data</h1>
+            <h1 className='h1vCenter'>Preoperative Data</h1>
           </Row>
 
           <Row className='formRow'>

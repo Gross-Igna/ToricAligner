@@ -28,8 +28,14 @@
     flex-direction: column;
     justify-content: center;
 }
-.textAlignRight{
+.measureCol{
     text-align: right;
+    width: min-content !important;
+}
+.hCenterRow{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 .averagesCol{
     padding: 0 auto;
@@ -41,14 +47,14 @@
     padding: 0px 3px;
 }
 
+
 h1{
     text-align: center;
     font-size: 300%;
     font-family: 'Titillium Web', sans-serif;
     font-weight: 600;
-
-    margin: 0vw 0vw !important;
-
+}
+.h1vCenter{
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -88,23 +94,6 @@ h1{
     filter: drop-shadow(-9px 16px 16px #000);
 }
 
-.calculateCol{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-.calculateBtn{
-    padding: 1vw 2vw;
-    margin: 0 auto;
-
-    background-color: #094fa0aa;
-    color: rgb(240, 243, 248);
-}
-.calculateBtn:hover{
-    background-color: #094fa0cb;
-    filter: drop-shadow(9px 20px 20px #000);
-}
-
 .formRow{
     height: 45%;
     padding: 0%;
@@ -124,6 +113,20 @@ h1{
     font-weight: 600;
     font-size: 1.15vw;
 }
+/*form placeholders
+.form-control::placeholder { 
+    color: rgb(207, 209, 212);
+    opacity: 1; 
+}
+
+.form-control:-ms-input-placeholder { 
+    color: rgb(207, 209, 212);
+}
+
+.form-control::-ms-input-placeholder { 
+    color: rgb(207, 209, 212);
+}
+*/
 
 .inputDiv{
     display: flex;
@@ -155,7 +158,10 @@ h1{
 }
 .controlInvalid{
     font-size: 0.9vw;
+    font-style: italic;
     background-color: rgba(255, 0, 0, 0.442) !important;
+
+    color: rgb(206, 211, 215);
 }
 .controlValid{
     font-size: 0.9vw;
@@ -165,5 +171,5 @@ h1{
 }
 
 .colorgrey{
-    color: grey !important;
+    color: rgb(121, 118, 118) !important;
 }

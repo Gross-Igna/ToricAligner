@@ -9,6 +9,9 @@
 
     position: relative;
 }
+.w-30{
+    width: 30% !important;
+}
 
 .textCol{
     white-space: nowrap;
@@ -25,10 +28,57 @@
 }
 
 .bigBlock3{
-    margin: 2vw 0vw;
-    padding-right: 2vw !important;
+    width: 75vw;
+    margin: 1vw 0vw;
 }
-.octPadding{
+@media (max-width: 1020px) {
+    .bigBlock3{
+        margin: 4vw 0vw;
+    }
+}
+@media (max-width: 680px) {
+    .bigBlock3{
+        margin: 10vw 0vw;
+    }
+}
+
+.octForm{
+    width: 37.5% !important;
+    padding: 0px 1vw !important;
+}
+
+.calculateBtn{
+    padding: 0.8vw 2.4vw !important;
     margin: 0 auto;
-    padding: 0px 2vw !important;
+
+    background-color: #094fa0aa;
+    
+    color: rgb(240, 243, 248);
+    font-weight: 600;
+}
+.calculateBtn:hover{
+    background-color: #094fa0cb;
+    filter: drop-shadow(-9px 20px 20px #000);
+}
+.calculatorIcon{
+    margin: 0.4vw 1.4vw;
+    font-size: 3vw;
+}
+
+.calculateCol{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.top{
+    position: absolute;
+    top: -12.5%;
+}
+@media (max-width: 1020px) {
+    .top{
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+    }
 }

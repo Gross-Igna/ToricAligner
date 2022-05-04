@@ -5,7 +5,6 @@ import SurgeonName from './inputs/SurgeonName';
 import EyeLR from './inputs/EyeLR';
 import Date from './inputs/Date';
 import NumInput from './inputs/NumInput';
-import Form1 from './Form1';
 
 export default function patientData({
     F11Val, setF11Val, setF11St,

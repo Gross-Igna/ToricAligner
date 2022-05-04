@@ -1,10 +1,11 @@
 import React from 'react'
-import {BsFillCalculatorFill} from 'react-icons/bs'
+import {IoCalculator} from 'react-icons/io5'
 
-export default function CalculateBtn() {
+export default function continueBtn() {
   return (
-    <button className='calculateBtn' type="button">
-        Calculate<br></br><BsFillCalculatorFill/>
+    <button className='calculateBtn styledBox' type="button">
+        Calculate!<br></br>
+        <IoCalculator className='calculatorIcon'/>
     </button>
   )
 }

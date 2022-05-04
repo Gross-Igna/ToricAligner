@@ -209,80 +209,81 @@ export default function Input() {
     return (
       <div className='input'>
 
-      {(stage==1)?
-          (<PreopData 
-            setStage={setStage}
-            validPreop={validPreop}
+        {(stage==1)?
+            (<PreopData 
+              setStage={setStage}
+              validPreop={validPreop}
 
-            F11Val={F11Val} setF11Val={setF11Val} setF11St={setF11St}
-            F12Val={F12Val} setF12Val={setF12Val} setF12St={setF12St}
-            F13Val={F13Val} setF13Val={setF13Val} setF13St={setF13St}
-            F14Val={F14Val} setF14Val={setF14Val} setF14St={setF14St}
-            F15VS={F15VS} setF15VS={setF15VS}
-            F16VS={F16VS} setF16VS={setF16VS}
-            F17VS={F17VS} setF17VS={setF17VS}
+              F11Val={F11Val} setF11Val={setF11Val} setF11St={setF11St}
+              F12Val={F12Val} setF12Val={setF12Val} setF12St={setF12St}
+              F13Val={F13Val} setF13Val={setF13Val} setF13St={setF13St}
+              F14Val={F14Val} setF14Val={setF14Val} setF14St={setF14St}
+              F15VS={F15VS} setF15VS={setF15VS}
+              F16VS={F16VS} setF16VS={setF16VS}
+              F17VS={F17VS} setF17VS={setF17VS}
 
-            F21VS={F21VS} setF21VS={setF21VS}
-            F22VS={F22VS} setF22VS={setF22VS}
-            F23VS={F23VS} setF23VS={setF23VS}
-            F24VS={F24VS} setF24VS={setF24VS}
-            F25VS={F25VS} setF25VS={setF25VS}
-            F26VS={F26VS} setF26VS={setF26VS}
+              F21VS={F21VS} setF21VS={setF21VS}
+              F22VS={F22VS} setF22VS={setF22VS}
+              F23VS={F23VS} setF23VS={setF23VS}
+              F24VS={F24VS} setF24VS={setF24VS}
+              F25VS={F25VS} setF25VS={setF25VS}
+              F26VS={F26VS} setF26VS={setF26VS}
 
-            F31VS={F31VS} setF31VS={setF31VS}
-            F32VS={F32VS} setF32VS={setF32VS}
-            F33VS={F33VS} setF33VS={setF33VS}
-            F34VS={F34VS} setF34VS={setF34VS}
-            F35VS={F35VS} setF35VS={setF35VS}
-            F36VS={F36VS} setF36VS={setF36VS}
-            F37Val={F37Val} setF37Val={setF37Val}
-            F38Val={F38Val} setF38Val={setF38Val}
+              F31VS={F31VS} setF31VS={setF31VS}
+              F32VS={F32VS} setF32VS={setF32VS}
+              F33VS={F33VS} setF33VS={setF33VS}
+              F34VS={F34VS} setF34VS={setF34VS}
+              F35VS={F35VS} setF35VS={setF35VS}
+              F36VS={F36VS} setF36VS={setF36VS}
+              F37Val={F37Val} setF37Val={setF37Val}
+              F38Val={F38Val} setF38Val={setF38Val}
 
-            F41VS={F41VS} setF41VS={setF41VS}
-            F42VS={F42VS} setF42VS={setF42VS}
-            F43VS={F43VS} setF43VS={setF43VS}
-            F44VS={F44VS} setF44VS={setF44VS}
-            F45VS={F45VS} setF45VS={setF45VS}
-            F46VS={F46VS} setF46VS={setF46VS}
-            F47Val={F47Val} setF47Val={setF47Val}
-            F48Val={F48Val} setF48Val={setF48Val}
-          />)
-          :
-          <PostopData
-            F51VS={F51VS} setF51VS={setF51VS}
-            F52VS={F52VS} setF52VS={setF52VS}
-            F53VS={F53VS} setF53VS={setF53VS}
+              F41VS={F41VS} setF41VS={setF41VS}
+              F42VS={F42VS} setF42VS={setF42VS}
+              F43VS={F43VS} setF43VS={setF43VS}
+              F44VS={F44VS} setF44VS={setF44VS}
+              F45VS={F45VS} setF45VS={setF45VS}
+              F46VS={F46VS} setF46VS={setF46VS}
+              F47Val={F47Val} setF47Val={setF47Val}
+              F48Val={F48Val} setF48Val={setF48Val}
+            />)
+            :
+            <PostopData
+              F51VS={F51VS} setF51VS={setF51VS}
+              F52VS={F52VS} setF52VS={setF52VS}
+              F53VS={F53VS} setF53VS={setF53VS}
 
-            F61VS={F61VS} setF61VS={setF61VS}
-            F62VS={F62VS} setF62VS={setF62VS}
-            F63VS={F63VS} setF63VS={setF63VS}
+              F61VS={F61VS} setF61VS={setF61VS}
+              F62VS={F62VS} setF62VS={setF62VS}
+              F63VS={F63VS} setF63VS={setF63VS}
 
-            F71VS={F71VS} setF71VS={setF71VS}
-            F72VS={F72VS} setF72VS={setF72VS}
-            F73VS={F73VS} setF73VS={setF73VS}
-            F74VS={F74VS} setF74VS={setF74VS}
-            F75VS={F75VS} setF75VS={setF75VS}
-            F76VS={F76VS} setF76VS={setF76VS}
+              F71VS={F71VS} setF71VS={setF71VS}
+              F72VS={F72VS} setF72VS={setF72VS}
+              F73VS={F73VS} setF73VS={setF73VS}
+              F74VS={F74VS} setF74VS={setF74VS}
+              F75VS={F75VS} setF75VS={setF75VS}
+              F76VS={F76VS} setF76VS={setF76VS}
 
-            F81VS={F81VS} setF81VS={setF81VS}
-            F82VS={F82VS} setF82VS={setF82VS}
-            F83VS={F83VS} setF83VS={setF83VS}
-            F84VS={F84VS} setF84VS={setF84VS}
-            F85VS={F85VS} setF85VS={setF85VS}
-            F86VS={F86VS} setF86VS={setF86VS}
-            F87Val={F87Val} setF87Val={setF87Val}
-            F88Val={F88Val} setF88Val={setF88Val}
+              F81VS={F81VS} setF81VS={setF81VS}
+              F82VS={F82VS} setF82VS={setF82VS}
+              F83VS={F83VS} setF83VS={setF83VS}
+              F84VS={F84VS} setF84VS={setF84VS}
+              F85VS={F85VS} setF85VS={setF85VS}
+              F86VS={F86VS} setF86VS={setF86VS}
+              F87Val={F87Val} setF87Val={setF87Val}
+              F88Val={F88Val} setF88Val={setF88Val}
 
-            F91VS={F91VS} setF91VS={setF91VS}
-            F92VS={F92VS} setF92VS={setF92VS}
-            F93VS={F93VS} setF93VS={setF93VS}
-            F94VS={F94VS} setF94VS={setF94VS}
-            F95VS={F95VS} setF95VS={setF95VS}
-            F96VS={F96VS} setF96VS={setF96VS}
-            F97Val={F97Val} setF97Val={setF97Val}
-            F98Val={F98Val} setF98Val={setF98Val}
-          />
-        }
+              F91VS={F91VS} setF91VS={setF91VS}
+              F92VS={F92VS} setF92VS={setF92VS}
+              F93VS={F93VS} setF93VS={setF93VS}
+              F94VS={F94VS} setF94VS={setF94VS}
+              F95VS={F95VS} setF95VS={setF95VS}
+              F96VS={F96VS} setF96VS={setF96VS}
+              F97Val={F97Val} setF97Val={setF97Val}
+              F98Val={F98Val} setF98Val={setF98Val}
+            />
+          }
+          
       </div>
     )
 }
