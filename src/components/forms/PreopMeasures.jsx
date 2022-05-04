@@ -118,7 +118,7 @@ export default function PreopMeasures({
         
     <Row className='bigBlock2 styledBox'>
         
-        <Col className='formIconDiv block4'>
+        <Col xs={2} className='formIconDiv block4'>
             <Row>
                 Measures
             </Row>
@@ -127,12 +127,12 @@ export default function PreopMeasures({
             </Row>
         </Col>
 
-        <Col xs={4} className='vCenter formCol'>
+        <Col xs={3} className='vCenter formCol block3'>
             <Row className='title2'>
                 Keratometric Astigmatism
             </Row>
             <Row>
-                <Col xs={6}>
+                <Col xs={6} className='noPadding'>
                     <NumInput VS={F22VS} setVS={setF22VS}
                     label="K1 (steep):"
                     placeholder="20~30"
@@ -142,7 +142,7 @@ export default function PreopMeasures({
                     readonly={false}
                     />
                 </Col>
-                <Col xs={6}>
+                <Col xs={6} className='noPadding'>
                     <NumInput VS={F21VS} setVS={setF21VS}
                     label="K2 (flat):"
                     placeholder="20~30"
@@ -154,7 +154,7 @@ export default function PreopMeasures({
                 </Col>
             </Row>
             <Row>
-                <Col xs={6}>
+                <Col xs={12} className='noPadding'>
                 <NumInput VS={F24VS} setVS={setF24VS}
                     label="Steep Meridian:"
                     placeholder="..."
@@ -164,7 +164,9 @@ export default function PreopMeasures({
                     readonly={false}
                     />
                 </Col>
-                <Col xs={6}>
+            </Row>
+            <Row>
+                <Col xs={12} className='noPadding'>
                     <NumInput VS={F23VS} setVS={setF23VS}
                     label="Magnitude:"
                     placeholder="..."
@@ -175,37 +177,12 @@ export default function PreopMeasures({
                     />
                 </Col>
             </Row>
-            {/*
-            <Row className='title2'>
-                Optimized Astigmatism
-            </Row>
-            <Row>
-                <Col xs={6}>
-                    <NumInput VS={F25VS} setVS={setF25VS}
-                    label="Magnitude:"
-                    placeholder="..."
-                    min={0}
-                    max={1000}
-                    step={0.1}
-                    readonly={true}
-                    />   
-                </Col>
-                <Col xs={6}>
-                    <NumInput VS={F24VS} setVS={setF24VS}
-                    label="Steep Meridian:"
-                    placeholder="..."
-                    min={20}
-                    max={30}
-                    step={0.1}
-                    readonly={true}
-                    />
-                </Col>
-        </Row>*/}
         </Col>
 
         <Col xs={3} className='vCenter formCol'>
+            <div>
             <Row className='title2'>
-                Scheimpflug / OCT1
+                OCT1 / Scheimpflug / Biometer
             </Row>
             <Row>
                 <Col xs={4} className='vCenter noPadding measureCol1'>
@@ -291,11 +268,12 @@ export default function PreopMeasures({
                     </span>
                 </Col>
             </Row>
+            </div>
         </Col>
 
         <Col xs={3} className='vCenter formCol'>
             <Row className='title2'>
-            Scheimpflug / OCT2
+            OCT2 / Scheimpflug / Biometer
             </Row>
             <Row>
                 <Col xs={4} className='vCenter noPadding measureCol1'>

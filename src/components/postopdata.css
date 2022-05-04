@@ -28,16 +28,21 @@
 }
 
 .bigBlock3{
+    padding: 1.8vw 4vw !important;
+}
+.bigBlock4{
     width: 75vw;
     margin: 1vw 0vw;
+
+    max-height: 33vh;
 }
-@media (max-width: 1020px) {
-    .bigBlock3{
+@media (max-width: 1280px) {
+    .bigBlock4{
         margin: 4vw 0vw;
     }
 }
-@media (max-width: 680px) {
-    .bigBlock3{
+@media (max-width: 845px) {
+    .bigBlock4{
         margin: 10vw 0vw;
     }
 }
@@ -69,16 +74,4 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-}
-
-.top{
-    position: absolute;
-    top: -12.5%;
-}
-@media (max-width: 1020px) {
-    .top{
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-    }
 }

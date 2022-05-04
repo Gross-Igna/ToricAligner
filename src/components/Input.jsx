@@ -88,7 +88,7 @@ export default function Input() {
           const [F25VS, setF25VS] = useState(["",-1]);
           //Steep Meridian
           const [F26VS, setF26VS] = useState(["",-1]);
-        //Scheimpflug / OCT1
+        //OCT1 / Scheimpflug / Biometer
           //Measure 1
             //Magnitude
             const[F31VS, setF31VS] = useState(["",-1])
@@ -109,7 +109,7 @@ export default function Input() {
             const[F37Val, setF37Val] = useState("0")
             //Axis
             const[F38Val, setF38Val] = useState("0")
-        //Scheimpflug / OCT2
+        //OCT2 / Scheimpflug / Biometer
           //Measure 1
             //Magnitude
             const[F41VS, setF41VS] = useState(["",-1])
@@ -147,14 +147,14 @@ export default function Input() {
         //Axis
         const [F63VS, setF63VS] = useState("", -1)
       //Induced corneal astigmatism
-        //Scheimpflug / OCT1
+        //OCT1 / Scheimpflug / Biometer
           //Sphere
           const [F75VS, setF75VS] = useState("", -1)
           //Cylinder
           const [F71VS, setF71VS] = useState("", -1)
           //Axis
           const [F72VS, setF72VS] = useState("", -1)
-        //Scheimpflug / OCT2
+        //OCT2 / Scheimpflug / Biometer
           //Sphere
           const [F76VS, setF76VS] = useState("", -1)
           //Cylinder
@@ -162,7 +162,7 @@ export default function Input() {
           //Axis
           const [F74VS, setF74VS] = useState("", -1)
       //Postop Measures
-      //Scheimpflug / OCT1
+      //OCT1 / Scheimpflug / Biometer
         //Measure 1
           //Magnitude
           const [F81VS, setF81VS] = useState("", -1)
@@ -184,7 +184,7 @@ export default function Input() {
           //Axis
           const [F88Val, setF88Val] = useState("0")
 
-      //Scheimpflug / OCT2
+      //OCT2 / Scheimpflug / Biometer
         //Measure 1
           //Magnitude
           const [F91VS, setF91VS] = useState("", -1)

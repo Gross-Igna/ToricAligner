@@ -36,7 +36,7 @@ export default function PostopDataA({
     }, [F51VS[0]]);
 
     return (
-            <Row className='styledBox' style={{paddingRight: '2vw'}}>
+            <Row className='styledBox bigBlock3'>
 
                 <Col className='formIconDiv' xs={3}>
                     <Row>
@@ -47,153 +47,81 @@ export default function PostopDataA({
                     </Row>
                 </Col>
 
-                <Col xs={9} className='formCol'>
-                    <Row className='title2'>
-                        Implanted IOL cilinder
-                    </Row>
+                <Col xs={9} className='formCol vCenter hCenter'>
                     <Row>
-                        <Col className='measureCol vCenter'>
+                        <Row className='title2'>
                             Implanted IOL cilinder:
-                        </Col>
-                        <Col className='noPadding'>
-                            <NumInput VS={F51VS} setVS={setF51VS}
-                                label=""
-                                placeholder="IOL Plane"
-                                min={4}
-                                max={5}
-                                step={0.1}
-                                readonly={false}
-                            />
-                        </Col>
-                        <Col className='noPadding'>
-                            <NumInput VS={F52VS} setVS={setF52VS}
-                                label=""
-                                placeholder="Corneal plane"
-                                min={20}
-                                max={30}
-                                step={0.1}
-                                readonly={true}
-                            />
-                        </Col>
-                        <Col className='noPadding'>
-                        <NumInput VS={F53VS} setVS={setF53VS}
-                                label=""
-                                placeholder="Orientation"
-                                min={0}
-                                max={90}
-                                step={0.1}
-                                readonly={true}
-                            />
-                        </Col>
+                        </Row>
+                        <Row>
+                            <Col xs={4} className='noPadding'>
+                                <NumInput VS={F51VS} setVS={setF51VS}
+                                    label=""
+                                    placeholder="IOL Plane"
+                                    min={4}
+                                    max={5}
+                                    step={0.1}
+                                    readonly={false}
+                                />
+                            </Col>
+                            <Col xs={4} className='noPadding'>
+                                <NumInput VS={F52VS} setVS={setF52VS}
+                                    label=""
+                                    placeholder="Corneal plane"
+                                    min={20}
+                                    max={30}
+                                    step={0.1}
+                                    readonly={true}
+                                />
+                            </Col>
+                            <Col xs={4} className='noPadding'>
+                                <NumInput VS={F53VS} setVS={setF53VS}
+                                    label=""
+                                    placeholder="Orientation"
+                                    min={0}
+                                    max={90}
+                                    step={0.1}
+                                    readonly={true}
+                                />
+                            </Col>
+                        </Row>
                     </Row>
+
                     <Row>
-                        <Col className='vCenter textCol'>
-                            Postoperative Refraction:
-                        </Col>
-                        <Col className='noPadding'>
-                            <NumInput VS={F61VS} setVS={setF61VS}
-                                label=""
-                                placeholder="Sphere"
-                                min={20}
-                                max={30}
-                                step={0.1}
-                                readonly={false}
-                            />
-                        </Col>
-                        <Col className='noPadding'>
-                            <NumInput VS={F62VS} setVS={setF62VS}
-                                label=""
-                                placeholder="Cylinder"
-                                min={20}
-                                max={30}
-                                step={0.1}
-                                readonly={false}
-                            />
-                        </Col>
-                        <Col className='noPadding'>
-                            <NumInput VS={F63VS} setVS={setF63VS}
-                                label=""
-                                placeholder="Axis"
-                                min={20}
-                                max={30}
-                                step={0.1}
-                                readonly={false}
-                            />
-                        </Col>
-                    </Row>
-                    
-                    <Row className='title2'>
-                        Induced corneal astigmatism
-                    </Row>
-                    <Row>
-                        <Col className='measureCol vCenter'>
-                            Scheimpflug / OCT1: 
-                        </Col>
-                        <Col className='noPadding'>
-                            <NumInput VS={F75VS} setVS={setF75VS}
-                                label=""
-                                placeholder="Sphere"
-                                min={20}
-                                max={30}
-                                step={0.1}
-                                readonly={false}
-                            />
-                        </Col>
-                        <Col className='noPadding'>
-                            <NumInput VS={F71VS} setVS={setF71VS}
-                                label=""
-                                placeholder="Cylinder"
-                                min={20}
-                                max={30}
-                                step={0.1}
-                                readonly={false}
-                            />
-                        </Col>
-                        <Col className='noPadding'>
-                            <NumInput VS={F72VS} setVS={setF72VS}
-                                label=""
-                                placeholder="Axis"
-                                min={20}
-                                max={30}
-                                step={0.1}
-                                readonly={false}
-                            />
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col className='measureCol vCenter'>
-                            Scheimpflug / OCT2: 
-                        </Col>
-                        <Col className='noPadding'>
-                            <NumInput VS={F76VS} setVS={setF76VS}
-                                label=""
-                                placeholder="Sphere"
-                                min={20}
-                                max={30}
-                                step={0.1}
-                                readonly={false}
-                            />
-                        </Col>
-                        <Col className='noPadding'>
-                            <NumInput VS={F73VS} setVS={setF73VS}
-                                label=""
-                                placeholder="Cylinder"
-                                min={20}
-                                max={30}
-                                step={0.1}
-                                readonly={false}
-                            />
-                        </Col>
-                        <Col className='noPadding'>
-                            <NumInput VS={F74VS} setVS={setF74VS}
-                                label=""
-                                placeholder="Axis"
-                                min={20}
-                                max={30}
-                                step={0.1}
-                                readonly={false}
-                            />
-                        </Col>
+                        <Row>
+                            <Row className='title2'>
+                                Postoperative Refraction:
+                            </Row>
+                            <Col xs={4} className='noPadding'>
+                                <NumInput VS={F61VS} setVS={setF61VS}
+                                    label=""
+                                    placeholder="Sphere"
+                                    min={20}
+                                    max={30}
+                                    step={0.1}
+                                    readonly={false}
+                                />
+                            </Col>
+                            <Col xs={4} className='noPadding'>
+                                <NumInput VS={F62VS} setVS={setF62VS}
+                                    label=""
+                                    placeholder="Cylinder"
+                                    min={20}
+                                    max={30}
+                                    step={0.1}
+                                    readonly={false}
+                                />
+                            </Col>
+                            <Col xs={4} className='noPadding'>
+                                <NumInput VS={F63VS} setVS={setF63VS}
+                                    label=""
+                                    placeholder="Axis"
+                                    min={20}
+                                    max={30}
+                                    step={0.1}
+                                    readonly={false}
+                                />
+                            </Col>
+                        </Row>
                     </Row>
                 </Col>
             </Row>

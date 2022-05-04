@@ -43,9 +43,8 @@ export default function PostopData({
     <Container className='postopData w-75'>
         
             <Row className='title'>
-                <h1 className='top'>Postoperative Data</h1>
+                <h1>Postoperative Data</h1>
             </Row>
-
 
             <Row className='formRow'>  
                 <Col xs={9} className='vCenter'>
@@ -71,26 +70,26 @@ export default function PostopData({
                 </Col>
             </Row>
 
-            <Row className='formRow'>
-                <PostopDataB
-                    F81VS={F81VS} setF81VS={setF81VS}
-                    F82VS={F82VS} setF82VS={setF82VS}
-                    F83VS={F83VS} setF83VS={setF83VS}
-                    F84VS={F84VS} setF84VS={setF84VS}
-                    F85VS={F85VS} setF85VS={setF85VS}
-                    F86VS={F86VS} setF86VS={setF86VS}
-                    F87Val={F87Val} setF87Val={setF87Val}
-                    F88Val={F88Val} setF88Val={setF88Val}
-        
-                    F91VS={F91VS} setF91VS={setF91VS}
-                    F92VS={F92VS} setF92VS={setF92VS}
-                    F93VS={F93VS} setF93VS={setF93VS}
-                    F94VS={F94VS} setF94VS={setF94VS}
-                    F95VS={F95VS} setF95VS={setF95VS}
-                    F96VS={F96VS} setF96VS={setF96VS}
-                    F97Val={F97Val} setF97Val={setF97Val}
-                    F98Val={F98Val} setF98Val={setF98Val}
-                />
+            <Row className='formRow vCenter'>
+                    <PostopDataB
+                        F81VS={F81VS} setF81VS={setF81VS}
+                        F82VS={F82VS} setF82VS={setF82VS}
+                        F83VS={F83VS} setF83VS={setF83VS}
+                        F84VS={F84VS} setF84VS={setF84VS}
+                        F85VS={F85VS} setF85VS={setF85VS}
+                        F86VS={F86VS} setF86VS={setF86VS}
+                        F87Val={F87Val} setF87Val={setF87Val}
+                        F88Val={F88Val} setF88Val={setF88Val}
+            
+                        F91VS={F91VS} setF91VS={setF91VS}
+                        F92VS={F92VS} setF92VS={setF92VS}
+                        F93VS={F93VS} setF93VS={setF93VS}
+                        F94VS={F94VS} setF94VS={setF94VS}
+                        F95VS={F95VS} setF95VS={setF95VS}
+                        F96VS={F96VS} setF96VS={setF96VS}
+                        F97Val={F97Val} setF97Val={setF97Val}
+                        F98Val={F98Val} setF98Val={setF98Val}
+                    />               
             </Row>
 
 

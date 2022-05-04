@@ -16,6 +16,11 @@
 .hCenter{
     margin: 0 auto;
 }
+.hCenterFlex{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
 .centeredRow{
     width: 100%;
 

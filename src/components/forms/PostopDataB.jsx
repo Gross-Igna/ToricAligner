@@ -88,9 +88,9 @@ export default function PostopDataB({
     }, [F91VS[0], F92VS[0], F93VS[0], F94VS[0], F95VS[0], F96VS[0]])
 
     return (
-        <Row className='styledBox bigBlock3 hCenterRow'>
+        <Row className='styledBox bigBlock4 hCenterRow'>
 
-            <Col xs={3} className='formIconDiv block1'>
+            <Col xs={3} className='formIconDiv block1' style={{marginLeft: 0}}>
                 <Row>
                     (Title 4)
                 </Row>
@@ -102,7 +102,7 @@ export default function PostopDataB({
             <Col xs={4} className='vCenter formCol octForm'>
 
                 <Row className='title2'>
-                    Scheimpflug / OCT1
+                    OCT1 / Scheimpflug / Biometer
                 </Row>
 
                 <Row className='hCenterRow'>
@@ -194,7 +194,7 @@ export default function PostopDataB({
             <Col xs={4} className='vCenter formCol octForm'>
 
                 <Row className='title2'>
-                    Scheimpflug / OCT2
+                    OCT2 / Scheimpflug / Biometer
                 </Row>
                 
                 <Row className='hCenterRow'>

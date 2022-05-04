@@ -24,7 +24,7 @@ export default function PatientName({Val, setVal, setSt}) {
             <Form.Group className='inputDiv patientNameDiv'>
                     <span className='controlLabel'>Patient:</span>
                     <Form.Control 
-                        type="text" placeholder='Enter patient name'
+                        type="text" placeholder='Enter patient name / ID'
                         className={Class} value={Val}
                         onChange={
                             (e) => 

@@ -20,21 +20,18 @@ export default function patientData({
         <Row>
             <Row className='hCenter patientDataForm'>
                 <Row>
-                    <Col xs={5} style={{paddingRight: 0}}>
+                    <Col xs={6}>
                         <PatientName Val={F11Val} setVal={setF11Val} setSt={setF11St}/>
                     </Col>
-                    <Col xs={2} className='eyeCol'>
-                        <EyeLR Val={F13Val} setVal={setF13Val} setSt={setF13St}/>
-                    </Col>
-                    <Col xs={5}>
+                    <Col xs={6}>
                         <SurgeonName Val={F12Val} setVal={setF12Val} setSt={setF12St}/>
                     </Col>
                 </Row>
                 <Row>
-                    <Col xs={7} className='alignLeft'>
-                        <Date Val={F14Val} setVal={setF14Val} setSt={setF14St}/>
+                    <Col xs={6} className='eyeCol'>
+                        <EyeLR Val={F13Val} setVal={setF13Val} setSt={setF13St}/>
                     </Col>
-                    <Col xs={5}>
+                    <Col xs={6}>
                         <NumInput VS={F15VS} setVS={setF15VS}
                         label="Axial Length:"
                         placeholder="20~30"
