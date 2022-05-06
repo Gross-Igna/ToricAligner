@@ -22,7 +22,7 @@ export default function PatientName({Val, setVal, setSt}) {
     return (
         <Form>
             <Form.Group className='inputDiv patientNameDiv'>
-                    <span className='controlLabel'>Patient:</span>
+                    <span className='controlLabel'>Patient:&nbsp;&nbsp;</span>
                     <Form.Control 
                         type="text" placeholder='Enter patient name / ID'
                         className={Class} value={Val}

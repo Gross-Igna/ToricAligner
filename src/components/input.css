@@ -33,23 +33,17 @@
     flex-direction: column;
     justify-content: center;
 }
-.measureCol{
-    text-align: right;
-    width: min-content !important;
-}
 .hCenterRow{
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
 .averagesCol{
-    padding: 0 auto;
     text-align: center;
-
     font-size: 0.9vw;
 }
 .noPadding{
-    padding: 0px 3px;
+    padding: 0px 0px;
 }
 
 
@@ -148,10 +142,14 @@ h1{
     max-width: 100% !important;
     width: 100% !important;
     border-radius: 15px;  
+
+    margin: 0vw 0.25vw;
 }
 .controlLabel{
     font-size: 1vw;
-    margin: 0px 0.5vw;
+    
+    padding: 0vw 0vw;
+
     height: 2.5vw;
     line-height: 2.5vw;
 

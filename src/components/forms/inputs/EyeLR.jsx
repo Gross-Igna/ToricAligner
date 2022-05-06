@@ -23,7 +23,7 @@ export default function EyeLR({Val, setVal, setSt}) {
         <Form>
             <Form.Group>
                 <div className='inputDiv eyeDiv'>
-                    <span className='controlLabel'>Eye:</span>
+                    <span className='controlLabel'>Eye:&nbsp;&nbsp;</span>
                     <Form.Select 
                         style={{fontSize: '0.7vw'}}
                         className={Class} value={Val}

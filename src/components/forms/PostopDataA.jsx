@@ -40,7 +40,7 @@ export default function PostopDataA({
 
                 <Col className='formIconDiv' xs={3}>
                     <Row>
-                      (Title 3)
+                      Post Op <br></br> Patient Data
                     </Row>
                     <Row>
                       <img src={patienticon} className='formIcon patient'/>

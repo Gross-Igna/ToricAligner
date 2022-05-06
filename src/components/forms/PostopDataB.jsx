@@ -92,7 +92,7 @@ export default function PostopDataB({
 
             <Col xs={3} className='formIconDiv block1' style={{marginLeft: 0}}>
                 <Row>
-                    (Title 4)
+                    Post Op<br></br>Measures
                 </Row>
                 <Row>
                     <img src={octicon} className='formIcon patient'/>
@@ -102,7 +102,7 @@ export default function PostopDataB({
             <Col xs={4} className='vCenter formCol octForm'>
 
                 <Row className='title2'>
-                    OCT1 / Scheimpflug / Biometer
+                    Measured Corneal Astigmatism 1
                 </Row>
 
                 <Row className='hCenterRow'>
@@ -194,7 +194,7 @@ export default function PostopDataB({
             <Col xs={4} className='vCenter formCol octForm'>
 
                 <Row className='title2'>
-                    OCT2 / Scheimpflug / Biometer
+                    Measured Corneal Astigmatism 2
                 </Row>
                 
                 <Row className='hCenterRow'>
