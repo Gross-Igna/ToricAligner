@@ -48,8 +48,8 @@ export default function PostopDataA({
                 </Col>
 
                 <Col xs={9} className='formCol vCenter hCenter'>
-                    <Row>
-                        <Row className='title2'>
+                    <Row className='postopARow' style={{marginBottom: '0.15vw'}}>
+                        <Row className='title2' style={{marginBottom: '0.15vw'}}>
                             Implanted IOL cilinder:
                         </Row>
                         <Row>

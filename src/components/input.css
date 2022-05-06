@@ -92,7 +92,9 @@ h1{
     background-color: #094fa0aa;
     filter: drop-shadow(-9px 16px 16px #000);
 }
-
+.textCenter{
+    text-align: center;
+}
 .formRow{
     height: 45%;
     padding: 0%;

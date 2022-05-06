@@ -4,8 +4,11 @@ import PostopDataA from './forms/PostopDataA';
 import {Container, Row, Col} from 'react-bootstrap';
 import CalculateBtn from './forms/CalculateBtn';
 import PostopDataB from './forms/PostopDataB';
+import {BsFillArrowLeftCircleFill} from 'react-icons/bs'
 
 export default function PostopData({
+    setStage, validPostop,
+
     F51VS, setF51VS,
     F52VS, setF52VS,
     F53VS, setF53VS,
@@ -41,8 +44,14 @@ export default function PostopData({
 }) {
   return (
     <Container className='postopData w-75'>
+
+            <btn className='backBtn styledBox' onClick={() => {
+                setStage(1);
+            }}>
+                <BsFillArrowLeftCircleFill/>&nbsp;&nbsp;Go back
+            </btn>
         
-            <Row className='title'>
+            <Row className='title' style={{marginLeft: '6vw', paddingRight: '6vw'}}>
                 <h1>Postoperative Data</h1>
             </Row>
 
@@ -66,7 +75,7 @@ export default function PostopData({
                     />      
                 </Col>
                 <Col xs={3} className='centeredCol'>
-                    <CalculateBtn />
+                    <CalculateBtn validPostop={validPostop}/>
                 </Col>
             </Row>
 

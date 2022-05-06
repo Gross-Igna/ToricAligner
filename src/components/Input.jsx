@@ -12,6 +12,7 @@ export default function Input() {
 
     //Reference for knowing if form is valid
     const [validPreop, setValidPreop] = useState(true);
+    const [validPostop, setValidPostop] = useState(false);
     //UseEffect to check if form is valid after any change
     /*useEffect(() => {
       if(
@@ -44,6 +45,34 @@ export default function Input() {
         setValidPreop(false);
       }
     })*/
+
+    useEffect(() => {
+      if(
+        F51VS[1] == 1 &&
+
+        F61VS[1] == 1 &&
+        F62VS[1] == 1 &&
+        F63VS[1] == 1 &&
+
+        F81VS[1] == 1 &&
+        F82VS[1] == 1 &&
+        F83VS[1] == 1 &&
+        F84VS[1] == 1 &&
+        F85VS[1] == 1 &&
+        F86VS[1] == 1 &&
+        
+        F91VS[1] == 1 &&
+        F92VS[1] == 1 &&
+        F93VS[1] == 1 &&
+        F94VS[1] == 1 &&
+        F95VS[1] == 1 &&
+        F96VS[1] == 1 
+      ){
+        setValidPostop(true);
+      }else{
+        setValidPostop(false);
+      }
+    })
 
     //Code for states for every input: 
     //
@@ -146,21 +175,6 @@ export default function Input() {
         const [F62VS, setF62VS] = useState("", -1)
         //Axis
         const [F63VS, setF63VS] = useState("", -1)
-      //Induced corneal astigmatism
-        //OCT1 / Scheimpflug / Biometer
-          //Sphere
-          const [F75VS, setF75VS] = useState("", -1)
-          //Cylinder
-          const [F71VS, setF71VS] = useState("", -1)
-          //Axis
-          const [F72VS, setF72VS] = useState("", -1)
-        //OCT2 / Scheimpflug / Biometer
-          //Sphere
-          const [F76VS, setF76VS] = useState("", -1)
-          //Cylinder
-          const [F73VS, setF73VS] = useState("", -1)
-          //Axis
-          const [F74VS, setF74VS] = useState("", -1)
       //Postop Measures
       //OCT1 / Scheimpflug / Biometer
         //Measure 1
@@ -249,6 +263,9 @@ export default function Input() {
             />)
             :
             <PostopData
+              setStage={setStage}
+              validPostop={validPostop}
+
               F51VS={F51VS} setF51VS={setF51VS}
               F52VS={F52VS} setF52VS={setF52VS}
               F53VS={F53VS} setF53VS={setF53VS}
@@ -256,13 +273,6 @@ export default function Input() {
               F61VS={F61VS} setF61VS={setF61VS}
               F62VS={F62VS} setF62VS={setF62VS}
               F63VS={F63VS} setF63VS={setF63VS}
-
-              F71VS={F71VS} setF71VS={setF71VS}
-              F72VS={F72VS} setF72VS={setF72VS}
-              F73VS={F73VS} setF73VS={setF73VS}
-              F74VS={F74VS} setF74VS={setF74VS}
-              F75VS={F75VS} setF75VS={setF75VS}
-              F76VS={F76VS} setF76VS={setF76VS}
 
               F81VS={F81VS} setF81VS={setF81VS}
               F82VS={F82VS} setF82VS={setF82VS}

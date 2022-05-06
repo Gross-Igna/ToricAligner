@@ -235,11 +235,11 @@ export default function PreopMeasures({
 
             <Row className='title2'>
                 <Col xs={12} className='noPadding'>
-                    &nbsp;&nbsp;OCT1 / Scheimpflug / Biometer
+                    OCT1 / Scheimpflug / Biometer
                 </Col>
             </Row>
             <Row className='measureRow'>
-                <Col xs={4} className='vCenter noPadding measureCol1'>
+                <Col xs={4} className='vCenter noPadding measureCol'>
                     <span>
                         Measurements 1:&nbsp;
                     </span>
@@ -266,7 +266,7 @@ export default function PreopMeasures({
                 </Col>
             </Row>
             <Row className='measureRow' style={{display: measure12Switch ? null : 'none'}}>
-                <Col xs={4} className='vCenter noPadding measureCol1'>
+                <Col xs={4} className='vCenter noPadding measureCol'>
                     Measurements 2:&nbsp;
                 </Col>
                 <Col xs={4} className='noPadding'>
@@ -291,7 +291,7 @@ export default function PreopMeasures({
                 </Col>
             </Row>
             <Row className='measureRow' style={{display: measure13Switch? null : 'none'}}>
-                <Col xs={4} className='vCenter noPadding measureCol1'>
+                <Col xs={4} className='vCenter noPadding measureCol'>
                     Measurements 3:&nbsp;
                 </Col>
                 <Col xs={4} className='noPadding'>
@@ -346,11 +346,11 @@ export default function PreopMeasures({
 
             <Row className='title2'>
                 <Col xs={12} className='noPadding'>
-                    &nbsp;&nbsp;OCT2 / Scheimpflug / Biometer
+                    OCT2 / Scheimpflug / Biometer
                 </Col>
             </Row>
             <Row className='measureRow'>
-                <Col xs={4} className='vCenter noPadding measureCol1'>
+                <Col xs={4} className='vCenter noPadding measureCol'>
                     <span>
                         Measurements 1:&nbsp;
                     </span>
@@ -378,7 +378,7 @@ export default function PreopMeasures({
                 </Col>
             </Row>
             <Row className='measureRow' style={{display: measure22Switch ? null : 'none'}}>
-                <Col xs={4} className='vCenter noPadding measureCol1'>
+                <Col xs={4} className='vCenter noPadding measureCol'>
                     Measurements 2:&nbsp;
                 </Col>
                 <Col xs={4} className='noPadding'>
@@ -403,7 +403,7 @@ export default function PreopMeasures({
                 </Col>
             </Row>
             <Row className='measureRow' style={{display: measure23Switch? null : 'none'}}>
-                <Col xs={4} className='vCenter noPadding measureCol1'>
+                <Col xs={4} className='vCenter noPadding measureCol'>
                     Measurements 3:&nbsp;
                 </Col>
                 <Col xs={4} className='noPadding'>

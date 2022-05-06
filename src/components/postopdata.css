@@ -13,6 +13,7 @@
     width: 30% !important;
 }
 
+
 .textCol{
     white-space: nowrap;
     width: 11.5vw;
@@ -25,6 +26,17 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+.backBtn{
+    cursor: pointer;
+
+    position: absolute;
+    margin-left: -0.8vw;
+
+    width: max-content;
+
+    padding: 1vw !important;
 }
 
 .bigBlock3{
@@ -61,7 +73,14 @@
     color: rgb(240, 243, 248);
     font-weight: 600;
 }
-.calculateBtn:hover{
+.calculateBtnDisabled{
+    background-color: #5178a5cb !important;
+    color: rgb(164, 175, 196);
+
+    padding: 0.8vw 2.4vw !important;
+    margin: 0 auto;
+}
+.calculateBtn:hover, .backBtn:hover {
     background-color: #094fa0cb;
     filter: drop-shadow(-9px 20px 20px #000);
 }
