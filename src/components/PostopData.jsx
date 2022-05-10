@@ -7,7 +7,7 @@ import PostopDataB from './forms/PostopDataB';
 import {BsFillArrowLeftCircleFill} from 'react-icons/bs'
 
 export default function PostopData({
-    setStage, validPostop,
+    setStage, validPostop, setValidPostOct,
 
     F51VS, setF51VS,
     F52VS, setF52VS,
@@ -81,6 +81,8 @@ export default function PostopData({
 
             <Row className='formRow vCenter'>
                     <PostopDataB
+                        setValidPostOct={setValidPostOct}
+
                         F81VS={F81VS} setF81VS={setF81VS}
                         F82VS={F82VS} setF82VS={setF82VS}
                         F83VS={F83VS} setF83VS={setF83VS}

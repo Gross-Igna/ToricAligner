@@ -10,7 +10,7 @@ export default function patientData({
     F11Val, setF11Val, setF11St,
     F12Val, setF12Val, setF12St,
     F13Val, setF13Val, setF13St,
-    F14Val, setF14Val, setF14St,
+      setF14St,
     F15VS, setF15VS,
     F16VS, setF16VS,
     F17VS, setF17VS

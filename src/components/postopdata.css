@@ -81,6 +81,7 @@
     margin: 0 auto;
 }
 .calculateBtn:hover, .backBtn:hover {
+    color: white;
     background-color: #094fa0cb;
     filter: drop-shadow(-9px 20px 20px #000);
 }

@@ -71,6 +71,22 @@
     border-width: 1px;
     border-radius: 20px;
 }
+.octSwitchOn:hover{
+    cursor: pointer;
+    color: white;
+
+    position: absolute;
+    top: 0;
+    left: 0.5vw;
+    width: calc(100% - 1vw);
+    height: 100%;
+
+    background-color: #3e6694fa;
+    border-style: solid;
+    border-color: white;
+    border-width: 1px;
+    border-radius: 20px;
+}
 .octSwitchOff{
     position: absolute;
     top: 0;
@@ -123,6 +139,7 @@
     background-color: #094fa0aa;
 }
 .addMeasureRow > span:hover{
+    color: white;
     background-color: rgba(45, 111, 185, 0.98);
 }
 
@@ -136,6 +153,7 @@
     font-weight: 600;
 }
 .continueBtn:hover{
+    color: white;
     background-color: #094fa0cb;
     filter: drop-shadow(-9px 20px 20px #000);
 }

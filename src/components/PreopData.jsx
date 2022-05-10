@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from 'react'
+import React, { useEffect } from 'react'
 import './preopdata.css'
 import patienticon from '../img/patient-border.png';
 import PatientData from './forms/PatientData'
@@ -7,40 +7,39 @@ import ContinueBtn from './forms/ContinueBtn'
 import {Container, Row, Col} from 'react-bootstrap';
 
 export default function PreopData({
-  setStage, validPreop,
+    setStage, validPreop, setValidPreOct,
 
-  F11Val, setF11Val, setF11St,
-  F12Val, setF12Val, setF12St,
-  F13Val, setF13Val, setF13St,
-  F14Val, setF14Val, setF14St,
-  F15VS, setF15VS,
-  F16VS, setF16VS,
-  F17VS, setF17VS,
+    F11Val, setF11Val, setF11St,
+    F12Val, setF12Val, setF12St,
+    F13Val, setF13Val, setF13St,
+    F15VS, setF15VS,
+    F16VS, setF16VS,
+    F17VS, setF17VS,
 
-  F21VS, setF21VS,
-  F22VS, setF22VS,
-  F23VS, setF23VS,
-  F24VS, setF24VS,
-  F25VS, setF25VS,
-  F26VS, setF26VS,
+    F21VS, setF21VS,
+    F22VS, setF22VS,
+    F23VS, setF23VS,
+    F24VS, setF24VS,
+    F25VS, setF25VS,
+    F26VS, setF26VS,
 
-  F31VS, setF31VS,
-  F32VS, setF32VS,
-  F33VS, setF33VS,
-  F34VS, setF34VS,
-  F35VS, setF35VS,
-  F36VS, setF36VS,
-  F37Val, setF37Val,
-  F38Val, setF38Val,
+    F31VS, setF31VS,
+    F32VS, setF32VS,
+    F33VS, setF33VS,
+    F34VS, setF34VS,
+    F35VS, setF35VS,
+    F36VS, setF36VS,
+    F37Val, setF37Val,
+    F38Val, setF38Val,
 
-  F41VS, setF41VS,
-  F42VS, setF42VS,
-  F43VS, setF43VS,
-  F44VS, setF44VS,
-  F45VS, setF45VS,
-  F46VS, setF46VS,
-  F47Val, setF47Val,
-  F48Val, setF48Val
+    F41VS, setF41VS,
+    F42VS, setF42VS,
+    F43VS, setF43VS,
+    F44VS, setF44VS,
+    F45VS, setF45VS,
+    F46VS, setF46VS,
+    F47Val, setF47Val,
+    F48Val, setF48Val
   }) {
   
   return (
@@ -70,7 +69,6 @@ export default function PreopData({
                     F11Val={F11Val} setF11Val={setF11Val} setF11St={setF11St}
                     F12Val={F12Val} setF12Val={setF12Val} setF12St={setF12St}
                     F13Val={F13Val} setF13Val={setF13Val} setF13St={setF13St}
-                    F14Val={F14Val} setF14Val={setF14Val} setF14St={setF14St}
                     F15VS={F15VS} setF15VS={setF15VS}
                     F16VS={F16VS} setF16VS={setF16VS}
                     F17VS={F17VS} setF17VS={setF17VS}
@@ -91,6 +89,8 @@ export default function PreopData({
 
         <Row className='vCenter formRow'>
             <PreopMeasures
+              setValidPreOct={setValidPreOct}
+
               F21VS={F21VS} setF21VS={setF21VS}
               F22VS={F22VS} setF22VS={setF22VS}
               F23VS={F23VS} setF23VS={setF23VS}

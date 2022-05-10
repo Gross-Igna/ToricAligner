@@ -67,14 +67,14 @@ h1{
 
     /*TEXT SHADOW PRESET*/
     text-shadow: 
-        -1px -1px 0px white,
-         0px -1px 0px white,
-         1px -1px 0px white,
-        -1px  0px 0px white,
-         1px  0px 0px white,
-        -1px  1px 0px white,
-         0px  1px 0px white,
-         1px  1px 0px white;
+        -1px -1px 0px rgb(240, 243, 248),
+         0px -1px 0px rgb(240, 243, 248),
+         1px -1px 0px rgb(240, 243, 248),
+        -1px  0px 0px rgb(240, 243, 248),
+         1px  0px 0px rgb(240, 243, 248),
+        -1px  1px 0px rgb(240, 243, 248),
+         0px  1px 0px rgb(240, 243, 248),
+         1px  1px 0px rgb(240, 243, 248);
 }
 .title2{
     font-family: 'Titillium Web', sans-serif;

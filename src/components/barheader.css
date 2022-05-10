@@ -9,10 +9,12 @@
 
     background-color: #094fa0aa;
     filter: drop-shadow(-4px 6px 15px #000);
+
+    font-family: 'Titillium Web', sans-serif;
 }
 
 .barContainer{
-    color: white;
+    color: rgb(240, 243, 248);
     width: 100vw !important;
     font-size: 1vw;
 
@@ -30,11 +32,12 @@
     float: left;
 }
 .barLink{
-    color: white;
+    color: rgb(240, 243, 248);
 
     margin: 0vw 0.6vw;
 }
 .barLink:hover{
+    color: white;
     text-decoration: underline;
     cursor: pointer;
 }

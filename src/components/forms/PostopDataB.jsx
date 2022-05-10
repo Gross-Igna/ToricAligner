@@ -1,9 +1,12 @@
-import React, {useEffect} from 'react'
+import React, {useState, useEffect} from 'react'
 import NumInput from './inputs/NumInput';
 import {Container, Row, Col} from 'react-bootstrap';
 import octicon from '../../img/oct-border4.png';
+import {IoAddCircleOutline} from 'react-icons/io5'
 
 export default function PostopDataB({
+    setValidPostOct,
+
     F81VS, setF81VS,
     F82VS, setF82VS,
     F83VS, setF83VS,
@@ -87,6 +90,100 @@ export default function PostopDataB({
         
     }, [F91VS[0], F92VS[0], F93VS[0], F94VS[0], F95VS[0], F96VS[0]])
 
+    //Switch for measure numbers
+    const [measure12Switch, setMeasure12Switch] = useState(false);
+    const [measure13Switch, setMeasure13Switch] = useState(false);
+
+    const [oct2SwitchClass, setOct2SwitchClass] = useState('octSwitchOn vCenter')
+    const [measure22Switch, setMeasure22Switch] = useState(false);
+    const [measure23Switch, setMeasure23Switch] = useState(false);
+    
+    function deleteById(divId){
+        document.getElementById(divId).style.display = "none";
+    }
+
+    function handleClick(){
+            setOct2SwitchClass('octSwitchOff vCenter');
+            let del = setTimeout( () => deleteById('octSwitch3') , 200 );
+        }
+
+    function addMoreMeasures(formId){
+        if (formId === 1){
+            if(!measure12Switch){
+                setMeasure12Switch(true);
+            }else{
+                setMeasure13Switch(true);
+                deleteById('addMore3');
+            }
+        }else if (formId === 2){
+            if(!measure22Switch){
+                setMeasure22Switch(true);
+            }else{
+                setMeasure23Switch(true);
+                deleteById('addMore4');
+            }
+        }
+    }
+
+    //Validate OCTs
+    useEffect(() => {
+        
+            let valid1 = false;
+            let valid2 = false;
+
+            if(!measure12Switch){
+                if(F81VS[1] == 1 && F82VS[1] == 1){
+                    valid1 = true;
+                }
+            }else{
+                if(!measure13Switch){
+                    if(
+                        F81VS[1] == 1 && F82VS[1] == 1 &&
+                        F83VS[1] == 1 && F84VS[1] == 1 ){
+                        valid1 = true;
+                    }
+                }else{
+                    if(
+                        F81VS[1] == 1 && F82VS[1] == 1 &&
+                        F83VS[1] == 1 && F84VS[1] == 1 &&
+                        F85VS[1] == 1 && F86VS[1] == 1 ){
+                        valid1 = true;
+                    }
+                }
+            }
+
+            if(oct2SwitchClass !== 'octSwitchOn vCenter'){
+                if(!measure22Switch){
+                    if(F91VS[1] == 1 && F92VS[1] == 1){
+                        valid2 = true;
+                    }
+                }else{
+                    if(!measure23Switch){
+                        if(
+                            F91VS[1] == 1 && F92VS[1] == 1 &&
+                            F93VS[1] == 1 && F94VS[1] == 1){
+                            valid2 = true;
+                        }
+                    }else
+                        if(
+                            F91VS[1] == 1 && F92VS[1] == 1 &&
+                            F93VS[1] == 1 && F94VS[1] == 1 &&
+                            F95VS[1] == 1 && F96VS[1] == 1 ){
+                            valid2 = true;
+                        }
+                }
+            }else{
+                valid2 = true;
+            }
+
+            if (valid1 && valid2){
+                setValidPostOct(true);
+            }else{
+                setValidPostOct(false);
+            }
+            
+    })
+
     return (
         <Row className='styledBox bigBlock4 hCenterRow'>
 
@@ -131,7 +228,7 @@ export default function PostopDataB({
                     </Col>
                 </Row>
 
-                <Row className='hCenterRow'>
+                <Row className='hCenterRow' style={{display: measure12Switch ? null : 'none'}}>
                     <Col xs={3} className='vCenter measureCol noPadding'>
                         Measurements 2:&nbsp;
                     </Col>
@@ -157,7 +254,7 @@ export default function PostopDataB({
                     </Col>
                 </Row>
 
-                <Row className='hCenterRow'>
+                <Row className='hCenterRow' style={{display: measure13Switch ? null : 'none'}}>
                     <Col xs={3} className='vCenter measureCol noPadding'>
                         Measurements 3:&nbsp;
                     </Col>
@@ -182,6 +279,13 @@ export default function PostopDataB({
                         />
                     </Col>
                 </Row>
+
+                <Row className='addMeasureRow' style={{display: measure13Switch? 'none' : null}}>
+                    <span onClick={() => addMoreMeasures(1)}>
+                        Add more&nbsp;<IoAddCircleOutline/>
+                    </span>
+                </Row>
+
                 <Row xs={12} className='averagesCol'>
                     <span className='averagesCol'>
                         Average Magnitude: {F87Val}
@@ -189,9 +293,20 @@ export default function PostopDataB({
                         Average Axis: {F88Val}        
                     </span>           
                 </Row>
+
             </Col>
 
             <Col xs={4} className='vCenter formCol octForm'>
+
+                <div id='octSwitch3' className={oct2SwitchClass} 
+                onClick={() => handleClick()}
+                >
+                    <span className='hCenter'>
+                        <IoAddCircleOutline style={{fontSize: '3vw'}}/>
+                        <br></br>
+                        Add more measurements
+                    </span>
+                </div>
 
                 <Row className='title2'>
                     Measured Corneal Astigmatism 2
@@ -223,7 +338,7 @@ export default function PostopDataB({
                     </Col>
                 </Row>
 
-                <Row className='hCenterRow'>
+                <Row className='hCenterRow' style={{display: measure22Switch ? null : 'none'}}>
                     <Col xs={3} className='vCenter measureCol noPadding'>
                         Measurements 2:&nbsp;
                     </Col>
@@ -248,7 +363,7 @@ export default function PostopDataB({
                         />
                     </Col>
                 </Row>
-                <Row className='hCenterRow'>
+                <Row className='hCenterRow' style={{display: measure23Switch ? null : 'none'}}>
                     <Col xs={3} className='vCenter measureCol noPadding'>
                         Measurements 3:&nbsp;
                     </Col>
@@ -273,6 +388,13 @@ export default function PostopDataB({
                         />
                     </Col>
                 </Row>
+
+                <Row className='addMeasureRow' style={{display: measure23Switch? 'none' : null}}>
+                    <span onClick={() => addMoreMeasures(2)}>
+                        Add more&nbsp;<IoAddCircleOutline/>
+                    </span>
+                </Row>
+
                 <Row xs={12} className='averagesCol'>
                     <span className='averagesCol'>
                         Average Magnitude: {F97Val}
@@ -282,7 +404,9 @@ export default function PostopDataB({
                 </Row>
 
             </Col>
+
         </Row>
     )
 }
+
 

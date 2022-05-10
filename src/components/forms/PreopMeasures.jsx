@@ -5,12 +5,13 @@ import octicon from '../../img/oct-border4.png'
 import {IoAddCircleOutline} from 'react-icons/io5'
 
 export default function PreopMeasures({
+    setValidPreOct,
+
     F21VS, setF21VS,
     F22VS, setF22VS,
     F23VS, setF23VS,
     F24VS, setF24VS,
     F25VS, setF25VS,
-    F26VS, setF26VS,
 
     F31VS, setF31VS,
     F32VS, setF32VS,
@@ -31,18 +32,17 @@ export default function PreopMeasures({
     F48Val, setF48Val
 }) {
     
-
     //States and onclick functions for activating or desactivating additional OCT Measures
     const [oct1SwitchClass, setOct1SwitchClass] = useState('octSwitchOn vCenter')
-    const [measure12Switch, seatMeasure12Switch] = useState(false);
-    const [measure13Switch, seatMeasure13Switch] = useState(false);
+    const [measure12Switch, setMeasure12Switch] = useState(false);
+    const [measure13Switch, setMeasure13Switch] = useState(false);
 
     const [oct2SwitchClass, setOct2SwitchClass] = useState('octSwitchOn vCenter')
-    const [measure22Switch, seatMeasure22Switch] = useState(false);
-    const [measure23Switch, seatMeasure23Switch] = useState(false);
+    const [measure22Switch, setMeasure22Switch] = useState(false);
+    const [measure23Switch, setMeasure23Switch] = useState(false);
 
     function deleteById(divId){
-        document.getElementById(divId).style.display = "none"
+        document.getElementById(divId).style.display = "none";
     }
 
     function handleClick(n){
@@ -50,28 +50,92 @@ export default function PreopMeasures({
             setOct1SwitchClass('octSwitchOff vCenter');
             let del = setTimeout( () => deleteById('octSwitch1') , 200 );
         }else if(n == 2){
-            setOct2SwitchClass('octSwitchOff vCenter');
-            let del = setTimeout( () => deleteById('octSwitch2') , 200 );
+            if(oct1SwitchClass !== 'octSwitchOn vCenter'){
+                setOct2SwitchClass('octSwitchOff vCenter');
+                let del = setTimeout( () => deleteById('octSwitch2') , 200 );
+            }
         }
     }
 
     function addMoreMeasures(formId){
         if (formId === 1){
             if(!measure12Switch){
-                seatMeasure12Switch(true);
+                setMeasure12Switch(true);
             }else{
-                seatMeasure13Switch(true);
+                setMeasure13Switch(true);
                 deleteById('addMore1');
             }
         }else if (formId === 2){
             if(!measure22Switch){
-                seatMeasure22Switch(true);
+                setMeasure22Switch(true);
             }else{
-                seatMeasure23Switch(true);
+                setMeasure23Switch(true);
                 deleteById('addMore2');
             }
         }
     }
+
+    //Validate OCTs
+    useEffect(() => {
+
+        setValidPreOct(false);
+
+        if(oct1SwitchClass !== 'octSwitchOn vCenter'){
+            if(!measure12Switch){
+                if(F31VS[1] == 1 && F32VS[1] == 1){
+                    setValidPreOct(true);
+                }
+            }else{
+                if(!measure13Switch){
+                    if(
+                        F31VS[1] == 1 && F32VS[1] == 1 &&
+                        F33VS[1] == 1 && F34VS[1] == 1 ){
+                        setValidPreOct(true);
+                    }
+                }else{
+                    if(
+                        F31VS[1] == 1 && F32VS[1] == 1 &&
+                        F33VS[1] == 1 && F34VS[1] == 1 &&
+                        F35VS[1] == 1 && F36VS[1] == 1 ){
+                        setValidPreOct(true);
+                    }
+                }
+            }
+        }
+
+        if(oct2SwitchClass !== 'octSwitchOn vCenter'){
+            if(!measure22Switch){
+                if(F41VS[1] == 1 && F42VS[1] == 1){
+                    setValidPreOct(true);
+                }else{
+                    setValidPreOct(false);
+                }
+            }else{
+                if(!measure23Switch){
+                    if(
+                        F41VS[1] == 1 && F42VS[1] == 1 &&
+                        F43VS[1] == 1 && F44VS[1] == 1){
+                        setValidPreOct(true);
+                    }else{
+                        setValidPreOct(false);
+                    }
+                }else{
+                    if(
+                        F41VS[1] == 1 && F42VS[1] == 1 &&
+                        F43VS[1] == 1 && F44VS[1] == 1 &&
+                        F45VS[1] == 1 && F46VS[1] == 1 ){
+                        setValidPreOct(true);
+                    }else{
+                        setValidPreOct(false);
+                    }
+                }
+            }
+        }else 
+            if (oct1SwitchClass == 'octSwitchOn vCenter'){
+                setValidPreOct(true);
+            }
+    })
+
 
     //Automatic refresh for Magnitude F23 input 
     useEffect(() => {
@@ -82,7 +146,7 @@ export default function PreopMeasures({
             setF23VS([ magnitude.toString().substring(0,4) , F23VS[1] ]);
         }catch(error){}
 
-    }, [ F21VS[0], F22VS[0] ]);
+    }, [ F21VS[0], F22VS[0] ])
 
 
     //Automatic refresh for Optimized Magnitude F25 input
@@ -95,7 +159,7 @@ export default function PreopMeasures({
             setF25VS([optimizedAstigmatism.toString().substring(0,5) , F25VS[1]])    
         }catch(error){}
         
-    }, [ F21VS[0], F22VS[0], F23VS[0], F24VS[0] ])
+    }, [ F21VS[0], F22VS[0], F23VS[0], F24VS[0] ]);
 
 
     //Automatic refresh for OCT1 and OCT2 Average Magnitude and Average Axis F37, F38 inputs

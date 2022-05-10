@@ -18,7 +18,7 @@ export default function PostopDataA({
     F74VS, setF74VS,
     F75VS, setF75VS,
     F76VS, setF76VS,
-}) {
+}){
 
     //Automatic refresh for Corneal plane F52 input
     useEffect(() => {

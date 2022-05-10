@@ -8,42 +8,34 @@ export default function Input() {
 
     //Stage: 1=>Preoperative 2=>Postoperative 3=>Results
     const [stage, setStage] = useState(1);
+    let oct2Valid;
 
     //Reference for knowing if form is valid
     const [validPreop, setValidPreop] = useState(true);
+    const [validPreOct, setValidPreOct] = useState(false);
     const [validPostop, setValidPostop] = useState(false);
+    const [validPostOct, setValidPostOct] = useState(false);
     //UseEffect to check if form is valid after any change
-    /*useEffect(() => {
+    useEffect(() => {
+
       if(
         F11St == 1 && 
         F12St == 1 &&
         F13St == 1 &&
-        F14St == 1 && 
         F15VS[1] == 1 &&
 
         F21VS[1] == 1 &&
         F22VS[1] == 1 &&
         F24VS[1] == 1 &&
 
-        F31VS[1] == 1 &&
-        F32VS[1] == 1 &&
-        F33VS[1] == 1 &&
-        F34VS[1] == 1 &&
-        F35VS[1] == 1 &&
-        F36VS[1] == 1 &&
-        
-        F41VS[1] == 1 &&
-        F42VS[1] == 1 &&
-        F43VS[1] == 1 &&
-        F44VS[1] == 1 &&
-        F45VS[1] == 1 &&
-        F46VS[1] == 1
+        validPreOct
       ){
         setValidPreop(true);
       }else{
         setValidPreop(false);
       }
-    })*/
+
+    })
 
     useEffect(() => {
       if(
@@ -53,19 +45,7 @@ export default function Input() {
         F62VS[1] == 1 &&
         F63VS[1] == 1 &&
 
-        F81VS[1] == 1 &&
-        F82VS[1] == 1 &&
-        F83VS[1] == 1 &&
-        F84VS[1] == 1 &&
-        F85VS[1] == 1 &&
-        F86VS[1] == 1 &&
-        
-        F91VS[1] == 1 &&
-        F92VS[1] == 1 &&
-        F93VS[1] == 1 &&
-        F94VS[1] == 1 &&
-        F95VS[1] == 1 &&
-        F96VS[1] == 1 
+        validPostOct
       ){
         setValidPostop(true);
       }else{
@@ -91,9 +71,6 @@ export default function Input() {
         //Eye (left or rigth) (custom)
         const [F13Val, setF13Val] = useState("Select Eye");
         const [F13St, setF13St] = useState(-1);
-        //Date of surgery (custom)
-        const [F14Val, setF14Val] = useState("");
-        const [F14St, setF14St] = useState(-1);
         //Axial Length (numeric)
         const [F15VS, setF15VS] = useState(["",-1]);
         //IOL/Cornea cylinder ratio (numeric)
@@ -226,11 +203,11 @@ export default function Input() {
             (<PreopData 
               setStage={setStage}
               validPreop={validPreop}
-
+              setValidPreOct={setValidPreOct}
+              
               F11Val={F11Val} setF11Val={setF11Val} setF11St={setF11St}
               F12Val={F12Val} setF12Val={setF12Val} setF12St={setF12St}
               F13Val={F13Val} setF13Val={setF13Val} setF13St={setF13St}
-              F14Val={F14Val} setF14Val={setF14Val} setF14St={setF14St}
               F15VS={F15VS} setF15VS={setF15VS}
               F16VS={F16VS} setF16VS={setF16VS}
               F17VS={F17VS} setF17VS={setF17VS}
@@ -264,6 +241,7 @@ export default function Input() {
             <PostopData
               setStage={setStage}
               validPostop={validPostop}
+              setValidPostOct={setValidPostOct}
 
               F51VS={F51VS} setF51VS={setF51VS}
               F52VS={F52VS} setF52VS={setF52VS}
