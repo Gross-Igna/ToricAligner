@@ -33,7 +33,7 @@ export default function IOLPlane() {
                     style={{display: (label==='')?'none': null}}>
                         {label}&nbsp;
                     </span>
-                    <Form.Control type="number" placeholder={placeholder}
+                    <Form.Select type="number" placeholder={placeholder}
                     min={min} max={max} step={step} readOnly={readonly? true : false}
                     className={Class} style={{width: size}}
                     value={VS[0]}
@@ -43,7 +43,11 @@ export default function IOLPlane() {
                             //Update value VSate
                             setVS([e.target.value, VS[1]]);
                         }}
-                    />
+                    >
+                        <option value="Select Eye">Select Eye</option>
+                        <option value="Left">Left Eye</option>
+                        <option value="Right">Right Eye</option>
+                    </Form.Select>
                 </div>  
             </Form.Group>
         </Form>

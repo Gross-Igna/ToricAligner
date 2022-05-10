@@ -16,7 +16,8 @@ export default function ContinueBtn({setStage, validPreop}) {
   }, [validPreop])
 
   return (
-    <button className={validPreop? 'continueBtn styledBox' : 'continueBtnDisabled styledBox'} type="button" onClick={() => setStage(2)} id="continueBtn">
+    <button className={validPreop? 'continueBtn styledBox' : 'continueBtnDisabled styledBox'} 
+    type="button" onClick={() => setStage(1)} id="continueBtn">
         Postoperative Data<br></br>
         <BsFillArrowRightCircleFill className='arrowIcon'/>
     </button>

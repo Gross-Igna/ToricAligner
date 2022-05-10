@@ -46,9 +46,9 @@ export default function PostopData({
     <Container className='postopData w-75'>
 
             <btn className='backBtn styledBox' onClick={() => {
-                setStage(1);
+                setStage(0);
             }}>
-                <BsFillArrowLeftCircleFill/>&nbsp;&nbsp;Go back
+                <BsFillArrowLeftCircleFill/>
             </btn>
         
             <Row className='title' style={{marginLeft: '6vw', paddingRight: '6vw'}}>
