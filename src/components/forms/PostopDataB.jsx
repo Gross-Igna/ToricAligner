@@ -210,8 +210,8 @@ export default function PostopDataB({
                         <NumInput VS={F81VS} setVS={setF81VS}
                             label=""
                             placeholder="Magnitude"
-                            min={20}
-                            max={30}
+                            min={0}
+                            max={20}
                             step={0.1}
                             readonly={false}
                         />
@@ -220,8 +220,8 @@ export default function PostopDataB({
                         <NumInput VS={F82VS} setVS={setF82VS}
                             label=""
                             placeholder="Axis"
-                            min={20}
-                            max={30}
+                            min={0}
+                            max={180}
                             step={0.1}
                             readonly={false}
                         />
@@ -236,8 +236,8 @@ export default function PostopDataB({
                         <NumInput VS={F83VS} setVS={setF83VS}
                             label=""
                             placeholder="Magnitude"
-                            min={20}
-                            max={30}
+                            min={0}
+                            max={20}
                             step={0.1}
                             readonly={false}
                         />
@@ -246,8 +246,8 @@ export default function PostopDataB({
                         <NumInput VS={F84VS} setVS={setF84VS}
                             label=""
                             placeholder="Axis"
-                            min={20}
-                            max={30}
+                            min={0}
+                            max={180}
                             step={0.1}
                             readonly={false}
                         />
@@ -262,8 +262,8 @@ export default function PostopDataB({
                         <NumInput VS={F85VS} setVS={setF85VS}
                             label=""
                             placeholder="Magnitude"
-                            min={20}
-                            max={30}
+                            min={0}
+                            max={20}
                             step={0.1}
                             readonly={false}
                         />
@@ -272,8 +272,8 @@ export default function PostopDataB({
                         <NumInput VS={F86VS} setVS={setF86VS}
                             label=""
                             placeholder="Axis"
-                            min={20}
-                            max={30}
+                            min={0}
+                            max={180}
                             step={0.1}
                             readonly={false}
                         />
@@ -286,7 +286,7 @@ export default function PostopDataB({
                     </span>
                 </Row>
 
-                <Row xs={12} className='averagesCol'>
+                <Row xs={12} className='averagesCol' style={{display: measure12Switch? null : 'none'}}>
                     <span className='averagesCol'>
                         Average Magnitude: {F87Val}
                         &nbsp;&nbsp;
@@ -395,7 +395,7 @@ export default function PostopDataB({
                     </span>
                 </Row>
 
-                <Row xs={12} className='averagesCol'>
+                <Row xs={12} className='averagesCol' style={{display: measure22Switch? null : 'none'}}>
                     <span className='averagesCol'>
                         Average Magnitude: {F97Val}
                         &nbsp;&nbsp;

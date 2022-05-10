@@ -57,8 +57,8 @@ export default function PostopDataA({
                                 <NumInput VS={F51VS} setVS={setF51VS}
                                     label=""
                                     placeholder="IOL Plane"
-                                    min={4}
-                                    max={5}
+                                    min={0}
+                                    max={100}
                                     step={0.1}
                                     readonly={false}
                                 />
@@ -67,8 +67,8 @@ export default function PostopDataA({
                                 <NumInput VS={F52VS} setVS={setF52VS}
                                     label=""
                                     placeholder="Corneal plane"
-                                    min={20}
-                                    max={30}
+                                    min={0}
+                                    max={3110}
                                     step={0.1}
                                     readonly={true}
                                 />
@@ -78,7 +78,7 @@ export default function PostopDataA({
                                     label=""
                                     placeholder="Orientation"
                                     min={0}
-                                    max={90}
+                                    max={1000}
                                     step={0.1}
                                     readonly={true}
                                 />
@@ -95,8 +95,8 @@ export default function PostopDataA({
                                 <NumInput VS={F61VS} setVS={setF61VS}
                                     label=""
                                     placeholder="Sphere"
-                                    min={20}
-                                    max={30}
+                                    min={-20}
+                                    max={20}
                                     step={0.1}
                                     readonly={false}
                                 />
@@ -105,8 +105,8 @@ export default function PostopDataA({
                                 <NumInput VS={F62VS} setVS={setF62VS}
                                     label=""
                                     placeholder="Cylinder"
-                                    min={20}
-                                    max={30}
+                                    min={-20}
+                                    max={20}
                                     step={0.1}
                                     readonly={false}
                                 />
@@ -115,8 +115,8 @@ export default function PostopDataA({
                                 <NumInput VS={F63VS} setVS={setF63VS}
                                     label=""
                                     placeholder="Axis"
-                                    min={20}
-                                    max={30}
+                                    min={0}
+                                    max={180}
                                     step={0.1}
                                     readonly={false}
                                 />

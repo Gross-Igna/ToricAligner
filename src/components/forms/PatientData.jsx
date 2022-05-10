@@ -34,9 +34,9 @@ export default function patientData({
                     <Col xs={6}>
                         <NumInput VS={F15VS} setVS={setF15VS}
                         label="Axial Length:"
-                        placeholder="20~30"
-                        min={20}
-                        max={30}
+                        placeholder="13~40"
+                        min={13}
+                        max={40}
                         step={0.1}
                         readonly={false}
                         />

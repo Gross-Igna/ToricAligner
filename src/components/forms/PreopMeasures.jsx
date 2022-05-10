@@ -241,20 +241,20 @@ export default function PreopMeasures({
                 <Col xs={6} className='noPadding'>
                     <NumInput VS={F22VS} setVS={setF22VS}
                     label="K1 (steep):"
-                    placeholder="20~30"
-                    min={0}
-                    max={100}
-                    step={1}
+                    placeholder="20~60"
+                    min={20}
+                    max={60}
+                    step={0.1}
                     readonly={false}
                     />
                 </Col>
                 <Col xs={6} className='noPadding'>
                     <NumInput VS={F21VS} setVS={setF21VS}
                     label="K2 (flat):"
-                    placeholder="20~30"
-                    min={0}
-                    max={100}
-                    step={1}
+                    placeholder="20~60"
+                    min={20}
+                    max={60}
+                    step={0.1}
                     readonly={false}
                     />
                 </Col>
@@ -265,7 +265,7 @@ export default function PreopMeasures({
                     label="Steep Meridian:"
                     placeholder="..."
                     min={0}
-                    max={100}
+                    max={180}
                     step={1}
                     readonly={false}
                     />
@@ -276,8 +276,8 @@ export default function PreopMeasures({
                     <NumInput VS={F23VS} setVS={setF23VS}
                     label="Magnitude:"
                     placeholder="..."
-                    min={20}
-                    max={30}
+                    min={0}
+                    max={100}
                     step={0.1}
                     readonly={true}
                     />
@@ -312,8 +312,8 @@ export default function PreopMeasures({
                     <NumInput VS={F31VS} setVS={setF31VS}
                     label=""
                     placeholder="Magnitude"
-                    min={20}
-                    max={30}
+                    min={0}
+                    max={20}
                     step={0.1}
                     readonly={false}
                     />
@@ -322,8 +322,8 @@ export default function PreopMeasures({
                     <NumInput VS={F32VS} setVS={setF32VS}
                     label=""
                     placeholder="Axis"
-                    min={20}
-                    max={30}
+                    min={0}
+                    max={180}
                     step={0.1}
                     readonly={false}
                     />
@@ -337,8 +337,8 @@ export default function PreopMeasures({
                     <NumInput VS={F33VS} setVS={setF33VS}
                     label=""
                     placeholder="Magnitude"
-                    min={20}
-                    max={30}
+                    min={0}
+                    max={20}
                     step={0.1}
                     readonly={false}
                     />
@@ -347,8 +347,8 @@ export default function PreopMeasures({
                     <NumInput VS={F34VS} setVS={setF34VS}
                     label=""
                     placeholder="Axis"
-                    min={20}
-                    max={30}
+                    min={0}
+                    max={180}
                     step={0.1}
                     readonly={false}
                     />
@@ -362,8 +362,8 @@ export default function PreopMeasures({
                     <NumInput VS={F35VS} setVS={setF35VS}
                     label=""
                     placeholder="Magnitude"
-                    min={20}
-                    max={30}
+                    min={0}
+                    max={20}
                     step={0.1}
                     readonly={false}
                     />
@@ -372,8 +372,8 @@ export default function PreopMeasures({
                     <NumInput VS={F36VS} setVS={setF36VS}
                     label=""
                     placeholder="Axis"
-                    min={20}
-                    max={30}
+                    min={0}
+                    max={180}
                     step={0.1}
                     readonly={false}
                     />
@@ -423,8 +423,8 @@ export default function PreopMeasures({
                     <NumInput VS={F41VS} setVS={setF41VS}
                     label=""
                     placeholder="Magnitude"
-                    min={20}
-                    max={30}
+                    min={0}
+                    max={20}
                     step={0.1}
                     readonly={false}
                     className='octInput '
@@ -434,8 +434,8 @@ export default function PreopMeasures({
                     <NumInput VS={F42VS} setVS={setF42VS}
                     label=""
                     placeholder="Axis"
-                    min={20}
-                    max={30}
+                    min={0}
+                    max={180}
                     step={0.1}
                     readonly={false}
                     />
@@ -449,8 +449,8 @@ export default function PreopMeasures({
                     <NumInput VS={F43VS} setVS={setF43VS}
                     label=""
                     placeholder="Magnitude"
-                    min={20}
-                    max={30}
+                    min={0}
+                    max={20}
                     step={0.1}
                     readonly={false}
                     />
@@ -459,8 +459,8 @@ export default function PreopMeasures({
                     <NumInput VS={F44VS} setVS={setF44VS}
                     label=""
                     placeholder="Axis"
-                    min={20}
-                    max={30}
+                    min={0}
+                    max={180}
                     step={0.1}
                     readonly={false}
                     />
@@ -474,8 +474,8 @@ export default function PreopMeasures({
                     <NumInput VS={F45VS} setVS={setF45VS}
                     label=""
                     placeholder="Magnitude"
-                    min={20}
-                    max={30}
+                    min={0}
+                    max={20}
                     step={0.1}
                     readonly={false}
                     />
@@ -484,8 +484,8 @@ export default function PreopMeasures({
                     <NumInput VS={F46VS} setVS={setF46VS}
                     label=""
                     placeholder="Axis"
-                    min={20}
-                    max={30}
+                    min={0}
+                    max={180}
                     step={0.1}
                     readonly={false}
                     />
