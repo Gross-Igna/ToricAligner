@@ -1,25 +1,27 @@
 import React, {useRef} from 'react'
 import './barheader.css'
-import { FaHistory } from 'react-icons/fa';
-import {Navbar, Container, Row, Col} from 'react-bootstrap';
+import { FaHistory, FaRegFlag } from 'react-icons/fa';
+import {RiInformationLine} from 'react-icons/ri'
+import {Container, Row, Col} from 'react-bootstrap';
+import logo1 from '../../src/img/logo1.png'
 
 export default function BarHeader() {
     return (
-    <Navbar className='barHeader'>
-        <Container className='barContainer'>
-            <Row className='barRow'>
-                <Col sm={11}>
-                    <div className='brand'>
-                        <b>Toric <br></br>Aligner  Logo</b>
-                    </div>
-                </Col>
-                <Col sm={1}>
-                    <div className='history'>
-                        <span><FaHistory/>&nbsp;Ver mi historial</span>
-                    </div>
-                </Col>
-            </Row>
-        </Container>
-    </Navbar>
-  )
+        <div className='barHeader'>
+            <Container className='barContainer'>
+                <Row className='barRow'>
+                    <Col xs={6} className='vCenter'>
+                        <img src={logo1} className='barIcon' alt='logo'></img>
+                    </Col>
+                    <Col xs={6} className='historyCol'>
+                        <div className='history'>
+                            <span className='barLink'><FaHistory/>&nbsp;My History</span>
+                            <span className='barLink'><RiInformationLine/>&nbsp;About Us</span>
+                            <span className='barLink'><FaRegFlag/>&nbsp;Report error</span>
+                        </div>
+                    </Col>
+                </Row>
+            </Container>
+        </div>
+    )
 }

@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from 'react'
 import { useState } from 'react';
 import PreopData from './PreopData';
 import PostopData from './PostopData';
-import bg1 from '../../src/img/bg1.jpg'
 import './input.css';
 
 export default function Input() {

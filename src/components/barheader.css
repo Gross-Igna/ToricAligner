@@ -15,19 +15,36 @@
     color: white;
     width: 100vw !important;
     font-size: 1vw;
-    padding: 1vw 5vw;
+
+    margin: 0 auto;
 }
 
 .barRow{
-    width: 100%;
+    margin: 0;
 }
 
-.brand{
+.barIcon{
+    /*width: 6.33vw;*/
+    width: 6.3vw;
+
     float: left;
-    text-align: justify;
+}
+.barLink{
+    color: white;
+
+    margin: 0vw 0.6vw;
+}
+.barLink:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+.historyCol{
+    height: 6vw !important;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 .history{
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    text-align: end;
 }
