@@ -8,7 +8,7 @@ import './input.css';
 export default function Input() {
 
     //Stage: 1=>Preoperative 2=>Postoperative 3=>Results
-    const [stage, setStage] = useState(1);
+    const [stage, setStage] = useState(0);
 
     //Reference for knowing if form is valid
     const [validPreop, setValidPreop] = useState(true);
