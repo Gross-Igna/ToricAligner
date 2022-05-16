@@ -100,6 +100,10 @@ h1{
     font-family: 'Titillium Web', sans-serif;
     font-weight: 600;
 }
+option { 
+    /* Whatever color  you want */
+    color: #0a4269;
+}
 
 .styledBox{
     padding: 1vw 0vw;
@@ -134,20 +138,20 @@ h1{
     font-weight: 600;
     font-size: 1.15vw;
 }
-/*form placeholders
+
+/*form placeholders*/
 .form-control::placeholder { 
-    color: rgb(207, 209, 212);
+    color: rgb(211, 203, 203);
     opacity: 1; 
 }
 
 .form-control:-ms-input-placeholder { 
-    color: rgb(207, 209, 212);
+    color: rgb(211, 203, 203);
 }
 
 .form-control::-ms-input-placeholder { 
-    color: rgb(207, 209, 212);
+    color: rgb(211, 203, 203);
 }
-*/
 
 .inputDiv{
     display: flex;
@@ -196,5 +200,5 @@ h1{
 }
 
 .colorgrey{
-    color: rgb(121, 118, 118) !important;
+    color: rgb(211, 203, 203) !important;
 }

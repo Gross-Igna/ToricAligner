@@ -30,13 +30,7 @@ export default function PostopDataB({
     //OCT1
     useEffect(() => {
 
-        console.log("F86VS", F86VS[0])
-
         try{
-            if(F81VS[0] === undefined){
-                console.log("TRUEEEEEEEEEE");
-            }
-
             //Average Magnitude
             if(F81VS[0] !== undefined){
                 if(F85VS[0] === undefined ){

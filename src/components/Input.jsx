@@ -139,12 +139,14 @@ export default function Input() {
 
     // // // Postoperative Data // // //
       //Implanted IOL Cilinder
-        //IOL Plane
+        //Manufacturer
         const [F51VS, setF51VS] = useState("", -1)
-        //Corneal plane
-        const [F52VS, setF52VS] = useState("...", -1)
-        //Orientation
+        //Model
+        const [F52VS, setF52VS] = useState("", -1)
+        //Cylinder Power
         const [F53VS, setF53VS] = useState("...", -1)
+        //Corneal Plane
+        const [F54VS, setF54VS] = useState("...", -1)
       //Postoperative refraction
         //Sphere
         const [F61VS, setF61VS] = useState("", -1)
@@ -201,8 +203,7 @@ export default function Input() {
       <div className='input'>
         
         <script async src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
-        crossorigin="anonymous">
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM">
         </script>
 
         <Carousel controls={false} interval={null} activeIndex={stage}>
@@ -254,6 +255,7 @@ export default function Input() {
                 F51VS={F51VS} setF51VS={setF51VS}
                 F52VS={F52VS} setF52VS={setF52VS}
                 F53VS={F53VS} setF53VS={setF53VS}
+                F54VS={F54VS} setF54VS={setF54VS}
 
                 F61VS={F61VS} setF61VS={setF61VS}
                 F62VS={F62VS} setF62VS={setF62VS}

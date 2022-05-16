@@ -34,7 +34,9 @@ export default function EyeLR({Val, setVal, setSt}) {
                                 setVal(e.target.value);
                             }
                         }>
-                        <option value="Select Eye">Select Eye</option>
+                        <option value="Select Eye" style={{display: 'none'}}>
+                            Select Eye
+                        </option>
                         <option value="Left">Left Eye</option>
                         <option value="Right">Right Eye</option>
                     </Form.Select>

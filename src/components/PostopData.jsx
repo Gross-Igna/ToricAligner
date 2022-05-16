@@ -12,6 +12,7 @@ export default function PostopData({
     F51VS, setF51VS,
     F52VS, setF52VS,
     F53VS, setF53VS,
+    F54VS, setF54VS,
 
     F61VS, setF61VS,
     F62VS, setF62VS,
@@ -45,11 +46,11 @@ export default function PostopData({
   return (
     <Container className='postopData w-75'>
 
-            <btn className='backBtn styledBox' onClick={() => {
+            <div className='backBtn styledBox' onClick={() => {
                 setStage(0);
             }}>
                 <BsFillArrowLeftCircleFill/>
-            </btn>
+            </div>
         
             <Row className='title' style={{marginLeft: '6vw', paddingRight: '6vw'}}>
                 <h1>Postoperative Data</h1>
@@ -61,7 +62,8 @@ export default function PostopData({
                         F51VS={F51VS} setF51VS={setF51VS}
                         F52VS={F52VS} setF52VS={setF52VS}
                         F53VS={F53VS} setF53VS={setF53VS}
-            
+                        F54VS={F54VS} setF54VS={setF54VS}
+                        
                         F61VS={F61VS} setF61VS={setF61VS}
                         F62VS={F62VS} setF62VS={setF62VS}
                         F63VS={F63VS} setF63VS={setF63VS}
