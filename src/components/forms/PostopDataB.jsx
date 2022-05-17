@@ -198,7 +198,7 @@ export default function PostopDataB({
 
                 <Row className='hCenterRow'>
                     <Col xs={3} className='vCenter measureCol noPadding'>
-                        Measurements 1:&nbsp;
+                        TCA 1:&nbsp;
                     </Col>
                     <Col xs={4} className='noPadding'>
                         <NumInput VS={F81VS} setVS={setF81VS}
@@ -224,7 +224,7 @@ export default function PostopDataB({
 
                 <Row className='hCenterRow' style={{display: measure12Switch ? null : 'none'}}>
                     <Col xs={3} className='vCenter measureCol noPadding'>
-                        Measurements 2:&nbsp;
+                        TCA 2:&nbsp;
                     </Col>
                     <Col xs={4} className='noPadding'>
                         <NumInput VS={F83VS} setVS={setF83VS}
@@ -250,7 +250,7 @@ export default function PostopDataB({
 
                 <Row className='hCenterRow' style={{display: measure13Switch ? null : 'none'}}>
                     <Col xs={3} className='vCenter measureCol noPadding'>
-                        Measurements 3:&nbsp;
+                        TCA 3:&nbsp;
                     </Col>
                     <Col xs={4} className='noPadding'>
                         <NumInput VS={F85VS} setVS={setF85VS}
@@ -308,7 +308,7 @@ export default function PostopDataB({
                 
                 <Row className='hCenterRow'>
                     <Col xs={3} className='vCenter measureCol noPadding'>
-                        Measurements 1:&nbsp;
+                        TCA 1:&nbsp;
                     </Col>
                     <Col xs={4} className='noPadding'>
                         <NumInput VS={F91VS} setVS={setF91VS}
@@ -334,7 +334,7 @@ export default function PostopDataB({
 
                 <Row className='hCenterRow' style={{display: measure22Switch ? null : 'none'}}>
                     <Col xs={3} className='vCenter measureCol noPadding'>
-                        Measurements 2:&nbsp;
+                        TCA 2:&nbsp;
                     </Col>
                     <Col xs={4} className='noPadding'>
                         <NumInput VS={F93VS} setVS={setF93VS}
@@ -359,7 +359,7 @@ export default function PostopDataB({
                 </Row>
                 <Row className='hCenterRow' style={{display: measure23Switch ? null : 'none'}}>
                     <Col xs={3} className='vCenter measureCol noPadding'>
-                        Measurements 3:&nbsp;
+                        TCA 3:&nbsp;
                     </Col>
                     <Col xs={4} className='noPadding'>
                         <NumInput VS={F95VS} setVS={setF95VS}

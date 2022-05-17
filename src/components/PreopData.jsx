@@ -13,8 +13,6 @@ export default function PreopData({
     F12Val, setF12Val, setF12St,
     F13Val, setF13Val, setF13St,
     F15VS, setF15VS,
-    F16VS, setF16VS,
-    F17VS, setF17VS,
 
     F21VS, setF21VS,
     F22VS, setF22VS,
@@ -70,8 +68,6 @@ export default function PreopData({
                     F12Val={F12Val} setF12Val={setF12Val} setF12St={setF12St}
                     F13Val={F13Val} setF13Val={setF13Val} setF13St={setF13St}
                     F15VS={F15VS} setF15VS={setF15VS}
-                    F16VS={F16VS} setF16VS={setF16VS}
-                    F17VS={F17VS} setF17VS={setF17VS}
                   />
                 </Col>
 

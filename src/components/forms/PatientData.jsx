@@ -11,9 +11,7 @@ export default function patientData({
     F12Val, setF12Val, setF12St,
     F13Val, setF13Val, setF13St,
       setF14St,
-    F15VS, setF15VS,
-    F16VS, setF16VS,
-    F17VS, setF17VS
+    F15VS, setF15VS
     }) {
 
     return (
@@ -39,28 +37,6 @@ export default function patientData({
                         max={40}
                         step={0.1}
                         readonly={false}
-                        />
-                    </Col>
-                </Row>
-                <Row>
-                    <Col xs={6}>
-                        <NumInput VS={F16VS} setVS={setF16VS}
-                        label="IOL/Cornea cylinder ratio:"
-                        placeholder="20~30"
-                        min={20}
-                        max={30}
-                        step={0.1}
-                        readonly={true}
-                        />
-                    </Col>
-                    <Col xs={6}>
-                        <NumInput VS={F17VS} setVS={setF17VS}
-                        label="Required cylinder at IOL plane:"
-                        placeholder="20~30"
-                        min={20}
-                        max={30}
-                        step={0.1}
-                        readonly={true}
                         />
                     </Col>
                 </Row>

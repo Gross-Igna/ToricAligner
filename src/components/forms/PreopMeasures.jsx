@@ -305,7 +305,7 @@ export default function PreopMeasures({
             <Row className='measureRow'>
                 <Col xs={4} className='vCenter noPadding measureCol'>
                     <span>
-                        Measurements 1:&nbsp;
+                        TCA 1:&nbsp;
                     </span>
                 </Col>
                 <Col xs={4} className='noPadding'>
@@ -331,7 +331,7 @@ export default function PreopMeasures({
             </Row>
             <Row className='measureRow' style={{display: measure12Switch ? null : 'none'}}>
                 <Col xs={4} className='vCenter noPadding measureCol'>
-                    Measurements 2:&nbsp;
+                    TCA 2:&nbsp;
                 </Col>
                 <Col xs={4} className='noPadding'>
                     <NumInput VS={F33VS} setVS={setF33VS}
@@ -356,7 +356,7 @@ export default function PreopMeasures({
             </Row>
             <Row className='measureRow' style={{display: measure13Switch? null : 'none'}}>
                 <Col xs={4} className='vCenter noPadding measureCol'>
-                    Measurements 3:&nbsp;
+                    TCA 3:&nbsp;
                 </Col>
                 <Col xs={4} className='noPadding'>
                     <NumInput VS={F35VS} setVS={setF35VS}
@@ -416,7 +416,7 @@ export default function PreopMeasures({
             <Row className='measureRow'>
                 <Col xs={4} className='vCenter noPadding measureCol'>
                     <span>
-                        Measurements 1:&nbsp;
+                        TCA 1:&nbsp;
                     </span>
                 </Col>
                 <Col xs={4} className='noPadding'>
@@ -443,7 +443,7 @@ export default function PreopMeasures({
             </Row>
             <Row className='measureRow' style={{display: measure22Switch ? null : 'none'}}>
                 <Col xs={4} className='vCenter noPadding measureCol'>
-                    Measurements 2:&nbsp;
+                    TCA 2:&nbsp;
                 </Col>
                 <Col xs={4} className='noPadding'>
                     <NumInput VS={F43VS} setVS={setF43VS}
@@ -468,7 +468,7 @@ export default function PreopMeasures({
             </Row>
             <Row className='measureRow' style={{display: measure23Switch? null : 'none'}}>
                 <Col xs={4} className='vCenter noPadding measureCol'>
-                    Measurements 3:&nbsp;
+                    TCA 3:&nbsp;
                 </Col>
                 <Col xs={4} className='noPadding'>
                     <NumInput VS={F45VS} setVS={setF45VS}

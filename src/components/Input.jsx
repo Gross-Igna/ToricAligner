@@ -74,10 +74,6 @@ export default function Input() {
         const [F13St, setF13St] = useState(-1);
         //Axial Length (numeric)
         const [F15VS, setF15VS] = useState(["",-1]);
-        //IOL/Cornea cylinder ratio (numeric)
-        const [F16VS, setF16VS] = useState([1.5,1]);
-        //Required cylinder at IOL plane (numeric)
-        const [F17VS, setF17VS] = useState([4.5,1]);
 
       // PREOPERATIVE MEASURES: //
         //Keratometric astigmatism
@@ -217,8 +213,6 @@ export default function Input() {
                 F12Val={F12Val} setF12Val={setF12Val} setF12St={setF12St}
                 F13Val={F13Val} setF13Val={setF13Val} setF13St={setF13St}
                 F15VS={F15VS} setF15VS={setF15VS}
-                F16VS={F16VS} setF16VS={setF16VS}
-                F17VS={F17VS} setF17VS={setF17VS}
 
                 F21VS={F21VS} setF21VS={setF21VS}
                 F22VS={F22VS} setF22VS={setF22VS}
