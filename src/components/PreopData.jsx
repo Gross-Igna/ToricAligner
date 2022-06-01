@@ -18,8 +18,6 @@ export default function PreopData({
     F22VS, setF22VS,
     F23VS, setF23VS,
     F24VS, setF24VS,
-    F25VS, setF25VS,
-    F26VS, setF26VS,
 
     F31VS, setF31VS,
     F32VS, setF32VS,
@@ -91,8 +89,6 @@ export default function PreopData({
               F22VS={F22VS} setF22VS={setF22VS}
               F23VS={F23VS} setF23VS={setF23VS}
               F24VS={F24VS} setF24VS={setF24VS}
-              F25VS={F25VS} setF25VS={setF25VS}
-              F26VS={F26VS} setF26VS={setF26VS}
 
               F31VS={F31VS} setF31VS={setF31VS}
               F32VS={F32VS} setF32VS={setF32VS}

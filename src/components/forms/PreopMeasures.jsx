@@ -11,7 +11,6 @@ export default function PreopMeasures({
     F22VS, setF22VS,
     F23VS, setF23VS,
     F24VS, setF24VS,
-    F25VS, setF25VS,
 
     F31VS, setF31VS,
     F32VS, setF32VS,
@@ -147,19 +146,6 @@ export default function PreopMeasures({
         }catch(error){}
 
     }, [ F21VS[0], F22VS[0] ])
-
-
-    //Automatic refresh for Optimized Magnitude F25 input
-    useEffect(() => {
-
-        //Optimized magnitude = magnitude*0,836+0,103+0,457*COS(RADIANES(2*steepmeridian))
-        try {
-            var optimizedAstigmatism = 
-            parseFloat(F23VS[0])*0.836 + 0.103 + 0.457*Math.cos( ( 2*parseFloat(F24VS[0]) ) * (Math.PI/180) );
-            setF25VS([optimizedAstigmatism.toString().substring(0,5) , F25VS[1]])    
-        }catch(error){}
-        
-    }, [ F21VS[0], F22VS[0], F23VS[0], F24VS[0] ]);
 
 
     //Automatic refresh for OCT1 and OCT2 Average Magnitude and Average Axis F37, F38 inputs

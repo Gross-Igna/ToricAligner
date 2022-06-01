@@ -90,31 +90,31 @@ export default function Model({VS, setVS, Mfact}) {
 
                         {/*Options for J&J and Physiol*/}
                         <option value="150"
-                        style={{display: (Mfact==="JandJ" || Mfact==="Physiol")? null : 'none'}}>
+                        style={{display: (Mfact==="J&J" || Mfact==="Physiol")? null : 'none'}}>
                             150
                         </option>
                         <option value="225"
-                        style={{display: (Mfact==="JandJ" || Mfact==="Physiol")? null : 'none'}}>
+                        style={{display: (Mfact==="J&J" || Mfact==="Physiol")? null : 'none'}}>
                             225
                         </option>
                         <option value="300"
-                        style={{display: (Mfact==="JandJ" || Mfact==="Physiol")? null : 'none'}}>
+                        style={{display: (Mfact==="J&J" || Mfact==="Physiol")? null : 'none'}}>
                             300
                         </option>
                         <option value="375"
-                        style={{display: (Mfact==="JandJ" || Mfact==="Physiol")? null : 'none'}}>
+                        style={{display: (Mfact==="J&J" || Mfact==="Physiol")? null : 'none'}}>
                             375
                         </option>
                         <option value="450"
-                        style={{display: (Mfact==="JandJ" || Mfact==="Physiol")? null : 'none'}}>
+                        style={{display: (Mfact==="J&J" || Mfact==="Physiol")? null : 'none'}}>
                             450
                         </option>
                         <option value="525"
-                        style={{display: (Mfact==="JandJ" || Mfact==="Physiol")? null : 'none'}}>
+                        style={{display: (Mfact==="J&J" || Mfact==="Physiol")? null : 'none'}}>
                             525
                         </option>
                         <option value="600"
-                        style={{display: (Mfact==="JandJ" || Mfact==="Physiol")? null : 'none'}}>
+                        style={{display: (Mfact==="J&J" || Mfact==="Physiol")? null : 'none'}}>
                             600
                         </option>
 

@@ -38,7 +38,7 @@ export default function Manufacturer({VS, setVS}) {
                         <option value="Custom">Custom IOL</option>
                         <option value="Alcon">Alcon</option>
                         <option value="B+L">Bausch+Lomb</option>
-                        <option value="JandJ">J&amp;J</option>
+                        <option value="J&J">J&amp;J</option>
                         <option value="Physiol">Physiol</option>
                         <option value="Rayner">Rayner</option>
                     </Form.Select>

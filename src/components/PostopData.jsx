@@ -7,7 +7,8 @@ import PostopDataB from './forms/PostopDataB';
 import {BsFillArrowLeftCircleFill} from 'react-icons/bs'
 
 export default function PostopData({
-    setStage, validPostop, setValidPostOct,
+    setStage, validPostop, 
+    setValidPostOct, setShowResume,
 
     F51VS, setF51VS,
     F52VS, setF52VS,
@@ -77,7 +78,7 @@ export default function PostopData({
                     />      
                 </Col>
                 <Col xs={3} className='centeredCol'>
-                    <CalculateBtn validPostop={validPostop}/>
+                    <CalculateBtn validPostop={validPostop} setShowResume={setShowResume}/>
                 </Col>
             </Row>
 

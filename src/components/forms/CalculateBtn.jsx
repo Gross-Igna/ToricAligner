@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react'
 import {IoCalculator} from 'react-icons/io5'
 
-export default function CalculateBtn({validPostop}) {
+export default function CalculateBtn({validPostop, setShowResume}) {
 
   useEffect( () => {
 
@@ -16,9 +16,9 @@ export default function CalculateBtn({validPostop}) {
   }, [validPostop])
 
   return (
-    <button className={validPostop? 'calculateBtn styledBox' : 'calculateBtnDisabled styledBox'} type="button" 
-    id='calculateBtn'>
-        Calculate!<br></br>
+    <button className={validPostop? 'calculateBtn styledBox title2' : 'calculateBtnDisabled styledBox'} type="button" 
+    id='calculateBtn' onClick={() => setShowResume(true)}>
+        Calculate<br></br>
         <IoCalculator className='calculatorIcon'/>
     </button>
   )

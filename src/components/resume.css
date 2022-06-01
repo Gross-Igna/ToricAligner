@@ -1,0 +1,140 @@
+.resume, .overlay{
+    background-color: rgba(0,0,0,0.6);
+
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+}
+
+
+.resumeContent{
+    width: 60% !important;
+
+    color: rgb(240, 243, 248);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    padding: 1vw 5vw;
+}
+
+.resumeTitle{
+    margin: 0px 0px;
+    font-family: 'Titillium Web', sans-serif;
+    font-weight: 600;
+    font-size: 200%;
+
+    text-shadow: 
+        -1px -1px 0px #094fa0ea,
+         0px -1px 0px #094fa0ea,
+         1px -1px 0px #094fa0ea,
+        -1px  0px 0px #094fa0ea,
+         1px  0px 0px #094fa0ea,
+        -1px  1px 0px #094fa0ea,
+         0px  1px 0px #094fa0ea,
+         1px  1px 0px #094fa0ea;
+}
+.resumeSubtitle{
+    font-size: 1.2vw;
+    font-weight: 600;
+}
+
+.separator{
+    border-style: solid;
+    border-width: 1px;
+    border-top: 0px;
+    border-color: rgba(240, 243, 248, 0.486);
+    
+    margin: 2.4vh auto;
+}
+
+.resumeCol{
+    padding: 0.8vw 0.8vw;
+    margin: 0vw 0.4vw;
+}
+.resumeCol > .row{
+    margin: 0.2vw 0vw;
+}
+.spansRow > span{
+    margin: 0.1vw 0vw;
+}
+
+.resumeTitle, .resumeRow{
+    padding: 0.4vw 0vw;
+}
+
+.resumeInput{
+    text-align: left;
+    font-weight: 600;
+}
+.resumeInput > .row{
+    margin: 0.4vh 0vw;
+}
+
+.resumeShadow{
+    background-color: #094fa075;
+
+    border-style: solid;
+    border-color: rgba(240, 243, 248, 0.486);
+    border-width: 1px;
+    border-radius: 10px;
+}
+
+i{
+    font-weight: 400 !important;
+
+    border-style: solid;
+    border-color: rgba(240, 243, 248, 0.116);
+    border-width: 1px;
+    border-radius: 10px;
+
+    padding: 0.1vw 0.5vw;
+    margin: 0vw 0.2vw;
+
+    background-color: #094fa08f;
+}
+
+.resumePatientData{
+    text-align: center;
+}
+
+.resumeCloseBtn{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0.1vw 0.8vw;
+
+    font-size: 1.5vw;
+
+    cursor: pointer;
+}
+.resumeButtonsRow{
+    margin-top: 1.4vw;
+}
+.resumeButtonsRow > .col{
+    margin: 0px !important;
+}
+.modifyBtn{
+    padding: 1vw;
+
+    width: 100%;
+
+    color: rgb(240, 243, 248);
+    background-color: rgba(255, 0, 0, 0.185);
+}
+.confirmBtn{
+    padding: 1vw;
+
+    width: 100%;
+
+    color: rgb(240, 243, 248);
+    background-color: rgba(0, 128, 0, 0.295);
+}
+.btnIcon{
+    margin-bottom: 0.4vh;
+}

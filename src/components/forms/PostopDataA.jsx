@@ -75,7 +75,7 @@ export default function PostopDataA({
                 }else if(model == '5.75'){
                     setF53VS(['5.75', F53VS[1]]);
                 }
-            }else if(F51VS[0] === 'JandJ' || F51VS[0] === 'Physiol'){
+            }else if(F51VS[0] === 'J&J' || F51VS[0] === 'Physiol'){
                 if(model == '150'){
                     setF53VS(['150', F53VS[1]]);
                 }else if(model == '225'){

@@ -95,6 +95,8 @@ h1{
         -1px  1px 0px rgb(240, 243, 248),
          0px  1px 0px rgb(240, 243, 248),
          1px  1px 0px rgb(240, 243, 248);
+
+    filter: drop-shadow(-9px 8px 16px rgba(0, 0, 0, 0.74));
 }
 .title2{
     font-family: 'Titillium Web', sans-serif;
@@ -201,4 +203,50 @@ option {
 
 .colorgrey{
     color: rgb(211, 203, 203) !important;
+}
+
+.octSwitchOn{
+    cursor: pointer;
+
+    position: absolute;
+    top: 0;
+    left: 0.5vw;
+    width: calc(100% - 1vw);
+    height: 100%;
+
+    background-color: #4475adfa;
+    border-style: solid;
+    border-color: #9bb9dbcb;
+    border-width: 1px;
+    border-radius: 20px;
+}
+.octSwitchOn:hover{
+    cursor: pointer;
+    color: white;
+
+    position: absolute;
+    top: 0;
+    left: 0.5vw;
+    width: calc(100% - 1vw);
+    height: 100%;
+
+    background-color: #3e6694fa;
+    border-style: solid;
+    border-color: white;
+    border-width: 1px;
+    border-radius: 20px;
+}
+.octSwitchOff{
+    position: absolute;
+    top: 0;
+    left: 0.5vw;
+    width: calc(100% - 1.5vw);
+    height: 100%;
+
+    background-color: #4475ad00;
+    border-color: #9bb9db00;
+    color: #00000000;
+
+    /*transition: nombre de la propiedad | duración | función | retardo */
+    transition: all .2s linear 0s !important;
 }
