@@ -9,7 +9,7 @@ import Result from './components/Result';
 function App() {
 
     const [showResume, setShowResume] = useState(false);
-    const [showResult, setShowResult] = useState(true);
+    const [showResult, setShowResult] = useState(false);
 
     //Code for states for every input: 
     //(VS) [Value, Status] 
@@ -232,6 +232,15 @@ function App() {
       />
       <Result
         showResult={showResult} setShowResult={setShowResult}
+
+        Eye={F13Val} AxialLength={F15VS[0]}
+        K1={F22VS[0]} K2={F21VS[0]} SteepMeridian={F24VS[0]}
+        AvgMagnitude1={F37Val} AvgAxis1={F38Val}
+        AvgMagnitude2={F47Val} AvgAxis2={F48Val}
+        IOLManufacturer={F51VS[0]} IOLModel={F52VS[0]}
+        Sphere={F61VS[0]} Cylinder={F62VS[0]} Axis={F63VS[0]}
+        AvgMagnitude3={F87Val} AvgAxis3={F88Val}
+        AvgMagnitude4={F97Val} AvgAxis4={F98Val}
       />
 
     </div>

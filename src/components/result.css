@@ -10,6 +10,12 @@
     position: fixed;
 }
 
+.resultResume{
+    font-family: 'Titillium Web', sans-serif;
+    font-weight: 400;
+    font-size: 40%;
+}
+
 .resultContent{
     width: 75% !important;
 
@@ -51,10 +57,17 @@
     align-items: center;
 }
 #graphicCircle{
-    width: 80%;
+    width: 100%;
 }
 #graphicIOL{
     position: absolute;
-    width: 80%;
+    left: -0.2%;
+    width: 100%;
+}
+#graphicSuggested{
+    position: absolute;
+    left: 0.75%;
+    width: 100%;
+    transform: rotate(63deg);
 }
 

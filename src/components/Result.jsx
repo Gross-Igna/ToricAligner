@@ -3,11 +3,21 @@ import { Container, Row, Col, Form } from 'react-bootstrap'
 import {AiOutlineCloseCircle} from 'react-icons/ai';
 import {IoEyeOutline} from 'react-icons/io5'
 import graphicCircle from '../img/graphicCircle.png'
-import graphicIOL from '../img/graphicIOL.png'
+import graphicIOL from  '../img/graphicIOL.png'
+import graphicSuggested from '../img/graphicSuggested.png'
 import './result.css'
 
 export default function Result({
-    showResult, setShowResult
+    showResult, setShowResult,
+
+    Eye, AxialLength,
+    K1, K2, SteepMeridian,
+    AvgMagnitude1, AvgAxis1,
+    AvgMagnitude2, AvgAxis2,
+    IOLManufacturer, IOLModel,
+    Sphere, Cylinder, Axis,
+    AvgMagnitude3, AvgAxis3,
+    AvgMagnitude4, AvgAxis4
 }) {
 
     const [orientationValue, setOrientationValue] = useState(90)
@@ -23,10 +33,40 @@ export default function Result({
                 <Container className='resultContent styledBox'>
 
                     <Row>
-                        <Row className='resumeTitle'>
-                            <Col className='resumeShadow resumeCol'>
-                                <span><IoEyeOutline className='btnIcon'/> Result</span>
-                            </Col>
+                        <Row className='resumeTitle resumeShadow'>
+                            <Row>
+                                <Col>
+                                    <span><IoEyeOutline className='btnIcon'/> Result</span>
+                                </Col>
+                            </Row>
+                            <Row className='resultResume'>
+                                <Col>
+                                    <b>PREOP:</b>&nbsp;&nbsp;&nbsp;
+                                    <b>Eye:</b> {Eye} &nbsp;<b>AXL:</b> {AxialLength} 
+                                    &nbsp;&nbsp;<b>K1:</b> {K1} &nbsp;<b>K2:</b> {K2}
+                                    &nbsp;&nbsp;<b>Steep Meridian:</b> &nbsp;{SteepMeridian}
+                                    <span style={{display: (AvgMagnitude1 === "0")? 'none' : null}}>
+                                    &nbsp;&nbsp;<b>Avg. Mag. 1:</b> &nbsp;{AvgMagnitude1}
+                                    &nbsp;&nbsp;<b>Avg. Axis 1:</b> &nbsp;{AvgAxis1}
+                                    </span>
+                                    <span style={{display: (AvgMagnitude2 === "0")? 'none' : null}}>
+                                    &nbsp;&nbsp;<b>Avg. Mag. 2:</b> &nbsp;{AvgMagnitude2}
+                                    &nbsp;&nbsp;<b>Avg. Axis 2:</b> &nbsp;{AvgAxis2}
+                                    </span>
+                                    <br></br>
+                                    <b>POSTOP:</b>&nbsp;&nbsp;&nbsp;
+                                    <b>IOL:</b> &nbsp;{IOLManufacturer}&nbsp;{IOLModel}
+                                    &nbsp;&nbsp;<b>Sphere:</b> &nbsp;{Sphere}
+                                    &nbsp;&nbsp;<b>Cylinder:</b> &nbsp;{Cylinder}
+                                    &nbsp;&nbsp;<b>Axis:</b> &nbsp;{Axis}
+                                    &nbsp;&nbsp;<b>Avg. Mag. 1:</b> &nbsp;{AvgMagnitude3}
+                                    &nbsp;&nbsp;<b>Avg. Axis 1:</b> &nbsp;{AvgAxis3}
+                                    <span style={{display: (AvgMagnitude4 === "0")? 'none' : null}}>
+                                    &nbsp;&nbsp;<b>Avg. Mag. 2:</b> &nbsp;{AvgMagnitude4}
+                                    &nbsp;&nbsp;<b>Avg. Axis 2:</b> &nbsp;{AvgAxis4}
+                                    </span>
+                                </Col>
+                            </Row>
                         </Row>
                     </Row>
 
@@ -103,6 +143,7 @@ export default function Result({
                                 <div className='eyeGraphic'>
                                     <img src={graphicCircle} id='graphicCircle' alt='graphicCircle'></img>
                                     <img src={graphicIOL} id='graphicIOL' alt='graphicIOL'></img>
+                                    <img src={graphicSuggested} id='graphicSuggested' alt='graphicSuggested'></img>
                                 </div>
                             </Row>
                             <Row className='resultOrientationRow'>
