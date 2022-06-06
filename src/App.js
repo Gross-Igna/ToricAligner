@@ -8,7 +8,7 @@ import Result from './components/Result';
 
 function App() {
 
-    const [showResume, setShowResume] = useState(false);
+    const [showResume, setShowResume] = useState(true);
     const [showResult, setShowResult] = useState(false);
 
     //Code for states for every input: 
