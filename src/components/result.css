@@ -30,6 +30,7 @@
 }
 
 .resultOrientationRow{
+    position: relative;
     padding: 0% 25%;
     margin: 0 auto;
 }
@@ -82,4 +83,38 @@
 .optionsDiv > span:hover{
     cursor: pointer;
     text-decoration: underline;
+}
+
+.hint{
+    font-weight: 400;
+    padding: 0 0 2vw 0.5vw;
+    cursor: pointer;
+}
+.hint:hover .hintText {
+    display: inline-block;
+}
+.hintText, .hintText2{
+    background-color: rgba(240, 243, 248, 0.781);
+    border-color: #094fa0c2;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 20px;
+
+    color: #094fa0f5;
+    font-size: 0.8vw;
+    text-align: left;
+
+    position: absolute;
+    width: 40%;
+    top: 0;
+    margin-left: 0.25vw;
+    z-index: 2000;
+    padding: 0.6vw;
+
+    display: none;
+}
+
+.hint2{
+    position: absolute;
+    left: 27%;
 }

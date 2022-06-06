@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import { Container, Row, Col, Form } from 'react-bootstrap'
 import {AiOutlineCloseCircle, AiOutlineFilePdf} from 'react-icons/ai';
+import {FaRegQuestionCircle} from 'react-icons/fa'
 import {IoEyeOutline} from 'react-icons/io5';
 import {FiMail} from 'react-icons/fi';
 import {RiArrowGoBackLine} from 'react-icons/ri';
@@ -22,7 +23,7 @@ export default function Result({
     AvgMagnitude4, AvgAxis4
 }) {
 
-    const [orientationValue, setOrientationValue] = useState(90)
+    const [orientationValue, setOrientationValue] = useState(90);
 
     if(showResult){
         return (
@@ -99,9 +100,9 @@ export default function Result({
                             <Row className="spansRow">
                                 <span className='resumeSubtitle'>Induced corneal astigmatism</span>
                                 <span>
-                                    <b>TCA 1:</b> &nbsp; Cyl:<i>4.5</i> &nbsp; Axis:<i>4.5</i>
+                                    <b>TCA 1:</b> &nbsp; Cyl: <i>4.5</i> &nbsp; Axis: <i>4.5</i>
                                     <br></br>  
-                                    <b>TCA 2:</b> &nbsp; Cyl:<i>4.5</i> &nbsp; Axis:<i>4.5</i>
+                                    <b>TCA 2:</b> &nbsp; Cyl: <i>4.5</i> &nbsp; Axis: <i>4.5</i>
                                 </span>
                             </Row>
                         </Col>
@@ -126,6 +127,9 @@ export default function Result({
                                 <span id='orientationSpan'>{orientationValue}°</span>
                                 <Form.Range value={orientationValue}
                                 min="0" max="180" onChange={(e) => setOrientationValue(e.target.value)}/>
+                                <span className='hint hint2'><FaRegQuestionCircle/>
+                                    <span className='hintText'>Change IOL axis to see residual refraction.</span>
+                                </span>
                             </Row>
                         </Col>
                         <Col>
@@ -140,11 +144,15 @@ export default function Result({
                                     </span>
                                 </Row>
                                 <Row className="spansRow text-start">
-                                    <b>According to Post Op. Corneal Measurements 2:</b>
+                                    <b style={{position: 'relative'}}>According to Post Op. Corneal Measurements 2: 
+                                        <span className='hint'><FaRegQuestionCircle/>
+                                            <span className='hintText'>Change IOL orientation to see expected refraction.</span>
+                                        </span>
+                                    </b>
                                     <span>
                                         Suggested Axis: <i>4.5</i>
                                         <br></br>  
-                                        Predicted residual refraction: <i>4.5</i><i>4.5</i><i>4.5</i>
+                                        Predicted residual refraction: <i>4.5</i><i>4.5</i><i>4.5</i>&nbsp;
                                     </span>
                                 </Row>
                             </Row>
