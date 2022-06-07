@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {Form} from 'react-bootstrap';
 
-export default function NumInput({label, placeholder, min, max, step, readonly, VS, setVS, size}) {
+export default function NumInput({label, placeholder, min, max, step, readonly, VS, setVS, size, blur}) {
 
     const [changed, setChanged] = useState(false);
     const [Class, setClass] = useState('');
@@ -36,7 +36,7 @@ export default function NumInput({label, placeholder, min, max, step, readonly, 
                     <Form.Control type="number" placeholder={placeholder}
                     min={min} max={max} step={step} readOnly={readonly? true : false}
                     className={Class} style={{width: size}}
-                    value={VS[0]}
+                    value={VS[0]} onBlur={blur}
                     onChange={(e) => 
                         {      
                             setChanged(true);

@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import { Container, Row, Col, Form } from 'react-bootstrap'
 import {AiOutlineCloseCircle, AiOutlineFilePdf} from 'react-icons/ai';
-import {FaRegQuestionCircle} from 'react-icons/fa'
+import {FaRegQuestionCircle, FaRegFlag} from 'react-icons/fa'
 import {IoEyeOutline} from 'react-icons/io5';
 import {FiMail} from 'react-icons/fi';
 import {RiArrowGoBackLine} from 'react-icons/ri';
@@ -36,7 +36,7 @@ export default function Result({
                 <Container className='resultContent styledBox'>
 
                     <Row>
-                        <Row className='resumeTitle resumeShadow'>
+                        <Col className='resumeTitle resumeCol resumeShadow'>
                             <Row>
                                 <Col>
                                     <span><IoEyeOutline className='btnIcon'/> Result</span>
@@ -70,7 +70,7 @@ export default function Result({
                                     </span>
                                 </Col>
                             </Row>
-                        </Row>
+                        </Col>
                     </Row>
 
                     <Row className='separator'/>
@@ -115,6 +115,9 @@ export default function Result({
                             <Row className="spansRow">
                                 <span className='resumeSubtitle'>IOL Orientation</span>
                             </Row>
+                            <Row className="spansRow">
+                                <span className='orientationSubtitle'>(Change IOL axis to see predicted refraction changes)</span>
+                            </Row>
                             <Row>
                                 <div className='eyeGraphic'>
                                     <img src={graphicCircle} id='graphicCircle' alt='graphicCircle'></img>
@@ -125,15 +128,15 @@ export default function Result({
                             </Row>
                             <Row className='resultOrientationRow'>
                                 <span id='orientationSpan'>{orientationValue}°</span>
+                                <span className='hint2'><FaRegQuestionCircle/>
+                                    <span className='hintText hintText2'>Use keyboard arrows to change orientation.</span>
+                                </span>
                                 <Form.Range value={orientationValue}
                                 min="0" max="180" onChange={(e) => setOrientationValue(e.target.value)}/>
-                                <span className='hint hint2'><FaRegQuestionCircle/>
-                                    <span className='hintText'>Change IOL axis to see residual refraction.</span>
-                                </span>
                             </Row>
                         </Col>
                         <Col>
-                            <Row className='resumeCol resumeShadow'>
+                            <Row className='resumeShadow resumeCol'>
                                 <Row className="spansRow text-start">
                                     <span className='resumeSubtitle text-center'>IOL Alignment</span>
                                     <b>According to Post Op. Corneal Measurements 1:</b>
@@ -163,6 +166,8 @@ export default function Result({
                                     <span><FiMail/> Send by Email</span>
                                     <br></br>
                                     <span><RiArrowGoBackLine/> Modify Input</span>
+                                    <br></br>
+                                    <span><FaRegFlag/> Report Error</span>
                                 </div>
                             </Row>
                         </Col>

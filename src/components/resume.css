@@ -24,7 +24,6 @@
 }
 
 .resumeTitle{
-    margin: 0px 0px;
     font-family: 'Titillium Web', sans-serif;
     font-weight: 600;
     font-size: 2vw;
@@ -58,7 +57,7 @@
     margin: 0vw 0.4vw;
 }
 .resumeCol > .row{
-    margin: 0.2vw 0vw;
+    margin: 0vw 0vw;
 }
 .spansRow > span{
     margin: 0.1vw 0vw;

@@ -35,6 +35,7 @@
     color: rgb(240, 243, 248);
 
     margin: 0vw 0.6vw;
+    text-decoration: none;
 }
 .barLink:hover{
     color: white;

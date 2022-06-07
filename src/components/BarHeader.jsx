@@ -11,12 +11,14 @@ export default function BarHeader() {
             <Container className='barContainer'>
                 <Row className='barRow'>
                     <Col xs={6} className='vCenter'>
-                        <img src={logo1} className='barIcon' alt='logo'></img>
+                        <a href='/'>
+                            <img src={logo1} className='barIcon' alt='logo'></img>
+                        </a>
                     </Col>
                     <Col xs={6} className='historyCol'>
                         <div className='history'>
                             <span className='barLink'><FaHistory/>&nbsp;My History</span>
-                            <span className='barLink'><RiInformationLine/>&nbsp;About Us</span>
+                            <a href='/about'className='barLink'><RiInformationLine/>&nbsp;About Us</a>
                             <span className='barLink'><FaRegFlag/>&nbsp;Report error</span>
                         </div>
                     </Col>

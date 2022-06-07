@@ -29,12 +29,17 @@
     padding: 1vw 5vw;
 }
 
+.orientationSubtitle{
+    margin-top: -0.8vh !important;
+    line-height: 1.5vh;
+    font-style: italic;
+    font-size: 0.8vw;
+}
 .resultOrientationRow{
     position: relative;
     padding: 0% 25%;
     margin: 0 auto;
 }
-
 #orientationSpan{
     font-weight: 400 !important;
 
@@ -48,12 +53,11 @@
 
     background-color: #094fa08f;
 }
-
 .eyeGraphic{
     position: relative;
     right: 0.8%;
     width: 60%;
-    margin: 0.8vh auto;
+    margin: 1.6vh auto;
 
     display: flex;
     justify-content: center;
@@ -76,9 +80,9 @@
 }
 
 .optionsDiv{
-    font-size: 1.6vw;
+    font-size: 1.4vw;
 
-    margin-top: 3.2vh;
+    margin-top: 3.8vh;
 }
 .optionsDiv > span:hover{
     cursor: pointer;
@@ -105,16 +109,25 @@
     text-align: left;
 
     position: absolute;
-    width: 40%;
+    width: 42.5%;
     top: 0;
     margin-left: 0.25vw;
     z-index: 2000;
-    padding: 0.6vw;
+    padding: 0.8vw;
 
     display: none;
 }
 
+.hint2:hover .hintText {
+    display: inline-block;
+}
 .hint2{
+    cursor: pointer;
     position: absolute;
-    left: 27%;
+    right: 18%;
+
+    width: min-content;
+}
+.hintText2{
+    width: 10vw;
 }
