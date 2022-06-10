@@ -8,7 +8,7 @@ import Result from './components/Result';
 function ToricAligner() {
 
     const [showResume, setShowResume] = useState(false);
-    const [showResult, setShowResult] = useState(false);
+    const [showResult, setShowResult] = useState(true);
 
     //Code for states for every input: 
     //(VS) [Value, Status] 
