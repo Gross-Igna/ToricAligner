@@ -166,7 +166,7 @@ export default function Result({
         //LCOR
         let LCOR;
         if(AxialLength>24.2){
-            LCOR = 446+1.716*AxialLength-0.0237*Math.pow(AxialLength,2)
+            LCOR = -3.446+1.716*parseFloat(AxialLength)-0.0237*Math.pow(parseFloat(AxialLength),2)
         }else{
             LCOR = parseFloat(AxialLength);
         }
@@ -209,10 +209,9 @@ export default function Result({
         let result4 = Result3/result1;
         setResult4(result4.toFixed(2));
 
-        /*DEBUG
-        window.alert(' pred acd:' + PredACD + ' Corr. AXL' + CorrAXL + ' M:' + M + ' G' + G +
-        ' AVG K:' + AvgK);*/
-        window.alert(result1);
+        //DEBUG
+        debugger;
+        //window.alert(s);
     }
 
     //Trigger Calculation function when result window is opened.
