@@ -96,7 +96,7 @@ export default function PostopDataB({
         document.getElementById(divId).style.display = "none";
     }
 
-    function handleClick(){
+    function handleOCTClick(){
             setOct2SwitchClass('octSwitchOff vCenter');
             let del = setTimeout( () => deleteById('octSwitch3') , 200 );
         }
@@ -107,14 +107,14 @@ export default function PostopDataB({
                 setMeasure12Switch(true);
             }else{
                 setMeasure13Switch(true);
-                deleteById('addMore3');
+                /*deleteById('addMore3');*/
             }
         }else if (formId === 2){
             if(!measure22Switch){
                 setMeasure22Switch(true);
             }else{
                 setMeasure23Switch(true);
-                deleteById('addMore4');
+                /*deleteById('addMore4');*/
             }
         }
     }
@@ -293,7 +293,7 @@ export default function PostopDataB({
             <Col xs={4} className='vCenter formCol octForm'>
 
                 <div id='octSwitch3' className={oct2SwitchClass} 
-                onClick={() => handleClick()}
+                onClick={() => handleOCTClick()}
                 >
                     <span className='hCenter'>
                         <IoAddCircleOutline style={{fontSize: '3vw'}}/>
@@ -314,8 +314,8 @@ export default function PostopDataB({
                         <NumInput VS={F91VS} setVS={setF91VS}
                             label=""
                             placeholder="Magnitude"
-                            min={20}
-                            max={30}
+                            min={0}
+                            max={20}
                             step={0.1}
                             readonly={false}
                         />
@@ -324,8 +324,8 @@ export default function PostopDataB({
                         <NumInput VS={F92VS} setVS={setF92VS}
                             label=""
                             placeholder="Axis"
-                            min={20}
-                            max={30}
+                            min={0}
+                            max={180}
                             step={0.1}
                             readonly={false}
                         />
@@ -340,8 +340,8 @@ export default function PostopDataB({
                         <NumInput VS={F93VS} setVS={setF93VS}
                             label=""
                             placeholder="Magnitude"
-                            min={20}
-                            max={30}
+                            min={0}
+                            max={20}
                             step={0.1}
                             readonly={false}
                         />
@@ -350,8 +350,8 @@ export default function PostopDataB({
                         <NumInput VS={F94VS} setVS={setF94VS}
                             label=""
                             placeholder="Axis"
-                            min={20}
-                            max={30}
+                            min={0}
+                            max={180}
                             step={0.1}
                             readonly={false}
                         />
@@ -365,8 +365,8 @@ export default function PostopDataB({
                         <NumInput VS={F95VS} setVS={setF95VS}
                             label=""
                             placeholder="Magnitude"
-                            min={20}
-                            max={30}
+                            min={0}
+                            max={20}
                             step={0.1}
                             readonly={false}
                         />
@@ -375,8 +375,8 @@ export default function PostopDataB({
                         <NumInput VS={F96VS} setVS={setF96VS}
                             label=""
                             placeholder="Axis"
-                            min={20}
-                            max={30}
+                            min={0}
+                            max={180}
                             step={0.1}
                             readonly={false}
                         />

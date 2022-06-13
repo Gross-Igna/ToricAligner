@@ -26,7 +26,20 @@ export default function Result({
     IOLManufacturer, IOLModel,
     Sphere, Cylinder, Axis,
     AvgMagnitude3, AvgAxis3,
-    AvgMagnitude4, AvgAxis4
+    AvgMagnitude4, AvgAxis4,
+
+    IOLPlane, IOLCornealPlane,
+
+    PostopRefSphere, PostopRefCylinder, PostopRefAxis,
+
+    TCA1Axis1, TCA1Axis2, TCA1Axis3,
+    TCA1Magn1, TCA1Magn2, TCA1Magn3,
+    TCA2Axis1, TCA2Axis2, TCA2Axis3,
+    TCA2Magn1, TCA2Magn2, TCA2Magn3,
+    TCA3Axis1, TCA3Axis2, TCA3Axis3,
+    TCA3Magn1, TCA3Magn2, TCA3Magn3,
+    TCA4Axis1, TCA4Axis2, TCA4Axis3,
+    TCA4Magn1, TCA4Magn2, TCA4Magn3
 }) {
 
     const [orientationValue, setOrientationValue] = useState(90);
@@ -43,6 +56,41 @@ export default function Result({
     const [Result3, setResult3] = useState(4.50.toFixed(2));
     //at Corneal Plane:
     const [Result4, setResult4] = useState(0);
+
+    //Induced Corneal Astigmatism
+    //TCA1
+    //Cylinder
+    const [Result5, setResult5] = useState(0);
+    //Axis
+    const [Result6, setResult6] = useState(0);
+    //TCA2
+    //Cylinder
+    const [Result7, setResult7] = useState(0);
+    //Axis
+    const [Result8, setResult8] = useState(0);
+
+    //IOL Alignement 
+    //According to postop1
+    //Suggested Axis
+    const [Result9, setResult9] = useState(0);
+    //Predicted Residual refraction
+    //Sphere
+    const [Result101, setResult101] = useState(0);
+    //Cylinder
+    const [Result102, setResult102] = useState(0);
+    //Axis
+    const [Result103, setResult103] = useState(0);
+
+    //According to postop2
+    //Suggested Axis
+    const [Result11, setResult11] = useState(0);
+    //Sphere
+    const [Result121, setResult121] = useState(0);
+    //Cylinder
+    const [Result122, setResult122] = useState(0);
+    //Axis
+    const [Result123, setResult123] = useState(0);
+
 
     const printRef = useRef();
     function downloadPdf(){
@@ -64,7 +112,24 @@ export default function Result({
 
     //Calculates and displays results.
     function calculateResults(){
-        
+
+        function getTanDeg(rad) {
+            var deg = rad * 180 / Math.PI;
+            return deg;
+          }    
+
+        //Average of 3 values
+        function averageOf3(a,b,c){
+            if(c!=NaN){
+                return((a+b+c)/3)
+            }else if(b!=NaN){
+                return((a+b)/2)
+            }else{
+                return(a)
+            }
+        }
+
+        //// CALCULATION FOR MERIDIONAL ANALYSIS AND IMPLANTED IOL CYL. ////
         //HOFFER Q = HofferIOLPwB - HofferIOLPwA
         //Corrected Axial Length
         let CorrAXL;
@@ -199,19 +264,217 @@ export default function Result({
 
 
         //MEAN = RESULT 1 = IOL/CORNEA CYLINDER RATIO
+        //IMPLANTED IOL CYLINDER -> RESULT2
         let mean = (HofferQ+Holladay1+SRKT)/3
         let KA = K1-K2;
         let result1 = mean/KA;
         setResult1(result1.toFixed(2));
         setResult2(mean.toFixed(2));
 
-        //IMPLANTED IOL CYLINDER - RESULT2
+        //RESULT 4
         let result4 = Result3/result1;
         setResult4(result4.toFixed(2));
 
+
+
+        //// CALCULATION FOR INDUCED CORNEAL ASTIGMATISM ////
+        // PENTACAM //
+        //rad
+        let radA1 = Math.PI/180*TCA1Axis1;
+        let radA2 = Math.PI/180*TCA1Axis2;
+        let radA3 = Math.PI/180*TCA1Axis3;
+        let radB1 = Math.PI/180*TCA3Axis1;
+        let radB2 = Math.PI/180*TCA3Axis2;
+        let radB3 = Math.PI/180*TCA3Axis3;
+        
+        //KP(Φ) 
+        let KPA1 = TCA1Magn1 * Math.cos(2*radA1);
+        let KPA2 = TCA1Magn2 * Math.cos(2*radA2);
+        let KPA3 = TCA1Magn3 * Math.cos(2*radA3);
+        let KPB1 = TCA3Magn1 * Math.cos(2*radB1);
+        let KPB2 = TCA3Magn2 * Math.cos(2*radB2);
+        let KPB3 = TCA3Magn3 * Math.cos(2*radB3);
+        //KP(Φ+45) 
+        let KPA451 = TCA1Magn1 * Math.sin(2*radA1);
+        let KPA452 = TCA1Magn2 * Math.sin(2*radA2);
+        let KPA453 = TCA1Magn3 * Math.sin(2*radA3);
+        let KPB451 = TCA3Magn1 * Math.sin(2*radB1);
+        let KPB452 = TCA3Magn2 * Math.sin(2*radB2);
+        let KPB453 = TCA3Magn3 * Math.sin(2*radB3);
+
+        //Average KP
+        let AvgKPA = averageOf3(KPA1,KPA2,KPA3);
+        let AvgKPB = averageOf3(KPB1,KPB2,KPB3);
+        //Average KP(Φ+45)
+        let AvgKP45A = averageOf3(KPA451,KPA452,KPA453);
+        let AvgKP45B = averageOf3(KPB451,KPB452,KPB453);
+
+        //SICA
+        let SICAA = AvgKPA - AvgKPB;
+        let SICAB = AvgKP45A - AvgKP45B;
+
+        //RESULT 5-6 Induced Corneal Astigmatism TCA1
+        //TCA1Cylinder = T22 = sqrt(Q22^2+R22^2)
+        let TCA1Cylinder = Math.sqrt(Math.pow(SICAA,2)+Math.pow(SICAB,2))
+        //Axis (column N)
+        let AxisN = getTanDeg(Math.atan((TCA1Cylinder-SICAA*-1)/SICAB*-1));
+        //V22
+        let V22;
+        if(AxisN<0){
+            V22 = 180;
+        }else{
+            V22 = 0;
+        }
+        let result6 = AxisN+V22;
+        
+        
+        setResult5(TCA1Cylinder.toFixed(2));
+        setResult6(Math.round(result6));
+
+
+
+        //// PREDICTED RESIDUAL REFRACTION (corneal plane)////
+        // PO = Post Operative
+        // Scheimpflug OCT1 //
+        //IOLPos = IOL Position
+        let IOLOrientation = 90;
+        let IOLPosAxis1;
+        if(IOLOrientation>89){
+            IOLPosAxis1 = 90;
+        }else{
+            IOLPosAxis1 = -90;
+        }
+        let IOLPosAxis2 = IOLOrientation-IOLPosAxis1;
+        let IOLPosAxis3 = Math.PI/180*IOLPosAxis2;
+        //POTCAIOL = Postoperative TCA + IOL
+        //KP(Φ) 
+        let POTCAIOLKP = AvgKPB + IOLCornealPlane*Math.cos(2*IOLPosAxis3)
+        //KP(Φ+45) 
+        let POTCAIOLKP45 = AvgKP45B + IOLCornealPlane*Math.sin(2*IOLPosAxis3)
+
+        //PRR = Predicted Residual Refraction 
+        //Cylinder
+        let PRRCyl = Math.sqrt(Math.pow(POTCAIOLKP,2)+Math.pow(POTCAIOLKP45,2))
+        //Difference between cyl
+        let DifBtwnCyl = PostopRefCylinder - PRRCyl;
+        //Change in sphere
+        let ChgInSphere = DifBtwnCyl/2;
+        //Change in Sphere
+        let PRRSphere = PostopRefSphere + ChgInSphere;
+        //Axis
+        let a;
+        if(PRRCyl=0){
+            a = 0;
+        }else{
+            a = 0.5*Math.atan2(POTCAIOLKP,POTCAIOLKP45)*180/Math.PI;
+        }
+        let b;
+        if(a<0){
+            b=180;
+        }else{
+            b=0;
+        }
+        let PRRAxis = a + b;
+
+        //IOL ALIGNEMENT RESULTS 1
+        setResult9("?");
+        setResult101(PRRSphere.toFixed(2));
+        setResult102(PRRCyl.toFixed(2));
+        setResult103(Math.round(PRRAxis));
+        
+
+        
+        //// CALCULATION FOR INDUCED CORNEAL ASTIGMATISM ////
+        // SIRIUS //
+        //rad
+        radA1 = Math.PI/180*TCA2Axis1;
+        radA2 = Math.PI/180*TCA2Axis2;
+        radA3 = Math.PI/180*TCA2Axis3;
+        radB1 = Math.PI/180*TCA4Axis1;
+        radB2 = Math.PI/180*TCA4Axis2;
+        radB3 = Math.PI/180*TCA4Axis3;
+        
+        //KP(Φ) 
+        KPA1 = TCA2Magn1 * Math.cos(2*radA1);
+        KPA2 = TCA2Magn2 * Math.cos(2*radA2);
+        KPA3 = TCA2Magn3 * Math.cos(2*radA3);
+        KPB1 = TCA4Magn1 * Math.cos(2*radB1);
+        KPB2 = TCA4Magn2 * Math.cos(2*radB2);
+        KPB3 = TCA4Magn3 * Math.cos(2*radB3);
+        //KP(Φ+45) 
+        KPA451 = TCA2Magn1 * Math.sin(2*radA1);
+        KPA452 = TCA2Magn2 * Math.sin(2*radA2);
+        KPA453 = TCA2Magn3 * Math.sin(2*radA3);
+        KPB451 = TCA4Magn1 * Math.sin(2*radB1);
+        KPB452 = TCA4Magn2 * Math.sin(2*radB2);
+        KPB453 = TCA4Magn3 * Math.sin(2*radB3);
+
+        //Average KP
+        AvgKPA = averageOf3(KPA1,KPA2,KPA3);
+        AvgKPB = averageOf3(KPB1,KPB2,KPB3);
+        //Average KP(Φ+45)
+        AvgKP45A = averageOf3(KPA451,KPA452,KPA453);
+        AvgKP45B = averageOf3(KPB451,KPB452,KPB453);
+
+        //SICA
+        SICAA = AvgKPA - AvgKPB;
+        SICAB = AvgKP45A - AvgKP45B;
+
+        //RESULT 5-6 Induced Corneal Astigmatism TCA1
+        //TCA1Cylinder = T22 = sqrt(Q22^2+R22^2)
+        let TCA2Cylinder = Math.sqrt(Math.pow(SICAA,2)+Math.pow(SICAB,2))
+        //Axis (column N)
+        AxisN = getTanDeg(Math.atan((TCA2Cylinder-SICAA*-1)/SICAB*-1));
+        //V22
+        if(AxisN<0){
+            V22 = 180;
+        }else{
+            V22 = 0;
+        }
+        let result8 = AxisN+V22;
+        
+        setResult7(TCA2Cylinder.toFixed(2));
+        setResult8(Math.round(result8));
+
+        //// PREDICTED RESIDUAL REFRACTION (corneal plane)////
+        // PO = Post Operative
+        // Scheimpflug OCT2 (SIRIUS) //
+        //POTCAIOL = Postoperative TCA + IOL
+        //KP(Φ) 
+        POTCAIOLKP = AvgKPB + IOLCornealPlane*Math.cos(2*IOLPosAxis3)
+        //KP(Φ+45) 
+        POTCAIOLKP45 = AvgKP45B + IOLCornealPlane*Math.sin(2*IOLPosAxis3)
+
+        //PRR = Predicted Residual Refraction 
+        //Cylinder
+        PRRCyl = Math.sqrt(Math.pow(POTCAIOLKP,2)+Math.pow(POTCAIOLKP45,2))
+        //Difference between cyl
+        DifBtwnCyl = PostopRefCylinder - PRRCyl;
+        //Change in sphere
+        ChgInSphere = DifBtwnCyl/2;
+        //Change in Sphere
+        PRRSphere = PostopRefSphere + ChgInSphere;
+        //Axis
+        if(PRRCyl=0){
+            a = 0;
+        }else{
+            a = 0.5*Math.atan2(POTCAIOLKP,POTCAIOLKP45)*180/Math.PI;
+        }
+        if(a<0){
+            b=180;
+        }else{
+            b=0;
+        }
+        PRRAxis = a + b;
+
+        //IOL ALIGNEMENT RESULTS 1
+        setResult11("?");
+        setResult121(PRRSphere.toFixed(2));
+        setResult122(PRRCyl.toFixed(2));
+        setResult123(Math.round(PRRAxis));
+
         //DEBUG
         debugger;
-        //window.alert(s);
     }
 
     //Trigger Calculation function when result window is opened.
@@ -296,9 +559,9 @@ export default function Result({
                             <Row className="spansRow">
                                 <span className='resumeSubtitle'>Induced corneal astigmatism</span>
                                 <span>
-                                    <b>TCA 1:</b> &nbsp; Cyl: <i>4.5</i> &nbsp; Axis: <i>4.5</i>
-                                    <br></br>  
-                                    <b>TCA 2:</b> &nbsp; Cyl: <i>4.5</i> &nbsp; Axis: <i>4.5</i>
+                                    <b>TCA 1:</b> &nbsp; Cyl: <i>{Result5}</i> &nbsp; Axis: <i>{Result6}°</i>
+                                    <br></br>
+                                    <b>TCA 2:</b> &nbsp; Cyl: <i>{Result7}</i> &nbsp; Axis: <i>{Result8}°</i>
                                 </span>
                             </Row>
                         </Col>
@@ -337,9 +600,9 @@ export default function Result({
                                     <span className='resumeSubtitle text-center'>IOL Alignment</span>
                                     <b>According to Post Op. Corneal Measurements 1:</b>
                                     <span>
-                                        Suggested Axis: <i>4.5</i>
+                                        Suggested Axis: <i>{Result9}</i>
                                         <br></br>
-                                        Predicted residual refraction: <i>4.5</i><i>4.5</i><i>4.5</i>
+                                        Predicted residual refraction: <i>{Result101}</i><i>{Result102}</i><i>{Result103}°</i>
                                     </span>
                                 </Row>
                                 <Row className="spansRow text-start">
@@ -349,9 +612,9 @@ export default function Result({
                                         </span>
                                     </b>
                                     <span>
-                                        Suggested Axis: <i>4.5</i>
+                                        Suggested Axis: <i>{Result11}</i>
                                         <br></br>  
-                                        Predicted residual refraction: <i>4.5</i><i>4.5</i><i>4.5</i>&nbsp;
+                                        Predicted residual refraction: <i>{Result121}</i><i>{Result122}</i><i>{Result123}°</i>&nbsp;
                                     </span>
                                 </Row>
                             </Row>

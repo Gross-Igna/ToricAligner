@@ -8,7 +8,7 @@ import Result from './components/Result';
 function ToricAligner() {
 
     const [showResume, setShowResume] = useState(false);
-    const [showResult, setShowResult] = useState(true);
+    const [showResult, setShowResult] = useState(false);
 
     //Code for states for every input: 
     //(VS) [Value, Status] 
@@ -240,6 +240,40 @@ function ToricAligner() {
         Sphere={F61VS[0]} Cylinder={F62VS[0]} Axis={F63VS[0]}
         AvgMagnitude3={F87Val} AvgAxis3={F88Val}
         AvgMagnitude4={F97Val} AvgAxis4={F98Val}
+
+        IOLPlane={4.50} IOLCornealPlane={parseFloat(F54VS[0])}
+
+        PostopRefSphere={parseFloat(F61VS[0])}
+        PostopRefCylinder={parseFloat(F62VS[0])}
+        PostopRefAxis={parseFloat(F63VS[0])}
+
+        TCA1Magn1={parseFloat(F31VS[0])}
+        TCA1Magn2={parseFloat(F33VS[0])}
+        TCA1Magn3={parseFloat(F35VS[0])}
+        TCA1Axis1={parseFloat(F32VS[0])}
+        TCA1Axis2={parseFloat(F34VS[0])}
+        TCA1Axis3={parseFloat(F36VS[0])}
+
+        TCA2Magn1={parseFloat(F41VS[0])}
+        TCA2Magn2={parseFloat(F43VS[0])}
+        TCA2Magn3={parseFloat(F45VS[0])}
+        TCA2Axis1={parseFloat(F42VS[0])}
+        TCA2Axis2={parseFloat(F44VS[0])}
+        TCA2Axis3={parseFloat(F46VS[0])}
+
+        TCA3Magn1={parseFloat(F81VS[0])}
+        TCA3Magn2={parseFloat(F83VS[0])}
+        TCA3Magn3={parseFloat(F85VS[0])}
+        TCA3Axis1={parseFloat(F82VS[0])}
+        TCA3Axis2={parseFloat(F84VS[0])}
+        TCA3Axis3={parseFloat(F86VS[0])}
+
+        TCA4Magn1={parseFloat(F91VS[0])}
+        TCA4Magn2={parseFloat(F93VS[0])}
+        TCA4Magn3={parseFloat(F95VS[0])}
+        TCA4Axis1={parseFloat(F92VS[0])}
+        TCA4Axis2={parseFloat(F94VS[0])}
+        TCA4Axis3={parseFloat(F96VS[0])}
       />
 
     </div>

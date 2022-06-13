@@ -365,7 +365,8 @@ export default function PreopMeasures({
                     />
                 </Col>
             </Row>
-            <Row className='addMeasureRow' style={{display: measure13Switch? 'none' : null}}>
+            <Row className='addMeasureRow' style={{display: measure13Switch? 'none' : null}}
+            id='addMore1'>
                 <span onClick={() => addMoreMeasures(1)}>
                     Add more&nbsp;<IoAddCircleOutline/>
                 </span>
@@ -477,7 +478,8 @@ export default function PreopMeasures({
                     />
                 </Col>
             </Row>
-            <Row className='addMeasureRow' style={{display: measure23Switch? 'none' : null}}>
+            <Row className='addMeasureRow' style={{display: measure23Switch? 'none' : null}}
+            id='addMore2'>
                 <span onClick={() => addMoreMeasures(2)}>
                     Add more&nbsp;<IoAddCircleOutline/>
                 </span>
