@@ -48,7 +48,7 @@ export default function PostopDataB({
                 if(F86VS[0] == undefined ){
                     setF88Val(F82VS[0])
                 }else{
-                    var average = ( ( parseFloat(F82VS[0]) + parseFloat(F84VS[0]) +  parseFloat(F86VS[0]) ) / 3 )
+                    var average = Math.round( ( parseFloat(F82VS[0]) + parseFloat(F84VS[0]) +  parseFloat(F86VS[0]) ) / 3 )
                     setF88Val(average.toString().substring(0,4))
                 }
             }
@@ -76,7 +76,7 @@ export default function PostopDataB({
                 if(F96VS[0] == undefined ){
                     setF98Val(F92VS[0])
                 }else{
-                    var average = ( ( parseFloat(F92VS[0]) + parseFloat(F94VS[0]) +  parseFloat(F96VS[0]) ) / 3 )
+                    var average = Math.round( ( parseFloat(F92VS[0]) + parseFloat(F94VS[0]) +  parseFloat(F96VS[0]) ) / 3 )
                     setF98Val(average.toString().substring(0,4))
                 }
             }

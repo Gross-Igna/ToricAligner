@@ -42,7 +42,7 @@ export default function Result({
     TCA4Magn1, TCA4Magn2, TCA4Magn3
 }) {
 
-    const [orientationValue, setOrientationValue] = useState(90);
+    const [orientationValue, setOrientationValue] = useState(AvgAxis3);
 
     //Result States
     //Meridional Analysis
@@ -71,8 +71,6 @@ export default function Result({
 
     //IOL Alignement 
     //According to postop1
-    //Suggested Axis
-    const [Result9, setResult9] = useState(0);
     //Predicted Residual refraction
     //Sphere
     const [Result101, setResult101] = useState(0);
@@ -82,8 +80,6 @@ export default function Result({
     const [Result103, setResult103] = useState(0);
 
     //According to postop2
-    //Suggested Axis
-    const [Result11, setResult11] = useState(0);
     //Sphere
     const [Result121, setResult121] = useState(0);
     //Cylinder
@@ -348,13 +344,13 @@ export default function Result({
         let IOLPosAxis3 = Math.PI/180*IOLPosAxis2;
         //POTCAIOL = Postoperative TCA + IOL
         //KP(Φ) 
-        let POTCAIOLKP = AvgKPB + IOLCornealPlane*Math.cos(2*IOLPosAxis3)
+        let POTCAIOLKP = AvgKPB + IOLCornealPlane*Math.cos(2*IOLPosAxis3);
         //KP(Φ+45) 
-        let POTCAIOLKP45 = AvgKP45B + IOLCornealPlane*Math.sin(2*IOLPosAxis3)
+        let POTCAIOLKP45 = AvgKP45B + IOLCornealPlane*Math.sin(2*IOLPosAxis3);
 
         //PRR = Predicted Residual Refraction 
         //Cylinder
-        let PRRCyl = Math.sqrt(Math.pow(POTCAIOLKP,2)+Math.pow(POTCAIOLKP45,2))
+        let PRRCyl = Math.sqrt( POTCAIOLKP*POTCAIOLKP + POTCAIOLKP45*POTCAIOLKP45 );
         //Difference between cyl
         let DifBtwnCyl = PostopRefCylinder - PRRCyl;
         //Change in sphere
@@ -363,10 +359,10 @@ export default function Result({
         let PRRSphere = PostopRefSphere + ChgInSphere;
         //Axis
         let a;
-        if(PRRCyl=0){
+        if(Math.round(PRRCyl)===0){
             a = 0;
         }else{
-            a = 0.5*Math.atan2(POTCAIOLKP,POTCAIOLKP45)*180/Math.PI;
+            a = parseInt(0.5*Math.atan2(POTCAIOLKP45,POTCAIOLKP)*180/Math.PI);
         }
         let b;
         if(a<0){
@@ -377,13 +373,12 @@ export default function Result({
         let PRRAxis = a + b;
 
         //IOL ALIGNEMENT RESULTS 1
-        setResult9("?");
         setResult101(PRRSphere.toFixed(2));
         setResult102(PRRCyl.toFixed(2));
         setResult103(Math.round(PRRAxis));
         
 
-        
+
         //// CALCULATION FOR INDUCED CORNEAL ASTIGMATISM ////
         // SIRIUS //
         //rad
@@ -455,10 +450,10 @@ export default function Result({
         //Change in Sphere
         PRRSphere = PostopRefSphere + ChgInSphere;
         //Axis
-        if(PRRCyl=0){
+        if(Math.round(PRRCyl)===0){
             a = 0;
         }else{
-            a = 0.5*Math.atan2(POTCAIOLKP,POTCAIOLKP45)*180/Math.PI;
+            a = Math.round(0.5*Math.atan2(POTCAIOLKP45,POTCAIOLKP)*180/Math.PI);
         }
         if(a<0){
             b=180;
@@ -467,14 +462,14 @@ export default function Result({
         }
         PRRAxis = a + b;
 
-        //IOL ALIGNEMENT RESULTS 1
-        setResult11("?");
+        //IOL ALIGNEMENT RESULTS 2
         setResult121(PRRSphere.toFixed(2));
         setResult122(PRRCyl.toFixed(2));
         setResult123(Math.round(PRRAxis));
 
         //DEBUG
-        debugger;
+        //debugger;
+        
     }
 
     //Trigger Calculation function when result window is opened.
@@ -570,7 +565,7 @@ export default function Result({
                     <Row className='separator'/>
 
                     <Row>
-                        <Col className='resumeShadow resumeCol '>
+                        <Col className='resumeShadow resumeCol 'setF47debu>
                             <Row className="spansRow">
                                 <span className='resumeSubtitle'>IOL Orientation</span>
                             </Row>
@@ -582,7 +577,8 @@ export default function Result({
                                     <img src={graphicCircle} id='graphicCircle' alt='graphicCircle'></img>
                                     <img src={graphicIOL} id='graphicIOL' alt='graphicIOL'
                                     style={{transform: 'rotate('+ (orientationValue-90) +'deg)'}}></img>
-                                    <img src={graphicSuggested} id='graphicSuggested' alt='graphicSuggested'></img>
+                                    <img src={graphicSuggested} id='graphicSuggested' alt='graphicSuggested'
+                                    style={{transform: 'rotate('+ (AvgAxis3-90) +'deg)'}}></img>
                                 </div>
                             </Row>
                             <Row className='resultOrientationRow'>
@@ -600,7 +596,7 @@ export default function Result({
                                     <span className='resumeSubtitle text-center'>IOL Alignment</span>
                                     <b>According to Post Op. Corneal Measurements 1:</b>
                                     <span>
-                                        Suggested Axis: <i>{Result9}</i>
+                                        Suggested Axis: <i>{AvgAxis3}</i>
                                         <br></br>
                                         Predicted residual refraction: <i>{Result101}</i><i>{Result102}</i><i>{Result103}°</i>
                                     </span>
@@ -612,7 +608,7 @@ export default function Result({
                                         </span>
                                     </b>
                                     <span>
-                                        Suggested Axis: <i>{Result11}</i>
+                                        Suggested Axis: <i>{AvgAxis4}</i>
                                         <br></br>  
                                         Predicted residual refraction: <i>{Result121}</i><i>{Result122}</i><i>{Result123}°</i>&nbsp;
                                     </span>

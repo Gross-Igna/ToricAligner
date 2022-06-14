@@ -170,7 +170,7 @@ export default function PreopMeasures({
                 if(F36VS[0] == "" ){
                     setF38Val(F32VS[0])
                 }else{
-                    var average = ( ( parseFloat(F32VS[0]) + parseFloat(F34VS[0]) +  parseFloat(F36VS[0]) ) / 3 )
+                    var average = Math.round( ( parseFloat(F32VS[0]) + parseFloat(F34VS[0]) +  parseFloat(F36VS[0]) ) / 3 )
                     setF38Val(average.toString().substring(0,4))
                 }
             }
@@ -198,7 +198,7 @@ export default function PreopMeasures({
                 if(F46VS[0] == "" ){
                     setF48Val(F42VS[0])
                 }else{
-                    var average = ( ( parseFloat(F42VS[0]) + parseFloat(F44VS[0]) +  parseFloat(F46VS[0]) ) / 3 )
+                    var average = Math.round( ( parseFloat(F42VS[0]) + parseFloat(F44VS[0]) +  parseFloat(F46VS[0]) ) / 3 )
                     setF48Val(average.toString().substring(0,4))
                 }
             }
