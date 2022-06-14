@@ -132,9 +132,9 @@ export default function Result({
 
         //Average of 3 values
         function averageOf3(a,b,c){
-            if(c!=NaN){
+            if(!Number.isNaN(c)){
                 return((a+b+c)/3)
-            }else if(b!=NaN){
+            }else if(!Number.isNaN(b)){
                 return((a+b)/2)
             }else{
                 return(a)
@@ -394,7 +394,7 @@ export default function Result({
         setResult103(Math.round(PRRAxis));
         
 
-
+        
         //// CALCULATION FOR INDUCED CORNEAL ASTIGMATISM ////
         // SIRIUS //
         //rad
