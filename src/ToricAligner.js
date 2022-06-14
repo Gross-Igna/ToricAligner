@@ -244,8 +244,11 @@ function ToricAligner() {
         IOLPlane={4.50} IOLCornealPlane={parseFloat(F54VS[0])}
 
         PostopRefSphere={parseFloat(F61VS[0])}
+        setPostopRefSphere={setF61VS}
         PostopRefCylinder={parseFloat(F62VS[0])}
+        setPostopRefCylinder={setF62VS}
         PostopRefAxis={parseFloat(F63VS[0])}
+        setPostopRefAxis={setF63VS}
 
         TCA1Magn1={parseFloat(F31VS[0])}
         TCA1Magn2={parseFloat(F33VS[0])}

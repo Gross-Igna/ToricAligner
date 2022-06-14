@@ -19,15 +19,6 @@ export default function PostopDataA({
 
     const [CylReadOnly, setCylReadOnly] = useState(true);
 
-    //Handle negative Postoperative refraction Cylinder
-    function CylHandleChange(){
-        if(F62VS[0] < 0){
-            setF61VS([(F61VS[0] - F62VS[0]),F61VS[1]])
-            setF62VS([Math.abs(F62VS[0]),F62VS[1]]);
-        }
-    }
-
-
     //Automatic refresh for Corneal plane F52 input
     useEffect(() => {
 
@@ -38,7 +29,7 @@ export default function PostopDataA({
 
     }, [F53VS[0]]);
 
-    //Handle IOL Plane
+    //Handle IOL Corneal Plane
     useEffect(() => {  
 
             let model = F52VS[0];
@@ -121,14 +112,16 @@ export default function PostopDataA({
 
     }, [F52VS[0]])
 
+    //Handle Manufacturer (f51) change
     useEffect(() => {
         if( F51VS[0] === 'Custom' ){
             setCylReadOnly(false);
-            setF53VS([undefined, 0])
         }else{
             setCylReadOnly(true);
         }
 
+        setF53VS([undefined, 0])
+        setF54VS([undefined, 0])
         setF52VS(['', F52VS[1]])
 
     }, [F51VS[0]])
@@ -211,7 +204,6 @@ export default function PostopDataA({
                                     max={10}
                                     step={0.1}
                                     readonly={false}
-                                    blur={() => CylHandleChange()}
                                 />
                             </Col>
                             <Col xs={4} className='noPadding'>

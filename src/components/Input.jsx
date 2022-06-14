@@ -98,7 +98,8 @@ export default function Input(
 
     useEffect(() => {
       if(
-        F51VS[1] == 1 &&
+        F53VS[1] == 1 &&
+        //F54VS[1] == 1 &&
 
         F61VS[1] == 1 &&
         F62VS[1] == 1 &&

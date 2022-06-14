@@ -30,7 +30,9 @@ export default function Result({
 
     IOLPlane, IOLCornealPlane,
 
-    PostopRefSphere, PostopRefCylinder, PostopRefAxis,
+    PostopRefSphere, setPostopRefSphere,
+    PostopRefCylinder, setPostopRefCylinder,
+    PostopRefAxis, setPostopRefAxis,
 
     TCA1Axis1, TCA1Axis2, TCA1Axis3,
     TCA1Magn1, TCA1Magn2, TCA1Magn3,
@@ -42,7 +44,7 @@ export default function Result({
     TCA4Magn1, TCA4Magn2, TCA4Magn3
 }) {
 
-    const [orientationValue, setOrientationValue] = useState(AvgAxis3);
+    const [orientationValue, setOrientationValue] = useState(parseInt(AvgAxis3));
 
     //Result States
     //Meridional Analysis
@@ -104,6 +106,20 @@ export default function Result({
         pdf.save('print.pdf');
       })
         ;
+    }
+
+    //Recalculation for Postoperative Refraction when Cylinder<0
+    var postopRefSph = PostopRefSphere;
+    var postopRefCyl = PostopRefCylinder;
+    var postopRefAxis = PostopRefAxis;
+    function PostopRefractionRecalculation(){
+        postopRefSph = PostopRefSphere+PostopRefCylinder;
+        postopRefCyl = (PostopRefCylinder*-1)
+        if(postopRefAxis<=90){
+            postopRefAxis = (parseFloat(PostopRefAxis)+90);
+        }{
+            postopRefAxis = (parseFloat(PostopRefAxis)-90);
+        }
     }
 
     //Calculates and displays results.
@@ -273,6 +289,7 @@ export default function Result({
 
 
 
+
         //// CALCULATION FOR INDUCED CORNEAL ASTIGMATISM ////
         // PENTACAM //
         //rad
@@ -333,14 +350,13 @@ export default function Result({
         // PO = Post Operative
         // Scheimpflug OCT1 //
         //IOLPos = IOL Position
-        let IOLOrientation = 90;
         let IOLPosAxis1;
-        if(IOLOrientation>89){
+        if(orientationValue>89){
             IOLPosAxis1 = 90;
         }else{
             IOLPosAxis1 = -90;
         }
-        let IOLPosAxis2 = IOLOrientation-IOLPosAxis1;
+        let IOLPosAxis2 = orientationValue-IOLPosAxis1;
         let IOLPosAxis3 = Math.PI/180*IOLPosAxis2;
         //POTCAIOL = Postoperative TCA + IOL
         //KP(Φ) 
@@ -352,11 +368,11 @@ export default function Result({
         //Cylinder
         let PRRCyl = Math.sqrt( POTCAIOLKP*POTCAIOLKP + POTCAIOLKP45*POTCAIOLKP45 );
         //Difference between cyl
-        let DifBtwnCyl = PostopRefCylinder - PRRCyl;
+        let DifBtwnCyl = postopRefCyl - PRRCyl;
         //Change in sphere
         let ChgInSphere = DifBtwnCyl/2;
         //Change in Sphere
-        let PRRSphere = PostopRefSphere + ChgInSphere;
+        let PRRSphere = postopRefSph + ChgInSphere;
         //Axis
         let a;
         if(Math.round(PRRCyl)===0){
@@ -444,11 +460,11 @@ export default function Result({
         //Cylinder
         PRRCyl = Math.sqrt(Math.pow(POTCAIOLKP,2)+Math.pow(POTCAIOLKP45,2))
         //Difference between cyl
-        DifBtwnCyl = PostopRefCylinder - PRRCyl;
+        DifBtwnCyl = postopRefCyl - PRRCyl;
         //Change in sphere
         ChgInSphere = DifBtwnCyl/2;
         //Change in Sphere
-        PRRSphere = PostopRefSphere + ChgInSphere;
+        PRRSphere = postopRefSph + ChgInSphere;
         //Axis
         if(Math.round(PRRCyl)===0){
             a = 0;
@@ -475,6 +491,10 @@ export default function Result({
     //Trigger Calculation function when result window is opened.
     useEffect( () => {
         if(showResult){
+            if(PostopRefCylinder<0){
+                PostopRefractionRecalculation();
+            }
+            setOrientationValue(parseInt(AvgAxis3));
             calculateResults();
         }
     }, [showResult])
@@ -584,31 +604,35 @@ export default function Result({
                             <Row className='resultOrientationRow'>
                                 <span id='orientationSpan'>{orientationValue}°</span>
                                 <span className='hint2'><FaRegQuestionCircle/>
-                                    <span className='hintText hintText2'>Use keyboard arrows to change orientation.</span>
+                                    <span className='hintText hintText2'>Use keyboard arrows to change orientation precisely.</span>
                                 </span>
                                 <Form.Range value={orientationValue}
-                                min="0" max="180" onChange={(e) => setOrientationValue(e.target.value)}/>
+                                min="0" max="180" 
+                                onChange={(e) => {
+                                    setOrientationValue(e.target.value);
+                                    calculateResults();
+                                }}/>
                             </Row>
                         </Col>
                         <Col>
                             <Row className='resumeShadow resumeCol'>
                                 <Row className="spansRow text-start">
                                     <span className='resumeSubtitle text-center'>IOL Alignment</span>
-                                    <b>According to Post Op. Corneal Measurements 1:</b>
-                                    <span>
-                                        Suggested Axis: <i>{AvgAxis3}</i>
-                                        <br></br>
-                                        Predicted residual refraction: <i>{Result101}</i><i>{Result102}</i><i>{Result103}°</i>
-                                    </span>
-                                </Row>
-                                <Row className="spansRow text-start">
-                                    <b style={{position: 'relative'}}>According to Post Op. Corneal Measurements 2: 
+                                    <b style={{position: 'relative'}}>According to Post Op. Corneal Measurements 1
                                         <span className='hint'><FaRegQuestionCircle/>
                                             <span className='hintText'>Change IOL orientation to see expected refraction.</span>
                                         </span>
                                     </b>
                                     <span>
-                                        Suggested Axis: <i>{AvgAxis4}</i>
+                                        Suggested Axis: <i>{AvgAxis3}°</i>
+                                        <br></br>
+                                        Predicted residual refraction: <i>{Result101}</i><i>{Result102}</i><i>{Result103}°</i>
+                                    </span>
+                                </Row>
+                                <Row className="spansRow text-start">
+                                    <b>According to Post Op. Corneal Measurements 2:</b>
+                                    <span>
+                                        Suggested Axis: <i>{AvgAxis4}°</i>
                                         <br></br>  
                                         Predicted residual refraction: <i>{Result121}</i><i>{Result122}</i><i>{Result123}°</i>&nbsp;
                                     </span>
@@ -620,7 +644,7 @@ export default function Result({
                                     <br></br>
                                     <span><FiMail/> Send by Email</span>
                                     <br></br>
-                                    <span><RiArrowGoBackLine/> Modify Input</span>
+                                    <span onClick={() => setShowResult(false)}><RiArrowGoBackLine/> Modify Input</span>
                                     <br></br>
                                     <span><FaRegFlag/> Report Error</span>
                                 </div>
