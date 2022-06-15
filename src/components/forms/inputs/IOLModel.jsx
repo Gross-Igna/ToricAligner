@@ -12,7 +12,7 @@ export default function Model({VS, setVS, Mfact}) {
             setVS([VS[0],1]);
             setClass('formControl controlValid eyeInput');
         }
-    });
+    },[VS[0]]);
 
     return (
         <Form>

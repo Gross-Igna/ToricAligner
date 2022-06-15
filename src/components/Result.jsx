@@ -2,6 +2,7 @@ import React, {useState, useRef, useEffect} from 'react'
 
 import { Container, Row, Col, Form } from 'react-bootstrap'
 
+import LoadingDots from './LoadingDots';
 import {AiOutlineCloseCircle, AiOutlineFilePdf} from 'react-icons/ai';
 import {FaRegQuestionCircle, FaRegFlag} from 'react-icons/fa'
 import {IoEyeOutline} from 'react-icons/io5';
@@ -89,6 +90,9 @@ export default function Result({
     //Axis
     const [Result123, setResult123] = useState(0);
 
+
+    //Result loading div
+    const [loading, setLoading] = useState(false);
 
     const printRef = useRef();
     function downloadPdf(){
@@ -495,6 +499,8 @@ export default function Result({
                 PostopRefractionRecalculation();
             }
             setOrientationValue(parseInt(AvgAxis3));
+            setLoading(true);
+            setTimeout(() => setLoading(false),2000)
             calculateResults();
         }
     }, [showResult])
@@ -509,7 +515,12 @@ export default function Result({
 
                 <Container className='resultContent styledBox'>
 
-                    <Row>
+                    <div className='resumeLoadingDiv'
+                    style={{display: loading? null : 'none'}}>
+                        <LoadingDots/>
+                    </div>
+                    
+                    <Row style={{opacity: loading? '0': null}}>
                         <Col className='resumeTitle resumeCol resumeShadow'>
                             <Row>
                                 <Col>
@@ -547,9 +558,9 @@ export default function Result({
                         </Col>
                     </Row>
 
-                    <Row className='separator'/>
+                    <Row className='separator' style={{opacity: loading? '0': null}}/>
 
-                    <Row>
+                    <Row style={{opacity: loading? '0': null}}>
                         <Col className='resumeShadow resumeCol text-start'>
                             <Row className="spansRow">
                                 <span className='resumeSubtitle'>Meridional Analysis</span>
@@ -582,10 +593,10 @@ export default function Result({
                         </Col>
                     </Row>
 
-                    <Row className='separator'/>
+                    <Row className='separator' style={{opacity: loading? '0': null}}/>
 
-                    <Row>
-                        <Col className='resumeShadow resumeCol 'setF47debu>
+                    <Row style={{opacity: loading? '0': null}}>
+                        <Col className='resumeShadow resumeCol '>
                             <Row className="spansRow">
                                 <span className='resumeSubtitle'>IOL Orientation</span>
                             </Row>
@@ -652,7 +663,11 @@ export default function Result({
                         </Col>
                     </Row>
 
-                    <div className='resumeCloseBtn' onClick={() => setShowResult(false)}><AiOutlineCloseCircle/></div>
+                    <div className='resumeCloseBtn' 
+                    onClick={() => setShowResult(false)}
+                    style={{opacity: loading? '0': null}}>
+                        <AiOutlineCloseCircle/>
+                    </div>
 
                 </Container>
             </div>

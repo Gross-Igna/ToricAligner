@@ -17,7 +17,7 @@ export default function EyeLR({Val, setVal, setSt}) {
                 setClass('formControl controlValid eyeInput');
             }
         }
-    });
+    },[Val]);
 
     return (
         <Form>

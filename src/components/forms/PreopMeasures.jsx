@@ -133,7 +133,7 @@ export default function PreopMeasures({
             if (oct1SwitchClass == 'octSwitchOn vCenter'){
                 setValidPreOct(true);
             }
-    })
+    },[F31VS[0],F32VS[0],F33VS[0],F34VS[0],F41VS[0],F42VS[0],F43VS[0],F44VS[0]])
 
 
     //Automatic refresh for Magnitude F23 input 

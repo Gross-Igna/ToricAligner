@@ -18,7 +18,7 @@ export default function SurgeonName({Val, setVal, setSt}) {
                 setClass('formControl controlValid surgeonNameInput');
             }
         }
-    });
+    },[Val]);
 
     return (
         <Form>

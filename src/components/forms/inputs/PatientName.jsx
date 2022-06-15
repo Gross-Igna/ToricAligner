@@ -17,7 +17,7 @@ export default function PatientName({Val, setVal, setSt}) {
                 setClass('formControl controlValid nameInput');
             }
         }
-    });
+    },[Val]);
 
     return (
         <Form>

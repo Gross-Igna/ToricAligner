@@ -19,7 +19,6 @@ export default function IOLCyl({label, placeholder, min, max, step, readonly, VS
                     setClass('formControl controlValid numericInput');
                 }
             }
-
     }, [VS[0], Mfact]);
 
     return (
