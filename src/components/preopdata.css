@@ -77,6 +77,8 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+
+    position: relative;
 }
 .addMeasureRow > span{
     margin: 0 auto;
@@ -95,6 +97,15 @@
 .addMeasureRow > span:hover{
     color: white;
     background-color: rgba(45, 111, 185, 0.98);
+}
+.deleteMeasureSpan{
+    position: absolute;
+    text-align: right;
+
+    padding-right: -1vw;
+    padding-top: 0.15vh;
+
+    font-size: 1.5vw;
 }
 
 .continueBtn{

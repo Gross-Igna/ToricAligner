@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 import NumInput from './inputs/NumInput';
 import {Row, Col} from 'react-bootstrap';
 import octicon from '../../img/oct-border4.png'
-import {IoAddCircleOutline} from 'react-icons/io5'
+import {IoAddCircleOutline, IoCloseCircleOutline} from 'react-icons/io5'
 
 export default function PreopMeasures({
     setValidPreOct,
@@ -308,7 +308,7 @@ export default function PreopMeasures({
                     <NumInput VS={F32VS} setVS={setF32VS}
                     label=""
                     placeholder="Axis"
-                    min={0}
+                    min={1}
                     max={180}
                     step={0.1}
                     readonly={false}
@@ -333,7 +333,7 @@ export default function PreopMeasures({
                     <NumInput VS={F34VS} setVS={setF34VS}
                     label=""
                     placeholder="Axis"
-                    min={0}
+                    min={1}
                     max={180}
                     step={0.1}
                     readonly={false}
@@ -358,12 +358,13 @@ export default function PreopMeasures({
                     <NumInput VS={F36VS} setVS={setF36VS}
                     label=""
                     placeholder="Axis"
-                    min={0}
+                    min={1}
                     max={180}
                     step={0.1}
                     readonly={false}
                     />
                 </Col>
+                <span className='deleteMeasureSpan'><IoCloseCircleOutline/></span>
             </Row>
             <Row className='addMeasureRow' style={{display: measure13Switch? 'none' : null}}
             id='addMore1'>
@@ -421,7 +422,7 @@ export default function PreopMeasures({
                     <NumInput VS={F42VS} setVS={setF42VS}
                     label=""
                     placeholder="Axis"
-                    min={0}
+                    min={1}
                     max={180}
                     step={0.1}
                     readonly={false}
@@ -446,7 +447,7 @@ export default function PreopMeasures({
                     <NumInput VS={F44VS} setVS={setF44VS}
                     label=""
                     placeholder="Axis"
-                    min={0}
+                    min={1}
                     max={180}
                     step={0.1}
                     readonly={false}
@@ -471,7 +472,7 @@ export default function PreopMeasures({
                     <NumInput VS={F46VS} setVS={setF46VS}
                     label=""
                     placeholder="Axis"
-                    min={0}
+                    min={1}
                     max={180}
                     step={0.1}
                     readonly={false}

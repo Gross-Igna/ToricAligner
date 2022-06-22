@@ -515,7 +515,7 @@ export default function Result({
 
                 <Container className='resultContent styledBox'>
 
-                    <div className='resumeLoadingDiv'
+                    <div className='resultLoadingDiv'
                     style={{display: loading? null : 'none'}}>
                         <LoadingDots/>
                     </div>
@@ -585,9 +585,21 @@ export default function Result({
                             <Row className="spansRow">
                                 <span className='resumeSubtitle'>Induced corneal astigmatism</span>
                                 <span>
-                                    <b>TCA 1:</b> &nbsp; Cyl: <i>{Result5}</i> &nbsp; Axis: <i>{Result6}°</i>
+                                    <b>TCA 1:&nbsp;</b>
+                                    <span style={{display: (Result5 === "NaN")? 'none' : null}}>
+                                        &nbsp;Cyl: <i>{Result5}</i> &nbsp; Axis: <i>{Result6}°</i>
+                                    </span>
+                                    <i style={{fontSize: '0.8vw', display: (Result5 !== "NaN")? 'none' : null}}>
+                                        No Measurements
+                                    </i> 
                                     <br></br>
-                                    <b>TCA 2:</b> &nbsp; Cyl: <i>{Result7}</i> &nbsp; Axis: <i>{Result8}°</i>
+                                    <b>TCA 2:&nbsp;</b>
+                                    <span style={{display: (Result7 === "NaN")? 'none' : null}}>
+                                        &nbsp;Cyl: <i>{Result7}</i> &nbsp; Axis: <i>{Result8}°</i>
+                                    </span>
+                                    <i style={{fontSize: '0.8vw', display: (Result7 !== "NaN")? 'none' : null}}>
+                                        No Measurements
+                                    </i> 
                                 </span>
                             </Row>
                         </Col>
@@ -599,9 +611,6 @@ export default function Result({
                         <Col className='resumeShadow resumeCol '>
                             <Row className="spansRow">
                                 <span className='resumeSubtitle'>IOL Orientation</span>
-                            </Row>
-                            <Row className="spansRow">
-                                <span className='orientationSubtitle'>(Change IOL axis to see predicted refraction changes)</span>
                             </Row>
                             <Row>
                                 <div className='eyeGraphic'>
@@ -618,34 +627,47 @@ export default function Result({
                                     <span className='hintText hintText2'>Use keyboard arrows to change orientation precisely.</span>
                                 </span>
                                 <Form.Range value={orientationValue}
+                                style={{marginBottom: '1vh'}}
                                 min="0" max="180" 
                                 onChange={(e) => {
                                     setOrientationValue(e.target.value);
                                     calculateResults();
                                 }}/>
                             </Row>
+                            <Row className="spansRow">
+                                <span className='orientationSubtitle'>(Change IOL axis to see predicted refraction changes)</span>
+                            </Row>
                         </Col>
                         <Col>
                             <Row className='resumeShadow resumeCol'>
                                 <Row className="spansRow text-start">
                                     <span className='resumeSubtitle text-center'>IOL Alignment</span>
-                                    <b style={{position: 'relative'}}>According to Post Op. Corneal Measurements 1
+                                    <b style={{position: 'relative'}}>According to Corneal Measurements 1
                                         <span className='hint'><FaRegQuestionCircle/>
                                             <span className='hintText'>Change IOL orientation to see expected refraction.</span>
                                         </span>
                                     </b>
                                     <span>
-                                        Suggested Axis: <i>{AvgAxis3}°</i>
+                                        <span style={{fontSize: '1.1vw'}}>Suggested Axis:<i>{AvgAxis3}°</i></span>
                                         <br></br>
                                         Predicted residual refraction: <i>{Result101}</i><i>{Result102}</i><i>{Result103}°</i>
                                     </span>
                                 </Row>
                                 <Row className="spansRow text-start">
-                                    <b>According to Post Op. Corneal Measurements 2:</b>
+                                    <b>According to Corneal Measurements 2:</b>
                                     <span>
-                                        Suggested Axis: <i>{AvgAxis4}°</i>
+                                        <span style={{fontSize: (AvgAxis4 !== "0")? '1.1vw' : '1vw'}}>Suggested Axis:&nbsp; 
+                                        <i style={{display: (AvgAxis4 === "0")? 'none' : null}}>{AvgAxis4}°</i>
+                                        <i style={{fontSize: '0.8vw', display: (AvgAxis4 !== "0")? 'none' : null}}>No Measurements</i>
+                                        </span>
                                         <br></br>  
-                                        Predicted residual refraction: <i>{Result121}</i><i>{Result122}</i><i>{Result123}°</i>&nbsp;
+                                        Predicted residual refraction:&nbsp;
+                                        <span style={{display: (Result121 === "NaN")? 'none' : null}}>
+                                            <i>{Result121}</i><i>{Result122}</i><i>{Result123}°</i>&nbsp;
+                                        </span>
+                                        <i style={{fontSize: '0.8vw', display: (Result121 !== "NaN")? 'none' : null}}>
+                                            No Measurements
+                                        </i>
                                     </span>
                                 </Row>
                             </Row>

@@ -214,7 +214,7 @@ export default function PostopDataB({
                         <NumInput VS={F82VS} setVS={setF82VS}
                             label=""
                             placeholder="Axis"
-                            min={0}
+                            min={1}
                             max={180}
                             step={0.1}
                             readonly={false}
@@ -240,7 +240,7 @@ export default function PostopDataB({
                         <NumInput VS={F84VS} setVS={setF84VS}
                             label=""
                             placeholder="Axis"
-                            min={0}
+                            min={1}
                             max={180}
                             step={0.1}
                             readonly={false}
@@ -266,7 +266,7 @@ export default function PostopDataB({
                         <NumInput VS={F86VS} setVS={setF86VS}
                             label=""
                             placeholder="Axis"
-                            min={0}
+                            min={1}
                             max={180}
                             step={0.1}
                             readonly={false}
@@ -324,7 +324,7 @@ export default function PostopDataB({
                         <NumInput VS={F92VS} setVS={setF92VS}
                             label=""
                             placeholder="Axis"
-                            min={0}
+                            min={1}
                             max={180}
                             step={0.1}
                             readonly={false}
@@ -350,7 +350,7 @@ export default function PostopDataB({
                         <NumInput VS={F94VS} setVS={setF94VS}
                             label=""
                             placeholder="Axis"
-                            min={0}
+                            min={1}
                             max={180}
                             step={0.1}
                             readonly={false}
@@ -375,7 +375,7 @@ export default function PostopDataB({
                         <NumInput VS={F96VS} setVS={setF96VS}
                             label=""
                             placeholder="Axis"
-                            min={0}
+                            min={1}
                             max={180}
                             step={0.1}
                             readonly={false}

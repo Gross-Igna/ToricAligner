@@ -27,6 +27,16 @@
     flex-direction: column;
     justify-content: center;
 }
+.helpLabel{
+    padding-top: 1vh;
+
+    text-align: center;
+    font-size: 0.8vw;
+    font-weight: 400;
+}
+.postopRefRow{
+    margin: 0 auto;
+}
 
 .backBtn{
     cursor: pointer;

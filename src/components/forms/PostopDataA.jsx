@@ -70,7 +70,7 @@ export default function PostopDataA({
                 }
             }else if(F51VS[0] === 'J&J' || F51VS[0] === 'Physiol'){
                 if(model == '150'){
-                    setF53VS(['150', F53VS[1]]);
+                    setF53VS(['1.50', F53VS[1]]);
                 }else if(model == '225'){
                     setF53VS(['2.25', F53VS[1]]);
                 }else if(model == '300'){
@@ -141,7 +141,17 @@ export default function PostopDataA({
                 <Col xs={9} className='formCol vCenter hCenter'>
                     <Row className='postopARow' style={{marginBottom: '0.15vw'}}>
                         <Row className='title2' style={{marginBottom: '0.15vw'}}>
-                            Implanted IOL cilinder:
+                            <Col className='noPadding' xs={(F51VS[0] === 'Custom')? 4 : 6}>
+                                <span>Implanted IOL cilinder:</span>
+                            </Col>
+                            <Col xs={(F51VS[0] === 'Custom')? 4 : 3} className='helpLabel'
+                            style={{opacity: (F53VS[0] === undefined || F53VS[0] === "")? '0' : '1'}}>
+                                <span>Cyl Power</span>
+                            </Col>
+                            <Col xs={(F51VS[0] === 'Custom')? 4 : 3} className='helpLabel'
+                            style={{opacity: (F53VS[0] === undefined || F53VS[0] === "")? '0' : '1'}}>
+                                <span>Corneal Plane</span>
+                            </Col>
                         </Row>
                         <Row>
                             <Col className='noPadding'>
@@ -160,7 +170,7 @@ export default function PostopDataA({
                                     label=""
                                     placeholder="Cylinder Power"
                                     min={0}
-                                    max={1000}
+                                    max={10}
                                     step={0.1}
                                     readonly={CylReadOnly}
                                     Mfact={F51VS[0]}
@@ -173,7 +183,7 @@ export default function PostopDataA({
                                     label=""
                                     placeholder="Corneal plane"
                                     min={0}
-                                    max={3110}
+                                    max={1000}
                                     step={0.1}
                                     readonly={true}
                                 />
@@ -183,39 +193,41 @@ export default function PostopDataA({
 
                     <Row>
                         <Row>
-                            <Row className='title2'>
+                            <Row className='title2 noPadding' style={{margin: '1vh 0'}}>
                                 Postoperative Refraction:
                             </Row>
-                            <Col xs={4} className='noPadding'>
-                                <NumInput VS={F61VS} setVS={setF61VS}
-                                    label=""
-                                    placeholder="Sphere"
-                                    min={-15}
-                                    max={10}
-                                    step={0.1}
-                                    readonly={false}
-                                />
-                            </Col>
-                            <Col xs={4} className='noPadding'>
-                                <NumInput VS={F62VS} setVS={setF62VS}
-                                    label=""
-                                    placeholder="Cylinder"
-                                    min={-15}
-                                    max={10}
-                                    step={0.1}
-                                    readonly={false}
-                                />
-                            </Col>
-                            <Col xs={4} className='noPadding'>
-                                <NumInput VS={F63VS} setVS={setF63VS}
-                                    label=""
-                                    placeholder="Axis"
-                                    min={0}
-                                    max={180}
-                                    step={0.1}
-                                    readonly={false}
-                                />
-                            </Col>
+                            <Row className='postopRefRow'>
+                                <Col xs={4}>
+                                    <NumInput VS={F61VS} setVS={setF61VS}
+                                        label="Sphere:"
+                                        placeholder="Sph"
+                                        min={-15}
+                                        max={10}
+                                        step={0.1}
+                                        readonly={false}
+                                    />
+                                </Col>
+                                <Col xs={4}>
+                                    <NumInput VS={F62VS} setVS={setF62VS}
+                                        label="Cylinder:"
+                                        placeholder="Cyl"
+                                        min={-15}
+                                        max={10}
+                                        step={0.1}
+                                        readonly={false}
+                                    />
+                                </Col>
+                                <Col xs={4}>
+                                    <NumInput VS={F63VS} setVS={setF63VS}
+                                        label="Axis:"
+                                        placeholder="Axis"
+                                        min={0}
+                                        max={180}
+                                        step={0.1}
+                                        readonly={false}
+                                    />
+                                </Col>
+                            </Row>
                         </Row>
                     </Row>
                 </Col>

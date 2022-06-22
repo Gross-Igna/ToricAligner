@@ -57,7 +57,7 @@
     position: relative;
     right: 0.8%;
     width: 60%;
-    margin: 1.6vh auto;
+    margin: 1.6vh auto 1.9vh auto;
 
     display: flex;
     justify-content: center;
@@ -133,7 +133,7 @@
 }
 
 /* loading  */
-.resumeLoadingDiv{
+.resultLoadingDiv{
     position: absolute;
     z-index: 1000;
     left: 0;
