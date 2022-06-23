@@ -74,8 +74,37 @@ export default function PreopMeasures({
         }
     }
 
+    function deleteMeasure(formId){
+        if(formId === 1){
+            if(measure13Switch){
+                setMeasure13Switch(false);
+            }else if(measure12Switch){
+                setMeasure12Switch(false);
+            }else{
+                document.getElementById("octSwitch1").style.display = null;
+                setOct1SwitchClass('octSwitchOn vCenter');
+                if(oct2SwitchClass !== 'octSwitchOn vCenter'){
+                    document.getElementById("octSwitch2").style.display = null;
+                    setOct2SwitchClass('octSwitchOn vCenter');
+                }
+            }
+        }else{
+            if(measure23Switch){
+                setMeasure23Switch(false);
+            }else if(measure22Switch){
+                setMeasure22Switch(false);
+            }else{
+                document.getElementById("octSwitch2").style.display = null;
+                setOct2SwitchClass('octSwitchOn vCenter');
+            }
+        }
+    }
+
     //Validate OCTs
     useEffect(() => {
+
+        //debugger;
+        let oct1isValid = false;
 
         setValidPreOct(false);
 
@@ -83,6 +112,7 @@ export default function PreopMeasures({
             if(!measure12Switch){
                 if(F31VS[1] == 1 && F32VS[1] == 1){
                     setValidPreOct(true);
+                    oct1isValid=true;
                 }
             }else{
                 if(!measure13Switch){
@@ -90,6 +120,7 @@ export default function PreopMeasures({
                         F31VS[1] == 1 && F32VS[1] == 1 &&
                         F33VS[1] == 1 && F34VS[1] == 1 ){
                         setValidPreOct(true);
+                        oct1isValid=true;
                     }
                 }else{
                     if(
@@ -97,12 +128,13 @@ export default function PreopMeasures({
                         F33VS[1] == 1 && F34VS[1] == 1 &&
                         F35VS[1] == 1 && F36VS[1] == 1 ){
                         setValidPreOct(true);
+                        oct1isValid=true;
                     }
                 }
             }
         }
 
-        if(oct2SwitchClass !== 'octSwitchOn vCenter'){
+        if(oct2SwitchClass !== 'octSwitchOn vCenter' && oct1isValid){
             if(!measure22Switch){
                 if(F41VS[1] == 1 && F42VS[1] == 1){
                     setValidPreOct(true);
@@ -129,11 +161,14 @@ export default function PreopMeasures({
                     }
                 }
             }
-        }else 
-            if (oct1SwitchClass == 'octSwitchOn vCenter'){
+        }else if (oct1SwitchClass == 'octSwitchOn vCenter'){
                 setValidPreOct(true);
-            }
-    },[F31VS[0],F32VS[0],F33VS[0],F34VS[0],F41VS[0],F42VS[0],F43VS[0],F44VS[0]])
+        }
+
+    },[F31VS[1],F32VS[1],F33VS[1],F34VS[1],F35VS[1],F36VS[1],F41VS[1],
+        F42VS[1],F43VS[1],F44VS[1],F45VS[1],F46VS[1],
+        measure12Switch, measure13Switch, measure22Switch, measure23Switch,
+        oct1SwitchClass, oct2SwitchClass])
 
 
     //Automatic refresh for Magnitude F23 input 
@@ -274,13 +309,13 @@ export default function PreopMeasures({
         <Col xs={3} className='vCenter formCol'>
 
             <div id='octSwitch1' className={oct1SwitchClass} 
-            onClick={() => handleClick(1)}
-            >
-                <span className='hCenter'>
-                    <IoAddCircleOutline style={{fontSize: '3vw'}}/>
-                    <br></br>
-                    Add more measurements
-                </span>
+                onClick={() => handleClick(1)}
+                >
+                    <span className='hCenter'>
+                        <IoAddCircleOutline style={{fontSize: '3vw'}}/>
+                        <br></br>
+                        Add more measurements
+                    </span>
             </div>
 
             <Row className='title2'>
@@ -314,6 +349,11 @@ export default function PreopMeasures({
                     readonly={false}
                     />
                 </Col>
+
+                <span className='deleteMeasureSpan'
+                style={{display: (!measure12Switch&&!measure13Switch)? null : 'none'}}>
+                    <IoCloseCircleOutline id='deleteButton' onClick={() => deleteMeasure(1)}/>
+                </span>
             </Row>
             <Row className='measureRow' style={{display: measure12Switch ? null : 'none'}}>
                 <Col xs={4} className='vCenter noPadding measureCol'>
@@ -339,6 +379,12 @@ export default function PreopMeasures({
                     readonly={false}
                     />
                 </Col>
+
+
+                <span className='deleteMeasureSpan'
+                style={{display: (measure12Switch&&measure13Switch)? 'none' : null}}>
+                    <IoCloseCircleOutline id='deleteButton' onClick={() => deleteMeasure(1)}/>
+                </span>
             </Row>
             <Row className='measureRow' style={{display: measure13Switch? null : 'none'}}>
                 <Col xs={4} className='vCenter noPadding measureCol'>
@@ -364,7 +410,8 @@ export default function PreopMeasures({
                     readonly={false}
                     />
                 </Col>
-                <span className='deleteMeasureSpan'><IoCloseCircleOutline/></span>
+                <span className='deleteMeasureSpan'><IoCloseCircleOutline id='deleteButton'
+                onClick={() => deleteMeasure(1)}/></span>
             </Row>
             <Row className='addMeasureRow' style={{display: measure13Switch? 'none' : null}}
             id='addMore1'>
@@ -384,17 +431,16 @@ export default function PreopMeasures({
         </Col>
 
         <Col xs={3} className='vCenter formCol'>
-            
-            <div id='octSwitch2' className={oct2SwitchClass} 
-            onClick={() => handleClick(2)}
-            >
-                <span className='hCenter'>
-                    <IoAddCircleOutline style={{fontSize: '3vw'}}/>
-                    <br></br>
-                    Add more measurements
-                </span>
-            </div>
 
+            <div id='octSwitch2' className={oct2SwitchClass} 
+                onClick={() => handleClick(2)}
+                >
+                    <span className='hCenter'>
+                        <IoAddCircleOutline style={{fontSize: '3vw'}}/>
+                        <br></br>
+                        Add more measurements
+                    </span>
+            </div>
 
             <Row className='title2'>
                 <Col xs={12} className='noPadding'>
@@ -428,6 +474,11 @@ export default function PreopMeasures({
                     readonly={false}
                     />
                 </Col>
+
+                <span className='deleteMeasureSpan'
+                style={{display: (!measure22Switch&&!measure23Switch)? null : 'none'}}>
+                    <IoCloseCircleOutline id='deleteButton' onClick={() => deleteMeasure(2)}/>
+                </span>
             </Row>
             <Row className='measureRow' style={{display: measure22Switch ? null : 'none'}}>
                 <Col xs={4} className='vCenter noPadding measureCol'>
@@ -453,6 +504,10 @@ export default function PreopMeasures({
                     readonly={false}
                     />
                 </Col>
+                <span className='deleteMeasureSpan'
+                style={{display: (measure22Switch&&measure23Switch)? 'none' : null}}>
+                    <IoCloseCircleOutline id='deleteButton' onClick={() => deleteMeasure(2)}/>
+                </span>
             </Row>
             <Row className='measureRow' style={{display: measure23Switch? null : 'none'}}>
                 <Col xs={4} className='vCenter noPadding measureCol'>
@@ -478,6 +533,9 @@ export default function PreopMeasures({
                     readonly={false}
                     />
                 </Col>
+                <span className='deleteMeasureSpan'>
+                    <IoCloseCircleOutline id='deleteButton' onClick={() => deleteMeasure(2)}/>
+                </span>
             </Row>
             <Row className='addMeasureRow' style={{display: measure23Switch? 'none' : null}}
             id='addMore2'>

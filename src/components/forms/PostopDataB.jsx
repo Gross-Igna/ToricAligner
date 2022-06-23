@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import NumInput from './inputs/NumInput';
 import {Container, Row, Col} from 'react-bootstrap';
 import octicon from '../../img/oct-border4.png';
-import {IoAddCircleOutline} from 'react-icons/io5'
+import {IoAddCircleOutline, IoCloseCircleOutline} from 'react-icons/io5'
 
 export default function PostopDataB({
     setValidPostOct,
@@ -25,6 +25,14 @@ export default function PostopDataB({
     F97Val, setF97Val,
     F98Val, setF98Val
 }) {
+
+    //Switch for measure numbers
+    const [measure12Switch, setMeasure12Switch] = useState(false);
+    const [measure13Switch, setMeasure13Switch] = useState(false);
+
+    const [oct2SwitchClass, setOct2SwitchClass] = useState('octSwitchOn vCenter')
+    const [measure22Switch, setMeasure22Switch] = useState(false);
+    const [measure23Switch, setMeasure23Switch] = useState(false);
 
     //Automatic refresh for OCT1 and OCT2 Average Magnitude and Average Axis F37, F38 inputs
     //OCT1
@@ -61,7 +69,7 @@ export default function PostopDataB({
         try{
             //Average Magnitude
             if(F91VS[0] !== undefined){
-                if(F95VS[0] == undefined ){
+                if(!measure23Switch){
                     setF97Val(F91VS[0])
                 }else{
                     var average = ( ( parseFloat(F91VS[0]) + parseFloat(F93VS[0]) +  parseFloat(F95VS[0]) ) / 3 )
@@ -73,7 +81,7 @@ export default function PostopDataB({
         try{
             //Average Axis
             if(F92VS[0] !== undefined){
-                if(F96VS[0] == undefined ){
+                if(!measure23Switch){
                     setF98Val(F92VS[0])
                 }else{
                     var average = Math.round( ( parseFloat(F92VS[0]) + parseFloat(F94VS[0]) +  parseFloat(F96VS[0]) ) / 3 )
@@ -82,15 +90,7 @@ export default function PostopDataB({
             }
         }catch(e){}
         
-    }, [F91VS[0], F92VS[0], F93VS[0], F94VS[0], F95VS[0], F96VS[0]])
-
-    //Switch for measure numbers
-    const [measure12Switch, setMeasure12Switch] = useState(false);
-    const [measure13Switch, setMeasure13Switch] = useState(false);
-
-    const [oct2SwitchClass, setOct2SwitchClass] = useState('octSwitchOn vCenter')
-    const [measure22Switch, setMeasure22Switch] = useState(false);
-    const [measure23Switch, setMeasure23Switch] = useState(false);
+    }, [F91VS[0], F92VS[0], F93VS[0], F94VS[0], F95VS[0], F96VS[0], measure23Switch, measure22Switch])
     
     function deleteById(divId){
         document.getElementById(divId).style.display = "none";
@@ -118,6 +118,26 @@ export default function PostopDataB({
             }
         }
     }
+
+    function deleteMeasure(formId){
+        if(formId === 1){
+            if(measure13Switch){
+                setMeasure13Switch(false);
+            }else if(measure12Switch){
+                setMeasure12Switch(false);
+            }
+        }else{
+            if(measure23Switch){
+                setMeasure23Switch(false);
+            }else if(measure22Switch){
+                setMeasure22Switch(false);
+            }else{
+                document.getElementById("octSwitch3").style.display = null;
+                setOct2SwitchClass('octSwitchOn vCenter');
+            }
+        }
+    }
+
 
     //Validate OCTs
     useEffect(() => {
@@ -220,6 +240,8 @@ export default function PostopDataB({
                             readonly={false}
                         />
                     </Col>
+
+
                 </Row>
 
                 <Row className='hCenterRow' style={{display: measure12Switch ? null : 'none'}}>
@@ -246,6 +268,11 @@ export default function PostopDataB({
                             readonly={false}
                         />
                     </Col>
+
+                    <span className='deleteMeasureSpan2'
+                    style={{display: (measure12Switch&&!measure13Switch)? null : 'none'}}>
+                        <IoCloseCircleOutline id='deleteButton' onClick={() => deleteMeasure(1)}/>
+                    </span>
                 </Row>
 
                 <Row className='hCenterRow' style={{display: measure13Switch ? null : 'none'}}>
@@ -272,6 +299,11 @@ export default function PostopDataB({
                             readonly={false}
                         />
                     </Col>
+
+                    <span className='deleteMeasureSpan2'
+                    style={{display: (measure13Switch)? null : 'none'}}>
+                        <IoCloseCircleOutline id='deleteButton' onClick={() => deleteMeasure(1)}/>
+                    </span>
                 </Row>
 
                 <Row className='addMeasureRow' style={{display: measure13Switch? 'none' : null}}>
@@ -330,6 +362,11 @@ export default function PostopDataB({
                             readonly={false}
                         />
                     </Col>
+
+                    <span className='deleteMeasureSpan2'
+                    style={{display: (!measure22Switch&&!measure23Switch)? null : 'none'}}>
+                        <IoCloseCircleOutline id='deleteButton' onClick={() => deleteMeasure(2)}/>
+                    </span>
                 </Row>
 
                 <Row className='hCenterRow' style={{display: measure22Switch ? null : 'none'}}>
@@ -356,6 +393,11 @@ export default function PostopDataB({
                             readonly={false}
                         />
                     </Col>
+
+                    <span className='deleteMeasureSpan2'
+                    style={{display: (measure22Switch&&!measure23Switch)? null : 'none'}}>
+                        <IoCloseCircleOutline id='deleteButton' onClick={() => deleteMeasure(2)}/>
+                    </span>
                 </Row>
                 <Row className='hCenterRow' style={{display: measure23Switch ? null : 'none'}}>
                     <Col xs={3} className='vCenter measureCol noPadding'>
@@ -381,6 +423,11 @@ export default function PostopDataB({
                             readonly={false}
                         />
                     </Col>
+
+                    <span className='deleteMeasureSpan2'
+                    style={{display: (measure23Switch)? null : 'none'}}>
+                        <IoCloseCircleOutline id='deleteButton' onClick={() => deleteMeasure(2)}/>
+                    </span>
                 </Row>
 
                 <Row className='addMeasureRow' style={{display: measure23Switch? 'none' : null}}>

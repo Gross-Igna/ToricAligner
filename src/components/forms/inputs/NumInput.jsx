@@ -12,7 +12,7 @@ export default function NumInput({label, placeholder, min, max, step, readonly, 
                 setClass('formControl controlValid numericInput')
             }else{
                 if(changed){
-                    if(VS[0] < min || VS[0] > max){
+                    if(VS[0] < min || VS[0] > max || VS[0] === "" || VS[0] === undefined){
                         setVS([VS[0],0]);
                         setClass('formControl controlInvalid numericInput');
                     }else{

@@ -62,13 +62,6 @@
 
     font-size: 0.85vw;
 }
-/*.measureRow{
-    width: 100%;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}*/
 .measureRow{
     width: 100%;
 
@@ -77,8 +70,6 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-
-    position: relative;
 }
 .addMeasureRow > span{
     margin: 0 auto;
@@ -102,10 +93,19 @@
     position: absolute;
     text-align: right;
 
-    padding-right: -1vw;
-    padding-top: 0.15vh;
+    z-index: 5;
+
+    padding-right: 1.1vw;
+    padding-top: 0vh;
 
     font-size: 1.5vw;
+}
+#deleteButton:hover{
+    color:rgb(255, 255, 255);
+    cursor: pointer;
+    font-size: 1.7vw;
+
+    padding-left: 0.30vw;
 }
 
 .continueBtn{

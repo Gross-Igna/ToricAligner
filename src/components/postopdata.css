@@ -38,6 +38,18 @@
     margin: 0 auto;
 }
 
+.deleteMeasureSpan2{
+    position: absolute;
+    text-align: right;
+
+    z-index: 5;
+
+    padding-right: 2.5vw;
+    padding-top: 0vh;
+
+    font-size: 1.5vw;
+}
+
 .backBtn{
     cursor: pointer;
 

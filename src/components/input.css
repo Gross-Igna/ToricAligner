@@ -160,6 +160,9 @@ option {
     flex-direction: row;
     justify-content: left;
 
+    position: relative;
+    z-index: 6 !important;
+
     width: 100% !important;
     height: 2.5vw;
 
@@ -209,6 +212,8 @@ option {
     cursor: pointer;
 
     position: absolute;
+    z-index: 7;
+
     top: 0;
     left: 0.5vw;
     width: calc(100% - 1vw);
