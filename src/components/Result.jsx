@@ -344,9 +344,17 @@ export default function Result({
         }
         let result6 = AxisN+V22;
         
-        
+        let nanAxis = false; 
         setResult5(TCA1Cylinder.toFixed(2));
-        setResult6(Math.round(result6));
+        if (!Number.isNaN(result6)){
+            setResult6(Math.round(result6));
+        }else{
+            nanAxis = true;    
+        }
+        
+        if (Result5 === "0.00" && nanAxis){
+            setResult6(0)
+        }
 
 
 
@@ -448,8 +456,17 @@ export default function Result({
         }
         let result8 = AxisN+V22;
         
+        nanAxis = false;
         setResult7(TCA2Cylinder.toFixed(2));
-        setResult8(Math.round(result8));
+        if (!Number.isNaN(result8)){
+            setResult8(Math.round(result8));
+        }else{
+            nanAxis = true;
+        }
+
+        if (Result7 === "0.00" && nanAxis){
+            setResult8(0)
+        }
 
         //// PREDICTED RESIDUAL REFRACTION (corneal plane)////
         // PO = Post Operative
@@ -488,8 +505,7 @@ export default function Result({
         setResult123(Math.round(PRRAxis));
 
         //DEBUG
-        //debugger;
-        
+
     }
 
     //Trigger Calculation function when result window is opened.
@@ -586,18 +602,18 @@ export default function Result({
                                 <span className='resumeSubtitle'>Induced corneal astigmatism</span>
                                 <span>
                                     <b>TCA 1:&nbsp;</b>
-                                    <span style={{display: (Result5 === "NaN")? 'none' : null}}>
+                                    <span style={{display: (Result5 === "NaN" && Result6 === "NaN")? 'none' : null}}>
                                         &nbsp;Cyl: <i>{Result5}</i> &nbsp; Axis: <i>{Result6}°</i>
                                     </span>
-                                    <i style={{fontSize: '0.8vw', display: (Result5 !== "NaN")? 'none' : null}}>
+                                    <i style={{fontSize: '0.8vw', display: (Result5 !== "NaN" && Result6 !== "NaN")? 'none' : null}}>
                                         No Measurements
                                     </i> 
                                     <br></br>
                                     <b>TCA 2:&nbsp;</b>
-                                    <span style={{display: (Result7 === "NaN")? 'none' : null}}>
+                                    <span style={{display: (Result7 === "NaN" && Result8 === "NaN")? 'none' : null}}>
                                         &nbsp;Cyl: <i>{Result7}</i> &nbsp; Axis: <i>{Result8}°</i>
                                     </span>
-                                    <i style={{fontSize: '0.8vw', display: (Result7 !== "NaN")? 'none' : null}}>
+                                    <i style={{fontSize: '0.8vw', display: (Result7 !== "NaN" && Result8 !== "NaN")? 'none' : null}}>
                                         No Measurements
                                     </i> 
                                 </span>
@@ -648,7 +664,7 @@ export default function Result({
                                         </span>
                                     </b>
                                     <span>
-                                        <span style={{fontSize: '1.1vw'}}>Suggested Axis:<i>{AvgAxis3}°</i></span>
+                                        <span style={{fontSize: '1.1vw'}}>Suggested Axis:&nbsp;<i>{AvgAxis3}°</i></span>
                                         <br></br>
                                         Predicted residual refraction: <i>{Result101}</i><i>{Result102}</i><i>{Result103}°</i>
                                     </span>

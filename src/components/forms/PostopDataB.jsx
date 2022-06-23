@@ -34,14 +34,14 @@ export default function PostopDataB({
     const [measure22Switch, setMeasure22Switch] = useState(false);
     const [measure23Switch, setMeasure23Switch] = useState(false);
 
-    //Automatic refresh for OCT1 and OCT2 Average Magnitude and Average Axis F37, F38 inputs
+    //Automatic refresh for OCT1 and OCT2 Average Magnitude and Average Axis
     //OCT1
     useEffect(() => {
 
         try{
             //Average Magnitude
             if(F81VS[0] !== undefined){
-                if(F85VS[0] === undefined ){
+                if(!measure13Switch){
                     setF87Val(F81VS[0])
                 }else{
                     var average = ( ( parseFloat(F81VS[0]) + parseFloat(F83VS[0]) +  parseFloat(F85VS[0]) ) / 3 )
@@ -53,7 +53,7 @@ export default function PostopDataB({
         try{
             //Average Axis
             if(F82VS[0] !== undefined){
-                if(F86VS[0] == undefined ){
+                if(!measure13Switch){
                     setF88Val(F82VS[0])
                 }else{
                     var average = Math.round( ( parseFloat(F82VS[0]) + parseFloat(F84VS[0]) +  parseFloat(F86VS[0]) ) / 3 )
@@ -123,17 +123,27 @@ export default function PostopDataB({
         if(formId === 1){
             if(measure13Switch){
                 setMeasure13Switch(false);
+                setF85VS(["",-1])
+                setF86VS(["",-1])
             }else if(measure12Switch){
                 setMeasure12Switch(false);
+                setF83VS(["",-1])
+                setF84VS(["",-1])
             }
         }else{
             if(measure23Switch){
                 setMeasure23Switch(false);
+                setF95VS(["",-1])
+                setF96VS(["",-1])
             }else if(measure22Switch){
                 setMeasure22Switch(false);
+                setF93VS(["",-1])
+                setF94VS(["",-1])
             }else{
                 document.getElementById("octSwitch3").style.display = null;
                 setOct2SwitchClass('octSwitchOn vCenter');
+                setF91VS(["",-1])
+                setF92VS(["",-1])
             }
         }
     }

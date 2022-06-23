@@ -62,14 +62,16 @@ export default function PreopMeasures({
                 setMeasure12Switch(true);
             }else{
                 setMeasure13Switch(true);
-                deleteById('addMore1');
+                //deleteById('addMore1');
             }
         }else if (formId === 2){
             if(!measure22Switch){
                 setMeasure22Switch(true);
+                setF45VS(["",-1])
+                setF46VS(["",-1])
             }else{
                 setMeasure23Switch(true);
-                deleteById('addMore2');
+                //deleteById('addMore2');
             }
         }
     }
@@ -78,8 +80,12 @@ export default function PreopMeasures({
         if(formId === 1){
             if(measure13Switch){
                 setMeasure13Switch(false);
+                setF35VS(["",-1])
+                setF36VS(["",-1])
             }else if(measure12Switch){
                 setMeasure12Switch(false);
+                setF33VS(["",-1])
+                setF34VS(["",-1])
             }else{
                 document.getElementById("octSwitch1").style.display = null;
                 setOct1SwitchClass('octSwitchOn vCenter');
@@ -87,15 +93,29 @@ export default function PreopMeasures({
                     document.getElementById("octSwitch2").style.display = null;
                     setOct2SwitchClass('octSwitchOn vCenter');
                 }
+                setF31VS(["",-1])
+                setF32VS(["",-1])
+                setF41VS(["",-1])
+                setF42VS(["",-1])
+                setF43VS(["",-1])
+                setF44VS(["",-1])
+                setF45VS(["",-1])
+                setF46VS(["",-1])
             }
         }else{
             if(measure23Switch){
                 setMeasure23Switch(false);
+                setF45VS(["",-1])
+                setF46VS(["",-1])
             }else if(measure22Switch){
                 setMeasure22Switch(false);
+                setF43VS(["",-1])
+                setF44VS(["",-1])
             }else{
                 document.getElementById("octSwitch2").style.display = null;
                 setOct2SwitchClass('octSwitchOn vCenter');
+                setF41VS(["",-1])
+                setF42VS(["",-1])
             }
         }
     }
