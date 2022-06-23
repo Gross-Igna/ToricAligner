@@ -282,7 +282,7 @@ export default function PreopMeasures({
                 <Col xs={6} className='noPadding'>
                     <NumInput VS={F22VS} setVS={setF22VS}
                     label="K1 (steep):"
-                    placeholder="20~60"
+                    placeholder="K1"
                     min={20}
                     max={60}
                     step={0.1}
@@ -292,7 +292,7 @@ export default function PreopMeasures({
                 <Col xs={6} className='noPadding'>
                     <NumInput VS={F21VS} setVS={setF21VS}
                     label="K2 (flat):"
-                    placeholder="20~60"
+                    placeholder="K2"
                     min={20}
                     max={60}
                     step={0.1}

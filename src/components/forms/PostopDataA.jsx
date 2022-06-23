@@ -193,7 +193,7 @@ export default function PostopDataA({
 
                     <Row>
                         <Row>
-                            <Row className='title2 noPadding' style={{margin: '1vh 0'}}>
+                            <Row className='title2 noPadding' style={{margin: '1vh 0 0.2vh 0vh'}}>
                                 Postoperative Refraction:
                             </Row>
                             <Row className='postopRefRow'>

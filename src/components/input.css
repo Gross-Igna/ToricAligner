@@ -43,7 +43,7 @@
 
     padding: 0vh 4vw;
 
-    font-size: 1vw;
+    font-size: 1.2vw;
     color: rgb(240, 243, 248);
 }
 
@@ -137,22 +137,25 @@ option {
 
     text-align: center;
     font-family: 'Titillium Web', sans-serif;
-    font-weight: 600;
-    font-size: 1.15vw;
+    font-weight: 400;
+    font-size: 1.3vw;
 }
 
 /*form placeholders*/
 .form-control::placeholder { 
-    color: rgb(211, 203, 203);
+    color: rgb(182, 169, 169);
     opacity: 1; 
+    font-size: 0.9vw;
 }
 
 .form-control:-ms-input-placeholder { 
     color: rgb(211, 203, 203);
+    font-size: 0.9vw;
 }
 
 .form-control::-ms-input-placeholder { 
     color: rgb(211, 203, 203);
+    font-size: 0.9vw;
 }
 
 .inputDiv{
@@ -175,9 +178,11 @@ option {
     border-radius: 15px;  
 
     margin: 0vw 0.25vw;
+
+    font-size: 1.2vw !important;
 }
 .controlLabel{
-    font-size: 1.0vw;
+    font-size: 1.2vw;
     
     padding: 0vw 0vw;
 

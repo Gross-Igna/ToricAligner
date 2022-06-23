@@ -583,7 +583,7 @@ export default function Result({
                                 <span>
                                     IOL/Cornea Cyl. Ratio: <i>{Result1}</i>
                                     <br></br>  
-                                    Required Cyl. at IOL Plane: <i>{Result2}</i>
+                                    <span style={{fontSize: '1.1vw'}}>Required Cyl. at IOL Plane: <i>{Result2}</i></span>
                                 </span>
                             </Row>
                         </Col>
@@ -624,7 +624,7 @@ export default function Result({
                     <Row className='separator' style={{opacity: loading? '0': null}}/>
 
                     <Row style={{opacity: loading? '0': null}}>
-                        <Col className='resumeShadow resumeCol '>
+                        <Col className='resumeShadow resumeCol vCenter'>
                             <Row className="spansRow">
                                 <span className='resumeSubtitle'>IOL Orientation</span>
                             </Row>
@@ -666,7 +666,7 @@ export default function Result({
                                     <span>
                                         <span style={{fontSize: '1.1vw'}}>Suggested Axis:&nbsp;<i>{AvgAxis3}°</i></span>
                                         <br></br>
-                                        Predicted residual refraction: <i>{Result101}</i><i>{Result102}</i><i>{Result103}°</i>
+                                        <span style={{fontSize: '1vw'}}>Predicted residual refraction:</span> <i>{Result101}</i><i>{Result102}</i><i>{Result103}°</i>
                                     </span>
                                 </Row>
                                 <Row className="spansRow text-start">
@@ -677,7 +677,7 @@ export default function Result({
                                         <i style={{fontSize: '0.8vw', display: (AvgAxis4 !== "0")? 'none' : null}}>No Measurements</i>
                                         </span>
                                         <br></br>  
-                                        Predicted residual refraction:&nbsp;
+                                        <span style={{fontSize: '1vw'}}>Predicted residual refraction:</span>
                                         <span style={{display: (Result121 === "NaN")? 'none' : null}}>
                                             <i>{Result121}</i><i>{Result122}</i><i>{Result123}°</i>&nbsp;
                                         </span>
