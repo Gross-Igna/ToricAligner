@@ -602,7 +602,7 @@ export default function Result({
                                 <span className='resumeSubtitle'>Induced corneal astigmatism</span>
                                 <span>
                                     <b>TCA 1:&nbsp;</b>
-                                    <span style={{display: (Result5 === "NaN" && Result6 === "NaN")? 'none' : null}}>
+                                    <span style={{display: (Result5 === "NaN")? 'none' : null}}>
                                         &nbsp;Cyl: <i>{Result5}</i> &nbsp; Axis: <i>{Result6}°</i>
                                     </span>
                                     <i style={{fontSize: '0.8vw', display: (Result5 !== "NaN" && Result6 !== "NaN")? 'none' : null}}>
@@ -610,7 +610,7 @@ export default function Result({
                                     </i> 
                                     <br></br>
                                     <b>TCA 2:&nbsp;</b>
-                                    <span style={{display: (Result7 === "NaN" && Result8 === "NaN")? 'none' : null}}>
+                                    <span style={{display: (Result7 === "NaN")? 'none' : null}}>
                                         &nbsp;Cyl: <i>{Result7}</i> &nbsp; Axis: <i>{Result8}°</i>
                                     </span>
                                     <i style={{fontSize: '0.8vw', display: (Result7 !== "NaN" && Result8 !== "NaN")? 'none' : null}}>
