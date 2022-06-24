@@ -220,7 +220,7 @@ export default function PostopDataB({
                 </Row>
             </Col>
                 
-            <Col xs={4} className='vCenter formCol octForm'>
+            <Col xs={4} className='vCenter formCol octForm' style={{marginLeft: '1vw'}}>
 
                 <Row className='title2'>
                     Measured Corneal Astigmatism 1

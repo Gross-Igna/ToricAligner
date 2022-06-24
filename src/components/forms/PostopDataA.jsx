@@ -130,7 +130,7 @@ export default function PostopDataA({
             <Row className='styledBox bigBlock3'>
 
                 <Col className='formIconDiv' xs={3}>
-                    <Row>
+                    <Row style={{marginBottom: '0.4vh'}}>
                       Post Op <br></br> Patient Data
                     </Row>
                     <Row>

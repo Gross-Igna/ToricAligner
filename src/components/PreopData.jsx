@@ -52,7 +52,7 @@ export default function PreopData({
               <Row className='styledBox bigBlock'>
 
                 <Col className='formIconDiv block1'>
-                  <Row>
+                  <Row style={{marginBottom: '0.7vh'}}>
                     Patient Data
                   </Row>
                   <Row>

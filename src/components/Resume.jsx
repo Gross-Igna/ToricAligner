@@ -68,7 +68,7 @@ export default function Resume({
                                 <span>
                                     K1: <i>{K1}</i>  
                                     &nbsp;&nbsp;&nbsp;K2: <i>{K2}</i>
-                                    &nbsp;&nbsp;&nbsp;Steep meridian: <i>{SteepMeridian}</i>  
+                                    <br></br>Steep meridian: <i>{SteepMeridian}</i>  
                                 </span>
                                 <span style={{display: (AvgMagnitude1 === "0")? 'none' : null}}>
                                     OCT1 / Scheimpflug / Biometer: 

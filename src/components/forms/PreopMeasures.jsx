@@ -340,7 +340,7 @@ export default function PreopMeasures({
 
             <Row className='title2'>
                 <Col xs={12} className='noPadding'>
-                    OCT1 / Scheimpflug / Biometer
+                    OCT/Scheimpflug/Biometer 1
                 </Col>
             </Row>
             <Row className='measureRow'>
@@ -464,7 +464,7 @@ export default function PreopMeasures({
 
             <Row className='title2'>
                 <Col xs={12} className='noPadding'>
-                    OCT2 / Scheimpflug / Biometer
+                    OCT/Scheimpflug/Biometer 2
                 </Col>
             </Row>
             <Row className='measureRow'>

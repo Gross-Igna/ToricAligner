@@ -57,7 +57,7 @@ export default function PostopData({
                 <h1>Postoperative Data</h1>
             </Row>
 
-            <Row className='formRow'>  
+            <Row className='formRow' style={{marginTop: '2vh'}}>  
                 <Col xs={9} className='vCenter'>
                     <PostopDataA
                         F51VS={F51VS} setF51VS={setF51VS}
