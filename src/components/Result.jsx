@@ -521,6 +521,10 @@ export default function Result({
         }
     }, [showResult])
 
+    useEffect( () => {
+        calculateResults();
+    }, [orientationValue])
+
     if(showResult){
         return (
             <div id="divToPrint" className='result'>
@@ -647,7 +651,7 @@ export default function Result({
                                 min="0" max="180" 
                                 onChange={(e) => {
                                     setOrientationValue(e.target.value);
-                                    calculateResults();
+                                    // calculateResults();
                                 }}/>
                             </Row>
                             <Row className="spansRow">
@@ -673,8 +677,8 @@ export default function Result({
                                     <b>According to Corneal Measurements 2:</b>
                                     <span>
                                         <span style={{fontSize: (AvgAxis4 !== "0")? '1.1vw' : '1vw'}}>Suggested Axis:&nbsp; 
-                                        <i style={{display: (AvgAxis4 === "0")? 'none' : null}}>{AvgAxis4}°</i>
-                                        <i style={{fontSize: '0.8vw', display: (AvgAxis4 !== "0")? 'none' : null}}>No Measurements</i>
+                                        <i style={{display: (AvgAxis4 === "0" || AvgAxis4 === "")? 'none' : null}}>{AvgAxis4}°</i>
+                                        <i style={{fontSize: '0.8vw', display: (AvgAxis4 !== "0" && AvgAxis4 !== "")? 'none' : null}}>No Measurements</i>
                                         </span>
                                         <br></br>  
                                         <span style={{fontSize: '1vw'}}>Predicted residual refraction:</span>

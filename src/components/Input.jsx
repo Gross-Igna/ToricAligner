@@ -5,6 +5,9 @@ import PreopData from './PreopData';
 import PostopData from './PostopData';
 import './input.css';
 
+import argFlag from '../img/argentina.png'
+import itaFlag from '../img/italy.png'
+
 export default function Input(
   {
     setShowResume,
@@ -192,6 +195,11 @@ export default function Input(
               />
           </Carousel.Item>
         </Carousel>
+
+        <div className='waterMark'>
+          <span>Developed by: Dr. Savini Giacomo <img src={itaFlag} className='flag' alt='italy'></img> 
+          &nbsp;&nbsp;Dr. Buonsanti Dante <img src={argFlag} className='flag' alt='argentina'></img> </span>
+        </div>
       </div>
     )
 }
