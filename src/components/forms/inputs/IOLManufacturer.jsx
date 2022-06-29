@@ -20,7 +20,7 @@ export default function Manufacturer({VS, setVS}) {
     }, [VS[0]]);
 
     return (
-        <Form>
+        <Form onSubmit={e => { e.preventDefault(); }}>
             <Form.Group>
                 <div className='inputDiv'>
                     <Form.Select placeholder={'Manufacturer'}

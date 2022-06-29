@@ -15,7 +15,7 @@ export default function Date({Val, setVal, setSt}) {
     });
 
     return (
-        <Form>
+        <Form onSubmit={e => { e.preventDefault(); }}>
             <Form.Group>
                 <div className='inputDiv'>
                     <span className='controlLabel'>Date of surgery:</span>

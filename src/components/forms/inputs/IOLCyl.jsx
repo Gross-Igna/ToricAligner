@@ -22,7 +22,7 @@ export default function IOLCyl({label, placeholder, min, max, step, readonly, VS
     }, [VS[0], Mfact]);
 
     return (
-        <Form>
+        <Form onSubmit={e => { e.preventDefault(); }}>
             <Form.Group>
                 <div className='inputDiv'>
                     <span className='controlLabel' 

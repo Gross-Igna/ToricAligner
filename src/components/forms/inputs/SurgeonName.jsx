@@ -21,7 +21,7 @@ export default function SurgeonName({Val, setVal, setSt}) {
     },[Val]);
 
     return (
-        <Form>
+        <Form onSubmit={e => { e.preventDefault(); }}>
             <Form.Group>
                 <div className='inputDiv'>
                     <span className='controlLabel'>Surgeon:&nbsp;&nbsp;</span>

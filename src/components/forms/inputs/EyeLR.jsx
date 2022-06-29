@@ -20,7 +20,7 @@ export default function EyeLR({Val, setVal, setSt}) {
     },[Val]);
 
     return (
-        <Form>
+        <Form onSubmit={e => { e.preventDefault(); }}>
             <Form.Group>
                 <div className='inputDiv eyeDiv'>
                     <span className='controlLabel'>Eye:&nbsp;&nbsp;</span>

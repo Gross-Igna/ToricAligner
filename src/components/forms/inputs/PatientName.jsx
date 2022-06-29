@@ -20,7 +20,7 @@ export default function PatientName({Val, setVal, setSt}) {
     },[Val]);
 
     return (
-        <Form>
+        <Form onSubmit={e => { e.preventDefault(); }}>
             <Form.Group className='inputDiv patientNameDiv'>
                     <span className='controlLabel'>Patient:&nbsp;&nbsp;</span>
                     <Form.Control 

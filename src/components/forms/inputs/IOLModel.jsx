@@ -15,7 +15,7 @@ export default function Model({VS, setVS, Mfact}) {
     },[VS[0]]);
 
     return (
-        <Form>
+        <Form onSubmit={e => { e.preventDefault(); }}>
             <Form.Group>
                 <div className='inputDiv'>
                     <Form.Select

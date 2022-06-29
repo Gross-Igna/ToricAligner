@@ -30,7 +30,7 @@ export default function NumInput({label, placeholder, min, max, step, readonly, 
     }, [VS[0]]);
 
     return (
-        <Form>
+        <Form onSubmit={e => { e.preventDefault(); }}>
             <Form.Group>
                 <div className='inputDiv'>
                     <span className='controlLabel' 
