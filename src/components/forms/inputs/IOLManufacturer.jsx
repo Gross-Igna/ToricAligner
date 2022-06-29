@@ -35,12 +35,12 @@ export default function Manufacturer({VS, setVS}) {
                         <option value="Manufacturer" style={{display: 'none'}}>
                             Manufacturer
                         </option>
-                        <option value="Custom">Custom IOL</option>
                         <option value="Alcon">Alcon</option>
                         <option value="B+L">Bausch+Lomb</option>
                         <option value="J&J">J&amp;J</option>
                         <option value="Physiol">Physiol</option>
                         <option value="Rayner">Rayner</option>
+                        <option value="Other">Other</option>
                     </Form.Select>
                 </div>  
             </Form.Group>

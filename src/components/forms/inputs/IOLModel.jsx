@@ -19,7 +19,7 @@ export default function Model({VS, setVS, Mfact}) {
             <Form.Group>
                 <div className='inputDiv'>
                     <Form.Select
-                    readOnly={(Mfact == 'Manufacturer' || Mfact == 'Custom')? true : false}
+                    readOnly={(Mfact == 'Manufacturer' || Mfact == 'Other')? true : false}
                     className={Class} value={VS[0]}
                     onChange={(e) => 
                         {      

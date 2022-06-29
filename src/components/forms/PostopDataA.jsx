@@ -117,7 +117,7 @@ export default function PostopDataA({
 
     //Handle Manufacturer (f51) change
     useEffect(() => {
-        if( F51VS[0] === 'Custom' ){
+        if( F51VS[0] === 'Other' ){
             setCylReadOnly(false);
         }else{
             setCylReadOnly(true);
@@ -144,14 +144,14 @@ export default function PostopDataA({
                 <Col xs={9} className='formCol vCenter hCenter'>
                     <Row className='postopARow' style={{marginBottom: '0.15vw'}}>
                         <Row className='title2' style={{marginBottom: '0.15vw'}}>
-                            <Col className='noPadding' xs={(F51VS[0] === 'Custom')? 4 : 6}>
+                            <Col className='noPadding' xs={(F51VS[0] === 'Other')? 4 : 6}>
                                 <span>Implanted IOL cilinder:</span>
                             </Col>
-                            <Col xs={(F51VS[0] === 'Custom')? 4 : 3} className='helpLabel'
+                            <Col xs={(F51VS[0] === 'Other')? 4 : 3} className='helpLabel'
                             style={{opacity: (F53VS[0] === undefined || F53VS[0] === "")? '0' : '1'}}>
                                 <span>Cyl Power</span>
                             </Col>
-                            <Col xs={(F51VS[0] === 'Custom')? 4 : 3} className='helpLabel'
+                            <Col xs={(F51VS[0] === 'Other')? 4 : 3} className='helpLabel'
                             style={{opacity: (F53VS[0] === undefined || F53VS[0] === "")? '0' : '1'}}>
                                 <span>Corneal Plane</span>
                             </Col>
@@ -162,7 +162,7 @@ export default function PostopDataA({
                                 modelVS={F52VS} setModelVS={setF52VS}/>
                             </Col>
                             <Col className='noPadding'
-                            style={{display: (F51VS[0] === 'Custom'
+                            style={{display: (F51VS[0] === 'Other'
                             || F51VS[0] === undefined)? 'none' : null}}>
                                 <Model VS={F52VS} setVS={setF52VS}
                                 Mfact={F51VS[0]}/>
