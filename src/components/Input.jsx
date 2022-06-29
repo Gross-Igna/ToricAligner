@@ -196,9 +196,11 @@ export default function Input(
           </Carousel.Item>
         </Carousel>
 
-        <div className='waterMark'>
-          <span>Developed by: Dr. Savini Giacomo <img src={itaFlag} className='flag' alt='italy'></img> 
-          &nbsp;&nbsp;Dr. Buonsanti Dante <img src={argFlag} className='flag' alt='argentina'></img> </span>
+        <div className='waterMark' style={{textAlign: 'right'}}>
+          <span>
+            Developed by: Dr. Buonsanti Dante <img src={argFlag} className='flag' alt='argentina'></img>
+            &nbsp;&nbsp;Dr. Savini Giacomo <img src={itaFlag} className='flag' alt='italy'></img> 
+          </span>
         </div>
       </div>
     )

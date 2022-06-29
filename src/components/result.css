@@ -94,12 +94,14 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+
+    cursor: pointer;
 }
 #rangeArrowL{
     right: 15vw;
 }
 #rangeArrowR{
-    right: -0.7vw;
+    right: -0.52vw;
 }
 
 .optionsDiv{

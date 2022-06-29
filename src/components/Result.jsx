@@ -132,6 +132,12 @@ export default function Result({
     //Calculates and displays results.
     function calculateResults(){
 
+        if(orientationValue < 0){
+            setOrientationValue(0);
+        }else if(orientationValue > 180){
+            setOrientationValue(180)
+        }
+
         function getTanDeg(rad) {
             var deg = rad * 180 / Math.PI;
             return deg;
@@ -529,12 +535,27 @@ export default function Result({
     }, [orientationValue])
 
 
-    //Reset orientation value on enter/space
+    
     window.onkeypress = function(event) {
-    if (event.keyCode == 13 || event.keyCode == 32) {
-        setOrientationValue(parseInt(AvgAxis3));
+        //Reset orientation value on enter/space
+        if (event.keyCode == 13 || event.keyCode == 32) {
+            setOrientationValue(parseInt(AvgAxis3));
+        }
     }
+
+    window.onkeydown = function(event){
+        //Change orientation value on arrows press
+        if(document.getElementById("orientationRange") !== document.activeElement){
+            if (event.keyCode == 39) {
+                setOrientationValue(parseInt(orientationValue)+1);
+            }
+            if (event.keyCode == 37) {
+                setOrientationValue(parseInt(orientationValue)-1);
+            }
+        }
     }
+        
+    
 
     if(showResult){
         return (
@@ -671,8 +692,8 @@ export default function Result({
                                         // calculateResults();
                                     }}>    
                                     </Form.Range>
-                                    <BsArrowLeft id='rangeArrowL' />
-                                    <BsArrowRight id='rangeArrowR' />
+                                    <BsArrowLeft id='rangeArrowL' onClick={() => setOrientationValue(parseInt(orientationValue)-1)}/>
+                                    <BsArrowRight id='rangeArrowR' onClick={() => setOrientationValue(parseInt(orientationValue)+1)}/>
                                 </div>
 
                             </Row>

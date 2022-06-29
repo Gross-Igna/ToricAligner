@@ -37,9 +37,12 @@ export default function PostopDataA({
             if(F52VS[0] == ''){
                 setF53VS(['', 0]);
             }else if(F51VS[0] === 'Alcon'){
-                if(model == 'T3'){
+                if(model == 'T2'){
+                    setF53VS(['1', F53VS[1]]);
+                }else if(model == 'T3'){
                     setF53VS(['1.5', F53VS[1]]);
-                }else if(model == 'T4'){
+                }
+                else if(model == 'T4'){
                     setF53VS(['2.25', F53VS[1]]);
                 }else if(model == 'T5'){
                     setF53VS(['3', F53VS[1]]);

@@ -31,6 +31,10 @@ export default function Model({VS, setVS, Mfact}) {
                         <option value="Model" style={{display: 'none'}}>Model</option>
                         
                         {/*Options for Alcon*/}
+                        <option value="T2"
+                        style={{display: (Mfact==="Alcon")? null : 'none'}}>
+                            T2
+                        </option>
                         <option value="T3"
                         style={{display: (Mfact==="Alcon")? null : 'none'}}>
                             T3
