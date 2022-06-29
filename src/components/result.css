@@ -79,6 +79,29 @@
     transform: rotate(82deg);
 }
 
+.rangeDiv{
+    position: relative;
+
+    margin-bottom: 0.15vw;
+}
+#orientationRange{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+#rangeArrowL, #rangeArrowR{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+#rangeArrowL{
+    right: 15vw;
+}
+#rangeArrowR{
+    right: -0.7vw;
+}
+
 .optionsDiv{
     font-size: 1.4vw;
 
@@ -129,7 +152,7 @@
     width: min-content;
 }
 .hintText2{
-    width: 12vw;
+    width: 13.5vw;
 }
 
 /* loading  */

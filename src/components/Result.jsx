@@ -3,11 +3,14 @@ import React, {useState, useRef, useEffect} from 'react'
 import { Container, Row, Col, Form } from 'react-bootstrap'
 
 import LoadingDots from './LoadingDots';
+
 import {AiOutlineCloseCircle, AiOutlineFilePdf} from 'react-icons/ai';
 import {FaRegQuestionCircle, FaRegFlag} from 'react-icons/fa'
+import {BsArrowRight,BsArrowLeft} from 'react-icons/bs'
 import {IoEyeOutline} from 'react-icons/io5';
 import {FiMail} from 'react-icons/fi';
 import {RiArrowGoBackLine} from 'react-icons/ri';
+
 import graphicCircle from '../img/graphicCircle.png'
 import graphicIOL from  '../img/graphicIOL.png'
 import graphicSuggested from '../img/graphicSuggested.png'
@@ -525,6 +528,14 @@ export default function Result({
         calculateResults();
     }, [orientationValue])
 
+
+    //Reset orientation value on enter/space
+    window.onkeypress = function(event) {
+    if (event.keyCode == 13 || event.keyCode == 32) {
+        setOrientationValue(parseInt(AvgAxis3));
+    }
+    }
+
     if(showResult){
         return (
             <div id="divToPrint" className='result'>
@@ -644,15 +655,26 @@ export default function Result({
                             <Row className='resultOrientationRow'>
                                 <span id='orientationSpan'>{orientationValue}°</span>
                                 <span className='hint2'><FaRegQuestionCircle/>
-                                    <span className='hintText hintText2'>Use keyboard arrows to change orientation precisely.</span>
+                                    <span className='hintText hintText2'>
+                                        Use <b>keyboard arrows</b> to modify IOL axis precisely.
+                                        <br></br>
+                                        Reset pressing <b>Intro/Space Bar</b>.
+                                    </span>
                                 </span>
-                                <Form.Range value={orientationValue}
-                                style={{marginBottom: '1vh'}}
-                                min="0" max="180" 
-                                onChange={(e) => {
-                                    setOrientationValue(e.target.value);
-                                    // calculateResults();
-                                }}/>
+
+                                <div className='rangeDiv'>
+                                    <Form.Range value={orientationValue}
+                                    id="orientationRange"
+                                    min="0" max="180" 
+                                    onChange={(e) => {
+                                        setOrientationValue(e.target.value);
+                                        // calculateResults();
+                                    }}>    
+                                    </Form.Range>
+                                    <BsArrowLeft id='rangeArrowL' />
+                                    <BsArrowRight id='rangeArrowR' />
+                                </div>
+
                             </Row>
                             <Row className="spansRow">
                                 <span className='orientationSubtitle'>(Change IOL axis to see predicted refraction changes)</span>
