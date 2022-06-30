@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import { getMeanRatio } from '../../services/ToricCalculation';
+import {getMeanRatio} from '../../services/ToricCalculation';
 
 import patienticon from '../../img/patient-border.png';
 import NumInput from './inputs/NumInput';
