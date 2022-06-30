@@ -132,11 +132,16 @@ export default function Result({
     //Calculates and displays results.
     function calculateResults(){
 
+
+
+        //Validation: Limit orientationValue 
         if(orientationValue < 0){
             setOrientationValue(0);
         }else if(orientationValue > 180){
             setOrientationValue(180)
         }
+
+
 
         function getTanDeg(rad) {
             var deg = rad * 180 / Math.PI;
@@ -514,6 +519,7 @@ export default function Result({
         setResult123(Math.round(PRRAxis));
 
         //DEBUG
+        debugger;
 
     }
 

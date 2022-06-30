@@ -10,6 +10,8 @@ export default function PostopData({
     setStage, validPostop, 
     setValidPostOct, setShowResume,
 
+    F15VS, F21VS, F22VS,
+
     F51VS, setF51VS,
     F52VS, setF52VS,
     F53VS, setF53VS,
@@ -60,6 +62,8 @@ export default function PostopData({
             <Row className='formRow' style={{marginTop: '2vh'}}>  
                 <Col xs={9} className='vCenter'>
                     <PostopDataA
+                        F15VS={F15VS} F21VS={F21VS} F22VS={F22VS}
+
                         F51VS={F51VS} setF51VS={setF51VS}
                         F52VS={F52VS} setF52VS={setF52VS}
                         F53VS={F53VS} setF53VS={setF53VS}

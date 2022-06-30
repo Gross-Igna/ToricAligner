@@ -1,4 +1,6 @@
 import React, {useEffect, useState} from 'react'
+import { getMeanRatio } from '../../services/ToricCalculation';
+
 import patienticon from '../../img/patient-border.png';
 import NumInput from './inputs/NumInput';
 import Manufacturer from './inputs/IOLManufacturer';
@@ -7,6 +9,8 @@ import Model from './inputs/IOLModel';
 import {Container, Row, Col} from 'react-bootstrap';
 
 export default function PostopDataA({
+    F15VS, F21VS, F22VS,
+
     F51VS, setF51VS,
     F52VS, setF52VS,
     F53VS, setF53VS,
@@ -14,7 +18,7 @@ export default function PostopDataA({
 
     F61VS, setF61VS,
     F62VS, setF62VS,
-    F63VS, setF63VS
+    F63VS, setF63VS,
 }){
 
     const [CylReadOnly, setCylReadOnly] = useState(true);
@@ -23,7 +27,8 @@ export default function PostopDataA({
     useEffect(() => {
 
         try {
-            var cornealPlane = parseFloat(F53VS[0]) / parseFloat(1.5);
+            let meanRatio = getMeanRatio(F15VS[0], F21VS[0], F22VS[0]);
+            var cornealPlane = parseFloat(F53VS[0]) / meanRatio;
             setF54VS([ cornealPlane.toString().substring(0,4) , F54VS[1] ]);
         }catch(error){}
 
