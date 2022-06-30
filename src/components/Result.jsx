@@ -114,7 +114,7 @@ export default function Result({
       })
         ;
     }
-
+    
     //Recalculation for Postoperative Refraction when Cylinder<0
     var postopRefSph = PostopRefSphere;
     var postopRefCyl = PostopRefCylinder;
@@ -307,7 +307,7 @@ export default function Result({
 
 
 
-
+        
         //// CALCULATION FOR INDUCED CORNEAL ASTIGMATISM ////
         // PENTACAM //
         //rad
@@ -390,7 +390,7 @@ export default function Result({
         //KP(Φ+45) 
         let POTCAIOLKP45 = AvgKP45B + IOLCornealPlane*Math.sin(2*IOLPosAxis3);
 
-        //PRR = Predicted Residual Refraction 
+        //PRR = Predicted Residual Refractive Astigmatism 
         //Cylinder
         let PRRCyl = Math.sqrt( POTCAIOLKP*POTCAIOLKP + POTCAIOLKP45*POTCAIOLKP45 );
         //Difference between cyl
@@ -401,10 +401,10 @@ export default function Result({
         let PRRSphere = postopRefSph + ChgInSphere;
         //Axis
         let a;
-        if(Math.round(PRRCyl)===0){
+        if(Math.round(PRRCyl)==="0"){
             a = 0;
         }else{
-            a = parseInt(0.5*Math.atan2(POTCAIOLKP45,POTCAIOLKP)*180/Math.PI);
+            a = Math.round(0.5*Math.atan2(POTCAIOLKP45,POTCAIOLKP)*180/Math.PI);
         }
         let b;
         if(a<0){
@@ -420,6 +420,7 @@ export default function Result({
         setResult103(Math.round(PRRAxis));
         
 
+        
         
         //// CALCULATION FOR INDUCED CORNEAL ASTIGMATISM ////
         // SIRIUS //
@@ -501,7 +502,7 @@ export default function Result({
         //Change in Sphere
         PRRSphere = postopRefSph + ChgInSphere;
         //Axis
-        if(Math.round(PRRCyl)===0){
+        if(Math.round(PRRCyl)==="0"){
             a = 0;
         }else{
             a = Math.round(0.5*Math.atan2(POTCAIOLKP45,POTCAIOLKP)*180/Math.PI);
@@ -517,6 +518,7 @@ export default function Result({
         setResult121(PRRSphere.toFixed(2));
         setResult122(PRRCyl.toFixed(2));
         setResult123(Math.round(PRRAxis));
+        
 
         //DEBUG
         debugger;

@@ -29,7 +29,7 @@ export default function PostopDataA({
         try {
             let meanRatio = getMeanRatio(F15VS[0], F21VS[0], F22VS[0]);
             var cornealPlane = parseFloat(F53VS[0]) / meanRatio;
-            setF54VS([ cornealPlane.toString().substring(0,4) , F54VS[1] ]);
+            setF54VS([ cornealPlane.toString().substring(0,4) , 1 ]);
         }catch(error){}
 
     }, [F53VS[0]]);
