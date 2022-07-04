@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import { getOctAverages } from '../../services/ToricCalculation';
 import NumInput from './inputs/NumInput';
 import {Container, Row, Col} from 'react-bootstrap';
 import octicon from '../../img/oct-border4.png';
@@ -38,56 +39,24 @@ export default function PostopDataB({
     //OCT1
     useEffect(() => {
 
+        var averagesArray = getOctAverages(F81VS[0], F83VS[0], F85VS[0], F82VS[0], F84VS[0], F86VS[0])
         try{
             //Average Magnitude
-            if(F81VS[0] !== undefined){
-                if(!measure13Switch){
-                    setF87Val(F81VS[0])
-                }else{
-                    var average = ( ( parseFloat(F81VS[0]) + parseFloat(F83VS[0]) +  parseFloat(F85VS[0]) ) / 3 )
-                    setF87Val(average.toString().substring(0,4))
-                }
-            }
-        }catch(e){}
-
-        try{
+            setF87Val(averagesArray[0].toFixed(2))
             //Average Axis
-            if(F82VS[0] !== undefined){
-                if(!measure13Switch){
-                    setF88Val(F82VS[0])
-                }else{
-                    var average = Math.round( ( parseFloat(F82VS[0]) + parseFloat(F84VS[0]) +  parseFloat(F86VS[0]) ) / 3 )
-                    setF88Val(average.toString().substring(0,4))
-                }
-            }
+            setF88Val(averagesArray[1])
         }catch(e){}
 
     }, [F81VS[0], F82VS[0], F83VS[0], F84VS[0], F85VS[0], F86VS[0]])
     //OCT2
     useEffect(() => {
 
+        var averagesArray = getOctAverages(F91VS[0], F93VS[0], F95VS[0], F92VS[0], F94VS[0], F96VS[0])
         try{
             //Average Magnitude
-            if(F91VS[0] !== undefined){
-                if(!measure23Switch){
-                    setF97Val(F91VS[0])
-                }else{
-                    var average = ( ( parseFloat(F91VS[0]) + parseFloat(F93VS[0]) +  parseFloat(F95VS[0]) ) / 3 )
-                    setF97Val(average.toString().substring(0,4))
-                }
-            }
-        }catch(e){}
-
-        try{
+            setF97Val(averagesArray[0].toFixed(2))
             //Average Axis
-            if(F92VS[0] !== undefined){
-                if(!measure23Switch){
-                    setF98Val(F92VS[0])
-                }else{
-                    var average = Math.round( ( parseFloat(F92VS[0]) + parseFloat(F94VS[0]) +  parseFloat(F96VS[0]) ) / 3 )
-                    setF98Val(average.toString().substring(0,4))
-                }
-            }
+            setF98Val(averagesArray[1])
         }catch(e){}
         
     }, [F91VS[0], F92VS[0], F93VS[0], F94VS[0], F95VS[0], F96VS[0], measure23Switch, measure22Switch])

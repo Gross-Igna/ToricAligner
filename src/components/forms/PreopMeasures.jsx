@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react'
+import { getOctAverages } from '../../services/ToricCalculation';
 import NumInput from './inputs/NumInput';
 import {Row, Col} from 'react-bootstrap';
 import octicon from '../../img/oct-border4.png'
@@ -197,7 +198,7 @@ export default function PreopMeasures({
         //Magnitude = K2-K1
         try {
             var magnitude = parseFloat(F22VS[0]) - parseFloat(F21VS[0]);
-            setF23VS([ magnitude.toString().substring(0,4) , F23VS[1] ]);
+            setF23VS([ Math.round(magnitude) , F23VS[1] ]);
         }catch(error){}
 
     }, [ F21VS[0], F22VS[0] ])
@@ -207,56 +208,26 @@ export default function PreopMeasures({
     //OCT1
     useEffect(() => {
 
-        try{
-            //Average Magnitude
-            if(F31VS[0] !== ""){
-                if(F35VS[0] == "" ){
-                    setF37Val(F31VS[0])
-                }else{
-                    var average = ( ( parseFloat(F31VS[0]) + parseFloat(F33VS[0]) +  parseFloat(F35VS[0]) ) / 3 )
-                    setF37Val(average.toString().substring(0,4))
-                }
-            }
-        }catch(e){}
+        var averagesArray = getOctAverages(F31VS[0], F33VS[0], F35VS[0], F32VS[0], F34VS[0], F36VS[0])
 
         try{
+            //Average Magnitude
+            setF37Val(averagesArray[0].toFixed(2))
             //Average Axis
-            if(F32VS[0] !== ""){
-                if(F36VS[0] == "" ){
-                    setF38Val(F32VS[0])
-                }else{
-                    var average = Math.round( ( parseFloat(F32VS[0]) + parseFloat(F34VS[0]) +  parseFloat(F36VS[0]) ) / 3 )
-                    setF38Val(average.toString().substring(0,4))
-                }
-            }
+            setF38Val(averagesArray[1])
         }catch(e){}
         
     }, [F31VS[0], F32VS[0], F33VS[0], F34VS[0], F35VS[0], F36VS[0]])
     //OCT2
     useEffect(() => {
+        
+        var averagesArray = getOctAverages(F41VS[0], F43VS[0], F45VS[0], F42VS[0], F44VS[0], F46VS[0])
 
         try{
             //Average Magnitude
-            if(F41VS[0] !== ""){
-                if(F45VS[0] == "" ){
-                    setF47Val(F41VS[0])
-                }else{
-                    var average = ( ( parseFloat(F41VS[0]) + parseFloat(F43VS[0]) +  parseFloat(F45VS[0]) ) / 3 )
-                    setF47Val(average.toString().substring(0,4))
-                }
-            }
-        }catch(e){}
-
-        try{
+            setF47Val(averagesArray[0].toFixed(2))
             //Average Axis
-            if(F42VS[0] !== ""){
-                if(F46VS[0] == "" ){
-                    setF48Val(F42VS[0])
-                }else{
-                    var average = Math.round( ( parseFloat(F42VS[0]) + parseFloat(F44VS[0]) +  parseFloat(F46VS[0]) ) / 3 )
-                    setF48Val(average.toString().substring(0,4))
-                }
-            }
+            setF48Val(averagesArray[1])
         }catch(e){}
         
     }, [F41VS[0], F42VS[0], F43VS[0], F44VS[0], F45VS[0], F46VS[0]])

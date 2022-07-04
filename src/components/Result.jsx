@@ -1,5 +1,7 @@
 import React, {useState, useRef, useEffect} from 'react'
 
+import {averageOf3, getTanDeg} from '../services/ToricCalculation';
+
 import { Container, Row, Col, Form } from 'react-bootstrap'
 
 import LoadingDots from './LoadingDots';
@@ -129,35 +131,19 @@ export default function Result({
         }
     }
 
-    //Calculates and displays results.
-    function calculateResults(){
-
-
-
-        //Validation: Limit orientationValue 
+    function limitOrientation(){
+        //Validation: Limit orientationValue
         if(orientationValue < 0){
             setOrientationValue(0);
         }else if(orientationValue > 180){
             setOrientationValue(180)
         }
+    }
 
+    //Calculates and displays results.
+    function calculateResults(){
 
-
-        function getTanDeg(rad) {
-            var deg = rad * 180 / Math.PI;
-            return deg;
-          }    
-
-        //Average of 3 values
-        function averageOf3(a,b,c){
-            if(!Number.isNaN(c)){
-                return((a+b+c)/3)
-            }else if(!Number.isNaN(b)){
-                return((a+b)/2)
-            }else{
-                return(a)
-            }
-        }
+        limitOrientation();
 
         //// CALCULATION FOR MERIDIONAL ANALYSIS AND IMPLANTED IOL CYL. ////
         //HOFFER Q = HofferIOLPwB - HofferIOLPwA
@@ -333,7 +319,7 @@ export default function Result({
         let KPB452 = TCA3Magn2 * Math.sin(2*radB2);
         let KPB453 = TCA3Magn3 * Math.sin(2*radB3);
 
-        //Average KP
+        //Average KP(Φ)
         let AvgKPA = averageOf3(KPA1,KPA2,KPA3);
         let AvgKPB = averageOf3(KPB1,KPB2,KPB3);
         //Average KP(Φ+45)
@@ -447,7 +433,7 @@ export default function Result({
         KPB452 = TCA4Magn2 * Math.sin(2*radB2);
         KPB453 = TCA4Magn3 * Math.sin(2*radB3);
 
-        //Average KP
+        //Average KP(Φ)
         AvgKPA = averageOf3(KPA1,KPA2,KPA3);
         AvgKPB = averageOf3(KPB1,KPB2,KPB3);
         //Average KP(Φ+45)
@@ -521,7 +507,7 @@ export default function Result({
         
 
         //DEBUG
-        debugger;
+        //debugger;
 
     }
 

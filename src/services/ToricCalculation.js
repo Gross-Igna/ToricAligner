@@ -1,4 +1,61 @@
-import React from 'react';
+export function getTanDeg(rad) {
+    var deg = rad * 180 / Math.PI;
+    return deg;
+  }    
+
+
+export function averageOf3(a,b,c){
+    if(!Number.isNaN(c)){
+        return((a+b+c)/3)
+    }else if(!Number.isNaN(b)){
+        return((a+b)/2)
+    }else{
+        return(a)
+    }
+}
+
+export function getOctAverages(Magn1, Magn2, Magn3, Axis1, Axis2, Axis3){
+
+        // PENTACAM //
+        //rad
+        let rad1 = Math.PI/180*Axis1;
+        let rad2 = Math.PI/180*Axis2;
+        let rad3 = Math.PI/180*Axis3;
+
+        //KP(Φ) 
+        let KP1 = Magn1 * Math.cos(2*rad1);
+        let KP2 = Magn2 * Math.cos(2*rad2);
+        let KP3 = Magn3 * Math.cos(2*rad3);
+        //KP(Φ+45) 
+        let KP451 = Magn1 * Math.sin(2*rad1);
+        let KP452 = Magn2 * Math.sin(2*rad2);
+        let KP453 = Magn3 * Math.sin(2*rad3);
+
+        //Average KP(Φ)
+        let AvgKP = averageOf3(KP1,KP2,KP3);
+        //Average KP(Φ+45)
+        let AvgKP45 = averageOf3(KP451,KP452,KP453);
+
+        //Cyl (T10)
+        let cyl = Math.sqrt(AvgKP*AvgKP+AvgKP45*AvgKP45)
+        //OCT Average Magnitude
+        let octAvgMagnitude = cyl;
+
+        //axis(1) (U10)
+        let ax = getTanDeg(Math.atan((cyl-AvgKP)/AvgKP45))
+        //axis(1) addition (V10)
+        let axAddition;
+        if(ax < 0){
+            axAddition = 180;
+        }else{
+            axAddition = 0;
+        }
+        //Axis(°) (W10)
+        let octAvgAxis = Math.round(ax+axAddition);
+
+        return [octAvgMagnitude, octAvgAxis];
+}
+
 
 export function getMeanRatio(AxialLength, K1, K2){
     
@@ -143,3 +200,4 @@ export function getMeanRatio(AxialLength, K1, K2){
 
         return meanRatio;
 }
+
