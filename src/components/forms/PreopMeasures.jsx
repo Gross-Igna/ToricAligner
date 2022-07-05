@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import { getOctAverages } from '../../services/ToricCalculation';
 import NumInput from './inputs/NumInput';
+import Magnitude from './inputs/Magnitude';
 import {Row, Col} from 'react-bootstrap';
 import octicon from '../../img/oct-border4.png'
 import {IoAddCircleOutline, IoCloseCircleOutline} from 'react-icons/io5'
@@ -250,7 +251,7 @@ export default function PreopMeasures({
                 Keratometric Astigmatism
             </Row>
             <Row>
-                <Col xs={6} className='noPadding'>
+                <Col xs={12} className='noPadding'>
                     <NumInput VS={F22VS} setVS={setF22VS}
                     label="K1 (steep):"
                     placeholder="K1"
@@ -260,7 +261,8 @@ export default function PreopMeasures({
                     readonly={false}
                     />
                 </Col>
-                <Col xs={6} className='noPadding'>
+            </Row>
+                <Col xs={12} className='noPadding'>
                     <NumInput VS={F21VS} setVS={setF21VS}
                     label="K2 (flat):"
                     placeholder="K2"
@@ -270,29 +272,20 @@ export default function PreopMeasures({
                     readonly={false}
                     />
                 </Col>
-            </Row>
             <Row>
-                <Col xs={12} className='noPadding'>
-                <NumInput VS={F24VS} setVS={setF24VS}
-                    label="Steep Meridian:"
+                <Col xs={5} className='noPadding'>
+                    <NumInput VS={F24VS} setVS={setF24VS}
+                    label="Axis:"
                     placeholder="..."
                     min={0}
                     max={180}
                     step={1}
                     readonly={false}
+                    size={'1vw'}
                     />
                 </Col>
-            </Row>
-            <Row>
-                <Col xs={12} className='noPadding'>
-                    <NumInput VS={F23VS} setVS={setF23VS}
-                    label="Magnitude:"
-                    placeholder="..."
-                    min={0}
-                    max={100}
-                    step={0.1}
-                    readonly={true}
-                    />
+                <Col className='noPadding' style={{marginLeft: '1vw'}}>
+                    <Magnitude VS={F23VS} setVS={setF23VS}/>
                 </Col>
             </Row>
         </Col>

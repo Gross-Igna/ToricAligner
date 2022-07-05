@@ -88,6 +88,7 @@ export default function Input(
 
         F21VS[1] == 1 &&
         F22VS[1] == 1 &&
+        F23VS[1] == 1 &&
         F24VS[1] == 1 &&
 
         validPreOct
@@ -200,8 +201,9 @@ export default function Input(
 
         <div className='waterMark' style={{textAlign: 'right'}}>
           <span>
-            Developed by: Dr. Buonsanti Dante <img src={argFlag} className='flag' alt='argentina'></img>
-            &nbsp;&nbsp;Dr. Savini Giacomo <img src={itaFlag} className='flag' alt='italy'></img> 
+            Developed by: 
+            Dr. Savini Giacomo <img src={itaFlag} className='flag' alt='italy'></img> 
+            &nbsp;&nbsp;Dr. Buonsanti Dante <img src={argFlag} className='flag' alt='argentina'></img>
           </span>
         </div>
       </div>

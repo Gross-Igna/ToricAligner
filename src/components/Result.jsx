@@ -30,11 +30,10 @@ export default function Result({
     AvgMagnitude1, AvgAxis1,
     AvgMagnitude2, AvgAxis2,
     IOLManufacturer, IOLModel,
+    IOLPlane, IOLCornealPlane,
     Sphere, Cylinder, Axis,
     AvgMagnitude3, AvgAxis3,
     AvgMagnitude4, AvgAxis4,
-
-    IOLPlane, IOLCornealPlane,
 
     PostopRefSphere, setPostopRefSphere,
     PostopRefCylinder, setPostopRefCylinder,
@@ -61,9 +60,9 @@ export default function Result({
 
     //Implanted IOL cilinder
     //at IOL Plane:
-    const [Result3, setResult3] = useState(4.50.toFixed(2));
+    const [Result3, setResult3] = useState(IOLPlane);
     //at Corneal Plane:
-    const [Result4, setResult4] = useState(0);
+    const [Result4, setResult4] = useState(IOLCornealPlane);
 
     //Induced Corneal Astigmatism
     //TCA1
@@ -287,10 +286,10 @@ export default function Result({
         setResult1(result1.toFixed(2));
         setResult2(mean.toFixed(2));
 
-        //RESULT 4
+        /*RESULT 4
         let result4 = Result3/result1;
         setResult4(result4.toFixed(2));
-
+        Result 4 is calculated in input stage*/
 
 
         
@@ -621,7 +620,7 @@ export default function Result({
                             <Row className="spansRow">
                                 <span className='resumeSubtitle'>Implanted IOL Cylinder</span>
                                 <span>
-                                    At IOL Plane: <i>{Result3}</i>
+                                    At IOL Plane: <i>{Result3.toFixed(2)}</i>
                                     <br></br>  
                                     At Corneal Plane: <i>{Result4}</i>
                                 </span>
@@ -662,9 +661,9 @@ export default function Result({
                                 <div className='eyeGraphic'>
                                     <img src={graphicCircle} id='graphicCircle' alt='graphicCircle'></img>
                                     <img src={graphicIOL} id='graphicIOL' alt='graphicIOL'
-                                    style={{transform: 'rotate('+ (orientationValue-90) +'deg)'}}></img>
+                                    style={{transform: 'rotate('+ (90-orientationValue) +'deg)'}}></img>
                                     <img src={graphicSuggested} id='graphicSuggested' alt='graphicSuggested'
-                                    style={{transform: 'rotate('+ (AvgAxis3-90) +'deg)'}}></img>
+                                    style={{transform: 'rotate('+ (90-AvgAxis3) +'deg)'}}></img>
                                 </div>
                             </Row>
                             <Row className='resultOrientationRow'>
@@ -713,9 +712,9 @@ export default function Result({
                                 <Row className="spansRow text-start">
                                     <b>According to Corneal Measurements 2:</b>
                                     <span>
-                                        <span style={{fontSize: (AvgAxis4 !== "0")? '1.1vw' : '1vw'}}>Suggested Axis:&nbsp; 
-                                        <i style={{display: (AvgAxis4 === "0" || AvgAxis4 === "")? 'none' : null}}>{AvgAxis4}°</i>
-                                        <i style={{fontSize: '0.8vw', display: (AvgAxis4 !== "0" && AvgAxis4 !== "")? 'none' : null}}>No Measurements</i>
+                                        <span style={{fontSize: (AvgAxis4 !== "" || !Number.isNaN(parseFloat(AvgAxis4)))? '1.1vw' : '1vw'}}>Suggested Axis:&nbsp; 
+                                        <i style={{display: (AvgAxis4 === "" || Number.isNaN(parseFloat(AvgAxis4)))? 'none' : null}}>{AvgAxis4}°</i>
+                                        <i style={{fontSize: '0.8vw', display: (AvgAxis4 !== "" && !Number.isNaN(parseFloat(AvgAxis4)))? 'none' : null}}>No Measurements</i>
                                         </span>
                                         <br></br>  
                                         <span style={{fontSize: '1vw'}}>Predicted residual refraction:</span>

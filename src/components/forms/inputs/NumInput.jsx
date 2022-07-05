@@ -7,20 +7,22 @@ export default function NumInput({label, placeholder, min, max, step, readonly, 
     const [Class, setClass] = useState('');
 
     function handleBlur(){
-        setVS([VS[0].replace(/,/g , "."), VS[1]]);
+        var p = VS[0];
+        setVS([p.replace(/,/g , "."), VS[1]]);
     }
 
     useEffect(() => {
         //Check validity and set class.
         if(readonly){
                 setClass('formControl controlValid numericInput')
+
             }else{
                 if(changed){
-                    if(VS[0] < min || VS[0] > max || VS[0] === "" || VS[0] === undefined){
+                    if(parseFloat(VS[0]) < min || VS[0] > max || VS[0] === "" || VS[0] === undefined){
                         setVS([VS[0],0]);
                         setClass('formControl controlInvalid numericInput');
                     }else{
-                        setVS([VS[0].replace(/,/ , "."),1]);
+                        setVS([VS[0],1]);
                         setClass('formControl controlValid numericInput');
                     }
                 }else{
