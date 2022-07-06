@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react';
 import {Form} from 'react-bootstrap';
 
 import { types } from '../../../helpers/enums/IOLModels';
-import { types as ManufacterersTypes } from '../../../helpers/enums/IOLManufacturers';
 
 export default function Model({VS, setVS, Mfact}) {
 
@@ -10,41 +9,28 @@ export default function Model({VS, setVS, Mfact}) {
     const [Class, setClass] = useState('formControl controlNeutral');
 
     const [ selectedOption, setSelectedOption ] = useState(null);
-    const [ options, setOptions ] = useState(null);
+    const [ options, setOptions ] = useState([{name:'', manufacturer:['','']}]);
 
     useEffect(() => {
         //Check validity and set class.
         if(changed){
-            setVS([VS[0],1]);
-            setClass('formControl controlValid eyeInput');
-        }
-    },[VS[0]]);
+            if(VS[0] !== ''){
+                setVS([VS[0],1]);
+                setClass('formControl controlValid');
+            }else{
+                setVS([VS[0],-1]);
+                setClass('formControl controlNeutral');
+            }}
+    },[VS[0], Mfact]);
 
     useEffect(() => {
         const recognizeOptions = () => {
             let tempVal = [];
-            tempVal = types.filter((type) => type.manufacturer === Mfact);
+            tempVal = types.filter((type) => type.manufacturer.includes(Mfact));
             setOptions(tempVal);
         };
         recognizeOptions();
-    }, [, Mfact])
-
-    // const [models, setModels] = {
-    //     Id: ['']
-    //   };
-      
-    // $('#modelSelector').append(
-    // data.Id.map(function(v) {
-    //     return $('<option/>', {
-    //     value: v,
-    //     text: v
-    //     })
-    // })
-    // ).change(function() {
-    // console.log(this.value);
-    // });
-
-
+    }, [Mfact])
 
     return (
         <Form onSubmit={e => { e.preventDefault(); }}>

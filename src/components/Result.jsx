@@ -528,7 +528,6 @@ export default function Result({
     }, [orientationValue])
 
 
-    
     window.onkeypress = function(event) {
         //Reset orientation value on enter/space
         if (event.keyCode == 13 || event.keyCode == 32) {
@@ -548,7 +547,6 @@ export default function Result({
         }
     }
         
-    
 
     if(showResult){
         return (

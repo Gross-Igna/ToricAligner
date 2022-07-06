@@ -117,6 +117,14 @@ export default function Input(
       }
     })
 
+    window.onkeydown = function(event) {
+      //Reset orientation value on enter/space
+      if (event.keyCode === 188) {
+          var commasAlert = "Warning! Please only use dot (.) as decimal separator."
+          window.alert(commasAlert);
+      }
+    }
+
     return (
       <div className='input'>
         
