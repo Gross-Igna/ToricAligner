@@ -673,7 +673,7 @@ export default function Result({
                                     </span>
                                 </span>
 
-                                <div className='rangeDiv'>
+                                <div className='rangeDiv noPadding'>
                                     <Form.Range value={orientationValue}
                                     id="orientationRange"
                                     min="0" max="180" 

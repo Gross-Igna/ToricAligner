@@ -83,12 +83,17 @@
     position: relative;
 
     margin-bottom: 0.15vw;
+
+    height: 3vh;
 }
 #orientationRange{
     display: flex;
     flex-direction: column;
     justify-content: center;
     
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
 }
 #rangeArrowL, #rangeArrowR{
     position: absolute;
@@ -96,12 +101,14 @@
     transform: translateY(-50%);
 
     cursor: pointer;
+    
+    font-size: 0.8vw;
 }
 #rangeArrowL{
-    right: 15vw;
+    left: -1vw;
 }
 #rangeArrowR{
-    right: -0.52vw;
+    right: -1vw;
 }
 
 .optionsDiv{

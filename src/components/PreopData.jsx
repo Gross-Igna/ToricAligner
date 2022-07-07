@@ -39,7 +39,7 @@ export default function PreopData({
   }) {
   
   return (
-    <Container className='preopData'>
+    <Container fluid className='preopData w-75'>
 
         <Row className='title'>
           <h1 className='h1vCenter'>Preoperative Data</h1>
@@ -47,7 +47,7 @@ export default function PreopData({
 
         <Row className='formRow'>
 
-            <Col className='vCenter'>
+            <Col className='vCenter' xs={9}>
 
               <Row className='styledBox bigBlock'>
 
@@ -73,7 +73,7 @@ export default function PreopData({
 
             </Col>
 
-            <Col className='calculateCol block3'>
+            <Col className='calculateCol block3' xs={3}>
               <ContinueBtn setStage={setStage}
               validPreop={validPreop}
               />
