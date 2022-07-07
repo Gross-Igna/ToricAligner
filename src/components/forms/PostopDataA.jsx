@@ -23,7 +23,7 @@ export default function PostopDataA({
 
     const [CylReadOnly, setCylReadOnly] = useState(true);
 
-    //Automatic refresh for Corneal plane F52 input
+    //Automatic refresh for Corneal plane F54 input
     useEffect(() => {
 
         try {
@@ -34,13 +34,13 @@ export default function PostopDataA({
 
     }, [F53VS[0]]);
 
-    //Handle IOL Corneal Plane
+    //Handle IOL Cyl power F53
     useEffect(() => {  
 
             let model = F52VS[0];
             
-            if(F52VS[0] == ''){
-                setF53VS(['', 0]);
+            if(model == ''){
+                setF53VS([undefined, 0]);
             }else if(F51VS[0] === 'Alcon'){
                 if(model == 'T2'){
                     setF53VS(['1', F53VS[1]]);
@@ -116,6 +116,8 @@ export default function PostopDataA({
                 }else if(model == '600'){
                     setF53VS(['6.00', F53VS[1]]);
                 }
+            }else if(F51VS[0] === 'Other'){
+                setF53VS([undefined, -1]);
             }
 
     }, [F52VS[0]])
@@ -128,9 +130,9 @@ export default function PostopDataA({
             setCylReadOnly(true);
         }
 
-        setF53VS([undefined, 0])
-        setF54VS([undefined, 0])
-        setF52VS(['', F52VS[1]])
+        setF52VS([undefined, -1])
+        setF53VS([undefined, -1])
+        setF54VS([undefined, -1])
 
     }, [F51VS[0]])
 

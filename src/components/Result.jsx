@@ -505,9 +505,8 @@ export default function Result({
         setResult123(Math.round(PRRAxis));
         
 
-        //DEBUG
-        //debugger;
-
+        //DEBUG HERE
+        
     }
 
     //Trigger Calculation function when result window is opened.
@@ -618,9 +617,9 @@ export default function Result({
                             <Row className="spansRow">
                                 <span className='resumeSubtitle'>Implanted IOL Cylinder</span>
                                 <span>
-                                    At IOL Plane: <i>{Result3.toFixed(2)}</i>
+                                    At IOL Plane: <i>{parseFloat(IOLPlane).toFixed(2)}</i>
                                     <br></br>  
-                                    At Corneal Plane: <i>{Result4}</i>
+                                    At Corneal Plane: <i>{parseFloat(IOLCornealPlane).toFixed(2)}</i>
                                 </span>
                             </Row>
                         </Col>

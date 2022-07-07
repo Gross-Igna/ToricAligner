@@ -8,7 +8,8 @@ export default function IOLCyl({label, placeholder, min, max, step, readonly, VS
 
     useEffect(() => {
         //Check validity and set class.
-            if(VS[0] == undefined){
+            if(VS[0] == undefined || VS[0] === ""){
+                setVS([VS[0],-1]);
                 setClass('formControl controlNeutral numericInput')
             }else{
                 if(VS[0] < min || VS[0] > max){

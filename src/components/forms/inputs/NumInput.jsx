@@ -7,8 +7,11 @@ export default function NumInput({label, placeholder, min, max, step, readonly, 
     const [Class, setClass] = useState('');
 
     function handleBlur(){
-        var p = VS[0];
-        setVS([p.replace(/,/g , "."), VS[1]]);
+        if (VS[0] != undefined){
+            var p = VS[0];
+            p = p.replace(/,/g , ".");
+            setVS([p, VS[1]]);
+        }
     }
 
     useEffect(() => {

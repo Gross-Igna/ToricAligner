@@ -241,7 +241,7 @@ function ToricAligner() {
         AvgMagnitude3={F87Val} AvgAxis3={F88Val}
         AvgMagnitude4={F97Val} AvgAxis4={F98Val}
 
-        IOLPlane={parseFloat(F53VS[0])} IOLCornealPlane={parseFloat(F54VS[0])}
+        IOLPlane={F53VS[0]} IOLCornealPlane={parseFloat(F54VS[0])}
 
         PostopRefSphere={parseFloat(F61VS[0])}
         setPostopRefSphere={setF61VS}
