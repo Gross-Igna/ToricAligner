@@ -144,6 +144,22 @@ export default function Result({
 
         limitOrientation();
 
+        /*Use keratomatric astigmatism steep meridian as 
+        OCT1 axis and Magnitude as Magnitude if OCT1 has been not filled
+        by the user.*/
+        var tca1Axis1;
+        var tca1Magn1;
+        if(Number.isNaN(TCA1Axis1)){
+            tca1Axis1 = SteepMeridian;
+        }else{
+            tca1Axis1 = TCA1Axis1;
+        }
+        if(Number.isNaN(TCA1Magn1)){
+            tca1Magn1 = K1-K2;
+        }else{
+            tca1Magn1 = TCA1Magn1;
+        }
+
         //// CALCULATION FOR MERIDIONAL ANALYSIS AND IMPLANTED IOL CYL. ////
         //HOFFER Q = HofferIOLPwB - HofferIOLPwA
         //Corrected Axial Length
@@ -296,7 +312,7 @@ export default function Result({
         //// CALCULATION FOR INDUCED CORNEAL ASTIGMATISM ////
         // PENTACAM //
         //rad
-        let radA1 = Math.PI/180*TCA1Axis1;
+        let radA1 = Math.PI/180*tca1Axis1;
         let radA2 = Math.PI/180*TCA1Axis2;
         let radA3 = Math.PI/180*TCA1Axis3;
         let radB1 = Math.PI/180*TCA3Axis1;
@@ -304,14 +320,14 @@ export default function Result({
         let radB3 = Math.PI/180*TCA3Axis3;
         
         //KP(Φ) 
-        let KPA1 = TCA1Magn1 * Math.cos(2*radA1);
+        let KPA1 = tca1Magn1 * Math.cos(2*radA1);
         let KPA2 = TCA1Magn2 * Math.cos(2*radA2);
         let KPA3 = TCA1Magn3 * Math.cos(2*radA3);
         let KPB1 = TCA3Magn1 * Math.cos(2*radB1);
         let KPB2 = TCA3Magn2 * Math.cos(2*radB2);
         let KPB3 = TCA3Magn3 * Math.cos(2*radB3);
         //KP(Φ+45) 
-        let KPA451 = TCA1Magn1 * Math.sin(2*radA1);
+        let KPA451 = tca1Magn1 * Math.sin(2*radA1);
         let KPA452 = TCA1Magn2 * Math.sin(2*radA2);
         let KPA453 = TCA1Magn3 * Math.sin(2*radA3);
         let KPB451 = TCA3Magn1 * Math.sin(2*radB1);
@@ -406,7 +422,7 @@ export default function Result({
         
 
         
-        
+
         //// CALCULATION FOR INDUCED CORNEAL ASTIGMATISM ////
         // SIRIUS //
         //rad
@@ -506,7 +522,6 @@ export default function Result({
         
 
         //DEBUG HERE
-        
     }
 
     //Trigger Calculation function when result window is opened.

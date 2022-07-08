@@ -199,7 +199,7 @@ export default function PreopMeasures({
         //Magnitude = K2-K1
         try {
             var magnitude = parseFloat(F22VS[0]) - parseFloat(F21VS[0]);
-            setF23VS([ Math.round(magnitude) , F23VS[1] ]);
+            setF23VS([ magnitude.toFixed(2) , F23VS[1] ]);
         }catch(error){}
 
     }, [ F21VS[0], F22VS[0] ])
@@ -262,6 +262,7 @@ export default function PreopMeasures({
                     />
                 </Col>
             </Row>
+            <Row>
                 <Col xs={12} className='noPadding'>
                     <NumInput VS={F21VS} setVS={setF21VS}
                     label="K2 (flat):"
@@ -272,8 +273,9 @@ export default function PreopMeasures({
                     readonly={false}
                     />
                 </Col>
+            </Row>
             <Row>
-                <Col xs={5} className='noPadding'>
+                <Col xs={4} className='noPadding'>
                     <NumInput VS={F24VS} setVS={setF24VS}
                     label="Axis:"
                     placeholder="..."
@@ -281,10 +283,10 @@ export default function PreopMeasures({
                     max={180}
                     step={1}
                     readonly={false}
-                    size={'1vw'}
+                    size={'0.8vw'}
                     />
                 </Col>
-                <Col className='noPadding' style={{marginLeft: '1vw'}}>
+                <Col xs={8} className='noPadding' style={{paddingLeft: '0.5vw'}}>
                     <Magnitude VS={F23VS} setVS={setF23VS}/>
                 </Col>
             </Row>

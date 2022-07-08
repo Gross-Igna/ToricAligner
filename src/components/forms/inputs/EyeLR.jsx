@@ -22,10 +22,9 @@ export default function EyeLR({Val, setVal, setSt}) {
     return (
         <Form onSubmit={e => { e.preventDefault(); }}>
             <Form.Group>
-                <div className='inputDiv eyeDiv'>
+                <div className='inputDiv'>
                     <span className='controlLabel'>Eye:&nbsp;&nbsp;</span>
                     <Form.Select 
-                        style={{fontSize: '0.7vw'}}
                         className={Class} value={Val}
                         onChange={
                             (e) => {
