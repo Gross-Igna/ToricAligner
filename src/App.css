@@ -11,6 +11,46 @@ body {
   text-align: center;
 }
 
+p{
+  text-align: justify;  
+}
+
 .container{
   max-width: none !important;
+}
+
+.hCenter{
+  margin: 0 auto;
+}
+.hCenterFlex{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.centeredRow{
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.vCenter{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.hCenterRow{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.averagesCol{
+  text-align: center;
+  font-size: 0.9vw;
+}
+.noPadding{
+  padding: 0px 0px;
+}
+.italic{
+  font-style: italic;
 }

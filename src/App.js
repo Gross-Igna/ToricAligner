@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import ToricAligner from './ToricAligner';
 import AboutUs from './AboutUs';
+
 import {
     BrowserRouter as Router,
     Routes,
@@ -12,8 +13,8 @@ export default function App() {
   return (
     <Router>
         <Routes>
-            <Route path="/" element={<ToricAligner />}/>
-            <Route path="/about" element={<AboutUs />}/>
+            <Route path="/" element={<ToricAligner/>}/>
+            <Route path="/about" element={<AboutUs/>}/>
         </Routes>
     </Router>
   )

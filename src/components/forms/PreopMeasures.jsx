@@ -275,7 +275,7 @@ export default function PreopMeasures({
                 </Col>
             </Row>
             <Row>
-                <Col xs={4} className='noPadding'>
+                <Col className='noPadding' style={{maxWidth: '36.5%'}}>
                     <NumInput VS={F24VS} setVS={setF24VS}
                     label="Axis:"
                     placeholder="..."
@@ -286,7 +286,7 @@ export default function PreopMeasures({
                     size={'0.8vw'}
                     />
                 </Col>
-                <Col xs={8} className='noPadding' style={{paddingLeft: '0.5vw'}}>
+                <Col className='noPadding' style={{paddingLeft: '0.4vw'}}>
                     <Magnitude VS={F23VS} setVS={setF23VS}/>
                 </Col>
             </Row>

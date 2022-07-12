@@ -4,11 +4,18 @@ import BarHeader from './components/BarHeader';
 import Input from './components/Input';
 import Resume from './components/Resume';
 import Result from './components/Result';
+import Disclaimer from './components/Disclaimer';
 
 function ToricAligner() {
 
     const [showResume, setShowResume] = useState(false);
     const [showResult, setShowResult] = useState(false);
+    const [showDisclaimer, setShowDisclaimer] = useState(false);
+    
+    
+    window.onload = function() {
+      setShowDisclaimer(true);
+    };
 
     //Code for states for every input: 
     //(VS) [Value, Status] 
@@ -152,6 +159,12 @@ function ToricAligner() {
       <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;1,700&display=swap" rel="stylesheet"></link>
 
       <BarHeader/>
+
+      <Disclaimer 
+      showDisclaimer={showDisclaimer}
+      setShowDisclaimer={setShowDisclaimer}
+      />
+
       <Input 
         setShowResume={setShowResume}
       
@@ -213,6 +226,7 @@ function ToricAligner() {
         F97Val={F97Val} setF97Val={setF97Val}
         F98Val={F98Val} setF98Val={setF98Val}
       />
+
       <Resume 
         showResume={showResume} setShowResume={setShowResume}
         setShowResult={setShowResult}

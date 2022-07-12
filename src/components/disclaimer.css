@@ -1,0 +1,70 @@
+.disclaimerOn{
+    background-color: #094fa0c7;
+    filter: drop-shadow(-9px 5px 16px #000);
+
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+    z-index: 2;
+    
+    padding: 0vh 12.5vw;
+    font-size: 1.2vw;
+    color: rgb(240, 243, 248);
+
+    opacity: 1;
+    -webkit-transition: opacity 0.8s ease-in;
+    -moz-transition: opacity 0.8s ease-in;
+    -o-transition: opacity 0.8s ease-in;
+    -ms-transition: opacity 0.8s ease-in;
+    transition: opacity 0.8s ease-in;
+}
+.disclaimerOff{
+    background-color: #094fa0c7;
+    filter: drop-shadow(-9px 5px 16px #000);
+
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+    z-index: 2;
+    
+    padding: 0vh 12.5vw;
+    font-size: 1.2vw;
+    color: rgb(240, 243, 248);
+
+    opacity: 0;
+    -webkit-transition: opacity 0.25s ease-in;
+    -moz-transition: opacity 0.25s ease-in;
+    -o-transition: opacity 0.25s ease-in;
+    -ms-transition: opacity 0.25s ease-in;
+    transition: opacity 0.25s ease-in;
+}
+
+.discTitle{
+    font-size: 3vw;
+    font-weight: 600;
+}
+.discIcon{
+    position: relative;
+    bottom: 1vh;
+    left: 0.8vw;
+}
+.discButton{
+    color: rgb(240, 243, 248);
+    background-color: rgba(0, 128, 0, 0.295);
+
+    padding: 1vh 0vw;
+    margin: 0vw 31vw;
+
+    cursor: pointer;
+}
+#toricLogo{
+    width: 8vw;
+}
