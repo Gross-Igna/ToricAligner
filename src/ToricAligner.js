@@ -246,6 +246,8 @@ function ToricAligner() {
       <Result
         showResult={showResult} setShowResult={setShowResult}
 
+        Patient={F11Val} Surgeon={F12Val}
+
         Eye={F13Val} AxialLength={F15VS[0]}
         K1={F22VS[0]} K2={F21VS[0]} SteepMeridian={F24VS[0]}
         AvgMagnitude1={F37Val} AvgAxis1={F38Val}

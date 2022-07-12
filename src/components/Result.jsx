@@ -10,7 +10,6 @@ import {AiOutlineCloseCircle, AiOutlineFilePdf} from 'react-icons/ai';
 import {FaRegQuestionCircle, FaRegFlag} from 'react-icons/fa'
 import {BsArrowRight,BsArrowLeft} from 'react-icons/bs'
 import {IoEyeOutline} from 'react-icons/io5';
-import {FiMail} from 'react-icons/fi';
 import {RiArrowGoBackLine} from 'react-icons/ri';
 
 import graphicCircle from '../img/graphicCircle.png'
@@ -21,10 +20,12 @@ import html2canvas from 'html2canvas';
 import { jsPDF } from 'jspdf';
 
 import './result.css'
+import Downloading from './Downloading';
 
 export default function Result({
     showResult, setShowResult,
 
+    Patient, Surgeon,
     Eye, AxialLength,
     K1, K2, SteepMeridian,
     AvgMagnitude1, AvgAxis1,
@@ -97,23 +98,67 @@ export default function Result({
 
     //Result loading div
     const [loading, setLoading] = useState(false);
+    //State to hide elements and show downloading popup when downloading results
+    const [showDownloading, setShowDownloading] = useState(false);
+    const [hideToDownload, setHideToDownload] = useState(false);
+
+    function getViewport() {
+
+        var viewPortWidth;
+        var viewPortHeight;
+       
+        // the more standards compliant browsers (mozilla/netscape/opera/IE7) use window.innerWidth and window.innerHeight
+        if (typeof window.innerWidth != 'undefined') {
+          viewPortWidth = window.innerWidth
+          viewPortHeight = window.innerHeight
+        }
+       // IE6 in standards compliant mode (i.e. with a valid doctype as the first line in the document)
+        else if (typeof document.documentElement != 'undefined'
+        && typeof document.documentElement.clientWidth !=
+        'undefined' && document.documentElement.clientWidth != 0) {
+           viewPortWidth = document.documentElement.clientWidth
+           viewPortHeight = document.documentElement.clientHeight
+        }
+        // older versions of IE
+        else {
+          viewPortWidth = document.getElementsByTagName('body')[0].clientWidth
+          viewPortHeight = document.getElementsByTagName('body')[0].clientHeight
+        }
+        return [viewPortWidth, viewPortHeight];
+       }
 
     const printRef = useRef();
     function downloadPdf(){
-        const input = document.getElementById('divToPrint');
+        setShowDownloading(true);
+        setHideToDownload(true);
+
+        setTimeout(() => {
+        var input = document.getElementById('divToPrint');
+        setHideToDownload(false);
+        
         html2canvas(input)
         .then((canvas) => {
         const data = canvas.toDataURL('image/png');
-        const pdf = new jsPDF();
+
+        var orientation = 'l';
+        var viewport = getViewport()
+        if(viewport[0] < viewport[1]){
+            orientation = 'p'
+        }
+
+        const pdf = new jsPDF(orientation, 'px', [viewport[0], viewport[1]]);
         const imgProperties = pdf.getImageProperties(data);
         const pdfWidth = pdf.internal.pageSize.getWidth();
         const pdfHeight =
         (imgProperties.height * pdfWidth) / imgProperties.width;
 
+
         pdf.addImage(data, 'PNG', 0, 0, pdfWidth, pdfHeight);
-        pdf.save('print.pdf');
-      })
-        ;
+        pdf.save('ToricAligner_' + Patient + '_' + Surgeon + '.pdf');
+
+        setShowDownloading(false);
+        })
+        }, 1000)
     }
     
     //Recalculation for Postoperative Refraction when Cylinder<0
@@ -527,12 +572,13 @@ export default function Result({
     //Trigger Calculation function when result window is opened.
     useEffect( () => {
         if(showResult){
+            setLoading(true);
+            setTimeout(() => setLoading(false),2000)
+            setHideToDownload(false);
             if(PostopRefCylinder<0){
                 PostopRefractionRecalculation();
             }
             setOrientationValue(parseInt(AvgAxis3));
-            setLoading(true);
-            setTimeout(() => setLoading(false),2000)
             calculateResults();
         }
     }, [showResult])
@@ -564,6 +610,10 @@ export default function Result({
 
     if(showResult){
         return (
+            <div>
+
+                <Downloading showDownloading={showDownloading}/>
+
             <div id="divToPrint" className='result'>
 
                 <div className='overlay'>
@@ -688,7 +738,8 @@ export default function Result({
                                     </span>
                                 </span>
 
-                                <div className='rangeDiv noPadding'>
+                                <div className='rangeDiv noPadding'
+                                style={{display: (hideToDownload)? 'none' : null}}>
                                     <Form.Range value={orientationValue}
                                     id="orientationRange"
                                     min="0" max="180" 
@@ -702,7 +753,8 @@ export default function Result({
                                 </div>
 
                             </Row>
-                            <Row className="spansRow">
+                            <Row className="spansRow"
+                            style={{display: (hideToDownload)? 'none' : null}}>
                                 <span className='orientationSubtitle'>(Change IOL axis to see predicted refraction changes)</span>
                             </Row>
                         </Col>
@@ -740,14 +792,16 @@ export default function Result({
                                 </Row>
                             </Row>
                             <Row>
-                                <div className='optionsDiv'>
+                                <div className='optionsDiv'
+                                style={{display: (hideToDownload)? 'none' : null}}>
                                     <span onClick={() => downloadPdf()}><AiOutlineFilePdf/> Download</span>
-                                    <br></br>
-                                    <span><FiMail/> Send by Email</span>
-                                    <br></br>
                                     <span onClick={() => setShowResult(false)}><RiArrowGoBackLine/> Modify Input</span>
-                                    <br></br>
                                     <span><FaRegFlag/> Report Error</span>
+                                </div>
+                                <div className='identifiersDiv'
+                                style={{display: (!hideToDownload)? 'none' : null}}>
+                                    <span>Patient ID: {Patient}</span>
+                                    <span>Surgeon ID: {Surgeon}</span>
                                 </div>
                             </Row>
                         </Col>
@@ -760,6 +814,7 @@ export default function Result({
                     </div>
 
                 </Container>
+            </div>
             </div>
         )
     }
