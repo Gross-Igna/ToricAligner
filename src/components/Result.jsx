@@ -133,31 +133,31 @@ export default function Result({
         setHideToDownload(true);
 
         setTimeout(() => {
-        var input = document.getElementById('divToPrint');
-        setHideToDownload(false);
-        
-        html2canvas(input)
-        .then((canvas) => {
-        const data = canvas.toDataURL('image/png');
+            var input = document.getElementById('divToPrint');
+            setHideToDownload(false);
+            
+            html2canvas(input)
+            .then((canvas) => {
+            const data = canvas.toDataURL('image/png');
 
-        var orientation = 'l';
-        var viewport = getViewport()
-        if(viewport[0] < viewport[1]){
-            orientation = 'p'
-        }
+            var orientation = 'l';
+            var viewport = getViewport()
+            if(viewport[0] < viewport[1]){
+                orientation = 'p'
+            }
 
-        const pdf = new jsPDF(orientation, 'px', [viewport[0], viewport[1]]);
-        const imgProperties = pdf.getImageProperties(data);
-        const pdfWidth = pdf.internal.pageSize.getWidth();
-        const pdfHeight =
-        (imgProperties.height * pdfWidth) / imgProperties.width;
+            const pdf = new jsPDF(orientation, 'px', [viewport[0], viewport[1]]);
+            const imgProperties = pdf.getImageProperties(data);
+            const pdfWidth = pdf.internal.pageSize.getWidth();
+            const pdfHeight =
+            (imgProperties.height * pdfWidth) / imgProperties.width;
 
 
-        pdf.addImage(data, 'PNG', 0, 0, pdfWidth, pdfHeight);
-        pdf.save('ToricAligner_' + Patient + '_' + Surgeon + '.pdf');
+            pdf.addImage(data, 'PNG', 0, 0, pdfWidth, pdfHeight);
+            pdf.save('ToricAligner_' + Patient + '_' + Surgeon + '.pdf');
 
-        setShowDownloading(false);
-        })
+            setShowDownloading(false);
+            })
         }, 1000)
     }
     

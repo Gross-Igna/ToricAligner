@@ -301,6 +301,7 @@ export default function PreopMeasures({
                         <IoAddCircleOutline style={{fontSize: '3vw'}}/>
                         <br></br>
                         Add more measurements
+                        <div style={{marginTop: '-0.5vh', fontSize: '0.8vw'}}>(For SICA calculation)</div>
                     </span>
             </div>
 
@@ -425,6 +426,7 @@ export default function PreopMeasures({
                         <IoAddCircleOutline style={{fontSize: '3vw'}}/>
                         <br></br>
                         Add more measurements
+                        <div style={{marginTop: '-0.5vh', fontSize: '0.8vw'}}>(For SICA calculation)</div>
                     </span>
             </div>
 
