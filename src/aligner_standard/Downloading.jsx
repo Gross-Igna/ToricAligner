@@ -1,5 +1,5 @@
 import React from 'react'
-import LoadingDots from './LoadingDots';
+import LoadingDots from '../common/LoadingDots';
 import './downloading.css'
 
 export default function Downloading({showDownloading}) {

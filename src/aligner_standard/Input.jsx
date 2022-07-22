@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Carousel } from 'react-bootstrap';
 import PreopData from './PreopData';
 import PostopData from './PostopData';
-import './input.css';
+import '../input.css';
 
 import argFlag from '../img/argentina.png'
 import itaFlag from '../img/italy.png'
@@ -127,10 +127,6 @@ export default function Input(
 
     return (
       <div className='input'>
-        
-        <script async src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM">
-        </script>
 
         <Carousel controls={false} interval={null} activeIndex={stage}>
           <Carousel.Item>

@@ -5,6 +5,8 @@ body {
 
   background-image: url("../src/img/bg4.jpg");
   background-size: cover;
+
+  font-family: 'Titillium Web', sans-serif;
 }
 
 .App {

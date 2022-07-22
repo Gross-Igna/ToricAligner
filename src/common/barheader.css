@@ -28,10 +28,15 @@
 }
 
 .barIcon{
-    /*width: 6.33vw;*/
     width: 6.3vw;
-
     float: left;
+    position: relative;
+    bottom: 0.1vh;
+}
+.barIcon2{
+    width: 1.2vw;
+    position: relative;
+    bottom: 0.1vh;
 }
 .barLink{
     color: rgb(240, 243, 248);

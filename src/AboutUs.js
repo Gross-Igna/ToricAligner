@@ -1,5 +1,5 @@
 import React from 'react'
-import BarHeader from './components/BarHeader'
+import BarHeader from './common/BarHeader'
 
 export default function AboutUs() {
   return (

@@ -4,7 +4,7 @@ import {averageOf3, getTanDeg} from '../services/ToricCalculation';
 
 import { Container, Row, Col, Form } from 'react-bootstrap'
 
-import LoadingDots from './LoadingDots';
+import LoadingDots from '../common/LoadingDots';
 
 import {AiOutlineCloseCircle, AiOutlineFilePdf} from 'react-icons/ai';
 import {FaRegQuestionCircle, FaRegFlag} from 'react-icons/fa'

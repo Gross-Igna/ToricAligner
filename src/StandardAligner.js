@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import BarHeader from './components/BarHeader';
-import Input from './components/Input';
-import Resume from './components/Resume';
-import Result from './components/Result';
-import Disclaimer from './components/Disclaimer';
+import BarHeader from './common/BarHeader';
+import Input from './aligner_standard/Input';
+import Resume from './aligner_standard/Resume';
+import Result from './aligner_standard/Result';
+import Disclaimer from './common/Disclaimer';
 
-function ToricAligner() {
+function StandardAligner() {
 
     const [showResume, setShowResume] = useState(false);
     const [showResult, setShowResult] = useState(false);
@@ -299,4 +299,4 @@ function ToricAligner() {
   );
 }
 
-export default ToricAligner;
+export default StandardAligner;
