@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import { getOctAverages } from '../../services/ToricCalculation';
-import NumInput from './inputs/NumInput';
+import NumInput from '../../common/inputs/NumInput';
 import {Container, Row, Col} from 'react-bootstrap';
 import octicon from '../../img/oct-border4.png';
 import {IoAddCircleOutline, IoCloseCircleOutline} from 'react-icons/io5'

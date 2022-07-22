@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 import {getMeanRatio} from '../../services/ToricCalculation';
 
 import patienticon from '../../img/patient-border.png';
-import NumInput from './inputs/NumInput';
+import NumInput from '../../common/inputs/NumInput';
 import Manufacturer from './inputs/IOLManufacturer';
 import IOLCyl from './inputs/IOLCyl';
 import Model from './inputs/IOLModel';

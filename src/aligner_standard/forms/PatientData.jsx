@@ -1,10 +1,9 @@
 import React from 'react'
 import {Container, Row, Col} from 'react-bootstrap';
-import PatientName from './inputs/PatientName';
-import SurgeonName from './inputs/SurgeonName';
-import EyeLR from './inputs/EyeLR';
-import Date from './inputs/Date';
-import NumInput from './inputs/NumInput';
+import PatientName from '../../common/inputs/PatientName';
+import SurgeonName from '../../common/inputs/SurgeonName';
+import EyeLR from '../../common/inputs/EyeLR';
+import NumInput from '../../common/inputs/NumInput';
 
 export default function patientData({
     F11Val, setF11Val, setF11St,
