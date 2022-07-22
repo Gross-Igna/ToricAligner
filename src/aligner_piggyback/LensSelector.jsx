@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import {Container, Col, Row, Image} from 'react-bootstrap';
 
-import Lenses from './inputs/Lenses';
-import { types } from '../../helpers/enums/LensModels';
+import Lenses from './forms/inputs/Lenses';
+import { types } from '../helpers/enums/LensModels';
 import './lensSelector.css'
 
 export default function LensSelector({
@@ -54,7 +54,7 @@ export default function LensSelector({
                                 <div className='lensOption' id={option.name}
                                 onClick={() => handleClick434(option.name)}>
                                     <img className='lensImg'
-                                    src={require('./'+option.image+'.png')}></img>
+                                    src={require('./lensImages/'+option.image+'.png')}></img>
                                 </div>
                             </Row>
                             <Row>

@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import { Carousel } from 'react-bootstrap';
 import '../input.css';
-import LensSelector from './forms/LensSelector';
+import LensSelector from './LensSelector';
 
 import argFlag from '../img/argentina.png'
 import itaFlag from '../img/italy.png'
