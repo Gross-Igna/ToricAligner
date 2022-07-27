@@ -13,17 +13,21 @@ import {IoEyeOutline} from 'react-icons/io5';
 import {RiArrowGoBackLine} from 'react-icons/ri';
 
 import graphicCircle from '../img/graphicCircle.png'
-import graphicIOL from  '../img/graphicIOL.png'
+//import graphicIOL from  '../img/graphicIOL.png'
 import graphicSuggested from '../img/graphicSuggested.png'
 
 import html2canvas from 'html2canvas';
 import { jsPDF } from 'jspdf';
+
+import {types} from '../helpers/enums/LensModels';
 
 import './result.css'
 import Downloading from '../common/Downloading';
 
 export default function Result({
     showResult, setShowResult,
+
+    Lens, LensType,
 
     Patient, Surgeon,
     Eye, AxialLength,
@@ -32,9 +36,7 @@ export default function Result({
     AvgMagnitude2, AvgAxis2,
     IOLManufacturer, IOLModel,
     IOLPlane, IOLCornealPlane,
-    Sphere, Cylinder, Axis,
-    AvgMagnitude3, AvgAxis3,
-    AvgMagnitude4, AvgAxis4,
+    Sphere, Cylinder, Axis, ACD, Vertex,
 
     PostopRefSphere, setPostopRefSphere,
     PostopRefCylinder, setPostopRefCylinder,
@@ -44,17 +46,14 @@ export default function Result({
     TCA1Magn1, TCA1Magn2, TCA1Magn3,
     TCA2Axis1, TCA2Axis2, TCA2Axis3,
     TCA2Magn1, TCA2Magn2, TCA2Magn3,
-    TCA3Axis1, TCA3Axis2, TCA3Axis3,
-    TCA3Magn1, TCA3Magn2, TCA3Magn3,
-    TCA4Axis1, TCA4Axis2, TCA4Axis3,
-    TCA4Magn1, TCA4Magn2, TCA4Magn3
 }) {
 
-    const [orientationValue, setOrientationValue] = useState(parseInt(AvgAxis3));
+    const [orientationValue, setOrientationValue] = useState(parseInt(AvgAxis1));
+    const [graphicIOL, setGraphicIOL] = useState("graphicStandard");
 
     //Result States
     //Meridional Analysis
-    //IOL/Cornea Cyl. Ratio:
+    //IOL/Spectacle Cyl. Ratio:
     const [Result1, setResult1] = useState(0);
     //Required Cylinder at IOL Plane
     const [Result2, setResult2] = useState(0);
@@ -185,13 +184,14 @@ export default function Result({
     }
 
     //Calculates and displays results.
+    /*
     function calculateResults(){
-
+        
         limitOrientation();
 
         /*Use keratomatric astigmatism steep meridian as 
         OCT1 axis and Magnitude as Magnitude if OCT1 has been not filled
-        by the user.*/
+        by the user.
         var tca1Axis1;
         var tca1Magn1;
         if(Number.isNaN(TCA1Axis1)){
@@ -350,7 +350,7 @@ export default function Result({
         /*RESULT 4
         let result4 = Result3/result1;
         setResult4(result4.toFixed(2));
-        Result 4 is calculated in input stage*/
+        Result 4 is calculated in input stage
 
 
         
@@ -567,31 +567,42 @@ export default function Result({
         
 
         //DEBUG HERE
-    }
+    }*/
 
     //Trigger Calculation function when result window is opened.
     useEffect( () => {
         if(showResult){
             setLoading(true);
             setTimeout(() => setLoading(false),2000)
+            
             setHideToDownload(false);
+            
             if(PostopRefCylinder<0){
                 PostopRefractionRecalculation();
             }
-            setOrientationValue(parseInt(AvgAxis3));
-            calculateResults();
+
+            setOrientationValue(parseInt(AvgAxis1));
+            
+            window.alert(graphicIOL)
+            window.alert(Lens)
+            var selectedLens = types.findIndex(x => x.name === Lens)
+            debugger;
+            setGraphicIOL(selectedLens.image)
+            //calculateResults();
+
+            
         }
     }, [showResult])
 
     useEffect( () => {
-        calculateResults();
+        //calculateResults();
     }, [orientationValue])
 
 
     window.onkeypress = function(event) {
         //Reset orientation value on enter/space
         if (event.keyCode == 13 || event.keyCode == 32) {
-            setOrientationValue(parseInt(AvgAxis3));
+            setOrientationValue(parseInt(AvgAxis2));
         }
     }
 
@@ -637,28 +648,24 @@ export default function Result({
                             <Row className='resultResume'>
                                 <Col>
                                     <b>PREOP:</b>&nbsp;&nbsp;&nbsp;
-                                    <b>Eye:</b> {Eye} &nbsp;<b>AXL:</b> {AxialLength} 
+                                    <b>Eye:</b> {Eye}
                                     &nbsp;&nbsp;<b>K1:</b> {K1} &nbsp;<b>K2:</b> {K2}
                                     &nbsp;&nbsp;<b>Steep Meridian:</b>&nbsp;{SteepMeridian}
                                     <span style={{display: (AvgMagnitude1 === "0")? 'none' : null}}>
-                                    &nbsp;&nbsp;<b>Avg. Mag. 1:</b>&nbsp;{AvgMagnitude1}
-                                    &nbsp;&nbsp;<b>Avg. Axis 1:</b>&nbsp;{AvgAxis1}
-                                    </span>
-                                    <span style={{display: (AvgMagnitude2 === "0")? 'none' : null}}>
-                                    &nbsp;&nbsp;<b>Avg. Mag. 2:</b>&nbsp;{AvgMagnitude2}
-                                    &nbsp;&nbsp;<b>Avg. Axis 2:</b>&nbsp;{AvgAxis2}
+                                    &nbsp;&nbsp;<b>Avg. Mag.:</b>&nbsp;{AvgMagnitude1}
+                                    &nbsp;&nbsp;<b>Avg. Axis:</b>&nbsp;{AvgAxis1}
                                     </span>
                                     <br></br>
+                                    <span>
                                     <b>POSTOP:</b>&nbsp;&nbsp;&nbsp;
                                     <b>IOL:</b> &nbsp;{IOLManufacturer}&nbsp;{IOLModel}
                                     &nbsp;&nbsp;<b>Sphere:</b>&nbsp;{Sphere}
                                     &nbsp;&nbsp;<b>Cylinder:</b>&nbsp;{Cylinder}
                                     &nbsp;&nbsp;<b>Axis:</b>&nbsp;{Axis}
-                                    &nbsp;&nbsp;<b>Avg. Mag. 1:</b>&nbsp;{AvgMagnitude3}
-                                    &nbsp;&nbsp;<b>Avg. Axis 1:</b>&nbsp;{AvgAxis3}
-                                    <span style={{display: (AvgMagnitude4 === "0")? 'none' : null}}>
-                                    &nbsp;&nbsp;<b>Avg. Mag. 2:</b>&nbsp;{AvgMagnitude4}
-                                    &nbsp;&nbsp;<b>Avg. Axis 2:</b>&nbsp;{AvgAxis4}
+                                    &nbsp;&nbsp;<b>ACD:</b>&nbsp;{ACD}
+                                    &nbsp;&nbsp;<b>Vertex:</b>&nbsp;{Vertex}
+                                    &nbsp;&nbsp;<b>Avg. Mag.:</b>&nbsp;{AvgMagnitude2}
+                                    &nbsp;&nbsp;<b>Avg. Axis:</b>&nbsp;{AvgAxis2}
                                     </span>
                                 </Col>
                             </Row>
@@ -672,7 +679,7 @@ export default function Result({
                             <Row className="spansRow">
                                 <span className='resumeSubtitle'>Meridional Analysis</span>
                                 <span>
-                                    IOL/Cornea Cyl. Ratio: <i>{Result1}</i>
+                                    IOL/Spectacle Cyl. Ratio: <i>{Result1}</i>
                                     <br></br>  
                                     <span style={{fontSize: '1.1vw'}}>Required Cyl. at IOL Plane: <i>{Result2}</i></span>
                                 </span>
@@ -690,21 +697,12 @@ export default function Result({
                         </Col>
                         <Col className='resumeShadow resumeCol text-start'>
                             <Row className="spansRow">
-                                <span className='resumeSubtitle'>Induced corneal astigmatism</span>
+                                <span className='resumeSubtitle'>SICA</span>
                                 <span>
-                                    <b>TCA 1:&nbsp;</b>
                                     <span style={{display: (Result5 === "NaN")? 'none' : null}}>
-                                        &nbsp;Cyl: <i>{Result5}</i> &nbsp; Axis: <i>{Result6}°</i>
+                                        Cylinder: <i>{Result5}</i> &nbsp; Axis: <i>{Result6}°</i>
                                     </span>
                                     <i style={{fontSize: '0.8vw', display: (Result5 !== "NaN" && Result6 !== "NaN")? 'none' : null}}>
-                                        No Measurements
-                                    </i> 
-                                    <br></br>
-                                    <b>TCA 2:&nbsp;</b>
-                                    <span style={{display: (Result7 === "NaN")? 'none' : null}}>
-                                        &nbsp;Cyl: <i>{Result7}</i> &nbsp; Axis: <i>{Result8}°</i>
-                                    </span>
-                                    <i style={{fontSize: '0.8vw', display: (Result7 !== "NaN" && Result8 !== "NaN")? 'none' : null}}>
                                         No Measurements
                                     </i> 
                                 </span>
@@ -722,10 +720,10 @@ export default function Result({
                             <Row>
                                 <div className='eyeGraphic'>
                                     <img src={graphicCircle} id='graphicCircle' alt='graphicCircle'></img>
-                                    <img src={graphicIOL} id='graphicIOL' alt='graphicIOL'
+                                    <img src={require('./lensImages/'+graphicIOL+".png")} id='graphicIOL' alt='graphicIOL'
                                     style={{transform: 'rotate('+ (90-orientationValue) +'deg)'}}></img>
                                     <img src={graphicSuggested} id='graphicSuggested' alt='graphicSuggested'
-                                    style={{transform: 'rotate('+ (90-AvgAxis3) +'deg)'}}></img>
+                                    style={{transform: 'rotate('+ (90-AvgAxis2) +'deg)'}}></img>
                                 </div>
                             </Row>
                             <Row className='resultOrientationRow'>
@@ -768,26 +766,9 @@ export default function Result({
                                         </span>
                                     </b>
                                     <span>
-                                        <span style={{fontSize: '1.1vw'}}>Suggested Axis:&nbsp;<i>{AvgAxis3}°</i></span>
+                                        <span style={{fontSize: '1.1vw'}}>Suggested Axis:&nbsp;<i>{AvgAxis2}°</i></span>
                                         <br></br>
                                         <span style={{fontSize: '1vw'}}>Predicted residual refraction:</span> <i>{Result101}</i><i>{Result102}</i><i>{Result103}°</i>
-                                    </span>
-                                </Row>
-                                <Row className="spansRow text-start">
-                                    <b>According to Corneal Measurements 2:</b>
-                                    <span>
-                                        <span style={{fontSize: (AvgAxis4 !== "" || !Number.isNaN(parseFloat(AvgAxis4)))? '1.1vw' : '1vw'}}>Suggested Axis:&nbsp; 
-                                        <i style={{display: (AvgAxis4 === "" || Number.isNaN(parseFloat(AvgAxis4)))? 'none' : null}}>{AvgAxis4}°</i>
-                                        <i style={{fontSize: '0.8vw', display: (AvgAxis4 !== "" && !Number.isNaN(parseFloat(AvgAxis4)))? 'none' : null}}>No Measurements</i>
-                                        </span>
-                                        <br></br>  
-                                        <span style={{fontSize: '1vw'}}>Predicted residual refraction:</span>
-                                        <span style={{display: (Result121 === "NaN")? 'none' : null}}>
-                                            <i>{Result121}</i><i>{Result122}</i><i>{Result123}°</i>&nbsp;
-                                        </span>
-                                        <i style={{fontSize: '0.8vw', display: (Result121 !== "NaN")? 'none' : null}}>
-                                            No Measurements
-                                        </i>
                                     </span>
                                 </Row>
                             </Row>

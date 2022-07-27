@@ -2,46 +2,55 @@ export const types = [
     {
         name: 'Select lens',
         image: 'questionmark',
-        manufacturer: 'Select'
+        manufacturer: 'Select',
+        type: '-1',
     },
     {
         name: 'Standard Piggyback IOL',
         image: 'standard',
-        manufacturer: 'Piggyback'
+        manufacturer: 'Piggyback',
+        type: '1',
     },
     {
         name: 'STAAR Toric ICL',
-        src: '../img/lensModels/staar.png',
-        manufacturer: 'Staar'
+        image: 'STAAR',
+        manufacturer: 'Staar',
+        type: '2',
     },
     {
         name: 'IPCL Toric',
-        src: '../img/lensModels/ipcl.png',
-        manufacturer: 'IPCL'
+        image: 'STAAR',
+        manufacturer: 'IPCL',
+        type: '2',
     },
     {
         name: 'Artiflex Toric 0°',
-        src: '../img/lensModels/artiflex0.png',
-        manufacturer: 'Artiflex'
+        image: 'Artiflex',
+        manufacturer: 'Artiflex',
+        type: '1',
     },
     {
         name: 'Artiflex Toric 90°',
-        src: '../img/lensModels/artiflex90.png',
-        manufacturer: 'Artiflex'
+        image: 'Artiflex',
+        manufacturer: 'Artiflex',
+        type: '2',
     },
     {
-        name: 'Eyecrill Phakic IOL 0°',
-        src: '../img/lensModels/eyecrill0.png',
-        manufacturer: 'Eyecril'
+        name: 'Eyecryl Phakic IOL 0°',
+        image: 'STAAR',
+        manufacturer: 'Eyecril',
+        type: '1',
     },
     {
-        name: 'Eyecrill Phakic IOL 75°',
-        src: '../img/lensModels/eyecrill75.png',
-        manufacturer: 'Eyecril'
+        name: 'Eyecryl Phakic IOL 75°',
+        image: 'STAAR',
+        manufacturer: 'Eyecril',
+        type: '1',
     },
     {
-        name: 'Eyecrill Phakic IOL 90°',
-        src: '../img/lensModels/eyecrill90.png',
-        manufacturer: 'Eyecril'
+        name: 'Eyecryl Phakic IOL 90°',
+        image: 'STAAR',
+        manufacturer: 'Eyecril',
+        type: '1',
     },
 ];

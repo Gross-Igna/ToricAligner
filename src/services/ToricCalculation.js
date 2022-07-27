@@ -58,7 +58,7 @@ export function getOctAverages(Magn1, Magn2, Magn3, Axis1, Axis2, Axis3){
 
 
 export function getMeanRatio(AxialLength, K1, K2){
-    
+
         //// CALCULATION FOR MERIDIONAL ANALYSIS AND IMPLANTED IOL CYL. ////
         //HOFFER Q = HofferIOLPwB - HofferIOLPwA
         //Corrected Axial Length

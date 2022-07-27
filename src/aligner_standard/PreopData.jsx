@@ -3,11 +3,11 @@ import './preopdata.css'
 import patienticon from '../img/patient-border.png';
 import PatientData from './forms/PatientData'
 import PreopMeasures from './forms/PreopMeasures'
-import ContinueBtn from './forms/ContinueBtn'
+import ContinueBtn from '../common/ContinueBtn';
 import {Container, Row, Col} from 'react-bootstrap';
 
 export default function PreopData({
-    setStage, validPreop, setValidPreOct,
+    stage, setStage, validPreop, setValidPreOct,
 
     F11Val, setF11Val, setF11St,
     F12Val, setF12Val, setF12St,
@@ -74,7 +74,8 @@ export default function PreopData({
             </Col>
 
             <Col className='calculateCol block3' xs={3}>
-              <ContinueBtn setStage={setStage}
+              <ContinueBtn 
+              Stage={stage} setStage={setStage}
               validPreop={validPreop}
               />
             </Col>

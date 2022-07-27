@@ -8,7 +8,7 @@ export default function Resume({
     showResume, setShowResume,
     setShowResult,
 
-    PatientID, SurgeonName, Eye, AxialLength,
+    PatientID, SurgeonName, Eye,
 
     K1, K2, SteepMeridian,
     AvgMagnitude1, AvgAxis1,
@@ -16,8 +16,7 @@ export default function Resume({
 
     IOLManufacturer, IOLModel,
     Sphere, Cylinder, Axis,
-    AvgMagnitude3, AvgAxis3,
-    AvgMagnitude4, AvgAxis4
+    ACD, Vertex,
     }) {
     
     function confirmInput(){
@@ -52,8 +51,7 @@ export default function Resume({
                                     <b className='resumeSubtitle'>Patient Data:</b>
                                     &nbsp;&nbsp;&nbsp;Name/ID: <i>{PatientID}</i>  
                                     &nbsp;&nbsp;&nbsp;Surgeon: <i>{SurgeonName}</i>
-                                    &nbsp;&nbsp;&nbsp;Eye: <i>{Eye} eye</i>  
-                                    &nbsp;&nbsp;&nbsp;AXL: <i>{AxialLength}</i>
+                                    &nbsp;&nbsp;&nbsp;Eye: <i>{Eye} eye</i>
                                 </span>
                             </Row>
                         </Col>
@@ -66,21 +64,14 @@ export default function Resume({
                                 <span className='resumeSubtitle'>Pre Operative Data</span>
                                 <span>
                                     K1: <i>{K1}</i>  
-                                    &nbsp;&nbsp;&nbsp;K2: <i>{K2}</i>
+                                    &nbsp;&nbsp;K2: <i>{K2}</i>
                                     <br></br>Steep meridian: <i>{SteepMeridian}</i>  
                                 </span>
-                                <span style={{display: (AvgMagnitude1 === "0")? 'none' : null}}>
+                                <span style={{display: (AvgMagnitude1 === "0.00")? 'none' : null}}>
                                     OCT1 / Scheimpflug / Biometer: 
                                     <br></br>
                                     Avg. Magnitude: <i>{AvgMagnitude1}</i> 
-                                    &nbsp;&nbsp;&nbsp;Avg. Axis: <i>{AvgAxis1}</i>
-                                </span>
-                                
-                                <span style={{display: (AvgMagnitude2 === "0")? 'none' : null}}>
-                                    OCT2 / Scheimpflug / Biometer:
-                                    <br></br>
-                                    Avg. Magnitude: <i>{AvgMagnitude2}</i> 
-                                    &nbsp;&nbsp;&nbsp;Avg. Axis: <i>{AvgAxis2}</i>
+                                    &nbsp;&nbsp;&nbsp;Avg. Axis: <i>{parseInt(AvgAxis1)}</i>
                                 </span>
                             </Row>
                         </Col>
@@ -89,26 +80,23 @@ export default function Resume({
                                 <span className='resumeSubtitle'>Post Operative Data</span>
                                 <span>
                                     Implanted IOL Cylinder:
-                                    &nbsp;<i>{IOLManufacturer} {IOLModel}</i>
+                                    <i>{IOLManufacturer} {IOLModel}</i>
                                 </span>
                                 <span>
                                     Post Operative Refraction:
                                     <br></br>
                                     Sphere: <i>{Sphere}</i>
-                                    &nbsp;&nbsp;&nbsp;Cylinder: <i>{Cylinder}</i>
-                                    &nbsp;&nbsp;&nbsp;Axis: <i>{Axis}</i>
+                                    &nbsp;&nbsp;Cylinder: <i>{Cylinder}</i>
+                                    <br></br>
+                                    Axis: <i>{Axis}</i>
+                                    &nbsp;&nbsp;ACD: <i>{ACD}</i>
+                                    &nbsp;&nbsp;Vertex: <i>{Vertex}</i>
                                 </span>
                                 <span>
-                                    Measured Corneal Astigmatism 1:
+                                    Measured Corneal Astigmatism:
                                     <br></br>
-                                    Avg. Magnitude: <i>{AvgMagnitude3}</i> 
-                                    &nbsp;&nbsp;&nbsp;Avg. Axis: <i>{AvgAxis3}</i>
-                                </span>
-                                <span style={{display: (AvgMagnitude4 === "0")? 'none' : null}}>
-                                    Measured Corneal Astigmatism 2:
-                                    <br></br>
-                                    Avg. Magnitude: <i>{AvgMagnitude4}</i> 
-                                    &nbsp;&nbsp;&nbsp;Avg. Axis: <i>{AvgAxis4}</i>
+                                    Avg. Magnitude: <i>{AvgMagnitude2}</i> 
+                                    &nbsp;&nbsp;Avg. Axis: <i>{AvgAxis2}</i>
                                 </span>
                             </Row>
                         </Col>
@@ -138,6 +126,6 @@ export default function Resume({
             </Container>
         </div>
     )
-}
+    }
 }
 

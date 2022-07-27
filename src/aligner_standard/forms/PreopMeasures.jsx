@@ -125,7 +125,6 @@ export default function PreopMeasures({
     //Validate OCTs
     useEffect(() => {
 
-        //debugger;
         let oct1isValid = false;
 
         setValidPreOct(false);

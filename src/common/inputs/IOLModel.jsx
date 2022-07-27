@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {Form} from 'react-bootstrap';
 
-import { types } from '../../../helpers/enums/IOLModels';
+import { types } from '../../helpers/enums/IOLModels';
 
 export default function Model({VS, setVS, Mfact}) {
 

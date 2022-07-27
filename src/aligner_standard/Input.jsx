@@ -118,7 +118,6 @@ export default function Input(
     })
 
     window.onkeydown = function(event) {
-      //Reset orientation value on enter/space
       if (event.keyCode === 188) {
           var commasAlert = "Warning! Please only use dot (.) as decimal separator."
           window.alert(commasAlert);
@@ -131,7 +130,7 @@ export default function Input(
         <Carousel controls={false} interval={null} activeIndex={stage}>
           <Carousel.Item>
             <PreopData 
-                setStage={setStage}
+                stage={stage} setStage={setStage}
                 validPreop={validPreop}
                 setValidPreOct={setValidPreOct}
                 

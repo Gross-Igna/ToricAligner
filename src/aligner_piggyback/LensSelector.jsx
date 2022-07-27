@@ -8,7 +8,7 @@ import './lensSelector.css'
 export default function LensSelector({
     setStage,
     F11Val, setF11Val, setF11St,
-    setF12VS,
+    F12VS, setF12VS, setLensType,
 }) {
     
     const [options, setOptions] = useState([{name:'', manufacturer:['',''], image:'questionmark'}]);
@@ -21,11 +21,17 @@ export default function LensSelector({
         recognizeOptions();
     }, [F11Val])
 
-    function handleClick434(id){
+    function handleClick(id, type){
         if(id !== 'Select lens'){
             document.getElementById(id).style["background-color"] = '#f5f5f538';
-
+            setTimeout(() => {
+                document.getElementById(id).style["background-color"] = '#ffffff00';
+            }, 1000)
+            
+            debugger;
             setF12VS(id);
+            
+            setLensType(type);
             setStage(1);
         }
     }
@@ -49,10 +55,10 @@ export default function LensSelector({
                 <Row>
                     <div className='lensSelectorFlexbox'>
                         {options.map((option) => (
-                           <div>
+                           <div style={{opacity: (option.name === 'Select lens')? '0' : '1'}}>
                             <Row>
                                 <div className='lensOption' id={option.name}
-                                onClick={() => handleClick434(option.name)}>
+                                onClick={() => handleClick(option.name, option.type)}>
                                     <img className='lensImg'
                                     src={require('./lensImages/'+option.image+'.png')}></img>
                                 </div>

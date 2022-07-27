@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react'
 import {BsFillArrowRightCircleFill} from 'react-icons/bs'
 
-export default function ContinueBtn({setStage, validPreop}) {
+export default function ContinueBtn({Stage, setStage, validPreop}) {
   
   useEffect( () => {
 
@@ -17,7 +17,7 @@ export default function ContinueBtn({setStage, validPreop}) {
 
   return (
     <button className={validPreop? 'continueBtn styledBox title2' : 'continueBtnDisabled styledBox'} 
-    type="button" onClick={() => setStage(1)} id="continueBtn">
+    type="button" onClick={() => setStage(Stage + 1)} id="continueBtn">
         Postoperative Data<br></br>
         <BsFillArrowRightCircleFill className='arrowIcon'/>
     </button>

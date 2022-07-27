@@ -6,10 +6,11 @@ import EyeLR from '../../common/inputs/EyeLR';
 import NumInput from '../../common/inputs/NumInput';
 
 export default function PatientData({
-    F11Val, setF11Val, setF11St,
-    F12Val, setF12Val, setF12St,
-    F13Val, setF13Val, setF13St,
-    F15VS, setF15VS
+    lensType,
+    F21Val, setF21Val, setF21St,
+    F22Val, setF22Val, setF22St,
+    F23Val, setF23Val, setF23St,
+    F24VS, setF24VS,
     }) {
 
     return (
@@ -17,19 +18,20 @@ export default function PatientData({
             <Row className='hCenter patientDataForm'>
                 <Row>
                     <Col xs={6}>
-                        <PatientName Val={F11Val} setVal={setF11Val} setSt={setF11St}/>
+                        <PatientName Val={F21Val} setVal={setF21Val} setSt={setF21St}/>
                     </Col>
                     <Col xs={6}>
-                        <SurgeonName Val={F12Val} setVal={setF12Val} setSt={setF12St}/>
+                        <SurgeonName Val={F22Val} setVal={setF22Val} setSt={setF22St}/>
                     </Col>
                 </Row>
                 <Row>
-                    <Col xs={6} className='eyeCol'>
-                        <EyeLR Val={F13Val} setVal={setF13Val} setSt={setF13St}/>
+                    <Col className='eyeCol'>
+                        <EyeLR Val={F23Val} setVal={setF23Val} setSt={setF23St}/>
                     </Col>
-                    <Col xs={6}>
-                        <NumInput VS={F15VS} setVS={setF15VS}
-                        label="Axial Length:"
+                    <Col xs={6}
+                    style={{display: (lensType==="1")? 'none' : null}}>
+                        <NumInput VS={F24VS} setVS={setF24VS}
+                        label="Ordered IOL Axis:"
                         placeholder="13~40"
                         min={13}
                         max={40}

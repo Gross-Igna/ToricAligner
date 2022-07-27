@@ -2,7 +2,7 @@ import React from 'react'
 import './postopdata.css'
 import PostopDataA from './forms/PostopDataA';
 import {Container, Row, Col} from 'react-bootstrap';
-import CalculateBtn from './forms/CalculateBtn';
+import CalculateBtn from './CalculateBtn';
 import PostopDataB from './forms/PostopDataB';
 import {BsFillArrowLeftCircleFill} from 'react-icons/bs'
 
@@ -60,7 +60,7 @@ export default function PostopData({
             </Row>
 
             <Row className='formRow' style={{marginTop: '2vh'}}>  
-                <Col xs={9} className='vCenter'>
+                <Col xs={9}>
                     <PostopDataA
                         F15VS={F15VS} F21VS={F21VS} F22VS={F22VS}
 

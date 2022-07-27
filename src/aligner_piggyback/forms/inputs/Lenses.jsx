@@ -10,7 +10,7 @@ export default function Lens({Val, setVal, setSt}) {
         //Check validity and set class.
         if(changed){
           setSt(1);
-          setClass('formControl controlValid eyeInput');
+          setClass('formControl controlValid');
         }
     },[Val]);
 
@@ -20,6 +20,7 @@ export default function Lens({Val, setVal, setSt}) {
                 <div className='inputDiv'>
                     <Form.Select 
                         className={Class} value={Val}
+                        style={{fontSize: '5vw !important'}}
                         onChange={
                             (e) => {
                                 setChanged(true);
@@ -28,7 +29,7 @@ export default function Lens({Val, setVal, setSt}) {
                             }
                         }>
                         <option value="Select" style={{display: 'none'}}>
-                            Choose lens type to see models
+                            Please select lens type to see models
                         </option>
                         <option value="Piggyback">Standard Piggyback IOL (Any Brand)</option>
                         <option value="Staar">STAAR Toric ICL</option>
