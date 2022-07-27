@@ -49,7 +49,7 @@ export default function Result({
 }) {
 
     const [orientationValue, setOrientationValue] = useState(parseInt(AvgAxis1));
-    const [graphicIOL, setGraphicIOL] = useState("graphicStandard");
+    const [graphicIOL, setGraphicIOL] = useState("Standard");
 
     //Result States
     //Meridional Analysis
@@ -583,11 +583,8 @@ export default function Result({
 
             setOrientationValue(parseInt(AvgAxis1));
             
-            window.alert(graphicIOL)
-            window.alert(Lens)
             var selectedLens = types.findIndex(x => x.name === Lens)
-            debugger;
-            setGraphicIOL(selectedLens.image)
+            setGraphicIOL(types[selectedLens].image)
             //calculateResults();
 
             
@@ -720,7 +717,7 @@ export default function Result({
                             <Row>
                                 <div className='eyeGraphic'>
                                     <img src={graphicCircle} id='graphicCircle' alt='graphicCircle'></img>
-                                    <img src={require('./lensImages/'+graphicIOL+".png")} id='graphicIOL' alt='graphicIOL'
+                                    <img src={require('./lensImages/graphic'+graphicIOL+".png")} id='graphicIOL' alt='graphicIOL'
                                     style={{transform: 'rotate('+ (90-orientationValue) +'deg)'}}></img>
                                     <img src={graphicSuggested} id='graphicSuggested' alt='graphicSuggested'
                                     style={{transform: 'rotate('+ (90-AvgAxis2) +'deg)'}}></img>
@@ -773,7 +770,7 @@ export default function Result({
                                 </Row>
                             </Row>
                             <Row>
-                                <div className='optionsDiv'
+                                <div className='optionsDiv2'
                                 style={{display: (hideToDownload)? 'none' : null}}>
                                     <span onClick={() => downloadPdf()}><AiOutlineFilePdf/> Download</span>
                                     <span onClick={() => setShowResult(false)}><RiArrowGoBackLine/> Modify Input</span>

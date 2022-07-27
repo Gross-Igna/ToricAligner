@@ -5,6 +5,7 @@ import {Container, Row, Col} from 'react-bootstrap';
 import CalculateBtn from './CalculateBtn';
 import PostopDataB from './forms/PostopDataB';
 import {BsFillArrowLeftCircleFill} from 'react-icons/bs'
+import {IoRefreshCircle} from 'react-icons/io5'
 
 export default function PostopData({
     setStage, validPostop, 
@@ -53,6 +54,12 @@ export default function PostopData({
                 setStage(0);
             }}>
                 <BsFillArrowLeftCircleFill/>
+            </div>
+
+            <div className='refreshBtn styledBox' onClick={() => {
+            document.location.reload()
+            }}>
+                <IoRefreshCircle/>
             </div>
         
             <Row className='title' style={{marginLeft: '6vw', paddingRight: '6vw'}}>

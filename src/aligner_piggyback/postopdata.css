@@ -59,13 +59,28 @@
     cursor: pointer;
 
     position: absolute;
-    margin-left: -0.8vw;
+    margin-left: -1.5vw;
     margin-top: 0.4vw;
 
     width: max-content;
 
     padding: 0.8vw !important;
     z-index: 1;
+}
+.refreshBtn{
+    cursor: pointer;
+
+    position: absolute;
+    margin-right: -1.4vw;
+    margin-top: 0.6vw;
+    right: 0;
+
+    width: max-content;
+
+    padding: 0.4vw 0.6vw 0.5vw 0.6vw !important;
+    z-index: 1;
+
+    font-size: 1.7vw;
 }
 
 .bigBlock3{
@@ -111,10 +126,10 @@
     padding: 7vw 4vw !important;
     margin: 0 auto;
 }
-.calculateBtn:hover, .backBtn:hover {
+.calculateBtn:hover, .backBtn:hover, .refreshBtn:hover {
     color: white;
     background-color: #094fa0cb;
-    filter: drop-shadow(-9px 20px 20px #000);
+    filter: drop-shadow(-4px 10px 10px #000);
 }
 .calculatorIcon{
     margin: 0.4vw 1.4vw;

@@ -49,6 +49,15 @@
     text-decoration: underline;
     cursor: pointer;
 }
+.barSecondCol{
+    text-align: start;
+
+    font-size: 1.5vw;
+    text-decoration: underline;
+}
+.barIcon3{
+    width: 2vw;
+}
 .historyCol{
     height: 6vw !important;
 

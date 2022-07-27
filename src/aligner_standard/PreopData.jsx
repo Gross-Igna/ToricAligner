@@ -6,6 +6,8 @@ import PreopMeasures from './forms/PreopMeasures'
 import ContinueBtn from '../common/ContinueBtn';
 import {Container, Row, Col} from 'react-bootstrap';
 
+import {IoRefreshCircle} from 'react-icons/io5'
+
 export default function PreopData({
     stage, setStage, validPreop, setValidPreOct,
 
@@ -44,6 +46,12 @@ export default function PreopData({
         <Row className='title'>
           <h1 className='h1vCenter'>Preoperative Data</h1>
         </Row>
+
+        <div className='refreshBtn styledBox' onClick={() => {
+          document.location.reload()
+        }}>
+            <IoRefreshCircle/>
+        </div>
 
         <Row className='formRow'>
 

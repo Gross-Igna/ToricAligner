@@ -115,24 +115,24 @@
     right: -1vw;
 }
 
-.optionsDiv{
+.optionsDiv2{
     font-size: 1.6vw;
     
-    padding: 4vh 0vw;
+    padding: 9vh 0vw;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
-.optionsDiv > span{
+.optionsDiv2 > span{
     margin: 0vw 32%;   
 }
-.optionsDiv > span:hover{
+.optionsDiv2 > span:hover{
     cursor: pointer;
     text-decoration: underline;
 }
 .identifiersDiv{
-    padding: 4vh 0vw;
+    padding: 9vh 0vw;
 
     display: flex;
     flex-direction: column;

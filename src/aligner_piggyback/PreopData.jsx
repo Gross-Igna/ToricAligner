@@ -8,6 +8,7 @@ import ContinueBtn from '../common/ContinueBtn';
 
 import patienticon from '../img/patient-border.png';
 import {BsFillArrowLeftCircleFill} from 'react-icons/bs'
+import {IoRefreshCircle} from 'react-icons/io5'
 
 export default function PreopData({
     stage, setStage, setValidPreOct, validPreop,
@@ -42,10 +43,10 @@ export default function PreopData({
   useEffect(
     () => {
         if(lensType === '1'){
-          setF24VS(["", 1]);
+          setF24VS(["90", 1]);
         }
         else{
-          setF24VS([undefined, -1]);
+          setF24VS(["", -1]);
         }
     }
   ,[lensType])
@@ -57,6 +58,12 @@ export default function PreopData({
           setStage(0);
       }}>
           <BsFillArrowLeftCircleFill/>
+      </div>
+
+      <div className='refreshBtn styledBox' onClick={() => {
+          document.location.reload()
+      }}>
+          <IoRefreshCircle/>
       </div>
 
       <Row className='title'>

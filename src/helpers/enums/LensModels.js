@@ -7,7 +7,7 @@ export const types = [
     },
     {
         name: 'Standard Piggyback IOL',
-        image: 'standard',
+        image: 'Standard',
         manufacturer: 'Piggyback',
         type: '1',
     },

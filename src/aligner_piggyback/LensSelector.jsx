@@ -28,9 +28,7 @@ export default function LensSelector({
                 document.getElementById(id).style["background-color"] = '#ffffff00';
             }, 1000)
             
-            debugger;
-            setF12VS(id);
-            
+            setF12VS([id,1]);
             setLensType(type);
             setStage(1);
         }

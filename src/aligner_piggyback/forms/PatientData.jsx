@@ -33,8 +33,8 @@ export default function PatientData({
                         <NumInput VS={F24VS} setVS={setF24VS}
                         label="Ordered IOL Axis:"
                         placeholder="13~40"
-                        min={13}
-                        max={40}
+                        min={0}
+                        max={180}
                         step={0.1}
                         readonly={false}
                         />
