@@ -34,7 +34,6 @@ export default function Result({
     K1, K2, SteepMeridian,
     AvgMagnitude1, AvgAxis1,
     AvgMagnitude2, AvgAxis2,
-    IOLManufacturer, IOLModel,
     IOLPlane, IOLCornealPlane,
     Sphere, Cylinder, Axis, ACD, Vertex,
 
@@ -655,7 +654,7 @@ export default function Result({
                                     <br></br>
                                     <span>
                                     <b>POSTOP:</b>&nbsp;&nbsp;&nbsp;
-                                    <b>IOL:</b> &nbsp;{IOLManufacturer}&nbsp;{IOLModel}
+                                    <b>IOL:</b> &nbsp;IOLManufacturer&nbsp;IOLModel
                                     &nbsp;&nbsp;<b>Sphere:</b>&nbsp;{Sphere}
                                     &nbsp;&nbsp;<b>Cylinder:</b>&nbsp;{Cylinder}
                                     &nbsp;&nbsp;<b>Axis:</b>&nbsp;{Axis}

@@ -28,6 +28,7 @@ export default function PreopData({
     F41VS, setF41VS,
     F42VS, setF42VS,
     F43VS, setF43VS,
+    F44VS, setF44VS,
 
     F51VS, setF51VS,
     F52VS, setF52VS,
@@ -120,6 +121,7 @@ export default function PreopData({
           F41VS={F41VS} setF41VS={setF41VS}
           F42VS={F42VS} setF42VS={setF42VS}
           F43VS={F43VS} setF43VS={setF43VS}
+          F44VS={F44VS} setF44VS={setF44VS}
           
           F51VS={F51VS} setF51VS={setF51VS}
           F52VS={F52VS} setF52VS={setF52VS}

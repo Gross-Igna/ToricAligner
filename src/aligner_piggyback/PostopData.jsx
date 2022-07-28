@@ -15,8 +15,6 @@ export default function PostopData({
 
     F15VS, F31VS, F32VS,
 
-    F61VS, setF61VS,
-    F62VS, setF62VS,
     F63VS, setF63VS,
     F64VS, setF64VS,
 
@@ -24,7 +22,6 @@ export default function PostopData({
     F72VS, setF72VS,
     F73VS, setF73VS,
     F74VS, setF74VS,
-    F75VS, setF75VS,
 
     F81VS, setF81VS,
     F82VS, setF82VS,
@@ -61,8 +58,6 @@ export default function PostopData({
                             <PostopDataA
                                 F15VS={F15VS} F31VS={F31VS} F32VS={F32VS}
                                 
-                                F61VS={F61VS} setF61VS={setF61VS}
-                                F62VS={F62VS} setF62VS={setF62VS}
                                 F63VS={F63VS} setF63VS={setF63VS}
                                 F64VS={F64VS} setF64VS={setF64VS}
                     
@@ -70,7 +65,6 @@ export default function PostopData({
                                 F72VS={F72VS} setF72VS={setF72VS}
                                 F73VS={F73VS} setF73VS={setF73VS}
                                 F74VS={F74VS} setF74VS={setF74VS}
-                                F75VS={F75VS} setF75VS={setF75VS}
                             />      
                         </Col>
                     </Row>

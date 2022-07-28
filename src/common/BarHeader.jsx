@@ -5,6 +5,7 @@ import './barheader.css'
 import { FaHistory, FaRegFlag } from 'react-icons/fa';
 import {RiInformationLine} from 'react-icons/ri'
 import StandardAlignerIcon from '../img/standardaligner-icon.png';
+import PhakicAlignerIcon from '../img/phakicaligner-icon.png';
 import logo1 from '../../src/img/logo1.png'
 
 export default function BarHeader({currentCalculator}) {
@@ -19,7 +20,10 @@ export default function BarHeader({currentCalculator}) {
                     </Col>
                     <Col xs={5} className='vCenter barSecondCol'>
                         <a href='/piggyback'className='barLink'>
-                            <img src={StandardAlignerIcon} alt='standard aligner icon'
+                            <img 
+                            src={(currentCalculator==="Standard Toric IOL")?StandardAlignerIcon:
+                            PhakicAlignerIcon} 
+                            alt='aligner icon'
                             className='barIcon3'></img>
                             {currentCalculator}
                             </a>
@@ -32,10 +36,10 @@ export default function BarHeader({currentCalculator}) {
                             <a href='/standard'className='barLink'>
                                 <img src={StandardAlignerIcon} alt='standard aligner icon'
                                 className='barIcon2'></img>
-                                Standard Aligner
+                                Standard Toric IOL
                             </a>
                             <a href='/piggyback'className='barLink'>
-                                <img src={StandardAlignerIcon} alt='standard aligner icon'
+                                <img src={PhakicAlignerIcon} alt='phakic aligner icon'
                                 className='barIcon2'></img>
                                 Phakic/Piggyback Aligner
                             </a>
