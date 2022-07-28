@@ -20,6 +20,7 @@ export default function PreopMeasures({
     F41VS, setF41VS,
     F42VS, setF42VS,
     F43VS, setF43VS,
+    F44VS, setF44VS,
 
     F51VS, setF51VS,
     F52VS, setF52VS,
@@ -196,40 +197,57 @@ export default function PreopMeasures({
 
         <Col xs={3} className='vCenter formCol'>
             <Row className='title2'>
-                <span>&nbsp;</span>
+                Preoperative Refraction
             </Row>
             <Row>
-                <NumInput VS={F41VS} setVS={setF41VS}
-                label="Sphere:"
-                placeholder=""
-                min={-15}
-                max={10}
-                step={0.1}
-                readonly={false}
-                className='octInput '
-                />
+                <Col style={{paddingRight: '0px'}}>
+                    <NumInput VS={F41VS} setVS={setF41VS}
+                    label="Sphere:"
+                    placeholder=""
+                    min={-15}
+                    max={10}
+                    step={0.1}
+                    readonly={false}
+                    className='octInput '
+                    />
+                </Col>
+                <Col style={{paddingLeft: '2px'}}>
+                    <NumInput VS={F42VS} setVS={setF42VS}
+                    label="Cylinder:"
+                    placeholder=""
+                    min={-15}
+                    max={10}
+                    step={0.1}
+                    readonly={false}
+                    className='octInput '
+                    />
+                </Col>
             </Row>
             <Row>
-                <NumInput VS={F42VS} setVS={setF42VS}
-                label="Cylinder:"
-                placeholder=""
-                min={-15}
-                max={10}
-                step={0.1}
-                readonly={false}
-                className='octInput '
-                />
+                <Col>
+                    <NumInput VS={F43VS} setVS={setF43VS}
+                    label="Axis:"
+                    placeholder=""
+                    min={0}
+                    max={180}
+                    step={0.1}
+                    readonly={false}
+                    className='octInput '
+                    />
+                </Col>
             </Row>
             <Row>
-                <NumInput VS={F43VS} setVS={setF43VS}
-                label="Axis:"
-                placeholder=""
-                min={0}
-                max={180}
-                step={0.1}
-                readonly={false}
-                className='octInput '
-                />
+                <Col>
+                    <NumInput VS={F44VS} setVS={setF44VS}
+                    label="Vertex:"
+                    placeholder=""
+                    min={0}
+                    max={180}
+                    step={0.1}
+                    readonly={false}
+                    className='octInput '
+                    />
+                </Col>
             </Row>
         </Col>
 

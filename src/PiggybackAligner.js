@@ -59,6 +59,8 @@ export default function PiggybackAligner() {
     const [F42VS, setF42VS] = useState(["",-1])
     //Axis
     const [F43VS, setF43VS] = useState(["",-1])
+    //Vertex
+    const [F44VS, setF44VS] = useState(["",-1])
 
     //OCT1
     //TCA 1
@@ -85,10 +87,6 @@ export default function PiggybackAligner() {
 
     // // POST OPERATIVE DATA // //
     //Implanted IOL Cylinder
-    //Manufacturer
-    const [F61VS, setF61VS] = useState(["",-1])
-    //Model
-    const [F62VS, setF62VS] = useState(["",-1])
     //Cyl Power
     const [F63VS, setF63VS] = useState(["",-1])
     //Corneal Plane
@@ -103,8 +101,6 @@ export default function PiggybackAligner() {
     const [F73VS, setF73VS] = useState(["",-1])
     //ACD (epi to iol or acd - vaulting)
     const [F74VS, setF74VS] = useState(["",-1])
-    //Vertex
-    const [F75VS, setF75VS] = useState(["",-1])
 
     //Measured Corneal Astigmatism
     //TCA 1 
@@ -164,6 +160,7 @@ export default function PiggybackAligner() {
           F41VS={F41VS} setF41VS={setF41VS}
           F42VS={F42VS} setF42VS={setF42VS}
           F43VS={F43VS} setF43VS={setF43VS}
+          F44VS={F44VS} setF44VS={setF44VS}
 
           F51VS={F51VS} setF51VS={setF51VS}
           F52VS={F52VS} setF52VS={setF52VS}
@@ -174,8 +171,6 @@ export default function PiggybackAligner() {
           F57Val={F57Val} setF57Val={setF57Val}
           F58Val={F58Val} setF58Val={setF58Val}
 
-          F61VS={F61VS} setF61VS={setF61VS}
-          F62VS={F62VS} setF62VS={setF62VS}
           F63VS={F63VS} setF63VS={setF63VS}
           F64VS={F64VS} setF64VS={setF64VS}
 
@@ -183,7 +178,6 @@ export default function PiggybackAligner() {
           F72VS={F72VS} setF72VS={setF72VS}
           F73VS={F73VS} setF73VS={setF73VS}
           F74VS={F74VS} setF74VS={setF74VS}
-          F75VS={F75VS} setF75VS={setF75VS}
 
           F81VS={F81VS} setF81VS={setF81VS}
           F82VS={F82VS} setF82VS={setF82VS}
@@ -205,9 +199,8 @@ export default function PiggybackAligner() {
           K1={F31VS[0]} K2={F32VS[0]} SteepMeridian={F33VS[0]}
           AvgMagnitude1={F57Val} AvgAxis1={F58Val}
 
-          IOLManufacturer={F61VS[0]} IOLModel={F62VS[0]}
           Sphere={F71VS[0]} Cylinder={F72VS[0]} Axis={F73VS[0]}
-          ACD={F74VS[0]} Vertex={F75VS[0]}
+          ACD={F74VS[0]}
           AvgMagnitude2={F87Val} AvgAxis2={F88Val}
           />
 
@@ -220,9 +213,8 @@ export default function PiggybackAligner() {
           Eye={F23Val}
           K1={F31VS[0]} K2={F32VS[0]} SteepMeridian={F34VS[0]}
           AvgMagnitude1={F57Val} AvgAxis1={F58Val}
-          IOLManufacturer={F61VS[0]} IOLModel={F62VS[0]}
           Sphere={F71VS[0]} Cylinder={F72VS[0]} Axis={F73VS[0]}
-          ACD={F74VS[0]} Vertex={F75VS[0]}
+          ACD={F74VS[0]} 
           AvgMagnitude2={F87Val} AvgAxis2={F88Val}
 
           IOLPlane={F63VS[0]} IOLCornealPlane={parseFloat(F64VS[0])}

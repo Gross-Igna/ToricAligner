@@ -14,7 +14,6 @@ export default function Resume({
     AvgMagnitude1, AvgAxis1,
     AvgMagnitude2, AvgAxis2,
 
-    IOLManufacturer, IOLModel,
     Sphere, Cylinder, Axis,
     ACD, Vertex,
     }) {
@@ -80,7 +79,7 @@ export default function Resume({
                                 <span className='resumeSubtitle'>Post Operative Data</span>
                                 <span>
                                     Implanted IOL Cylinder:
-                                    <i>{IOLManufacturer} {IOLModel}</i>
+                                    <i></i>
                                 </span>
                                 <span>
                                     Post Operative Refraction:

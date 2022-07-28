@@ -19,9 +19,18 @@ export default function LensSelector({
             setOptions(tempVal);
         };
         recognizeOptions();
+
+        setTimeout( () => {
+            //If ICL or IPCL option is selected, automatically choose lens
+            if(F11Val==='Staar'){
+                selectLens("STAAR Toric ICL", "2")
+            }else if(F11Val==='IPCL'){
+                selectLens("IPCL Toric", "2")
+            }
+        }, 150)
     }, [F11Val])
 
-    function handleClick(id, type){
+    function selectLens(id, type){
         if(id !== 'Select lens'){
             document.getElementById(id).style["background-color"] = '#f5f5f538';
             setTimeout(() => {
@@ -56,7 +65,7 @@ export default function LensSelector({
                            <div style={{opacity: (option.name === 'Select lens')? '0' : '1'}}>
                             <Row>
                                 <div className='lensOption' id={option.name}
-                                onClick={() => handleClick(option.name, option.type)}>
+                                onClick={() => selectLens(option.name, option.type)}>
                                     <img className='lensImg'
                                     src={require('./lensImages/'+option.image+'.png')}></img>
                                 </div>
