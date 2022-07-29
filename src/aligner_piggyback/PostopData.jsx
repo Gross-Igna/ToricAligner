@@ -35,7 +35,9 @@ export default function PostopData({
   return (
     <Container className='postopData w-75'>
 
-            <div className='backBtn styledBox' onClick={() => {
+            <div className='backBtn styledBox' 
+            style={{left: '-2vw'}}
+            onClick={() => {
                 setStage(1);
             }}>
                 <BsFillArrowLeftCircleFill/>

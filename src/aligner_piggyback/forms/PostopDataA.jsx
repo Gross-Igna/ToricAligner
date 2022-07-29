@@ -55,7 +55,7 @@ export default function PostopDataA({
                             <Col>
                                 <IOLCyl VS={F63VS} setVS={setF63VS}
                                     label="Cylinder Power:"
-                                    placeholder="Cylinder Power"
+                                    placeholder="I.e: 1.75"
                                     min={0}
                                     max={10}
                                     step={0.1}
@@ -83,7 +83,7 @@ export default function PostopDataA({
                                 <Col xs={6}>
                                     <NumInput VS={F71VS} setVS={setF71VS}
                                         label="Sphere:"
-                                        placeholder="Sph"
+                                        placeholder="Sphere"
                                         min={-15}
                                         max={10}
                                         step={0.1}
@@ -93,7 +93,7 @@ export default function PostopDataA({
                                 <Col xs={6}>
                                     <NumInput VS={F72VS} setVS={setF72VS}
                                         label="Cylinder:"
-                                        placeholder="Cyl"
+                                        placeholder="Cylinder"
                                         min={-15}
                                         max={10}
                                         step={0.1}

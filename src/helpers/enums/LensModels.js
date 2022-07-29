@@ -21,7 +21,7 @@ export const types = [
         name: 'IPCL Toric',
         image: 'STAAR',
         manufacturer: 'IPCL',
-        type: '2',
+        type: '1',
     },
     {
         name: 'Artiflex Toric 0°',
@@ -33,7 +33,7 @@ export const types = [
         name: 'Artiflex Toric 90°',
         image: 'Artiflex',
         manufacturer: 'Artiflex',
-        type: '2',
+        type: '1',
     },
     {
         name: 'Eyecryl Phakic IOL 0°',

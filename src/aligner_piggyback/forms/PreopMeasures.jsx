@@ -200,10 +200,10 @@ export default function PreopMeasures({
                 Preoperative Refraction
             </Row>
             <Row>
-                <Col style={{paddingRight: '0px'}}>
+                <Col>
                     <NumInput VS={F41VS} setVS={setF41VS}
                     label="Sphere:"
-                    placeholder=""
+                    placeholder="Sphere"
                     min={-15}
                     max={10}
                     step={0.1}
@@ -211,10 +211,12 @@ export default function PreopMeasures({
                     className='octInput '
                     />
                 </Col>
-                <Col style={{paddingLeft: '2px'}}>
+            </Row>
+            <Row>
+                <Col>
                     <NumInput VS={F42VS} setVS={setF42VS}
                     label="Cylinder:"
-                    placeholder=""
+                    placeholder="(Enter in minus form)"
                     min={-15}
                     max={10}
                     step={0.1}
@@ -227,7 +229,7 @@ export default function PreopMeasures({
                 <Col>
                     <NumInput VS={F43VS} setVS={setF43VS}
                     label="Axis:"
-                    placeholder=""
+                    placeholder="Axis"
                     min={0}
                     max={180}
                     step={0.1}
@@ -235,12 +237,10 @@ export default function PreopMeasures({
                     className='octInput '
                     />
                 </Col>
-            </Row>
-            <Row>
-                <Col>
+                <Col style={{paddingLeft: '0px'}}>
                     <NumInput VS={F44VS} setVS={setF44VS}
-                    label="Vertex:"
-                    placeholder=""
+                    label="VD:"
+                    placeholder="I.e. 12"
                     min={0}
                     max={180}
                     step={0.1}
